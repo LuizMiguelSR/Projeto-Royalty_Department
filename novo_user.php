@@ -4,11 +4,6 @@
         logo abaixo temos o recebimento dos valores do formulário e o uso de classes, metódos, passagem de parâmetros, 
         funções e envio de dados ao banco de dados.
     */
-
-    session_start();
-    if($_SESSION['nome'] != 'Administrador') {
-        include 'sair.php';
-    } else {
 ?>
     <!DOCTYPE html>
         <html lang="pt-br">
@@ -207,4 +202,3 @@
             </h3>   
         </footer> 
     </html>
-<?php } ?>

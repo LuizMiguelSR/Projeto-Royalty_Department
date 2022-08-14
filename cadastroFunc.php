@@ -3,10 +3,7 @@
         Página destinada ao formulário de cadastro de funcionários dentro do sistema, apenas usuários na sessão de administrador
         tem acesso a está página.
     */
-    session_start();
-    if($_SESSION['nome'] != 'Administrador') {
-        include 'sair.php';
-    } else {
+    
 ?>
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -30,7 +27,7 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link">Usuário: <?php echo "{$_SESSION['nome']}"; ?> </a>
+                                    <a class="nav-link">Usuário: Administrador </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="index.php">Home</a>
@@ -112,4 +109,3 @@
             </h3>   
         </footer> 
     </html>
-<?php } ?>

@@ -3,10 +3,6 @@
         Página destinada a consulta da folha de pagamento de funcionários, apenas pela sessão do administrador
         , de forma que é feita uma consulta a tabela funcionários no banco de dados 
     */
-    session_start();
-    if($_SESSION['nome'] != 'Administrador') {
-        include 'sair.php';
-    } else {
 
         // Presença de concatenação de strings dentro da variável gestor.
         require_once 'config.php';
@@ -43,7 +39,7 @@
                         <div class="collapse navbar-collapse" id="navbarNavDropdown">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link">Usuário: <?php echo "{$_SESSION['nome']}"; ?> </a>
+                                    <a class="nav-link">Usuário: Administrador </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="cadastroFunc.php">Cadastrar Funcionário</a>
@@ -120,4 +116,3 @@
             </h3>   
         </footer> 
     </html>
-<?php } ?>
