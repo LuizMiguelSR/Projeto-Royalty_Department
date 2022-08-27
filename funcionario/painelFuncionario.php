@@ -22,7 +22,7 @@
         </header>
         <main>
             <div class="row">
-                <a href="holeriteFunc.php" style="width: auto">
+                <a href="holerite.php" style="width: auto">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
