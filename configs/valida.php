@@ -1,11 +1,35 @@
 <?php 
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-    if($email == 'admin@email.com' && $senha === '1234') {
-        header('Location: ../gerente/painelGerente.php');
-        die();
-    } else {
-        header('Location: ../funcionario/painelFuncionario.php');
-        die();
-    } 
+    
+    require_once 'connectDb.php';
+    try {
+        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
+        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
+    } catch(PDOException $e) {    
+        echo "Connection failed: " . $e->getMessage();
+    }
+    $dado = $gestor->query("Select * FROM funcionario");
+    $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($valida as $val) {
+        if($email == $val["email"] && password_verify($senha, $val["senha"])){
+            if ($val["funcionario_nome"] == 'Administrador') {
+                session_start();
+                $_SESSION['nome'] = $val["funcionario_nome"];
+                header('Location: ../gerente/painelGerente.php');
+                die();
+            } else {
+                session_start();
+                $_SESSION['nome'] = $val["funcionario_nome"];
+                header('Location: ../funcionario/painelFuncionario.php');
+                die();
+            }
+        } else {
+            echo "email ou senha incorretos";
+            header('Location: ../index.php');
+            die();
+        }
+    }
 ?>

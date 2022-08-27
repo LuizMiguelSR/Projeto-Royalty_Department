@@ -18,7 +18,7 @@
                 ?>
             </div>
             <div class="row mt-5">
-                <h1 class="h1 mb-2 fw-normal">Bem vindo, Administrador!</h1>
+                <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
             </div>
         </header>
         <main>
