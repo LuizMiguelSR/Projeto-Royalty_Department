@@ -8,4 +8,9 @@
     else {
         echo "Senha incorreta!";
     }
+
+    //teste de classe
+    $objeto = new endereco();
+    $objeto1 = $objeto ->construirEndereco();
+    echo $objeto1;
 ?>

@@ -35,67 +35,83 @@
         </div>
         <div class="row mt-5" >
             <main class="form-add w-100 m-auto">
-                <form class="row g-3">
+                <form class="row g-3" method="post" action="../classes/funcionarioCadastro.php">
                     <div class="col-md-4">
                         <label for="nome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="nome">
+                        <input name="nome" type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="rg" class="form-label">RG</label>
+                        <input name="rg" type="text" class="form-control" id="rg" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input name="cpf" type="number" class="form-control" id="cpf" required>
                     </div>
                     <div class="col-md-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" placeholder="Ex. seunome@email.com" class="form-control" id="email" required>
+                        <input name="email" type="email" placeholder="Ex. seunome@email.com" class="form-control" id="email" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="inputTelefone" class="form-label">Telefone</label>
-                        <input type="number" class="form-control" id="telefone" required>
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input name="telefone" type="number" class="form-control" id="telefone" required>
                     </div>
                     <div class="col-md-4">
                         <label for="cep" class="form-label">CEP</label>
-                        <input type="text" placeholder="Ex. 01001901" class="form-control" id="cep" required>
+                        <input name="cep" type="text" placeholder="Ex. 01001901" class="form-control" id="cep" required>
                     </div>
                     <div class="col-md-4">
-                        <label for="endereco" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="endereco" required>
+                        <label for="rua" class="form-label">Rua</label>
+                        <input name="rua" type="text" class="form-control" id="endereco" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="complemento" class="form-label">Complemento</label>
+                        <input name="complemento" type="text" class="form-control" id="complemento">
                     </div>
                     <div class="col-md-4">
                         <label for="numero" class="form-label">Número</label>
-                        <input type="text" class="form-control" id="numero" required>
+                        <input name="numero" type="text" class="form-control" id="numero" required>
                     </div>
                     <div class="col-4">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" class="form-control" id="bairro">
+                        <input name="bairro" type="text" class="form-control" id="bairro" required>
                     </div>
                     <div class="col-4">
                         <label for="cidade" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="cidade">
+                        <input name="cidade" type="text" class="form-control" id="cidade" required>
                     </div>
                     <div class="col-4">
                         <label for="estado" class="form-label">Estado</label>
-                        <input type="text" class="form-control" id="estado">
+                        <input name="estado" type="text" class="form-control" id="estado" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="pais" class="form-label">País</label>
+                        <input name="pais" type="text" class="form-control" id="pais" required>
                     </div>
                     <div class="col-4">
                         <label for="salarioBase" class="form-label">Salário Base</label>
-                        <input type="number" placeholder=" Ex. R$ 1200,00" class="form-control" id="salarioBase">
+                        <input name="salarioBase" type="number" placeholder=" Ex. R$ 1200,00" class="form-control" id="salarioBase" required>
                     </div>
                     <div class="col-4">
                         <label for="numeroDepedentes" class="form-label">Número de Dependentes</label>
-                        <input type="number" placeholder="Ex. 2 dependentes" class="form-control" id="numeroDepedentes">
+                        <input name="numeroDependentes" type="number" placeholder="Ex. 2 dependentes" class="form-control" id="numeroDependentes" required>
                     </div>
                     <div class="col-4">
                         <label for="departamento" class="form-label">Departamento</label>
-                        <input type="text" placeholder="Ex. Vendas" class="form-control" id="departamento">
+                        <input name="departamento" type="text" placeholder="Ex. Vendas" class="form-control" id="departamento">
                     </div>
                     <div class="col-4">
                         <label for="cargo" class="form-label">Cargo</label>
-                        <input type="text" placeholder="Ex. Gerente" class="form-control" id="cargo">
+                        <input name="cargo" type="text" placeholder="Ex. Gerente" class="form-control" id="cargo">
                     </div>
                     <div class="col-4">
                         <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha">
+                        <input name="senha" type="password" class="form-control" id="senha" required>
                     </div>
-                    <div class="col-4">
-                        <label for="senha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="senha">
-                    </div>
+                    <!--<div class="col-4">
+                        <label for="confsenha" class="form-label">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="confsenha" required>
+                    </div>-->
                     <div class="col-12 mt-5">
                         <button type="submit" class="btn btn-primary">CADASTRAR</button>
                     </div>
