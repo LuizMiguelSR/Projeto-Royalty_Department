@@ -18,7 +18,7 @@
                     include '../components/navbar.php';
                 ?>
             </div>
-                <h1 class="h1 mb-2 fw-normal">Bem vindo, Funcionário!</h1>
+                <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
         </header>
         <main>
             <div class="row">

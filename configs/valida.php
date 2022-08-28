@@ -14,21 +14,18 @@
     $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($valida as $val) {
-        if($email == $val["email"] && password_verify($senha, $val["senha"])){
-            if ($val["funcionario_nome"] == 'Administrador') {
-                session_start();
-                $_SESSION['nome'] = $val["funcionario_nome"];
-                header('Location: ../gerente/painelGerente.php');
-                die();
-            } else {
-                session_start();
-                $_SESSION['nome'] = $val["funcionario_nome"];
-                header('Location: ../funcionario/painelFuncionario.php');
-                die();
-            }
+        if($email == $val["email"] && password_verify($senha, $val["senha"]) == true && $val["funcionario_nome"] === 'Administrador'){
+            session_start();
+            $_SESSION['nome'] = $val["funcionario_nome"];
+            header('Location: ../gerente/painelGerente.php');
+            die();
+        } else if ($email == $val["email"] && password_verify($senha, $val["senha"]) == true) {
+            session_start();
+            $_SESSION['nome'] = $val["funcionario_nome"];
+            header('Location: ../funcionario/painelFuncionario.php');
+            die();
         } else {
-            echo "email ou senha incorretos";
-            header('Location: ../index.php');
+            header('Location: ../configs/sair.php');
             die();
         }
     }
