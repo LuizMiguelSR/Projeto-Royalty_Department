@@ -1,6 +1,7 @@
 # 📋 Projeto folha de pagamento 📋
 
 - Hospedagem Heroku - [Projeto Folha de pagamento](https://folhadepagamentoluiz.herokuapp.com/index.php);
+- Hospedagem InfinityFree - [Projeto Folha de pagamento](http://projetodptopessoal.epizy.com/index.php);
 - Hospedagem 000 Web Host App - [Projeto Folha de pagamento](https://folhadepagamentoluiz.000webhostapp.com/);
 
 - Projeto realizado utilizando PHP 8;
