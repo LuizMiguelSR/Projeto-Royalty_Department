@@ -1,6 +1,10 @@
 <?php
-    define('MYSQL_HOST','localhost');
+    /*define('MYSQL_HOST','localhost');
     define('MYSQL_DATABASE','fhr');
     define('MYSQL_USER','root');
-    define('MYSQL_PASS','');
+    define('MYSQL_PASS','');*/
+    define('MYSQL_HOST','sql201.epizy.com');
+    define('MYSQL_DATABASE','epiz_32430731_fhr2');
+    define('MYSQL_USER','epiz_32430731');
+    define('MYSQL_PASS','1HfyniWmEBSK4');
 ?>
