@@ -17,8 +17,7 @@
     $numeroDependentes = $_POST["numeroDependentes"];
     $departamento = $_POST["departamento"];
     $cargo = $_POST["cargo"];
-    $senha = $_POST["senha"];
-    $hashSenha = password_hash($senha, PASSWORD_DEFAULT);
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
 
     require_once "endereco.php";
     require_once "salarioLiquido.php";
@@ -28,7 +27,7 @@
         $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $gestor->beginTransaction();
 
-        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf) VALUES ('$nome','$email','$telefone', '$hashSenha', '$rg', '$cpf')");
+        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf')");
     
         $gestor->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
 
@@ -42,6 +41,5 @@
     }
 
     $gestor = null;
-    
 
 ?>
