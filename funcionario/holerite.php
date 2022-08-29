@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">BEM VINDO, XXXX. ESTE É SEU HOLERITE</h1>
+                <h1 class="h3 mb-2 fw-normal">BEM VINDO, <?php echo "{$_SESSION['nome']}"; ?>. ESTE É SEU HOLERITE</h1>
             </div>
             <div class="row mx-5 mt-5">
                 <table class="table table-bordered border-success hole">

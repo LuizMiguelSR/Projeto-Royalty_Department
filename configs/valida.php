@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     
@@ -12,12 +13,12 @@
         
         foreach($valida as $val) {
             if($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] == 'Administrador'){
-                session_start();
+                
                 $_SESSION['nome'] = $val['funcionarioNome'];
                 header('Location: ../gerente/painelGerente.php');
                 die();
             } else if ($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] != 'Administrador') {
-                session_start();
+                
                 $_SESSION['nome'] = $val['funcionarioNome'];
                 header('Location: ../funcionario/painelFuncionario.php');
                 die();
