@@ -1,5 +1,5 @@
 {
     "require": {
-        "setasign/fpdf": "^1.8"
+        "tecnickcom/tcpdf": "^6.5"
     }
 }
