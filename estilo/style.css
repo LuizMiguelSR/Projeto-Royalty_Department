@@ -19,6 +19,7 @@ p {
     color: white;
     border-color: #00e690;
 }
+
 .form-control {
     background-color: transparent;
     border-color: #00e690;
@@ -404,3 +405,5 @@ p {
     height: 100px;
     width: 250px;
   }
+
+/* -- Sidebar -- */

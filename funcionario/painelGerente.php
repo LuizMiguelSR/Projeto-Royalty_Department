@@ -1,3 +1,10 @@
+<?php
+    require_once '../configs/sessionAutentica.php';
+    if ($_SESSION['nome'] !== 'Administrador') {
+        header('Location: ../configs/sair.php');
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../estilo/style.css">
     <title>Painel do Departamento Pessoal</title>
 </head>
 <body>
@@ -28,7 +35,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Cadastrar" src="../img/cadastrar.svg"/>
+                                <img class="img img1" alt="Cadastrar" src="/img/cadastrar.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -41,7 +48,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Consulta" src="../img/consultar.svg"/>
+                                <img class="img img1" alt="Consulta" src="/img/consultar.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -54,11 +61,52 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Folha de Pagamento" src="../img/folha.svg"/>
+                                <img class="img img1" alt="Folha de Pagamento" src="/img/folha.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
                         <div class="name">FOLHA DE PAGAMENTO</div>
+                        <div class="title">Saiba mais</div>
+                    </div>
+                </a>
+            </div>
+            <div class="row">
+                <a href="holerite.php" style="width: auto">
+                    <div class="person">
+                        <div class="container">
+                            <div class="container-inner">
+                                <img class="circle"/>
+                                <img class="img img1" alt="Holerite" src="/img/holerite.svg"/>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="name">HOLERITE</div>
+                        <div class="title">Saiba mais</div>
+                    </div>
+                </a>
+                <a href="folhaPonto.php" style="width: auto">
+                    <div class="person">
+                        <div class="container">
+                            <div class="container-inner">
+                                <img class="circle"/>
+                                <img class="img img1" alt="Folha de Ponto" src="../img/folhaPonto.svg"/>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="name">FOLHA DE PONTO</div>
+                        <div class="title">Saiba mais</div>
+                    </div>
+                </a>
+                <a href="registroPonto.php" style="width: auto">
+                    <div class="person">
+                        <div class="container">
+                            <div class="container-inner">
+                                <img class="circle"/>
+                                <img class="img img1" alt="Registro de Ponto" src="/img/registroPonto.svg"/>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="name">REGISTRO DE PONTO</div>
                         <div class="title">Saiba mais</div>
                     </div>
                 </a>

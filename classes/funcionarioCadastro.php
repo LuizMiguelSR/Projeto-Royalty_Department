@@ -36,7 +36,7 @@
         $gestor->exec("INSERT INTO trabalho (cargo, salarioLiquido, inss, irrf) VALUES ('$cargo', '$salarioLiquido', '$inss[4]', '$irrf[5]')");
 
         $gestor->commit();
-        header('Location: ../gerente/painelGerente.php');
+        header('Location: ../funcionario/painelGerente.php');
         die();
     } catch(PDOException $e) {    
         echo "Connection failed: " . $e->getMessage();

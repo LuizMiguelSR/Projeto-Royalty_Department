@@ -1,4 +1,5 @@
 <?php
+    require_once '../configs/sessionAutentica.php';
     require_once '../configs/connectDb.php';
     try {
         $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
@@ -19,8 +20,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Consulta ao Holerite</title>
+    <link rel="stylesheet" href="../estilo/style.css">
+    <title>Holerite de <?php echo "{$_SESSION['nome']}"; ?></title>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
@@ -82,6 +83,17 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
+                            <td>Vale Transporte</td>
+                            <td>R$ 220,00</td>
+                        </tr>
+                    </thead>
+                </table>
+                <span><a href="http://www.planalto.gov.br/ccivil_03/leis/l7418.htm" target="_blank">Fonte: Lei do Vale Transporte</a></span>
+            </div>
+            <div class="row mx-5 mt-2">
+                <table class="table table-bordered border-success hole">
+                    <thead>
+                        <tr>
                             <th scope="col">Sal. Base</th>
                             <th scope="col">Sal. Líquido</th>
                         </tr>
@@ -103,7 +115,7 @@
                 </table>
             </div>
             <div class="row mt-3">
-                <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
             </div>
             <div class="row">
                 <p>VOLTAR</p>

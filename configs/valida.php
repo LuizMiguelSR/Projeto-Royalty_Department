@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    $_SESSION['id'] = session_id();
+    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+    
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     
@@ -13,19 +16,16 @@
         
         foreach($valida as $val) {
             if($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] == 'Administrador'){
-                
                 $_SESSION['nome'] = $val['funcionarioNome'];
                 $_SESSION['id_funcionario'] = $val['id_funcionario'];
-                header('Location: ../gerente/painelGerente.php');
+                header('Location: ../funcionario/painelGerente.php');
                 die();
-            } else if ($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] != 'Administrador') {
-                
+            }
+            if ($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] != 'Administrador') {   
                 $_SESSION['nome'] = $val['funcionarioNome'];
                 $_SESSION['id_funcionario'] = $val['id_funcionario'];
                 header('Location: ../funcionario/painelFuncionario.php');
                 die();
-            } else {
-                echo "Senha ou login invalidos";
             }
         }
         header('Location: ../configs/sair.php');
