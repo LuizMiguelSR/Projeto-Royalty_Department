@@ -29,7 +29,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/ponto.svg"/>
+                            <img class="img img1" alt="Folha de Ponto" src="../img/registroPonto.svg"/>
                         </div>
                     </div>
                 </div>

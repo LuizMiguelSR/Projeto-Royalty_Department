@@ -28,7 +28,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Banco de Horas" src="../img/bancoHoras.svg"/>
+                            <img class="img img1" alt="Banco de Horas" src="../img/folhaPonto.svg"/>
                         </div>
                     </div>
                 </div>
