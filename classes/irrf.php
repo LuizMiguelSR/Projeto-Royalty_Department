@@ -49,5 +49,5 @@
         }
     }
     $base = new irrf();
-    $valor3 = $base->calcularIrrf();
+    $irrf = $base->calcularIrrf();
 ?>

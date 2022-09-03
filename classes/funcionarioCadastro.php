@@ -27,11 +27,13 @@
         $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $gestor->beginTransaction();
 
-        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf')");
+        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes' ,'$salarioBase')");
     
         $gestor->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
 
-        $gestor->exec("INSERT INTO trabalho (cargo, salarioBase, salarioLiquido) VALUES ('$cargo','$salarioBase','$salarioLiquido')");
+        $gestor->exec("INSERT INTO departamento (dp_nome) VALUES ('$departamento')");
+
+        $gestor->exec("INSERT INTO trabalho (cargo, salarioLiquido, inss, irrf) VALUES ('$cargo', '$salarioLiquido', '$inss[4]', '$irrf[5]')");
 
         $gestor->commit();
         header('Location: ../gerente/painelGerente.php');

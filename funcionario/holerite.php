@@ -1,3 +1,17 @@
+<?php
+    require_once '../configs/connectDb.php';
+    try {
+        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
+        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {    
+        echo "Connection failed: " . $e->getMessage();
+    }
+
+    $dados = $gestor->query("Select * FROM trabalho");
+    $funcionarios = $dados->fetchAll(PDO::FETCH_ASSOC);
+    $dados2 = $gestor->query("Select * FROM funcionario");
+    $funcionarios2 = $dados2->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,56 +45,59 @@
                 </div>
             </div>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">BEM VINDO, <?php echo "{$_SESSION['nome']}"; ?>. ESTE É SEU HOLERITE</h1>
+                <h1 class="h3 mb-2 fw-normal">Bem vindo(a), <?php echo "{$_SESSION['nome']}"; ?>, este é seu holerite do mês</h1>
             </div>
             <div class="row mx-5 mt-5">
+                
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <th scope="col">Pagamentos</th>
-                            <th scope="col">Descontos</th>
-                            <th scope="col">Líquido</th>
+                            <td>INSS a recolher</td>
+                            <?php foreach($funcionarios as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            ?>
+                            <td>R$ <?= number_format($func["inss"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>R$ 11.083,76</td>
-                            <td>R$ 6.884,14</td>
-                            <td>R$ 4.199,22</td>
-                        </tr>
-                    </tbody>
                 </table>
+                <span><a href="https://www.in.gov.br/en/web/dou/-/portaria-interministerial-mtp/me-n-12-de-17-de-janeiro-de-2022-375006998" target="_blank">Fonte: Tabela INSS 2022 Oficial</a></span>
+            </div>
+            <div class="row mx-5 mt-2">
+                <table class="table table-bordered border-success hole">
+                    <thead>
+                        <tr>
+                            <td>IRRF a recolher</td>
+                            <?php foreach($funcionarios as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            ?>
+                                    <td>R$ <?= number_format($func["irrf"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                    </thead>
+                </table>
+                <span><a href="https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/tributos/irpf-imposto-de-renda-pessoa-fisica#tabelas-de-incid-ncia-mensal" target="_blank">Fonte: Tabela IRRF 2022 Oficial</a></span>
             </div>
             <div class="row mx-5 mt-2">
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
                             <th scope="col">Sal. Base</th>
-                            <th scope="col">Sal. Contrib. INSS</th>
-                            <th scope="col">Base FGTS</th>
+                            <th scope="col">Sal. Líquido</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>R$ 3.781,00</td>
-                            <td>R$ 5.564,60</td>
-                            <td>R$ 11.083,76</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row mx-5 mt-2">
-                <table class="table table-bordered border-success hole">
-                    <thead>
-                        <tr>
-                            <th scope="col">FGTS do mês</th>
-                            <th scope="col">Base Cálculo IRPF</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>R$ 886,66</td>
-                            <td>R$ 4.928,04</td>
+                            <?php foreach($funcionarios2 as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_funcionario'] ){
+                            ?>
+                                    <td>R$ <?= number_format($func["salarioBase"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                            <?php foreach($funcionarios as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            ?>
+                                    <td>R$ <?= number_format($func["salarioLiquido"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
                         </tr>
                     </tbody>
                 </table>

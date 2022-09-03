@@ -15,11 +15,13 @@
             if($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] == 'Administrador'){
                 
                 $_SESSION['nome'] = $val['funcionarioNome'];
+                $_SESSION['id_funcionario'] = $val['id_funcionario'];
                 header('Location: ../gerente/painelGerente.php');
                 die();
             } else if ($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] != 'Administrador') {
                 
                 $_SESSION['nome'] = $val['funcionarioNome'];
+                $_SESSION['id_funcionario'] = $val['id_funcionario'];
                 header('Location: ../funcionario/painelFuncionario.php');
                 die();
             } else {

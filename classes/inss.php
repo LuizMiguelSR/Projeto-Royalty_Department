@@ -40,6 +40,6 @@
         }
     }
     $base = new inss();
-    $valor1 = $base->calcularInss();
+    $inss = $base->calcularInss();  
 
 ?>
