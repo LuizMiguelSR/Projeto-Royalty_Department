@@ -1,10 +1,10 @@
 <?php
-    /*define('MYSQL_HOST','localhost');
+    define('MYSQL_HOST','localhost');
     define('MYSQL_DATABASE','fhr');
     define('MYSQL_USER','root');
-    define('MYSQL_PASS','');*/
-    define('MYSQL_HOST','localhost');
+    define('MYSQL_PASS','');
+    /*define('MYSQL_HOST','localhost');
     define('MYSQL_DATABASE','XXXX');
     define('MYSQL_USER','XXXX');
-    define('MYSQL_PASS','XXXX');
+    define('MYSQL_PASS','XXXX3');*/
 ?>
