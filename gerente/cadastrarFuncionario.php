@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="\estilo\style.css">
     <title>Cadastro de Funcionário</title>
 </head>
 <body>
@@ -30,88 +30,71 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h1 class="h3 mb-2 fw-normal">PREENCHA O FORMULÁRIO ABAIXO</h1>
+        <div class="row ">
+            <h1 class="h3 mb-2 fw-normal">Cadastro de novo Funcionário</h1>
         </div>
-        <div class="row mt-5" >
+        <div class="row mt-5">
             <main class="form-add w-100 m-auto">
                 <form class="row g-3" method="post" action="../classes/funcionarioCadastro.php">
-                    <div class="col-md-4">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input name="nome" type="text" class="form-control" id="nome" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="rg" class="form-label">RG</label>
-                        <input name="rg" type="text" class="form-control" id="rg" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <input name="cpf" type="number" class="form-control" id="cpf" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input name="email" type="email" placeholder="Ex. seunome@email.com" class="form-control" id="email" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="telefone" class="form-label">Telefone</label>
-                        <input name="telefone" type="number" class="form-control" id="telefone" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="cep" class="form-label">CEP</label>
-                        <input name="cep" type="text" placeholder="Ex. 01001901" class="form-control" id="cep" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="rua" class="form-label">Rua</label>
-                        <input name="rua" type="text" class="form-control" id="endereco" required>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="complemento" class="form-label">Complemento</label>
-                        <input name="complemento" type="text" class="form-control" id="complemento">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="numero" class="form-label">Número</label>
-                        <input name="numero" type="text" class="form-control" id="numero" required>
+                    <div class="col-12">
+                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required>
                     </div>
                     <div class="col-4">
-                        <label for="bairro" class="form-label">Bairro</label>
-                        <input name="bairro" type="text" class="form-control" id="bairro" required>
+                        <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required>
                     </div>
                     <div class="col-4">
-                        <label for="cidade" class="form-label">Cidade</label>
-                        <input name="cidade" type="text" class="form-control" id="cidade" required>
+                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required>
                     </div>
                     <div class="col-4">
-                        <label for="estado" class="form-label">Estado</label>
-                        <input name="estado" type="text" class="form-control" id="estado" required>
+                        <input name="telefone" type="text" class="form-control" id="telefone" placeholder="Telefone" required>
                     </div>
                     <div class="col-4">
-                        <label for="pais" class="form-label">País</label>
-                        <input name="pais" type="text" class="form-control" id="pais" required>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" required>
                     </div>
                     <div class="col-4">
-                        <label for="salarioBase" class="form-label">Salário Base</label>
-                        <input name="salarioBase" type="number" placeholder=" Ex. R$ 1200,00" class="form-control" id="salarioBase" required>
+                        <input name="senha" type="password" class="form-control" id="senha" placeholder="Senha" required>
                     </div>
                     <div class="col-4">
-                        <label for="numeroDepedentes" class="form-label">Número de Dependentes</label>
-                        <input name="numeroDependentes" type="number" placeholder="Ex. 2 dependentes" class="form-control" id="numeroDependentes" required>
+                        <input name="csenha" type="password" class="form-control" id="csenha" placeholder="Confirmar senha">
+                    </div>
+                    <img class="col-12 my-5" alt="Endereco" src="../img/realTime.svg"/>
+                    <div class="col-4">
+                        <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" autocomplete="email" required>
                     </div>
                     <div class="col-4">
-                        <label for="departamento" class="form-label">Departamento</label>
-                        <input name="departamento" type="text" placeholder="Ex. Vendas" class="form-control" id="departamento">
+                        <input name="rua" type="text" class="form-control" id="endereco" placeholder="Rua" required>
                     </div>
                     <div class="col-4">
-                        <label for="cargo" class="form-label">Cargo</label>
-                        <input name="cargo" type="text" placeholder="Ex. Gerente" class="form-control" id="cargo">
+                        <input name="numero" type="text" class="form-control" id="numero" placeholder="Número" required>
+                    </div>
+                    <div class="col-6">
+                        <input name="complemento" type="text" class="form-control" id="complemento" placeholder="Complemento">
+                    </div>
+                    <div class="col-6">
+                        <input name="bairro" type="text" class="form-control" id="bairro" placeholder="Bairro" required>
                     </div>
                     <div class="col-4">
-                        <label for="senha" class="form-label">Senha</label>
-                        <input name="senha" type="password" class="form-control" id="senha" required>
+                        <input name="cidade" type="text" class="form-control" id="cidade" placeholder="Cidade" required>
                     </div>
-                    <!--<div class="col-4">
-                        <label for="confsenha" class="form-label">Confirmar Senha</label>
-                        <input type="password" class="form-control" id="confsenha" required>
-                    </div>-->
+                    <div class="col-4">
+                        <input name="estado" type="text" class="form-control" id="estado" placeholder="Estado" required>
+                    </div>
+                    <div class="col-4">
+                        <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required>
+                    </div>
+                    <img class="col-12 my-5" alt="Dados Empresa" src="../img/empresaRef.svg"/>
+                    <div class="col-3">
+                        <input name="salarioBase" type="text" class="form-control" id="salarioBase" placeholder="Salário Base" required>
+                    </div>
+                    <div class="col-3">
+                        <input name="numeroDependentes" type="text" class="form-control" id="numeroDependentes" placeholder="Nº Dependentes" required>
+                    </div>
+                    <div class="col-3">
+                        <input name="departamento" type="text" class="form-control" id="departamento" placeholder="Departamento" required>
+                    </div>
+                    <div class="col-3">
+                        <input name="cargo" type="text" class="form-control" id="cargo" placeholder="Cargo" required>
+                    </div>
                     <div class="col-12 mt-5">
                         <button type="submit" class="btn btn-primary">CADASTRAR</button>
                     </div>
@@ -124,7 +107,7 @@
         <div class="row">
             <p>VOLTAR</p>
         </div>
-        <div class="row mt-5">
+        <div class="row">
             <?php
                 include '../components/footer.php';
             ?>

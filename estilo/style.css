@@ -19,7 +19,40 @@ p {
     color: white;
     border-color: #00e690;
 }
+.form-control {
+    background-color: transparent;
+    border-color: #00e690;
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0%;
+    cursor: text;
 
+}
+.form-control:focus {
+    background-color: #00e6923b;
+    border-color: #00e690;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0%;
+}
+.form-control::placeholder {
+    color: #00e690;
+}
+.form-control:valid {
+    color: #00e690;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+input:-webkit-autofill{
+    -webkit-text-fill-color: #00e690 !important;
+}
 .table.table-bordered.border-success {
     color: white;
 }
@@ -86,7 +119,7 @@ h1 {
 
 .navbar.fixed-top.navbar-expand-lg{
     background-color: #00e690;
-    box-shadow: 1px 2px #568e9b6b;
+    box-shadow: 1px 3px 3px #ffffff54;
 }
 
 .form-floating {
@@ -102,8 +135,8 @@ h1 {
     max-width: 50em;
     padding: 1em;
     color: white;
-}
 
+}
 .accordion.accordion-flush {
     max-width: 50em;
 }

@@ -6,7 +6,9 @@
             global $salarioBase; 
             $objeto = new inss();
             $inss = $objeto -> calcularInss();
-            return $salarioBase - $inss - ($numeroDependentes * 189.59);
+            return $salarioBase - $inss[4] - ($numeroDependentes * 189.59);
         }
     }
+    $base = new baseCalculo();
+    $valor2 = $base->calcularBase();
 ?>
