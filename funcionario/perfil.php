@@ -1,5 +1,9 @@
 <?php
     require_once '../configs/sessionAutentica.php';
+    if ($_SESSION['nome'] !== 'Administrador') {
+        header('Location: ../configs/sair.php');
+        die();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
