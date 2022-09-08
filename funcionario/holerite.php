@@ -85,6 +85,13 @@
                     </tbody>
                 </table>
             </div>
+            <div class="row">
+                <div class="col-md-2 mt-4">
+                    <form action="holeriteGerarPdf.php" method="post" target="_blank">
+                        <button type="submit" class="btn btn-primary">GERAR PDF</button>
+                    </form>
+                </div>
+            </div>
             <div class="row mt-3">
                 <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
             </div>

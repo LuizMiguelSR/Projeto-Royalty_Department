@@ -9,7 +9,7 @@ class MYPDF extends TCPDF {
         $image_file = '../img/logoEntrada.svg';
         $this->ImageSVG($image_file, 10, 0, 30, '', 'SVG', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
-        $this->SetFont('helvetica', 'B', 20);
+        $this->SetFont('dejavusans', 'B', 20);
         // Title
         $this->Cell(0, 15, 'Holerite do mês', 0, false, 'C', 0, '', 0, false, 'R', 'M');
     }
@@ -34,11 +34,11 @@ class MYPDF extends TCPDF {
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(50, 50, 50);
-        $x = array(50,50);
+        $w = array(60, 60, 60);
+        $x = array(60,60);
         $num_headers = count($header) -1;
         for($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell(50, 7, $header[$i], 1, 0, 'C', 1);
+            $this->Cell(60, 8, $header[$i], 1, 0, 'C', 1);
         }
         $this->Ln();
         // Color and font restoration
@@ -49,13 +49,13 @@ class MYPDF extends TCPDF {
         $fill = 1;
         foreach($data as $row) {
             for($i = 0; $i < $num_headers; ++$i) {
-                $this->Cell($w[$i], 6, $row[$i], 'LR', 0, 'C', $fill);
+                $this->Cell($w[$i], 7, $row[$i], 'LR', 0, 'C', $fill);
             }
             
             $this->Ln();
             $fill=!$fill;
         }
-        $this->Cell(50*$num_headers, 2, '', 'T');
+        $this->Cell(60*$num_headers, 2, '', 'T');
         $this->Ln();
     }
 }
