@@ -28,7 +28,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Banco de Horas" src="../img/folhaPonto.svg"/>
+                            <img class="img img1" alt="Banco de Horas" src="../img/bancoHoras1.svg"/>
                         </div>
                     </div>
                 </div>
@@ -40,27 +40,29 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Data</th>
-                            <th scope="col">Entrada</th>
-                            <th scope="col">Intervalo</th>
-                            <th scope="col">Saída</th>
+                            <th scope="col" class="table-dark">Nome</th>
+                            <th scope="col" class="table-dark">Data</th>
+                            <th scope="col" class="table-dark">Entrada</th>
+                            <th scope="col" class="table-dark">Intervalo</th>
+                            <th scope="col" class="table-dark">Saída</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pedro Bial</td>
-                            <td>22/10/2022</td>
-                            <td>08:00</td>
-                            <td>01:00</td>
-                            <td>17:00</td>
+                            <td class="table-dark">Pedro Bial</td>
+                            <td class="table-dark">22/10/2022</td>
+                            <td class="table-dark">08:00</td>
+                            <td class="table-dark">01:00</td>
+                            <td class="table-dark">17:00</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <br><br>
             <div class="row mt-5">
-                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
             </div>
+           
             <div class="row">
                 <p>VOLTAR</p>
             </div>

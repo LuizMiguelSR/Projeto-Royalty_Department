@@ -24,7 +24,9 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded">
             <div class="row mt-5">
+           
                 <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
             </div>
         </header>
@@ -35,7 +37,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Cadastrar" src="/img/cadastrar.svg"/>
+                                <img class="img img1" alt="Cadastrar" src="../img/cadastrar1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -48,7 +50,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Consulta" src="/img/consultar.svg"/>
+                                <img class="img img1" alt="Consulta" src="../img/consultar1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -61,7 +63,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Folha de Pagamento" src="/img/folha.svg"/>
+                                <img class="img img1" alt="Folha de Pagamento" src="../img/folha1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -76,7 +78,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Holerite" src="/img/holerite.svg"/>
+                                <img class="img img1" alt="Holerite" src="../img/holerite1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -102,7 +104,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Registro de Ponto" src="/img/registroPonto.svg"/>
+                                <img class="img img1" alt="Registro de Ponto" src="../img/registroPonto1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>

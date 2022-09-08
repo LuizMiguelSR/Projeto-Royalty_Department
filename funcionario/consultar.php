@@ -31,7 +31,7 @@
                 <div class="container">
                     <div class="container-inner">
                         <img class="circle"/>
-                        <img class="img img1" alt="Consultar" src="../img/consultar.svg"/>
+                        <img class="img img1" alt="Consultar" src="../img/consultar1.svg"/>
                     </div>
                 </div>
             </div>
@@ -52,9 +52,9 @@
                     </div>
                 </form>
             </main>
-        </div>
+        </div><br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

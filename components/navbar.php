@@ -4,10 +4,13 @@
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
                 Menu
             </button>
+   
+           
+
         </div>
         <div class="col-8"></div>
         <div class="col-2 left">
-            <a href="../configs/sair.php"><img class="logout" src="../img/logout.png" alt="logout"></a>
+            <a href="../configs/sair.php"><img class="logout12" src="../img/logoff.png" alt="logout"></a>
         </div>
         
     </div>
@@ -21,7 +24,7 @@
     <div class="offcanvas-body">
         <div class="row m-2">
             <div class="col-2">
-                <img class="logout" src="../img/logout.png" alt="logout">
+                <img class="logout" src="../img/menu1.png" alt="logout">
             </div>
             <div class="col-5">
                 <a href="../configs/sair.php">Home</a>
@@ -29,7 +32,7 @@
         </div>
         <div class="row m-2">
             <div class="col-2">
-                <img class="logout" src="../img/logout.png" alt="logout">
+                <img class="logout" src="../img/menu1.png" alt="logout">
             </div>
             <div class="col-5">
                 <a href="../configs/sair.php">Cadastrar</a>
@@ -37,7 +40,7 @@
         </div>
         <div class="row m-2">
             <div class="col-2">
-                <img class="logout" src="../img/logout.png" alt="logout">
+                <img class="logout" src="../img/menu1.png" alt="logout">
             </div>
             <div class="col-5">
                 <a href="../configs/sair.php">Consultar</a>
@@ -45,7 +48,7 @@
         </div>
         <div class="row m-2">
             <div class="col-2">
-                <img class="logout" src="../img/logout.png" alt="logout">
+                <img class="logout" src="../img/menu1.png" alt="logout">
             </div>
             <div class="col-5">
                 <a href="../configs/sair.php">Folha de Pagamento</a>

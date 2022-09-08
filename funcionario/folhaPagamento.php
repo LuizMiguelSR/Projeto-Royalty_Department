@@ -32,7 +32,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/folha.svg"/>
+                            <img class="img img1" alt="Folha de Ponto" src="../img/folha1.svg"/>
                         </div>
                     </div>
                 </div>
@@ -165,8 +165,9 @@
                 </div>
             </div>
         </main>
+        <br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

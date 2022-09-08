@@ -18,7 +18,7 @@
     <div class="container-fluid m-auto text-center">
         <div class="row">
             <main class="form-signin w-100 m-auto">
-                <img src="img/logoEntrada.svg" alt="Logo">
+                <img src="img/logoEntrada1.svg" alt="Logo">
                 <h1 class="h3 mb-3 fw-normal">BEM VINDO</h1>
                 <form  method="post" class="p-4 p-md-5 border rounded-3 bg-light" action="configs/valida.php">
                     <div class="form-floating">

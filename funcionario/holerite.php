@@ -40,7 +40,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Helerite" src="../img/holerite.svg"/>
+                            <img class="img img1" alt="Helerite" src="../img/holerite1.svg"/>
                         </div>
                     </div>
                 </div>
@@ -53,11 +53,11 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <td>INSS a recolher</td>
+                            <td class="table-dark">INSS a recolher</td>
                             <?php foreach($funcionarios as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
                             ?>
-                            <td>R$ <?= number_format($func["inss"], 2, ',', '.') ?></td>
+                            <td class="table-dark">R$ <?= number_format($func["inss"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </thead>
@@ -68,11 +68,11 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <td>IRRF a recolher</td>
+                            <td class="table-dark">IRRF a recolher</td>
                             <?php foreach($funcionarios as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
                             ?>
-                                    <td>R$ <?= number_format($func["irrf"], 2, ',', '.') ?></td>
+                                    <td class="table-dark">R$ <?= number_format($func["irrf"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </thead>
@@ -83,8 +83,8 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <td>Vale Transporte</td>
-                            <td>R$ 220,00</td>
+                            <td class="table-dark">Vale Transporte</td>
+                            <td class="table-dark">R$ 220,00</td>
                         </tr>
                     </thead>
                 </table>
@@ -94,8 +94,8 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <th scope="col">Sal. Base</th>
-                            <th scope="col">Sal. Líquido</th>
+                            <th scope="col" class="table-dark">Sal. Base</th>
+                            <th scope="col" class="table-dark">Sal. Líquido</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,19 +103,20 @@
                             <?php foreach($funcionarios2 as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_funcionario'] ){
                             ?>
-                                    <td>R$ <?= number_format($func["salarioBase"], 2, ',', '.') ?></td>
+                                    <td class="table-dark">R$ <?= number_format($func["salarioBase"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                             <?php foreach($funcionarios as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
                             ?>
-                                    <td>R$ <?= number_format($func["salarioLiquido"], 2, ',', '.') ?></td>
+                                    <td class="table-dark">R$ <?= number_format($func["salarioLiquido"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <br><br>
             <div class="row mt-3">
-                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
             </div>
             <div class="row">
                 <p>VOLTAR</p>

@@ -1,9 +1,5 @@
 <?php
     require_once '../configs/sessionAutentica.php';
-    if ($_SESSION['nome'] !== 'Administrador') {
-        header('Location: ../configs/sair.php');
-        die();
-    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -43,7 +39,7 @@
                                                     <img src="../img/profile.png" class="img-radius" alt="Perfil">
                                                 </div>
                                                 <h6 class="f-w-600"><?php echo "{$_SESSION['nome']}"; ?></h6>
-                                                <p>Web Designer</p>
+                                                <h1 class="user-descrip">Web Designer</p>
                                                 <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                             </div>
                                         </div>
@@ -111,7 +107,7 @@
             </div>
         </main>
         <div class="row">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

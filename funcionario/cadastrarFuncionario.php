@@ -5,6 +5,7 @@
         die();
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="\estilo\style.css">
+    <link rel="stylesheet" href="../estilo/style.css">
     <title>Cadastro de Funcionário</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
                 <div class="container">
                     <div class="container-inner">
                         <img class="circle"/>
-                        <img class="img img1" alt="Cadastrar" src="../img/cadastrar.svg"/>
+                        <img class="img img1" alt="Cadastrar" src="../img/cadastrar1.svg"/>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                     <div class="col-4">
                         <input name="csenha" type="password" class="form-control" id="csenha" placeholder="Confirmar senha">
                     </div>
-                    <img class="col-12 my-5" alt="Endereco" src="../img/realTime.svg"/>
+                    <img class="col-12 my-5" alt="Endereco" src="../img/realTime1.svg"/>
                     <div class="col-4">
                         <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" autocomplete="email" required>
                     </div>
@@ -89,7 +90,7 @@
                     <div class="col-4">
                         <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required>
                     </div>
-                    <img class="col-12 my-5" alt="Dados Empresa" src="../img/empresaRef.svg"/>
+                    <img class="col-12 my-5" alt="Dados Empresa" src="../img/empresaRef1.svg"/>
                     <div class="col-3">
                         <input name="salarioBase" type="text" class="form-control" id="salarioBase" placeholder="Salário Base" required>
                     </div>
@@ -108,8 +109,9 @@
                 </form>
             </main>
         </div>
+        <br><br>
         <div class="row">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>
@@ -120,5 +122,6 @@
             ?>
         </div>
     </div>  
+
 </body>
 </html>

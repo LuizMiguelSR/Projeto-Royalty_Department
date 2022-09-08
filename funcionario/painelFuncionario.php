@@ -21,6 +21,7 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
                 <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
         </header>
         <main>
@@ -30,7 +31,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Holerite" src="/img/holerite.svg"/>
+                                <img class="img img1" alt="Holerite" src="../img/holerite1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
@@ -56,7 +57,7 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Registro de Ponto" src="/img/registroPonto.svg"/>
+                                <img class="img img1" alt="Registro de Ponto" src="../img/registroPonto1.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
