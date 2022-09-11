@@ -22,7 +22,6 @@
                 $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
                 $gestor->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
                 try {
-                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
                     $mail->isSMTP();
                     $mail->Host = 'smtp.mailtrap.io';
                     $mail->SMTPAuth = True;
@@ -40,10 +39,8 @@
 
                     if($mail->send()) {
                         header('Location: ../redefineSucesso.php');
-                        die();
                     } else {
                         header('Location: recuperarErro.php');
-                        die();
                     }
                 } catch (Exception $e) {
                     echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";

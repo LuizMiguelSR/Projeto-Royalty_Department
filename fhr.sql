@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `funcionario` (
   `salarioBase` decimal(10,2) NOT NULL,
   `recuperar` varchar(255) DEFAULT NULL,
   `nomeFoto` varchar(100) NOT NULL,
-  `path` varchar(100) NOT NULL,
+  `caminho` varchar(100) NOT NULL,
   PRIMARY KEY (`id_funcionario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
