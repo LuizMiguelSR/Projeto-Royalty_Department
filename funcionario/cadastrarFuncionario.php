@@ -43,7 +43,8 @@
         </div>
         <div class="row mt-5">
             <main class="form-add w-100 m-auto">
-                <form class="row g-3" method="post" action="../classes/funcionarioCadastro.php">
+                <form class="row g-3" method="post" enctype="multipart/form-data" action="../classes/funcionarioCadastro.php">
+                    <!-- Dados Pessoais -->
                     <div class="col-12">
                         <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required>
                     </div>
@@ -65,6 +66,10 @@
                     <div class="col-4">
                         <input name="csenha" type="password" class="form-control" id="csenha" placeholder="Confirmar senha">
                     </div>
+                    <div class="col-12">
+                        <input name="arquivo" type="file" class="form-control" id="arquivo" placeholder="Selecione o arquivo">
+                    </div>
+                    <!-- Endereço -->
                     <img class="col-12 my-5" alt="Endereco" src="../img/realTime1.svg"/>
                     <div class="col-4">
                         <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" autocomplete="email" required>
@@ -90,6 +95,7 @@
                     <div class="col-4">
                         <input name="pais" type="text" class="form-control" id="pais" placeholder="País" required>
                     </div>
+                    <!-- Dados pertinentes a empresa -->
                     <img class="col-12 my-5" alt="Dados Empresa" src="../img/empresaRef1.svg"/>
                     <div class="col-3">
                         <input name="salarioBase" type="text" class="form-control" id="salarioBase" placeholder="Salário Base" required>
