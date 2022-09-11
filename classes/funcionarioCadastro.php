@@ -23,10 +23,8 @@
 
         if($arquivo['error'])
             header('Location: ../funcionario/cadastrarFuncionario.php');
-            die();
         if($arquivo['size'] > 5242880)
             header('Location: ../funcionario/cadastrarFuncionario.php');
-            die();
 
         $pasta = "../fotos/";
         $nomeDoArquivo = $arquivo['name'];
@@ -35,9 +33,9 @@
 
         if($extensao != "jpg" && $extensao != 'png')
             header('Location: ../funcionario/cadastrarFuncionario.php');
-            die();
         
-        $deuCerto = move_uploaded_file($arquivo["tmp_name"], $pasta . $novoNomeDoArquivo . "." . $extensao);
+        $caminho = $pasta . $novoNomeDoArquivo . "." . $extensao;
+        $deuCerto = move_uploaded_file($arquivo["tmp_name"], $caminho);
     }
     require_once "endereco.php";
     require_once "salarioLiquido.php";
@@ -47,7 +45,7 @@
         $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $gestor->beginTransaction();
 
-        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes' ,'$salarioBase')");
+        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase, nomeFoto, caminho) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$salarioBase', '$nomeDoArquivo', '$caminho')");
     
         $gestor->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
 

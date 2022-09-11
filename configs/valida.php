@@ -22,6 +22,12 @@
                 if($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] == 'Administrador'){
                     $_SESSION['nome'] = $val['funcionarioNome'];
                     $_SESSION['id_funcionario'] = $val['id_funcionario'];
+                    $_SESSION['caminho'] = $val['caminho'];
+                    if ($_SESSION['caminho'] == null){
+                        $_SESSION['caminho'] = "../img/user.png";
+                    } else {
+                        $_SESSION['caminho'] = $val['caminho'];
+                    }
                     $_SESSION['erro'] = 0;
                     header('Location: ../funcionario/painelGerente.php');
                     die();
@@ -29,6 +35,12 @@
                 if ($email == $val['email'] && password_verify($senha, $val['senha']) == true && $val['funcionarioNome'] != 'Administrador') {   
                     $_SESSION['nome'] = $val['funcionarioNome'];
                     $_SESSION['id_funcionario'] = $val['id_funcionario'];
+                    $_SESSION['caminho'] = $val['caminho'];
+                    if ($_SESSION['caminho'] == null){
+                        $_SESSION['caminho'] = "../img/user.png";
+                    } else {
+                        $_SESSION['caminho'] = $val['caminho'];
+                    }
                     $_SESSION['erro'] = 0;
                     header('Location: ../funcionario/painelFuncionario.php');
                     die();
