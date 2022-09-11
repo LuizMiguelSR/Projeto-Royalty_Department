@@ -58,7 +58,8 @@ CREATE TABLE `funcionario` (
   `rg` varchar(50) DEFAULT NULL,
   `cpf` int(11) DEFAULT NULL,
   `numeroDependentes` int(10) NOT NULL,
-  `salarioBase` decimal(10,2) NOT NULL
+  `salarioBase` decimal(10,2) NOT NULL,
+  `recuperar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

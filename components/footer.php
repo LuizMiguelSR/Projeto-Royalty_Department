@@ -10,5 +10,5 @@
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sobre</a></li>
     </ul>
-    <p class="text-center text-muted">&copy; 2022 Royal Logística</p>
+    <p class="text-center text-muted">&copy; 2022 Royalty Department</p>
 </footer>
