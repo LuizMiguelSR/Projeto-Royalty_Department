@@ -34,7 +34,7 @@
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);
-                    $mail->Subject = 'Recuperar de Senha';
+                    $mail->Subject = 'Recuperar senha';
                     $mail->Body = "Oi <strong>$nome</strong>, anote sua chave: $idHash";
                     $mail->AltBody = 'Oi Bobo, anote sua chave';
 
