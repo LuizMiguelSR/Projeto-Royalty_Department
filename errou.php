@@ -31,7 +31,7 @@
                     <a href="redefine.php">Esqueceu a senha?</a>
                     <div class="alert alert-danger align-items-center my-2" role="alert">
                         <div>
-                            ⚠ Login ou senha incorretos
+                            ⚠ Login ou senha incorretos.
                         </div>
                     </div>
                     <input class="w-100 btn btn-lg btn-primary" type="submit" value="ENTRAR">
