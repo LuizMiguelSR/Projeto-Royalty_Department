@@ -34,11 +34,11 @@ class MYPDF extends TCPDF {
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(60, 60, 60);
-        $x = array(60,60);
-        $num_headers = count($header) -1;
+        $w = array(90, 90, 90);
+        $x = array(90,90);
+        $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell(60, 8, $header[$i], 1, 0, 'C', 1);
+            $this->Cell(90, 8, $header[$i], 1, 0, 'C', 1);
         }
         $this->Ln();
         // Color and font restoration
@@ -55,7 +55,7 @@ class MYPDF extends TCPDF {
             $this->Ln();
             $fill=!$fill;
         }
-        $this->Cell(60*$num_headers, 2, '', 'T');
+        $this->Cell(90*$num_headers, 2, '', 'T');
         $this->Ln();
     }
 }
@@ -104,18 +104,18 @@ $pdf->SetFont('helvetica', '', 12);
 // add a page
 $pdf->AddPage();
 
-$header[0] = array('Pagamentos', 'Descontos', 'Liquido','');
-$header[1] = array('Sal. Base', 'Sal. Contrib. INSS', 'Base FGTS','');
-$header[2] = array('FGTS do mês', 'Base Cálculo IRPF','');
+$header[0] = array('INSS a recolher', 'R$ 536,18');
+$header[1] = array('IRRF a recolher', 'R$ 282,92');
+$header[2] = array('Vale Transporte	', 'R$ 220,00');
+$header[3] = array('Sal. Base', 'Sal. Líquido');
 
 $data[0] = $pdf->LoadData("dados.txt");
-$data[1] = $pdf->LoadData("dados1.txt");
-$data[2] = $pdf->LoadData("dados2.txt");
 
 // // print colored table
-$pdf->ColoredTable($header[0], $data[0]);
-$pdf->ColoredTable($header[1], $data[1]);
-$pdf->ColoredTable($header[2], $data[2]);
+$pdf->ColoredTable($header[0], '');
+$pdf->ColoredTable($header[1], '');
+$pdf->ColoredTable($header[2], '');
+$pdf->ColoredTable($header[3], $data[0]);
 $pdf->Output('holerite.pdf', 'I');
 
 ?>
