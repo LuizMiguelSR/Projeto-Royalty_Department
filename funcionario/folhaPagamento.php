@@ -1,3 +1,10 @@
+<?php
+    require_once '../configs/sessionAutentica.php';
+    if ($_SESSION['nome'] !== 'Administrador') {
+        header('Location: ../configs/sair.php');
+        die();
+    }
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../estilo/style.css">
     <title>Folha de pagamento</title>
 </head>
 <body>
@@ -25,7 +32,7 @@
                     <div class="container">
                         <div class="container-inner">
                             <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/folha.svg"/>
+                            <img class="img img1" alt="Folha de Ponto" src="../img/folha1.svg"/>
                         </div>
                     </div>
                 </div>
@@ -158,8 +165,9 @@
                 </div>
             </div>
         </main>
+        <br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar.png" alt="voltar"></a>
+            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

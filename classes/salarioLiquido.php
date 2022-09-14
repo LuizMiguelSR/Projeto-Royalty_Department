@@ -3,7 +3,7 @@
     require_once "inss.php";
     require_once "irrf.php";
     
-    class salarioliquido {
+    class salarioLiquido {
         public function calcularSalarioLiquido() {
             global $salarioBase;
             $objeto1 = new valeTransporte();
@@ -12,7 +12,7 @@
             $inss = $objeto2 -> calcularInss();
             $objeto3 = new irrf();
             $irrf = $objeto3 -> calcularIrrf();
-            return $salarioBase - $valeTransporte - $inss - $irrf;
+            return $salarioBase - $valeTransporte - $inss[4] - $irrf[5];
         }
     }
     $objeto = new salarioLiquido();
