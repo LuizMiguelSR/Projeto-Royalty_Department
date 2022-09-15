@@ -1,6 +1,5 @@
 # 📋 Projeto folha de pagamento 📋
 
-- Hospedagem 000 Web Host App - [Projeto Folha de pagamento](https://folhadepagamentoluiz.000webhostapp.com/index.php);
 - Hospedagem Digital Trainer - [Projeto Folha de pagamento](https://digitaltrainer.com.br/index.php);
 
 - Projeto realizado utilizando PHP 8;
