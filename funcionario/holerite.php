@@ -114,7 +114,6 @@
                     </tbody>
                 </table>
             </div>
-<<<<<<< HEAD
             <div class="row">
                 <div class="col-md-2 mt-4">
                     <form action="holeriteGerarPdf.php" method="post" target="_blank">
@@ -122,9 +121,7 @@
                     </form>
                 </div>
             </div>
-=======
             <br><br>
->>>>>>> master
             <div class="row mt-3">
                 <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
             </div>
