@@ -47,15 +47,19 @@ class MYPDF extends TCPDF {
         $this->SetFont('');
         // Data
         $fill = 1;
-        foreach($data as $row) {
-            for($i = 0; $i < $num_headers; ++$i) {
-                $this->Cell($w[$i], 7, $row[$i], 'LR', 0, 'C', $fill);
+
+        if (!is_null($data)) {
+            foreach($data as $row) {
+                for($i = 0; $i < $num_headers; ++$i) {
+                    $this->Cell($w[$i], 7, $row[$i], 'LR', 0, 'C', $fill);
+                }
+                
+                $this->Ln();
+                $fill=!$fill;
             }
-            
-            $this->Ln();
-            $fill=!$fill;
+
+            $this->Cell(90*$num_headers, 2, '', 'T');
         }
-        $this->Cell(90*$num_headers, 2, '', 'T');
         $this->Ln();
     }
 }
@@ -109,13 +113,13 @@ $header[1] = array('IRRF a recolher', 'R$ 282,92');
 $header[2] = array('Vale Transporte	', 'R$ 220,00');
 $header[3] = array('Sal. Base', 'Sal. Líquido');
 
-$data[0] = $pdf->LoadData("dados.txt");
+$data = array(explode(';', chop("R$ 886,66;R$ 4.928,04")));
 
 // // print colored table
-$pdf->ColoredTable($header[0], '');
-$pdf->ColoredTable($header[1], '');
-$pdf->ColoredTable($header[2], '');
-$pdf->ColoredTable($header[3], $data[0]);
+$pdf->ColoredTable($header[0], null);
+$pdf->ColoredTable($header[1], null);
+$pdf->ColoredTable($header[2], null);
+$pdf->ColoredTable($header[3], $data);
 $pdf->Output('holerite.pdf', 'I');
 
 ?>
