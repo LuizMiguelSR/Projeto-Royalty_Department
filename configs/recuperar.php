@@ -23,13 +23,13 @@
                 $gestor->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
                 try {
                     $mail->isSMTP();
-                    $mail->Host = 'mail.digitaltrainer.com.br';
+                    $mail->Host = 'XXXx';
                     $mail->SMTPAuth = True;
-                    $mail->Username = '_mainaccount@digitaltrainer.com.br';
-                    $mail->Password = 'CpibwrP=NfM2';
+                    $mail->Username = 'XXXX';
+                    $mail->Password = 'XXXXX';
                     $mail->Port = 587;
 
-                    $mail->setFrom('dgt@digitaltrainer.com.br');
+                    $mail->setFrom('XXXXX');
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);
