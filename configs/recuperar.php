@@ -23,19 +23,19 @@
                 $gestor->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
                 try {
                     $mail->isSMTP();
-                    $mail->Host = 'smtp.mailtrap.io';
+                    $mail->Host = 'mail.digitaltrainer.com.br';
                     $mail->SMTPAuth = True;
-                    $mail->Username = '7f6c7c93fad706';
-                    $mail->Password = 'b1e22bfc23f7e1';
-                    $mail->Port = 2525;
+                    $mail->Username = '_mainaccount@digitaltrainer.com.br';
+                    $mail->Password = 'CpibwrP=NfM2';
+                    $mail->Port = 587;
 
-                    $mail->setFrom('6624cf1abc-4de2a2@inbox.mailtrap.io');
+                    $mail->setFrom('dgt@digitaltrainer.com.br');
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);
                     $mail->Subject = 'Recuperar senha';
                     $mail->Body = "Oi <strong>$nome</strong>, anote sua chave: $idHash";
-                    $mail->AltBody = 'Oi Bobo, anote sua chave';
+                    $mail->AltBody = 'Oi '.$nome.', anote sua chave: '.$idHash;
 
                     if($mail->send()) {
                         header('Location: ../redefineSucesso.php');
