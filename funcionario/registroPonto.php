@@ -1,5 +1,6 @@
 <?php
     require_once '../configs/sessionAutentica.php';
+    date_default_timezone_set('America/Sao_Paulo');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,9 +12,24 @@
     <link rel="stylesheet" href="../estilo/style.css">
     <title>Folha de Ponto de <?php echo "{$_SESSION['nome']}"; ?></title>
 </head>
-<body>
+<body onLoad="showtime()">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../js/clock.js"></script>
+    <script>
+        function showtime(){ 
+            setTimeout("showtime();",1000);
+            
+            callerdate.setTime(callerdate.getTime()+1000);
+            var hh = String(callerdate.getHours());
+            var mm = String(callerdate.getMinutes());
+            var ss = String(callerdate.getSeconds());
+
+            document.getElementById("face").innerHTML =
+            ((hh < 10) ? " " : "") + hh +
+            ((mm < 10) ? ":0" : ":") + mm +
+            ((ss < 10) ? ":0" : ":") + ss;
+        }
+        callerdate=new Date(<?php echo date("Y,m,d,H,i,s");?>);
+    </script>
 
     <div class="container-fluid m-auto text-center">
         <header>
@@ -40,7 +56,7 @@
             <div class="row mt-2">
                 <main class="form-add w-100 m-auto">
                     <div class="container1">
-                        <div class="clock"></div>
+                        <div class="clock" id="face"></div>
                     </div>
                 </main>
             </div>
