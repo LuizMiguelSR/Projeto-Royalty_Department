@@ -75,20 +75,12 @@ constraint fk_irrf_holerite foreign key (id_holerite) references holerite(id_hol
 create table funcionario_ponto(
 id_funcionario_ponto int(8) auto_increment,
 id_funcionario int(8),
-entrada DATETIME,
-almoco_sai DATETIME,
-almoco_che DATETIME,
-saida DATETIME,
+diames DATE
+entrada TIME,
+almoco_sai TIME,
+almoco_che TIME,
+saida TIME,
 constraint pk_id_holerite primary key(id_funcionario_ponto),
 constraint fk_funcionario_ponto foreign key (id_funcionario) references funcionario(id_funcionario));
 
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (01, 'Comercial', 'Vendas', 'Junior', 5000000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (02, 'Comercial', 'Vendas', 'Senior', 7500000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (03, 'T.I', 'Analista', 'Junior', 5300000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (04, 'T.I', 'Analista', 'Senior', 8250000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (05, 'Escritorio', 'Administrativo', 'Junior', 350000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (06, 'Escritorio', 'Administrativo', 'Senior', 650000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (07, 'Financeiro', 'Contador', 'Junior', 450000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (08, 'Financeiro', 'Contador', 'Senior', 350000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (09, 'RH', 'RH', 'Junior', 550000);
-INSERT INTO departamento (departamento_id,departamento_nome, cargo, funcao, salarioBase) values (03, 'RH', 'RH', 'Senior', 720000);
+INSERT INTO funcionario VALUES("ADMIN", "REGISTRO DE ADMIN", "49394943", "admin", "admin@email.com", 282222, 2);
