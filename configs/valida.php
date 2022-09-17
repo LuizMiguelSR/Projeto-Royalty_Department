@@ -10,12 +10,11 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
 
-    require_once 'connectDb.php';
+    
     try {
-        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
-        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require_once 'connectDb.php';
 
-        $dado = $gestor->query("Select * FROM funcionario");
+        $dado = $conexao->query("Select * FROM funcionario");
         $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
         if ($_SESSION['erro'] < 2 || $_SESSION['erro'] == null) { 
             foreach($valida as $val) {

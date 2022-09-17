@@ -1,16 +1,14 @@
 <?php
     require_once '../configs/sessionAutentica.php';
-    require_once '../configs/connectDb.php';
+
     try {
-        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
-        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require_once '../configs/connectDb.php';
     } catch(PDOException $e) {    
         echo "Connection failed: " . $e->getMessage();
     }
-
-    $dados = $gestor->query("Select * FROM trabalho");
+    $dados = $conexao->query("Select * FROM trabalho");
     $funcionarios = $dados->fetchAll(PDO::FETCH_ASSOC);
-    $dados2 = $gestor->query("Select * FROM funcionario");
+    $dados2 = $conexao->query("Select * FROM funcionario");
     $funcionarios2 = $dados2->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -33,18 +31,9 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
         <main>
-            <div class="row">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Helerite" src="../img/holerite1.svg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <h1 class="h3 mb-2 fw-normal">Bem vindo(a), <?php echo "{$_SESSION['nome']}"; ?>, este é seu holerite do mês</h1>
             </div>

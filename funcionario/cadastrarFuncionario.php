@@ -18,8 +18,9 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../js/main.js" type='module' defer></script>
-
+    <script src="../js/apiCEP.js" type='module' defer></script>
+    <script type="text/javascript" src="../js/validaCPF.js"></script>
+    
     <div class="container-fluid m-auto text-center">
         <header>
             <div class="row">
@@ -27,17 +28,8 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
-        <div class="row">
-            <div class="person">
-                <div class="container">
-                    <div class="container-inner">
-                        <img class="circle"/>
-                        <img class="img img1" alt="Cadastrar" src="../img/cadastrar1.svg"/>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row ">
             <h1 class="h3 mb-2 fw-normal">Cadastro de novo Funcionário</h1>
         </div>
@@ -52,7 +44,7 @@
                         <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required>
                     </div>
                     <div class="col-4">
-                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required>
+                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required maxlength="11" onblur="return verificarCPF(this.value)">
                     </div>
                     <div class="col-4">
                         <input name="telefone" type="text" class="form-control" id="telefone" placeholder="Telefone" required>

@@ -1,5 +1,4 @@
 <?php
-    require_once '../configs/connectDb.php';
     $nome = $_POST["nome"];
     $rg = $_POST["rg"];
     $cpf = $_POST["cpf"];
@@ -18,6 +17,7 @@
     $departamento = $_POST["departamento"];
     $cargo = $_POST["cargo"];
     $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
+
     if(isset($_FILES['arquivo'])) {
         $arquivo = $_FILES['arquivo'];
 
@@ -41,25 +41,24 @@
     require_once "salarioLiquido.php";
     
     try {
-        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
-        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $gestor->beginTransaction();
+        require_once '../configs/connectDb.php';
+        $conexao->beginTransaction();
 
-        $gestor->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase, nomeFoto, caminho) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$salarioBase', '$nomeDoArquivo', '$caminho')");
+        $conexao->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase, nomeFoto, caminho) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$salarioBase', '$nomeDoArquivo', '$caminho')");
     
-        $gestor->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
+        $conexao->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
 
-        $gestor->exec("INSERT INTO departamento (dp_nome) VALUES ('$departamento')");
+        $conexao->exec("INSERT INTO departamento (dp_nome) VALUES ('$departamento')");
 
-        $gestor->exec("INSERT INTO trabalho (cargo, salarioLiquido, inss, irrf) VALUES ('$cargo', '$salarioLiquido', '$inss[4]', '$irrf[5]')");
+        $conexao->exec("INSERT INTO trabalho (cargo, salarioLiquido, inss, irrf) VALUES ('$cargo', '$salarioLiquido', '$inss[4]', '$irrf[5]')");
 
-        $gestor->commit();
+        $conexao->commit();
         header('Location: ../funcionario/painelGerente.php');
         die();
     } catch(PDOException $e) {    
         echo "Connection failed: " . $e->getMessage();
     }
 
-    $gestor = null;
+    $conexao = null;
 
 ?>

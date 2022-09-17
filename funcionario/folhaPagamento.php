@@ -25,18 +25,9 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
         <main>
-            <div class="row">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/folha1.svg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <h1 class="h3 mb-2 fw-normal">FOLHA DE PAGAMENTO</h1>
             </div>

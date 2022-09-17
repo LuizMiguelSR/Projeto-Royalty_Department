@@ -85,17 +85,17 @@
         <div class="offcanvas-body">
             <div class="row">
                 <div class="col-8">
-                    <a href="holerite.php">Cadastrar</a>
+                    <a href="cadastrarFuncionario.php">Cadastrar</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="holerite.php">Consultar</a>
+                    <a href="consultar.php">Consultar</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="holerite.php">Folha de pagamento</a>
+                    <a href="folhaPagamento.php">Folha de pagamento</a>
                 </div>
             </div>
             <div class="row">

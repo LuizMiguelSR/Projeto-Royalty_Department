@@ -38,32 +38,47 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
         <main>
             <div class="row">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/ponto1.svg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <h1 class="h3 mb-2 fw-normal">REGISTRE SUA ENTRADA</h1>
             </div>
-            <div class="row mt-2">
-                <main class="form-add w-100 m-auto">
-                    <div class="container1">
-                        <div class="clock" id="face"></div>
-                    </div>
-                </main>
-            </div>
-            <div class="row">
-                <div class="col-md-2 mt-4">
-                    <button type="submit" class="btn btn-primary">REGISTRAR</button>
+            <form method="POST" action="">
+                <div class="row mt-2">
+                    <main class="form-add w-100 m-auto">
+                        <div class="container1">
+                            <div class="clock" id="face"></div>
+                        </div>
+                    </main>
                 </div>
+                <div class="row">
+                    <div class="col-md-2 mt-4">
+                        <button type="submit" class="btn btn-primary">REGISTRAR</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row mx-5 mt-5">
+                <table class="table table-bordered border-success hole">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="table-dark">Data</th>
+                            <th scope="col" class="table-dark">Entrada</th>
+                            <th scope="col" class="table-dark">Intervalo Ida</th>
+                            <th scope="col" class="table-dark">Intervalo Volta</th>
+                            <th scope="col" class="table-dark">Saída</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-dark">22/10/2022</td>
+                            <td class="table-dark">08:00</td>
+                            <td class="table-dark">01:00</td>
+                            <td class="table-dark">01:00</td>
+                            <td class="table-dark">17:00</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             <br><br>
             <div class="row mt-5">

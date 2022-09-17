@@ -21,18 +21,9 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
-        <main>        
-            <div class="row">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Banco de Horas" src="../img/bancoHoras1.svg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <main>
             <div class="row">
                 <h1 class="h3 mb-2 fw-normal">FOLHA DE PONTO</h1>
             </div>
@@ -40,7 +31,6 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <th scope="col" class="table-dark">Nome</th>
                             <th scope="col" class="table-dark">Data</th>
                             <th scope="col" class="table-dark">Entrada</th>
                             <th scope="col" class="table-dark">Intervalo</th>
@@ -49,7 +39,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="table-dark">Pedro Bial</td>
                             <td class="table-dark">22/10/2022</td>
                             <td class="table-dark">08:00</td>
                             <td class="table-dark">01:00</td>

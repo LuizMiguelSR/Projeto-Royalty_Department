@@ -1,13 +1,11 @@
 <?php
-    require_once 'connectDb.php';
     $chave = $_POST["chave"];
     $novaSenha = password_hash($_POST["novaSenha"], PASSWORD_DEFAULT);
     
     try {
-        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
-        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        require_once 'connectDb.php';
 
-        $dado = $gestor->query("Select * FROM funcionario");
+        $dado = $conexao->query("Select * FROM funcionario");
         $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
         
         foreach($valida as $val) {
@@ -15,9 +13,9 @@
                 $id = $val['id_funcionario'];
                 $zerar = '';
 
-                $gestor->exec("UPDATE funcionario SET senha = '$novaSenha' WHERE funcionario.id_funcionario = $id");
+                $conexao->exec("UPDATE funcionario SET senha = '$novaSenha' WHERE funcionario.id_funcionario = $id");
 
-                $gestor->exec("UPDATE funcionario SET recuperar = '$zerar' WHERE funcionario.id_funcionario = $id");
+                $conexao->exec("UPDATE funcionario SET recuperar = '$zerar' WHERE funcionario.id_funcionario = $id");
 
                 header('Location: ../index.php');
                 die();
