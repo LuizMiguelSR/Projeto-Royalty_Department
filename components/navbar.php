@@ -1,3 +1,9 @@
+<style>
+    .navbar.fixed-top.navbar-expand-lg{
+        background-color: #0b6567;
+        box-shadow: 1px 3px 3px #00000054;
+    }
+</style>
 <nav class="navbar fixed-top navbar-expand-lg">
     <div class="container-fluid">
         <div class="col-2">
@@ -9,12 +15,24 @@
         <div class="col-2 left">
             <a href="../configs/sair.php"><img class="logout12" src="../img/logoff.png" alt="logout"></a>
         </div>
-        
     </div>
 </nav>
 <style>
+    :root{
+        --cor1: #0b6567;
+        --cor2: #0b656780;
+        --cor3: #00000054;
+        --cor4: #46d160;
+
+        --fonte-padrao: 'Roboto Flex', sans-serif;
+        --fonte-destaque: 'Roboto Condensed', sans-serif;
+    }
     .offcanvas-header {
+        margin-right: 20px;
+        margin-left: 20px;
         margin-top: 10px;
+        font-family: var(--fonte-destaque);
+
     }
     .fotoPerfilPequena {
         vertical-align: middle;
@@ -30,48 +48,98 @@
         background-color: #46d160;
         position: absolute;
         top: 73px;
-        left: 75px;
+        left: 84px;
     }
     .logout{
         height: 1em;
         width: 1em;
     }
-    a {
-        text-allign: right;
+    .offcanvas-body{
+        padding: 0px;
+        font-family: var(--fonte-padrao);
+        font-size: 1.1em;
+        font-weight: bolder;
+    }
+    .offcanvas-body > .row{
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .offcanvas-body > .row:hover{
+        background-color: var(--cor2);
+        color: white;
+    }
+    .offcanvas.show:not(.hiding), .offcanvas.showing {
+        transform: none;
+        padding: 0px;
     }
 </style>
-<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-    <div class="offcanvas-header">
-        <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena">
-        <div class="log"></div>
-        <h5 class="offcanvas-title" id="staticBackdropLabel"><?php echo "{$_SESSION['nome']}"; ?></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<?php if($_SESSION['nome'] == 'Administrador'){?>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena">
+            <div class="log"></div>
+            <h5 class="offcanvas-title" id="staticBackdropLabel"><?php echo "{$_SESSION['nome']}"; ?></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <hr>
+        <div class="offcanvas-body">
+            <div class="row">
+                <div class="col-8">
+                    <a href="holerite.php">Cadastrar</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="holerite.php">Consultar</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="holerite.php">Folha de pagamento</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="holerite.php">Holerite</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="folhaPonto.php">Folha de Ponto</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="registroPonto.php">Registro de Ponto</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <hr>
-    <div class="offcanvas-body">
-        <div class="row m-2">
-            <div class="col-2">
-                <img class="logout" src="../img/menu1.png" alt="logout">
-            </div>
-            <div class="col-8">
-                <a href="holerite.php">Holerite</a>
-            </div>
+<?php } else { ?>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena">
+            <div class="log"></div>
+            <h5 class="offcanvas-title" id="staticBackdropLabel"><?php echo "{$_SESSION['nome']}"; ?></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="row m-2">
-            <div class="col-2">
-                <img class="logout" src="../img/menu1.png" alt="logout">
+        <hr>
+        <div class="offcanvas-body">
+            <div class="row m-2">
+                <div class="col-8">
+                    <a href="holerite.php">Holerite</a>
+                </div>
             </div>
-            <div class="col-8">
-                <a href="folhaPonto.php">Folha de Ponto</a>
+            <div class="row m-2">
+                <div class="col-8">
+                    <a href="folhaPonto.php">Folha de Ponto</a>
+                </div>
             </div>
-        </div>
-        <div class="row m-2">
-            <div class="col-2">
-                <img class="logout" src="../img/menu1.png" alt="logout">
-            </div>
-            <div class="col-8">
-                <a href="registroPonto.php">Registro de Ponto</a>
+            <div class="row m-2">
+                <div class="col-8">
+                    <a href="registroPonto.php">Registro de Ponto</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>

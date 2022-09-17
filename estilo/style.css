@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto+Flex:opsz,wght@8..144,100;8..144,300&display=swap');
 
+:root{
+    --cor1: #0b6567;
+    --cor2: #00e6923b;
+    --cor3: #c6cfc3c0;
+    --cor4: #00e69200;
+    --cor5: #00000046;
+    --cor6: #00000054;
+    --cor7: #ffffff00;
+
+    --fonte-padrao: 'Roboto Flex', sans-serif;
+    --fonte-destaque: 'Roboto Condensed', sans-serif;
+}
+
 body {
     background: linear-gradient(360deg, #ffffff, #ffffff 62%);
     background-attachment: fixed;
@@ -10,20 +23,64 @@ body {
     font-family: 'Roboto Flex', sans-serif;
 }
 
+/* --- Estilos dos links --- */
 a {
     text-decoration: none;
     color: rgb(0, 0, 0);
-
 }
 
+/* --- Estilos dos paragrafos --- */
 p {
     color: rgb(0, 0, 0);
-    border-color: #0b6567;
+    border-color: var(--cor1);
+}
+
+/* --- Estilos dos títulos --- */
+h1 {
+    color: rgb(0, 0, 0);
+}
+ 
+h6 {
+    font-size: 14px;
+}
+
+.mt-2.titulo{
+    font-size: 42px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 2px --cor5;
+}
+
+.name {
+    color: rgb(0, 0, 0);
+    font-size: 26px;
+    font-weight: 600;
+    margin-top: 16px;
+    text-align: center;
+}
+
+.title {
+    color: var(--cor1);
+    font-family: arial;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 4px;
+}
+
+/* --- Estilos das linhas BootStrap --- */
+.row {
+    justify-content: center;
+}
+
+/* --- Estilos dos forms --- */
+form {
+    display: block;
+    margin-top: 0em;
 }
 
 .form-control {
     background-color: transparent;
-    border-color: #0b6567;
+    border-color: var(--cor1);
     font-weight: bold;
     border-top: none;
     border-left: none;
@@ -32,105 +89,22 @@ p {
     cursor: text;
 
 }
+
 .form-control:focus {
-    background-color: #00e6923b;
-    border-color: #0b6567;
+    background-color: var(--cor2);
+    border-color: var(--cor1);
     border-top: none;
     border-left: none;
     border-right: none;
     border-radius: 0%;
 }
+
 .form-control::placeholder {
-    color: 0b6567;
+    color: var(--cor1);
 }
+
 .form-control:valid {
-    color: #0b6567;
-}
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-}
-input:-webkit-autofill{
-    -webkit-text-fill-color: #0b6567 !important;
-}
-.table.table-bordered.border-success {
-    color: rgb(0, 0, 0);
-}
-
-.table.table-bordered.border-success.hole{
-    color: rgb(0, 0, 0);
-    max-width: 50em;
-}
-
-.w-100.btn.btn-lg.btn-primary {
-    background-color: #0b6567;
-    border-color: #0b6567;
-    color: white;
-    font-weight: normal;
-}
-
-.btn.btn-primary {
-    background-color: #0b6567;
-    border-color: #0b6567;
-    color: white;
-    font-weight: normal;
-
-
-}
-
-.logout{
-    width: 30px;
-    height: 25px;
-    margin-right: 20px;
-}
-
-.logout12{
-    width: 20px;
-    height: 21px;
-    margin-right: 10px;
-}
-
-img{
-    vertical-align: middle;
-    height: 10em;
-}
-
-
-form {
-    display: block;
-    margin-top: 0em;
-}
-
-.row {
-    justify-content: center;
-}
-
-.logo { 
-    width: 54px;
-    height: 54px;
-}
-
-h1 {
-    color: rgb(0, 0, 0);
-}
-
-.logo2 {
-    width: 50px;
-    height: 67px;
-}
-
-.mt-2.titulo{
-    font-size: 42px;
-    font-family: 'Roboto Condensed', sans-serif;
-    color: rgb(0, 0, 0);
-    text-shadow: 1px 2px #00000046;
-}
-
-.navbar.fixed-top.navbar-expand-lg{
-    background-color: #0b6567;
-    box-shadow: 1px 3px 3px #ffffff54;
+    color: var(--cor1);
 }
 
 .form-floating {
@@ -146,24 +120,72 @@ h1 {
     max-width: 50em;
     padding: 1em;
     color: rgb(0, 0, 0);
-
 }
-.accordion.accordion-flush {
+
+/* --- Estilos dos inputs --- */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: var(--cor1) !important;
+}
+
+/* --- Estilo das tabelas --- */
+.table.table-bordered.border-success {
+    color: rgb(0, 0, 0);
+}
+
+.table.table-bordered.border-success.hole{
+    color: rgb(0, 0, 0);
     max-width: 50em;
 }
 
-.accordion-item {
-    background-color: #00e69200;
+
+/* --- Estilo dos botoes --- */
+.w-100.btn.btn-lg.btn-primary {
+    background-color: var(--cor1);
+    border-color: var(--cor1);
+    color: white;
+    font-weight: normal;
 }
 
-.accordion-button {
-    background-color: #0b6567;
-    color: rgb(255, 255, 255);
+.btn.btn-primary {
+    background-color: var(--cor1);
+    border-color: var(--cor1);
+    color: white;
+    font-weight: normal;
 }
 
-.accordion-body {
-    background-color: #ffffff00;
-    color: black;
+/* --- Estilo das imagens --- */
+img{
+    vertical-align: middle;
+    height: 10em;
+}
+
+.logout{
+    width: 30px;
+    height: 25px;
+    margin-right: 20px;
+}
+
+.logout12{
+    width: 20px;
+    height: 21px;
+    margin-right: 10px;
+}
+
+.logo { 
+    width: 54px;
+    height: 54px;
+}
+
+.logo2 {
+    width: 50px;
+    height: 67px;
 }
 
 .person {
@@ -178,6 +200,52 @@ h1 {
     height: 54px;
 }
 
+.circle {
+    background-color: var(--cor3);
+    border-radius: 50%;
+    cursor: pointer;
+    height: 210px;
+    left: 10px;
+    pointer-events: none;
+    position: absolute;
+    top: 210px;
+    width: 210px;
+}
+
+.img {
+    pointer-events: none;
+    position: relative;
+    transform: translateY(20px) scale(1.15);
+    transform-origin: 50% bottom;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+  
+.img1 {
+    left: -111px;
+    top: 224px;
+    width: 452px;
+}
+
+/* --- Estilos do componente acordeon --- */
+.accordion.accordion-flush {
+    max-width: 50em;
+}
+
+.accordion-item {
+    background-color: var(--cor4);
+}
+
+.accordion-button {
+    background-color: var(--cor1);
+    color: rgb(255, 255, 255);
+}
+
+.accordion-body {
+    background-color: var(--cor7);
+    color: black;
+}
+
+/* --- Estilos dos containers --- */
 .container {
     border-radius: 50%;
     height: 191px;
@@ -207,59 +275,17 @@ h1 {
     top: -200px;
 }
 
-.circle {
-    background-color: #c6cfc3c0;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 210px;
-    left: 10px;
-    pointer-events: none;
-    position: absolute;
-    top: 210px;
-    width: 210px;
-}
-
-.img {
-    pointer-events: none;
-    position: relative;
-    transform: translateY(20px) scale(1.15);
-    transform-origin: 50% bottom;
-    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-  
 .container:hover .img {
     transform: translateY(0) scale(1.2);
 }
   
-.img1 {
-    left: -111px;
-    top: 224px;
-    width: 452px;
-}
-  
 .divider {
-    background-color: #0b6567;
+    background-color: var(--cor1);
     height: 1px;
     width: 160px;
 }
 
-.name {
-    color: rgb(0, 0, 0);
-    font-size: 26px;
-    font-weight: 600;
-    margin-top: 16px;
-    text-align: center;
-}
-
-.title {
-    color: #0b6567;
-    font-family: arial;
-    font-size: 14px;
-    font-style: italic;
-    margin-top: 4px;
-}
-
-/* --- CARD PROFILE --- */
+/* --- Card de Perfil --- */
 .padding {
     padding: 3rem !important
 }
@@ -269,7 +295,7 @@ h1 {
 }
 
 .m-b-10.f-w-600 {
-    color: #0b6567;
+    color: var(--cor1);
 }
 
 .card {
@@ -313,19 +339,15 @@ h1 {
 .img-radius {
     border-radius: 5px;
 }
- 
-h6 {
-    font-size: 14px;
-}
 
 .card .card-block p {
     line-height: 25px;
 }
 
 @media only screen and (min-width: 1400px){
-p {
-    font-size: 14px;
-}
+    p {
+        font-size: 14px;
+    }
 }
 
 .card-block {
@@ -353,7 +375,7 @@ p {
 }
 
 .text-muted {
-    color: #919aa3 !important;
+    color: var(--cor3) !important;
 }
 
 .b-b-default {
@@ -398,8 +420,7 @@ p {
 .user-descrip {
     color: #ffffff;
     font-size: 15px;
-    font-family: 'Tahoma', sans-serif;
-    
+    font-family: var(--fonte-padrao);  
 }
 
 /* -- Relógio -- */
@@ -410,18 +431,15 @@ p {
     justify-content: center;
     align-items: center;
   }
-  
-  .clock {
+
+.clock {
     align-items: center;
     background-color: transparent;
     border-radius: 3%;
-    color: #0b6567;
+    color: var(--cor1);
     display: flex;
     font-size: 100px;
     justify-content: center;
     height: 100px;
     width: 250px;
-  }
-
-/* -- Sidebar -- */
-
+}
