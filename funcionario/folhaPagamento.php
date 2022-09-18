@@ -32,7 +32,7 @@
                 <h1 class="h3 mb-2 fw-normal">FOLHA DE PAGAMENTO</h1>
             </div>
             <div class="row mx-5 mt-5">
-                <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion accordion-flush sticky" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -40,8 +40,8 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <table class="table table-bordered border-success">
+                            <div class="accordion-body sticky">
+                                <table class="table table-bordered border-success sticky">
                                     <thead>
                                         <tr>
                                             <th scope="col">Nome</th>
