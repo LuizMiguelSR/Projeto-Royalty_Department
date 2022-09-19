@@ -1,5 +1,5 @@
 <?php
-require_once('../classes/vendor/tecnickcom/tcpdf/examples/tcpdf_include.php');
+require_once('../libs/tcPDF/tecnickcom/tcpdf/examples/tcpdf_include.php');
 
 class MYPDF extends TCPDF {
 

@@ -1,35 +1,34 @@
 <?php
-    require_once '../src/PHPMailer.php';
-    require_once '../src/SMTP.php';
-    require_once '../src/Exception.php';
+    require_once '../libs/phpMailer/PHPMailer.php';
+    require_once '../libs/phpMailer/SMTP.php';
+    require_once '../libs/phpMailer/Exception.php';
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     $mail = new PHPMailer(true);
     $recuperar = $_POST["recuperar"];
-    require_once 'connectDb.php';
-    try {
-        $gestor = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
-        $gestor->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $dado = $gestor->query("Select * FROM funcionario");
+    try {
+        require_once 'connectDb.php';
+
+        $dado = $conexao->query("Select * FROM funcionario");
         $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
         
         foreach($valida as $val) {
             if($recuperar == $val['email']){
-                $nome = $val['funcionarioNome'];
+                $nome = $val['nome_funcionario'];
                 $id = $val['id_funcionario'];
                 $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
-                $gestor->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
+                $conexao->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
                 try {
                     $mail->isSMTP();
-                    $mail->Host = 'XXXx';
+                    $mail->Host = 'mail.digitaltrainer.com.br';
                     $mail->SMTPAuth = True;
-                    $mail->Username = 'XXXX';
-                    $mail->Password = 'XXXXX';
+                    $mail->Username = '_mainaccount@digitaltrainer.com.br';
+                    $mail->Password = 'CpibwrP=NfM2';
                     $mail->Port = 587;
 
-                    $mail->setFrom('XXXXX');
+                    $mail->setFrom('dgt@digitaltrainer.com.br');
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);
@@ -49,8 +48,9 @@
         }
 
     } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
-        header('Location: sair.php');
+        $e->getMessage();
+        include_once '../classes/logSystem.php';
+        header('Location: ../errorConnect.php');
         die();
     }
 ?>

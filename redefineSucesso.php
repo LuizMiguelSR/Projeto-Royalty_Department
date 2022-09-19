@@ -19,7 +19,7 @@
     <div class="container-fluid m-auto text-center">
         <div class="row">
             <main class="form-signin w-100 m-auto">
-                <img src="img/redefine.svg" alt="Redefinir Senha">
+                <img src="img/logobase.png" alt="Redefinir Senha">
                 <h1 class="h3 mb-3 fw-normal">Recuperação Realizada</h1>
                 <h3>Digite abaixo a chave de recuperação e a nova senha</h3>
                 <form  method="post" class="p-4 p-md-5 border rounded-3 bg-light" action="configs/recuperarConfirma.php">
@@ -34,6 +34,12 @@
                     <input class="w-100 btn btn-lg btn-primary mt-2" type="submit" value="RECUPERAR">
                 </form>
             </main>
+        </div>
+        <div class="row mt-3">
+            <a href="index.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+        </div>
+        <div class="row">
+            <p>VOLTAR</p>
         </div>
         <div class="row mt-3">
             <?php
