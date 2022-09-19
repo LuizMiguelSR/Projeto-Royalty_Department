@@ -37,26 +37,32 @@
         $caminho = $pasta . $novoNomeDoArquivo . "." . $extensao;
         $deuCerto = move_uploaded_file($arquivo["tmp_name"], $caminho);
     }
-    require_once "endereco.php";
     require_once "salarioLiquido.php";
     
     try {
         require_once '../configs/connectDb.php';
         $conexao->beginTransaction();
 
-        $conexao->exec("INSERT INTO funcionario (funcionarioNome, email, telefone, senha, rg, cpf, numeroDependentes, salarioBase, nomeFoto, caminho) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$salarioBase', '$nomeDoArquivo', '$caminho')");
+        $conexao->exec("INSERT INTO funcionario (nome_funcionario, email, telefone, senha, registrogeral, cpf, numeroDependentes, foto) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$caminho')");
     
-        $conexao->exec("INSERT INTO localrh (endereco, estado, pais) VALUES ('$endereco','$estado','$pais')");
+        $conexao->exec("INSERT INTO endereco (rua, numero, cep, complemento, cidade, bairro, estado, pais) VALUES ('$rua', '$numero', '$cep', '$complemento', '$cidade', '$bairro', '$estado','$pais')");
 
-        $conexao->exec("INSERT INTO departamento (dp_nome) VALUES ('$departamento')");
+        $conexao->exec("INSERT INTO departamento (departamento_nome, cargo, salario_base) VALUES ('$departamento', '$cargo', '$salarioBase')");
 
-        $conexao->exec("INSERT INTO trabalho (cargo, salarioLiquido, inss, irrf) VALUES ('$cargo', '$salarioLiquido', '$inss[4]', '$irrf[5]')");
+        $conexao->exec("INSERT INTO holerite (salarioliquido) VALUES ('$salarioLiquido')");
+
+        $conexao->exec("INSERT INTO inss (faixa_1, faixa_2, faixa_3, faixa_4, total_inss) VALUES ('$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]')");
+
+        $conexao->exec("INSERT INTO irrf (faixa_irrf_1, faixa_irrf_2, faixa_irrf_3, faixa_irrf_4, faixa_irrf_5, total_irrf) VALUES ('$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]')");
 
         $conexao->commit();
         header('Location: ../funcionario/painelGerente.php');
         die();
+
     } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
+        $e->getMessage();
+        include_once 'logSystem.php';
+        header('Location: ../errorConnect.php');
     }
 
     $conexao = null;

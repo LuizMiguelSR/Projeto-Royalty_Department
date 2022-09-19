@@ -49,7 +49,7 @@
             </div>
             <br><br>
             <div class="row mt-5">
-                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+                <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
             </div>
            
             <div class="row">

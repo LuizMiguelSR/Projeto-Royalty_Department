@@ -24,8 +24,9 @@
         header('Location: ../redefineSucesso.php');
         die();
     } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
-        header('Location: sair.php');
+        $e->getMessage();
+        include_once '../classes/logSystem.php';
+        header('Location: ../errorConnect.php');
         die();
     }
 

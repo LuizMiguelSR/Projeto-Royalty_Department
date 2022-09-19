@@ -158,7 +158,7 @@
         </main>
         <br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+            <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

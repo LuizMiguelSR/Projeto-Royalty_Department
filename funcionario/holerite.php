@@ -4,12 +4,21 @@
     try {
         require_once '../configs/connectDb.php';
     } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
+        $e->getMessage();
+        include_once '../classes/logSystem.php';
+        header('Location: ../errorConnect.php');
     }
-    $dados = $conexao->query("Select * FROM trabalho");
-    $funcionarios = $dados->fetchAll(PDO::FETCH_ASSOC);
-    $dados2 = $conexao->query("Select * FROM funcionario");
-    $funcionarios2 = $dados2->fetchAll(PDO::FETCH_ASSOC);
+    $dados = $conexao->query("Select * FROM departamento");
+    $departamento = $dados->fetchAll(PDO::FETCH_ASSOC);
+
+    $dados = $conexao->query("Select * FROM holerite");
+    $holerite = $dados->fetchAll(PDO::FETCH_ASSOC);
+
+    $dados2 = $conexao->query("Select * FROM inss");
+    $inss = $dados2->fetchAll(PDO::FETCH_ASSOC);
+
+    $dados3 = $conexao->query("Select * FROM irrf");
+    $irrf = $dados3->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,11 +51,43 @@
                 <table class="table table-bordered border-success hole">
                     <thead>
                         <tr>
-                            <td class="table-dark">INSS a recolher</td>
-                            <?php foreach($funcionarios as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            <td class="table-dark">INSS a recolher Faixa 04</td>
+                            <?php foreach($inss as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
                             ?>
-                            <td class="table-dark">R$ <?= number_format($func["inss"], 2, ',', '.') ?></td>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_4"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">INSS a recolher Faixa 03</td>
+                            <?php foreach($inss as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_3"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">INSS a recolher Faixa 02</td>
+                            <?php foreach($inss as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_2"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">INSS a recolher Faixa 01</td>
+                            <?php foreach($inss as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_1"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">INSS a recolher Total</td>
+                            <?php foreach($inss as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["total_inss"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </thead>
@@ -55,13 +96,53 @@
             </div>
             <div class="row mx-5 mt-2">
                 <table class="table table-bordered border-success hole">
-                    <thead>
+                <thead>
                         <tr>
-                            <td class="table-dark">IRRF a recolher</td>
-                            <?php foreach($funcionarios as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            <td class="table-dark">IRRF a recolher Faixa 05</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
                             ?>
-                                    <td class="table-dark">R$ <?= number_format($func["irrf"], 2, ',', '.') ?></td>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_irrf_5"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">IRRF a recolher Faixa 04</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_irrf_4"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">IRRF a recolher Faixa 03</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_irrf_3"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">IRRF a recolher Faixa 02</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_irrf_2"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">IRRF a recolher Faixa 01</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["faixa_irrf_1"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="table-dark">IRRF a recolher Total</td>
+                            <?php foreach($irrf as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="table-dark">R$ <?= number_format($func["total_irrf"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </thead>
@@ -89,15 +170,15 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <?php foreach($funcionarios2 as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_funcionario'] ){
+                            <?php foreach($departamento as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_departamento'] ){
                             ?>
-                                    <td class="table-dark">R$ <?= number_format($func["salarioBase"], 2, ',', '.') ?></td>
+                                    <td class="table-dark">R$ <?= number_format($func["salario_base"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
-                            <?php foreach($funcionarios as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_trabalho'] ){
+                            <?php foreach($holerite as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_holerite'] ){
                             ?>
-                                    <td class="table-dark">R$ <?= number_format($func["salarioLiquido"], 2, ',', '.') ?></td>
+                                    <td class="table-dark">R$ <?= number_format($func["salarioliquido"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </tbody>
@@ -105,14 +186,14 @@
             </div>
             <div class="row">
                 <div class="col-md-2 mt-4">
-                    <form action="holeriteGerarPdf.php" method="post" target="_blank">
+                    <form action="../classes/holeriteGerarPdf.php" method="post" target="_blank">
                         <button type="submit" class="btn btn-primary">GERAR PDF</button>
                     </form>
                 </div>
             </div>
             <br><br>
             <div class="row mt-3">
-                <a href="<?php echo $voltar = ($_SESSION['nome'] == 'Administrador') ? 'painelGerente.php' : 'painelFuncionario.php' ?>"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+                <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
             </div>
             <div class="row">
                 <p>VOLTAR</p>

@@ -16,7 +16,7 @@
         
         foreach($valida as $val) {
             if($recuperar == $val['email']){
-                $nome = $val['funcionarioNome'];
+                $nome = $val['nome_funcionario'];
                 $id = $val['id_funcionario'];
                 $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
                 $conexao->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
@@ -48,8 +48,9 @@
         }
 
     } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
-        header('Location: sair.php');
+        $e->getMessage();
+        include_once '../classes/logSystem.php';
+        header('Location: ../errorConnect.php');
         die();
     }
 ?>
