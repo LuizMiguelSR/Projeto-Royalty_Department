@@ -22,12 +22,12 @@
                 <img src="img/logoEntrada1.svg" alt="Logo">
                 <h1 class="h3 mb-3 fw-normal">BEM VINDO</h1>
                 <form  method="post" class="p-4 p-md-5 border rounded-3 bg-light" action="configs/valida.php">
-                    <div class="form-floating">
-                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                  <div class="form-floating">
+                        <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="admin@email.com">
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mt-1">
-                        <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Password" value="admin">
                         <label for="floatingPassword">Senha</label>
                     </div><br>
                     <a href="redefine.php">Esqueceu a senha?</a>
