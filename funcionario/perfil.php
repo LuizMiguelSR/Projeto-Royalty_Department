@@ -21,6 +21,7 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
         <main>
             <div class="row mt-5">
@@ -36,7 +37,7 @@
                                         <div class="col-sm-4 bg-c-lite-green user-profile">
                                             <div class="card-block text-center text-white">
                                                 <div class="m-b-25">
-                                                    <img src="../img/profile.png" class="img-radius" alt="Perfil">
+                                                    <img src="../img/user.png" class="img-radius" alt="Perfil">
                                                 </div>
                                                 <h6 class="f-w-600"><?php echo "{$_SESSION['nome']}"; ?></h6>
                                                 <h1 class="user-descrip">Web Designer</p>
@@ -107,7 +108,7 @@
             </div>
         </main>
         <div class="row">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+            <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>

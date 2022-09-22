@@ -25,6 +25,49 @@
                 <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
         </header>
         <main>
+            <?php if($_SESSION['nome'] == 'Administrador') { ?>
+                <div class="row mt-5" >
+                    <a href="cadastrarFuncionario.php" style="width: auto">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Cadastrar" src="../img/cadastrar1.svg"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">CADASTRAR</div>
+                            <div class="title">Saiba mais</div>
+                        </div>
+                    </a>
+                    <a href="consultar.php" style="width: auto">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Consulta" src="../img/consultar1.svg"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">CONSULTAR</div>
+                            <div class="title">Saiba mais</div>
+                        </div>
+                    </a>
+                    <a href="folhaPagamento.php" style="width: auto">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Folha de Pagamento" src="../img/folha1.svg"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">FOLHA DE PAGAMENTO</div>
+                            <div class="title">Saiba mais</div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
             <div class="row">
                 <a href="holerite.php" style="width: auto">
                     <div class="person">

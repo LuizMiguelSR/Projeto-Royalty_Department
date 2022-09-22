@@ -25,23 +25,14 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
         <main>
-            <div class="row">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="../img/folha1.svg"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <h1 class="h3 mb-2 fw-normal">FOLHA DE PAGAMENTO</h1>
             </div>
             <div class="row mx-5 mt-5">
-                <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion accordion-flush sticky" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -49,8 +40,8 @@
                             </button>
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <table class="table table-bordered border-success">
+                            <div class="accordion-body sticky">
+                                <table class="table table-bordered border-success sticky">
                                     <thead>
                                         <tr>
                                             <th scope="col">Nome</th>
@@ -167,7 +158,7 @@
         </main>
         <br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+            <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>
