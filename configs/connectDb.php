@@ -3,8 +3,7 @@
     define('MYSQL_DATABASE','FHR');
     define('MYSQL_USER','root');
     define('MYSQL_PASS','');
-    /*define('MYSQL_HOST','localhost');
-    define('MYSQL_DATABASE','XXXX');
-    define('MYSQL_USER','XXXX');
-    define('MYSQL_PASS','XXXX3');*/
+
+    $conexao = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
+    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

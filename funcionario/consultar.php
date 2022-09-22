@@ -25,17 +25,8 @@
                     include '../components/navbar.php';
                 ?>
             </div>
+            <img src="../img/logobase.png" class="rounded"><br><br>
         </header>
-        <div class="row">
-            <div class="person">
-                <div class="container">
-                    <div class="container-inner">
-                        <img class="circle"/>
-                        <img class="img img1" alt="Consultar" src="../img/consultar1.svg"/>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
             <h1 class="h3 mb-2 fw-normal">DIGITE O NOME DO FUNCIONÁRIO</h1>
         </div>
@@ -54,7 +45,7 @@
             </main>
         </div><br><br>
         <div class="row mt-5">
-            <a href="painelGerente.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
+            <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
         </div>
         <div class="row">
             <p>VOLTAR</p>
