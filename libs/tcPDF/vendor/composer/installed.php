@@ -1,0 +1,33 @@
+<?php return array (
+  'root' => 
+  array (
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
+    'aliases' => 
+    array (
+    ),
+    'reference' => '4837d51e08a11096a30a0e5e89f9049f074b6e8f',
+    'name' => '__root__',
+  ),
+  'versions' => 
+  array (
+    '__root__' => 
+    array (
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4837d51e08a11096a30a0e5e89f9049f074b6e8f',
+    ),
+    'tecnickcom/tcpdf' => 
+    array (
+      'pretty_version' => '6.5.0',
+      'version' => '6.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'cc54c1503685e618b23922f53635f46e87653662',
+    ),
+  ),
+);

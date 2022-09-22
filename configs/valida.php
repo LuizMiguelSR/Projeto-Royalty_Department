@@ -14,7 +14,7 @@
         require_once 'connectDb.php';
 
 
-        $dado = $gestor->query("SELECT * FROM funcionario");
+        $dado = $conexao->query("SELECT * FROM funcionario");
         $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
 
         if ($_SESSION['erro'] < 2 || $_SESSION['erro'] == null) { 
