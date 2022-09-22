@@ -1,5 +1,5 @@
 <?php
-require_once('../libs/tcPDF/tecnickcom/tcpdf/examples/tcpdf_include.php');
+require_once('../libs/tcPDF/vendor/tecnickcom/tcpdf/examples/tcpdf_include.php');
 
 class MYPDF extends TCPDF {
 
@@ -7,7 +7,7 @@ class MYPDF extends TCPDF {
     public function Header() {
         // Logo
         $image_file = '../img/logoEntrada.svg';
-        $this->ImageSVG($image_file, 10, 0, 30, '', 'SVG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        $this->ImageSVG($image_file, 10, 0, 30, 30, '', '', 'T', false, 300, '', false, false, 0, false, false, false);
         // Set font
         $this->SetFont('dejavusans', 'B', 20);
         // Title

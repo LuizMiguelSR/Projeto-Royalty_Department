@@ -45,7 +45,7 @@
     } catch(PDOException $e) {    
         $e->getMessage();
         include_once '../classes/logSystem.php';
-        header('Location: ../errorConnect.php');
+        // header('Location: ../errorConnect.php');
         die();
     }
     

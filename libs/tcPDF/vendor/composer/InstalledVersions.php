@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '4837d51e08a11096a30a0e5e89f9049f074b6e8f',
+    'reference' => '499c642991c70af809da88c2d1004e6ecf2087b6',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '4837d51e08a11096a30a0e5e89f9049f074b6e8f',
+      'reference' => '499c642991c70af809da88c2d1004e6ecf2087b6',
     ),
     'tecnickcom/tcpdf' => 
     array (

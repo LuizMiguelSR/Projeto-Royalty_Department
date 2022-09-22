@@ -1,6 +1,6 @@
 <?php
     define('MYSQL_HOST','127.0.0.1');
-    define('MYSQL_DATABASE','FHR');
+    define('MYSQL_DATABASE','fhr2');
     define('MYSQL_USER','root');
     define('MYSQL_PASS','');
 

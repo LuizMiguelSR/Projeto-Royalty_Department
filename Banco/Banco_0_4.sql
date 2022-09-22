@@ -1,9 +1,8 @@
-CREATE DATABASE IF NOT EXISTS FHR;
+CREATE DATABASE IF NOT EXISTS fhr2;
 
-USE FHR;
+USE fhr2;
 
 
-DROP TABLE IF EXISTS `endereco`
 CREATE TABLE IF NOT EXISTS `endereco` (
 id_endereco INT(8) auto_increment,
 rua VARCHAR(50),
@@ -17,7 +16,6 @@ pais VARCHAR(50),
 CONSTRAINT pk_id_endereco PRIMARY KEY(id_endereco));
 
 
-DROP TABLE IF EXISTS `departamento`
 CREATE TABLE IF NOT EXISTS `departamento` (
 id_departamento INT(8) auto_increment,
 departamento_nome VARCHAR(50),
@@ -27,7 +25,6 @@ salario_base double(10,2),
 constraint pk_id_departamento primary key(id_departamento));
 
 
-DROP TABLE IF EXISTS `funcionario`
 CREATE TABLE IF NOT EXISTS `funcionario` (
 id_funcionario INT(8) auto_increment,
 id_departamento INT(8),
@@ -45,7 +42,6 @@ CONSTRAINT fk_funcionario_enredereco FOREIGN KEY (id_endereco) REFERENCES endere
 CONSTRAINT fk_funcionario_departamento FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento));
 
 
-DROP TABLE IF EXISTS `holerite`
 CREATE TABLE IF NOT EXISTS `holerite`(
 id_holerite INT(8) auto_increment,
 id_funcionario INT(8),
@@ -60,7 +56,6 @@ CONSTRAINT fk_holerite_funcionario FOREIGN KEY (id_funcionario) REFERENCES funci
 CONSTRAINT fk_holerite_departamento FOREIGN KEY (id_departamento) REFERENCES departamento(id_departamento));
 
 
-DROP TABLE IF EXISTS `inss`
 CREATE TABLE IF NOT EXISTS `inss` (
 id_inss INT(8) auto_increment,
 id_holerite INT(8),
@@ -75,7 +70,7 @@ constraint fk_inss_holerite foreign key (id_holerite) references holerite(id_hol
 CREATE TABLE IF NOT EXISTS `funcionario_ponto`(
 id_funcionario_ponto int(8) auto_increment,
 id_funcionario int(8),
-diames DATE
+diames DATE,
 entrada TIME,
 almoco_sai TIME,
 almoco_che TIME,
