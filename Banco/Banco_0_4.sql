@@ -71,17 +71,6 @@ faixa_4 double(10,2),
 CONSTRAINT pk_id_inss PRIMARY KEY(id_inss),
 constraint fk_inss_holerite foreign key (id_holerite) references holerite(id_holerite));
 
-CREATE TABLE IF NOT EXISTS `irrf` (
-id_irrf int(8) auto_increment,
-id_holerite int(8),
-faixa_1 double(10,2),
-faixa_2 double(10,2),
-faixa_3 double(10,2),
-faixa_4 double(10,2),
-faixa_5 double(10,2),
-constraint pk_id_irrf primary key(id_irrf),
-CONSTRAINT fk_inss_holerite FOREIGN KEY (id_holerite) REFERENCES holerite(id_holerite));
-
 
 CREATE TABLE IF NOT EXISTS `funcionario_ponto`(
 id_funcionario_ponto int(8) auto_increment,
@@ -105,18 +94,6 @@ faixa_4 double(10,2),
 faixa_5 double(10,2),
 CONSTRAINT pk_id_irrf PRIMARY KEY(id_irrf),
 CONSTRAINT fk_irrf_holerite FOREIGN KEY (id_holerite) REFERENCES holerite(id_holerite));
-
-
-CREATE TABLE IF NOT EXISTS `funcionario_ponto`(
-id_funcionario_ponto INT(8) auto_increment,
-id_funcionario INT(8),
-entrada DATETIME,
-almoco_sai DATETIME,
-almoco_che DATETIME,
-saida DATETIME,
-CONSTRAINT pk_id_holerite PRIMARY KEY(id_funcionario_ponto),
-CONSTRAINT fk_funcionario_ponto FOREIGN KEY (id_funcionario) REFERENCES funcionario(id_funcionario));
-
 
 
 INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (01, 'Comercial', 'Vendas', 'Junior', 5000000);
