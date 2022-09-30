@@ -33,9 +33,9 @@ senha varchar(255),
 email varchar(50), 
 telefone int(20),
 numeroDependentes int(2),
-foto varcar(100),
+foto varchar(100),
 constraint pk_id_funcionario primary key(id_funcionario),
-constraint fk_funcionario_enredereco foreign key (id_endereco) references endereco(id_endereco),
+constraint fk_funcionario_endereco foreign key (id_endereco) references endereco(id_endereco),
 constraint fk_funcionario_departamento foreign key (id_departamento) references departamento(id_departamento));
 
 create table holerite(
@@ -64,18 +64,18 @@ constraint fk_inss_holerite foreign key (id_holerite) references holerite(id_hol
 create table irrf (
 id_irrf int(8) auto_increment,
 id_holerite int(8),
-faixa_irrf double(10,2),
-faixa_irrf double(10,2),
-faixa_irrf double(10,2),
-faixa_irrf double(10,2),
-faixa_irrf double(10,2),
+faixa_irrf1 double(10,2),
+faixa_irrf2 double(10,2),
+faixa_irrf3 double(10,2),
+faixa_irrf4 double(10,2),
+faixa_irrf5 double(10,2),
 constraint pk_id_irrf primary key(id_irrf),
 constraint fk_irrf_holerite foreign key (id_holerite) references holerite(id_holerite));
 
 create table funcionario_ponto(
 id_funcionario_ponto int(8) auto_increment,
 id_funcionario int(8),
-diames DATE
+diames DATE,
 entrada TIME,
 almoco_sai TIME,
 almoco_che TIME,

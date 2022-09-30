@@ -43,20 +43,22 @@
         require_once '../configs/connectDb.php';
         $conexao->beginTransaction();
 
-        $conexao->exec("INSERT INTO funcionario (nome_funcionario, email, telefone, senha, registrogeral, cpf, numeroDependentes, foto) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$caminho')");
-    
         $conexao->exec("INSERT INTO endereco (rua, numero, cep, complemento, cidade, bairro, estado, pais) VALUES ('$rua', '$numero', '$cep', '$complemento', '$cidade', '$bairro', '$estado','$pais')");
+        $id_endereco = $conexao->lastInsertId();
 
         $conexao->exec("INSERT INTO departamento (departamento_nome, cargo, salario_base) VALUES ('$departamento', '$cargo', '$salarioBase')");
+        $id_departamento = $conexao->lastInsertId();
 
-        $conexao->exec("INSERT INTO holerite (salarioliquido) VALUES ('$salarioLiquido')");
+        $conexao->exec("INSERT INTO funcionario (nome_funcionario, email, telefone, senha, registro_geral, cpf, numero_dependentes, foto, id_departamento, id_endereco) VALUES ('$nome','$email','$telefone', '$senha', '$rg', '$cpf', '$numeroDependentes', '$caminho', '$id_departamento', '$id_endereco')");
 
-        $conexao->exec("INSERT INTO inss (faixa_1, faixa_2, faixa_3, faixa_4, total_inss) VALUES ('$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]')");
+        #$conexao->exec("INSERT INTO holerite (salario_liquido) VALUES ('$salarioLiquido')");
 
-        $conexao->exec("INSERT INTO irrf (faixa_irrf_1, faixa_irrf_2, faixa_irrf_3, faixa_irrf_4, faixa_irrf_5, total_irrf) VALUES ('$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]')");
+        #$conexao->exec("INSERT INTO inss (faixa_1, faixa_2, faixa_3, faixa_4, total_inss) VALUES ('$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]')");
+
+        #$conexao->exec("INSERT INTO irrf (faixa_irrf_1, faixa_irrf_2, faixa_irrf_3, faixa_irrf_4, faixa_irrf_5, total_irrf) VALUES ('$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]')");
 
         $conexao->commit();
-        header('Location: ../funcionario/painelGerente.php');
+        header('Location: ../funcionario/painelFuncionario.php');
         die();
 
     } catch(PDOException $e) {    
