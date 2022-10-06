@@ -91,19 +91,23 @@ CONSTRAINT pk_id_irrf PRIMARY KEY(id_irrf),
 CONSTRAINT fk_irrf_holerite FOREIGN KEY (id_holerite) REFERENCES holerite(id_holerite));
 
 
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (01, 'Comercial', 'Vendas', 'Junior', 5000000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (02, 'Comercial', 'Vendas', 'Senior', 7500000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (03, 'T.I', 'Analista', 'Junior', 5300000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (04, 'T.I', 'Analista', 'Senior', 8250000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (05, 'Escritorio', 'Administrativo', 'Junior', 350000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (06, 'Escritorio', 'Administrativo', 'Senior', 650000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (07, 'Financeiro', 'Contador', 'Junior', 450000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (08, 'Financeiro', 'Contador', 'Senior', 350000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (09, 'RH', 'RH', 'Junior', 550000);
-INSERT INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (10, 'RH', 'RH', 'Senior', 720000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (01, 'Comercial', 'Vendas', 'Junior', 5000000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (02, 'Comercial', 'Vendas', 'Senior', 7500000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (03, 'T.I', 'Analista', 'Junior', 5300000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (04, 'T.I', 'Analista', 'Senior', 8250000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (05, 'Escritorio', 'Administrativo', 'Junior', 350000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (06, 'Escritorio', 'Administrativo', 'Senior', 650000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (07, 'Financeiro', 'Contador', 'Junior', 450000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (08, 'Financeiro', 'Contador', 'Senior', 350000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (09, 'RH', 'RH', 'Junior', 550000);
+INSERT IGNORE INTO `departamento` (id_departamento,departamento_nome, cargo, funcao, salario_base) VALUES (10, 'RH', 'RH', 'Senior', 720000);
 
+INSERT IGNORE INTO `holerite` (`id_holerite`, `id_funcionario`,  `id_departamento`,  `tipo`,  `data_inicio`,  `data_Final`,  `salarioliquido`,  `totaldescontos`) VALUES (1, 1, 1, '', '2022-09-01', '2022-09-20', 5500000, 100);
 
-INSERT INTO `funcionario` (`id_funcionario`,`id_departamento`,  `nome_funcionario`, `email`, `telefone`, `senha`,  `cpf`, `numeroDependentes`, `foto`) VALUES
+INSERT IGNORE INTO `inss` (`id_inss`, `id_holerite`, `faixa_inss1`, `faixa_inss2`, `faixa_inss3`, `faixa_inss4`) VALUES (1, 1, 1.212, 2.427, 3.641, 7.087);
+INSERT IGNORE INTO `irrf` (`id_irrf`, `id_holerite`, `faixa_irrf1`, `faixa_irrf2`, `faixa_irrf3`, `faixa_irrf4`, `faixa_irrf5`) VALUES (1, 1, 142.80, 354.80, 636.13, 869.36, 790.58);
+
+INSERT IGNORE INTO `funcionario` (`id_funcionario`,`id_departamento`,  `nome_funcionario`, `email`, `telefone`, `senha`,  `cpf`, `numeroDependentes`, `foto`) VALUES
 (1, 6, 'Administrador', 'admin@email.com', '12345789', '$2y$10$r6SU3qVCH/t.e/aLyXPzSu6IhYNotw02ynFUUfah1VkYWm2OYifqG', 13245689, 2, ''),
 (2, 8, 'Monteiro Lobato', 'luizmsr0@gmail.com', '12345789', '$2y$10$Ur5C8wZTIXpyczbV.tWfyex9ua4tbHznI2nHrQ89jYIoQdoW2BLvu', 13245689, 0, ''),
 (3, 10, 'Carla Diaz', 'diaz@email.com', '12345789', '$2y$10$cp08lF2Mc3jlMuuxx.awPuXCWRlBa0D3kSc99dccsF7jHHxCGKau.', 13245689, 0, '');
