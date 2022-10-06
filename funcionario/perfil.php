@@ -7,18 +7,17 @@
         header('Location: ../configs/sair.php');
         die();
     }
-        if(!empty($_GET['consultar']))
-        {
-            # Pega como parâmetro a var consultar
-            $consultar = $_GET['consultar'];
+    
+            if (!empty($_GET['id'])) {
 
+                $id = $_GET['id'];
 
             # Select que faz a junção das tabelas e mostra as informações que estão de acordo com a variável consultar
             $sqlConsultar = "SELECT * FROM funcionario AS f
             INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
             INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-            WHERE f.nome_funcionario LIKE '%$consultar%' OR f.cpf LIKE '$consultar'";
-
+            WHERE f.id_funcionario = '$id'";
+            
             $result = $conexao->query($sqlConsultar) or die("ERRO ao consultar!" . $mysqli->error);
 
                 if($result->rowCount() > 0)
