@@ -1,4 +1,11 @@
 configs/recuperar.php
 configs/connectDb.php
-configs/connectDb.php
-configs/recuperar.php
+
+Quest/
+Quest Software
+
+.devcontainer
+
+.vscode
+
+ApexSQL
