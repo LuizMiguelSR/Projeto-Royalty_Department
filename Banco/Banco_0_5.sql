@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Out-2022 às 20:26
+-- Tempo de geração: 06-Out-2022 às 20:46
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -212,8 +212,8 @@ ALTER TABLE `endereco`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_funcionario`),
-  ADD KEY `fk_funcionario_enredereco` (`id_endereco`),
-  ADD KEY `fk_funcionario_departamento` (`id_departamento`);
+  ADD KEY `fk_funcionario_departamento` (`id_departamento`),
+  ADD KEY `fk_funcionario_enredereco` (`id_endereco`);
 
 --
 -- Índices para tabela `funcionario_ponto`
@@ -298,8 +298,8 @@ ALTER TABLE `irrf`
 -- Limitadores para a tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  ADD CONSTRAINT `fk_funcionario_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`),
-  ADD CONSTRAINT `fk_funcionario_enredereco` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`);
+  ADD CONSTRAINT `fk_funcionario_departamento` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_funcionario_enredereco` FOREIGN KEY (`id_endereco`) REFERENCES `endereco` (`id_endereco`) ON DELETE CASCADE;
 
 --
 -- Limitadores para a tabela `funcionario_ponto`
