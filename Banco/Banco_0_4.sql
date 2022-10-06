@@ -59,10 +59,10 @@ CONSTRAINT fk_holerite_departamento FOREIGN KEY (id_departamento) REFERENCES dep
 CREATE TABLE IF NOT EXISTS `inss` (
 id_inss INT(8) auto_increment,
 id_holerite INT(8),
-faixa_1 double(10,2),
-faixa_2 double(10,2),
-faixa_3 double(10,2),
-faixa_4 double(10,2),
+faixa_inss1 double(10,2),
+faixa_inss2 double(10,2),
+faixa_inss3 double(10,2),
+faixa_inss4 double(10,2),
 CONSTRAINT pk_id_inss PRIMARY KEY(id_inss),
 constraint fk_inss_holerite foreign key (id_holerite) references holerite(id_holerite));
 
@@ -82,11 +82,11 @@ constraint fk_funcionario_ponto foreign key (id_funcionario) references funciona
 CREATE TABLE IF NOT EXISTS `irrf` (
 id_irrf INT(8) auto_increment,
 id_holerite INT(8),
-faixa_1 double(10,2),
-faixa_2 double(10,2),
-faixa_3 double(10,2),
-faixa_4 double(10,2),
-faixa_5 double(10,2),
+faixa_irrf1 double(10,2),
+faixa_irrf2 double(10,2),
+faixa_irrf3 double(10,2),
+faixa_irrf4 double(10,2),
+faixa_irrf5 double(10,2),
 CONSTRAINT pk_id_irrf PRIMARY KEY(id_irrf),
 CONSTRAINT fk_irrf_holerite FOREIGN KEY (id_holerite) REFERENCES holerite(id_holerite));
 

@@ -40,7 +40,7 @@
                             <div class="title">Saiba mais</div>
                         </div>
                     </a>
-                    <a href="consultar.php" style="width: auto">
+                    <a href="lista.php" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
