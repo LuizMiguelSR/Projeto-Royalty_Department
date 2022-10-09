@@ -24,11 +24,11 @@
                     $mail->isSMTP();
                     $mail->Host = 'mail.digitaltrainer.com.br';
                     $mail->SMTPAuth = True;
-                    $mail->Username = '_mainaccount@digitaltrainer.com.br';
+                    $mail->Username = 'naoresponda@digitaltrainer.com.br';
                     $mail->Password = 'CpibwrP=NfM2';
                     $mail->Port = 587;
 
-                    $mail->setFrom('dgt@digitaltrainer.com.br');
+                    $mail->setFrom('naoresponda@digitaltrainer.com.br');
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);
