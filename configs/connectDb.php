@@ -1,8 +1,8 @@
 <?php
-    define('MYSQL_HOST','31.170.163.156');
-    define('MYSQL_DATABASE','dgt_fhr2');
-    define('MYSQL_USER','dgt_luiz');
-    define('MYSQL_PASS','gmo#144mHn{TJ');
+    define('MYSQL_HOST','sql10.freemysqlhosting.net');
+    define('MYSQL_DATABASE','sql10525208');
+    define('MYSQL_USER','sql10525208');
+    define('MYSQL_PASS','yv91CZsQkz');
 
     $conexao = new PDO("mysql:host=".MYSQL_HOST.";"."dbname=".MYSQL_DATABASE.";charset=utf8",MYSQL_USER,MYSQL_PASS);
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
