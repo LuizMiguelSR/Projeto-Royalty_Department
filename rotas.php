@@ -1,5 +1,4 @@
 <?php
-    include 'App/Controller/Controller.php';
     
     $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -8,17 +7,25 @@
             Controller::login();
         break;
         case '/valida':
-            Controller::valida();
-        break;
-        case '/redefine':
-            Controller::redefine();
+            Controller::valida($_POST["email"], $_POST["senha"]);
         break;
         case '/errou':
             Controller::errou();
         break;
-        case '/sair':
-            Controller::sair();
+
+        case '/redefine':
+            Controller::redefine();
         break;
+        case '/recuperar':
+            Controller::recuperar($_POST["recuperar"]);
+        break;
+        case '/recuperarConfirma':
+            Controller::recuperarConfirma($_POST["chave"], $_POST["novaSenha"]);
+        break;
+        case '/redefineSucesso':
+            Controller::redefineSucesso();
+        break;
+
         case '/painel':
             Controller::painel();
         break;
@@ -39,6 +46,10 @@
         break;
         case '/registroPonto':
             Controller::registroPonto();
+        break;
+
+        case '/errorConnect':
+            Controller::errorConnect();
         break;
         default:
             Controller::errorNotFound();

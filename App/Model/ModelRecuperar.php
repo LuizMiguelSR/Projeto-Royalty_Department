@@ -1,32 +1,28 @@
 <?php
-    require_once '../libs/phpMailer/PHPMailer.php';
-    require_once '../libs/phpMailer/SMTP.php';
-    require_once '../libs/phpMailer/Exception.php';
+    require_once 'App/Libs/phpMailer/PHPMailer.php';
+    require_once 'App/Libs/phpMailer/SMTP.php';
+    require_once 'App/Libs/phpMailer/Exception.php';
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
     $mail = new PHPMailer(true);
-    $recuperar = $_POST["recuperar"];
 
     try {
-        require_once 'connectDb.php';
-
-        $dado = $conexao->query("Select * FROM funcionario");
-        $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
+        $valida = (new DAOConnect)->select("funcionario");
         
         foreach($valida as $val) {
             if($recuperar == $val['email']){
                 $nome = $val['nome_funcionario'];
                 $id = $val['id_funcionario'];
                 $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
-                $conexao->exec("UPDATE funcionario SET recuperar = '$idHash' WHERE funcionario.id_funcionario = $id");
+                $valida = (new DAOConnect)->updateFuncionario('recuperar', $idHash, $id);
                 try {
                     $mail->isSMTP();
                     $mail->Host = 'mail.digitaltrainer.com.br';
                     $mail->SMTPAuth = True;
                     $mail->Username = 'informeroyal@digitaltrainer.com.br';
                     $mail->Password = 'mo#144mHn{TJ';
-                    $mail->Port = 465;
+                    $mail->Port = 587;
 
                     $mail->setFrom('informeroyal@digitaltrainer.com.br');
                     $mail->addAddress($recuperar);
@@ -37,20 +33,27 @@
                     $mail->AltBody = 'Oi '.$nome.', anote sua chave: '.$idHash;
 
                     if($mail->send()) {
-                        header('Location: ../redefineSucesso.php');
+                        header('Location: /redefineSucesso');
+                        die();
                     } else {
-                        header('Location: recuperarErro.php');
+                        $erro = "Mensagem não enviada ou email não encontrado";
+                        ModelSystemLog::logEmailFail($erro);
+                        header('Location: /');
+                        die();
                     }
                 } catch (Exception $e) {
-                    echo "Erro ao enviar mensagem: {$mail->ErrorInfo}";
+                    $erro = $mail->ErrorInfo;
+                    ModelSystemLog::logEmailFail($erro);
+                    header('Location: /errorConnect');
+                    die();
                 }
             }
         }
 
-    } catch(PDOException $e) {    
+    } catch(PDOException $e) {      
         $e->getMessage();
-        include_once '../classes/logSystem.php';
-        header('Location: ../errorConnect.php');
+        ModelSystemLog::logServerFail($e);
+        header('Location: /errorConnect');
         die();
     }
 ?>

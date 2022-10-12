@@ -1,14 +1,14 @@
-<?php 
+<?php
     session_start();
-    $_SESSION['erro'] = null;
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+    if (session_status() === PHP_SESSION_ACTIVE){
+        $_SESSION['erro']++;
+    } else {
+        $_SESSION['erro'] = 0;
+        session_start();
+    }
     
     try {
-        require 'connectDb.php';
-        
-        $dado = $conexao->query("Select * FROM funcionario");
-        $valida = $dado->fetchAll(PDO::FETCH_ASSOC);
+        $valida = (new DAOConnect)->select("funcionario");
         
         if ($_SESSION['erro'] < 3 || $_SESSION['erro'] == null) { 
             foreach($valida as $val) {
@@ -29,15 +29,15 @@
                     die();
                 }
             }
-            $_SESSION['erro']++;
             header('Location: /errou');
             die();
         } else {
+            $_SESSION['email'] = $email;
             header('Location: /redefine');
             die();
         }
         
-    } catch(PDOException $e) {    
+    } catch(PDOException $e) {  
         $e->getMessage();
         ModelSystemLog::logServerFail($e);
         header('Location: /errorConnect');
