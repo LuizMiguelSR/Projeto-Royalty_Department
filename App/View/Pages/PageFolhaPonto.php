@@ -1,5 +1,4 @@
 <?php
-    require_once 'App/Model/ModelSession.php';
     ModelSession::verificaSessao();
 
     $titulo = 'Folha de Ponto de '.$_SESSION['nome'];

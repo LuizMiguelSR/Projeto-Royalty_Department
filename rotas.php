@@ -32,6 +32,9 @@
         case '/cadastrarFuncionario':
             Controller::cadastrarFuncionario();
         break;
+        case '/cadastrarFuncionarioValida':
+            Controller::cadastrarFuncionarioValida($_POST["nome"], $_POST["rg"], $_POST["cpf"], $_POST["email"], $_POST["telefone"], $_POST["cep"], $_POST["rua"], $_POST["complemento"], $_POST["numero"], $_POST["bairro"], $_POST["cidade"], $_POST["estado"], $_POST["pais"], $_POST["salarioBase"], $_POST["numeroDependentes"], $_POST["departamento"], $_POST["cargo"], $_POST["senha"]);
+        break;
         case '/listaFuncionario':
             Controller::listaFuncionario();
         break;
@@ -46,6 +49,9 @@
         break;
         case '/registroPonto':
             Controller::registroPonto();
+        break;
+        case '/registroPontoValida':
+            Controller::registroPontoValida($_POST["hora"]);
         break;
 
         case '/errorConnect':

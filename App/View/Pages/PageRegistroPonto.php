@@ -1,19 +1,11 @@
 <?php
-    require_once 'App/Model/ModelSession.php';
     ModelSession::verificaSessao();
 
     date_default_timezone_set('America/Sao_Paulo');
     $data = date('Y-m-d');
     $dataDisplay = date('d/m/Y');
     $horaAtual = date("H:i:s");
-    /*try {
-        require_once '../configs/connectDb.php';
-    } catch(PDOException $e) {    
-        echo "Connection failed: " . $e->getMessage();
-        header('Location: ../errorConnect.php');
-    }
-    $dados = $conexao->query("Select * FROM funcionario_ponto");
-    $funcionarioPonto = $dados->fetchAll(PDO::FETCH_ASSOC);*/
+
     $titulo = 'Registro de Ponto de '.$_SESSION['nome'];
     include 'App/View/Components/header.php';
 ?>
@@ -38,7 +30,7 @@
     <div class="row">
         <h1 class="h3 mb-2 fw-normal">REGISTRE SUA ENTRADA</h1>
     </div>
-    <form method="POST" action="../classes/registroPontoClasse.php">
+    <form method="POST" action="/registroPontoValida">
         <div class="row mt-2">
             <main class="form-add w-100 m-auto">
                 <div class="container1">
@@ -48,7 +40,7 @@
         </div>
         <div class="row">
             <div class="col-md-2 mt-4">
-                <button name="registro" type="submit" class="btn btn-primary" value="<?php echo $horaAtual ?>">REGISTRAR PONTO</button>
+                <button name="hora" type="submit" class="btn btn-primary" value="<?php echo $horaAtual ?>">REGISTRAR PONTO</button>
             </div>
         </div>
     </form>
@@ -66,12 +58,12 @@
             <tbody>
                 <tr>
                     <td class="table-dark"><?php echo $dataDisplay ?></td>
-                    <?php foreach($funcionarioPonto as $func):
-                        if ($_SESSION['id_funcionario'] == $func['id_funcionario'] && $func['data_entrada'] == $data){ ?>
-                            <td class="table-dark"></td>
-                        <td class="table-dark">01:00</td>
-                        <td class="table-dark">01:00</td>
-                        <td class="table-dark">17:00</td>
+                    <?php foreach((new DAOOperacoes)->select("funcionario_ponto") as $func):
+                        if ($_SESSION['id_funcionario'] == $func['id_funcionario'] && $func['diames'] == $data){ ?>
+                            <td class="table-dark"><?php echo $func['entrada']; ?></td>
+                        <td class="table-dark"><?php echo $func['almoco_sai']; ?></td>
+                        <td class="table-dark"><?php echo $func['almoco_che']; ?></td>
+                        <td class="table-dark"><?php echo $func['saida']; ?></td>
                     <?php } endforeach; ?>
                 </tr>
             </tbody>

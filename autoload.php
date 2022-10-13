@@ -11,7 +11,7 @@
         } else if (file_exists($classeModel)){
             include $classeModel;
         } else {
-            exit('Arquivo não encontrado. Arquivo: ' . $arquivo . "<br />");
+            exit('Arquivo não encontrado. Arquivo: ' . $nomeClasse . "<br />");
         }
     });
 ?>

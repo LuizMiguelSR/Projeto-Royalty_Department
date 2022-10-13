@@ -6,10 +6,8 @@
         $_SESSION['erro'] = 0;
         session_start();
     }
-    
     try {
-        $valida = (new DAOConnect)->select("funcionario");
-        
+        $valida = (new DAOOperacoes)->select("funcionario");       
         if ($_SESSION['erro'] < 3 || $_SESSION['erro'] == null) { 
             foreach($valida as $val) {
                 if ($email == $val['email'] && password_verify($senha, $val['senha']) == true) {   
@@ -35,13 +33,11 @@
             $_SESSION['email'] = $email;
             header('Location: /redefine');
             die();
-        }
-        
+        }       
     } catch(PDOException $e) {  
         $e->getMessage();
         ModelSystemLog::logServerFail($e);
         header('Location: /errorConnect');
         die();
     }
-    
 ?>

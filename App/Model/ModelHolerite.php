@@ -1,9 +1,15 @@
 <?php
     class ModelHolerite{
 
-        public $salarioBase = 5000;
-        public $numeroDependentes = 2;
-        public $diasUteis = 22;
+        private $salarioBase;
+        private $numeroDependentes;
+        private $diasUteis;
+        
+        public function __construct($salarioBase, $numeroDependentes){
+            $this -> salarioBase = $salarioBase;
+            $this -> numeroDependentes = $numeroDependentes;
+            $this -> diasUteis = 22;
+        }
 
         public function calcularInss() {
             $salarioBase = $this -> salarioBase; 

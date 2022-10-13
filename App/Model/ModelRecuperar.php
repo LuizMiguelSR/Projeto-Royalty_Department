@@ -8,14 +8,14 @@
     $mail = new PHPMailer(true);
 
     try {
-        $valida = (new DAOConnect)->select("funcionario");
+        $valida = (new DAOOperacoes)->select("funcionario");
         
         foreach($valida as $val) {
             if($recuperar == $val['email']){
                 $nome = $val['nome_funcionario'];
                 $id = $val['id_funcionario'];
                 $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
-                $valida = (new DAOConnect)->updateFuncionario('recuperar', $idHash, $id);
+                (new DAOOperacoes)->updateFuncionario('recuperar', $idHash, $id);
                 try {
                     $mail->isSMTP();
                     $mail->Host = 'mail.digitaltrainer.com.br';

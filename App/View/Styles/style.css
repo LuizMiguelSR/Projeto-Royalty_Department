@@ -122,6 +122,32 @@ form {
     color: rgb(0, 0, 0);
 }
 
+
+.form-control-file {
+    background-color: transparent;
+    border-color: var(--cor1);
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0%;
+    cursor: text;
+}
+
+.form-control-file:focus {
+    background-color: var(--cor2);
+    border-color: var(--cor1);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0%;
+}
+
+.form-control-file::placeholder {
+    color: var(--cor1);
+}
+
+
 /* --- Estilos dos inputs --- */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

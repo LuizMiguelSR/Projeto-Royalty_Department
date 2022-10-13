@@ -39,6 +39,9 @@
         public static function listaFuncionario() {
             include 'App/View/Pages/PageListaFuncionario.php';
         }
+        public static function cadastrarFuncionarioValida($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
+            include 'App/Model/ModelFuncionarioCadastro.php';
+        }
         public static function folhaPagamento() {
             include 'App/View/Pages/PageFolhaPagamento.php';
         }
@@ -50,6 +53,9 @@
         }
         public static function registroPonto() {
             include 'App/View/Pages/PageRegistroPonto.php';
+        }
+        public static function registroPontoValida($hora) {
+            include 'App/Model/ModelRegistroPonto.php';
         }
         /**
          * Métodos responsáveis por redirecionar o usuários para views de erros de conexão com o banco de dados e de página não encontrada.
