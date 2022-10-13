@@ -63,6 +63,9 @@
         public static function errorConnect() {
             include 'App/View/Pages/PageErrorConnect.php';
         }
+        public static function perfil($nome) {
+            include 'App/View/Pages/PagePerfil.php';
+        }
         public static function errorNotFound() {
             include 'App/View/Pages/PageErrorNotFound.php';
         }

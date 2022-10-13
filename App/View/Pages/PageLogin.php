@@ -9,7 +9,7 @@
         <main class="form-signin w-100 m-auto">
             <img src="App/View/Images/SystemImages/logobase.png" alt="Logo">
             <h1 class="h3 my-4 fw-normal">BEM VINDO</h1>
-            <form  method="post" class="p-4 p-md-5 border rounded-3 bg-light" action="/valida">
+            <form  method="POST" class="p-4 p-md-5 border rounded-3 bg-light" action="/valida">
                 <div class="form-floating">
                     <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email</label>

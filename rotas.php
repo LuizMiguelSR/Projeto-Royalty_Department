@@ -38,6 +38,9 @@
         case '/listaFuncionario':
             Controller::listaFuncionario();
         break;
+        case '/perfil':
+            Controller::perfil($_POST["nome"]);
+        break;
         case '/folhaPagamento':
             Controller::folhaPagamento();
         break;

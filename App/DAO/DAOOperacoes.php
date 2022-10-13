@@ -78,6 +78,81 @@
     
             $this->conexao->commit();
         }
+
+        public function listaFuncionario($post){
+            $filtro_sql = " ";
+            
+            //Clicou em filtrar?
+
+            if(!empty($post['all'])) {
+
+                // Cria filtro em SQL
+                $filtro_sql = "";
+        
+            } 
+
+            if(!empty($post['filtro'])) {
+
+                // Cria filtro em SQL
+
+                $filtro = $post["filtro"];
+
+                $filtro_sql = "WHERE f.nome_funcionario LIKE '%$filtro%' OR f.cpf LIKE '$filtro'";       
+            } 
+            
+            # Botão para ordernar por departamento
+                else if (!empty($post['options_dp'])){
+
+                //Obtém o filtro digitado pelo usuário
+                
+                $filtro_dp = $_POST["options_dp"];
+
+                $filtro_sql = "WHERE d.departamento_nome LIKE '%$filtro_dp%'";
+            }    
+            
+            $ordenar_sql= "ORDER BY nome_funcionario";
+
+            # Botão para ordernar pelo departamento em ordem alfabética ou nome em ordem alfabética
+
+            if (!empty($post["ordenar"])){
+                //Obtém o filtro digitado pelo usuário               
+                $ordenar = $post["ordenar"];
+                $ordenar_sql = "ORDER BY $ordenar";
+            }  
+            # Passa para a variável chamada $sql o comando SELECT que verifica
+            # se esses parâmetros existem no banco de dados. 
+
+            # Junção de duas tabelas
+            $sql = "SELECT  * FROM funcionario AS f 
+            INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
+            INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
+            $filtro_sql
+            $ordenar_sql";
+
+            #WHERE d.departamento_nome = 'Comercial'
+
+            # Passa a váriavel $sql para uma query. 
+            # Query é uma solicitação ao banco de dados.
+            # Result é o resultado dessa solicitação, vai passar o número de linhas que
+            # existem no banco de dados com os parâmetros passados.
+            # conexão é a várivel declarada no config.php
+            return $resultado = $this->conexao->query($sql);
+        }
+
+        public function alteraFuncionario($postAlterar){
+            if (!empty($postAlterar['id'])) {
+
+                $id = $postAlterar['id'];
+            
+                $sqlSelect = "SELECT * FROM funcionario AS f
+                INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
+                INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
+                WHERE f.id_funcionario = '$id' ";
+            
+            
+                return $result = $this->conexao->query($sqlSelect);
+            }
+        }
     }
 
 ?>

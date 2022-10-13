@@ -1,24 +1,12 @@
 <?php
-    // PÁGINA PARA O FORMULÁRIO DE EDITAR OS USUÁRIOS
-    
-    include_once('../configs/connectDB.php');
+    ModelSession::verificaSessao();
+    ModelSession::verificaRole();
 
-    require_once '../configs/sessionAutentica.php';
-    if ($_SESSION['nome'] !== 'Administrador') {
-        header('Location: ../configs/sair.php');
-        die();
-    }
-if (!empty($_GET['id'])) {
+    $resultado = (new DAOOperacoes)->listaFuncionario($_POST);
 
-    $id = $_GET['id'];
+    $titulo = 'Lista de Funcionários';
+    include 'App/View/Components/header.php';
 
-    $sqlSelect = "SELECT * FROM funcionario AS f
-    INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
-    INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-    WHERE f.id_funcionario = '$id' ";
-
-
-    $result = $conexao->query($sqlSelect);
     #print_r($result);
 
     if($result->rowCount() > 0)
@@ -53,7 +41,6 @@ if (!empty($_GET['id'])) {
     {
         header('Location: lista.php');
     }
-}
 
 ?>
 <!DOCTYPE html>

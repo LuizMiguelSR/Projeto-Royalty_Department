@@ -1,80 +1,9 @@
 <?php
-    require_once 'App/Model/ModelSession.php';
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
 
-    # Incluir página com de conexão com o banco de dados
-    //include_once('../configs/connectDB.php');
+    $resultado = (new DAOOperacoes)->listaFuncionario($_POST);
 
-
-    /*$filtro_sql = " ";
-    
-    //Clicou em filtrar?
-
-    if(!empty($_GET['all'])) {
-
-        // Cria filtro em SQL
-        $filtro_sql = "";
-   
-    } 
-
-    if(!empty($_GET['filtro'])) {
-
-        // Cria filtro em SQL
-
-        $filtro = $_GET["filtro"];
-
-        $filtro_sql = "WHERE f.nome_funcionario LIKE '%$filtro%' OR f.cpf LIKE '$filtro'";
-   
-    } 
-    
-    # Botão para ordernar por departamento
-        else if (!empty($_GET['options_dp'])){
-
-        //Obtém o filtro digitado pelo usuário
-        
-        $filtro_dp = $_GET["options_dp"];
-
-        $filtro_sql = "WHERE d.departamento_nome LIKE '%$filtro_dp%'";
-
-    }    
-    
-    $ordenar_sql= "ORDER BY nome_funcionario";
-
-    # Botão para ordernar pelo departamento em ordem alfabética ou nome em ordem alfabética
-
-    if (!empty($_GET["ordenar"])){
-
-        //Obtém o filtro digitado pelo usuário
-        
-        $ordenar = $_GET["ordenar"];
-
-        $ordenar_sql = "ORDER BY $ordenar";
-
-    }  
-
-        
-
-    # Passa para a variável chamada $sql o comando SELECT que verifica
-    # se esses parâmetros existem no banco de dados. 
-
-    # Junção de duas tabelas
-    $sql = "SELECT  * FROM funcionario AS f 
-    INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
-    INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-    $filtro_sql
-    $ordenar_sql";
-
-    #WHERE d.departamento_nome = 'Comercial'
-
-    # Passa a váriavel $sql para uma query. 
-    # Query é uma solicitação ao banco de dados.
-    # Result é o resultado dessa solicitação, vai passar o número de linhas que
-    # existem no banco de dados com os parâmetros passados.
-    # conexão é a várivel declarada no config.php
-    $resultado = $conexao->query($sql);*/
-
-    //print_r($result); mostrar o resultado
     $titulo = 'Lista de Funcionários';
     include 'App/View/Components/header.php';
 ?>
@@ -90,40 +19,30 @@
         </div>
     </div>
     <div class="row">
-        <h1 class="h3 mb-2 fw-normal">DIGITE O NOME DO FUNCIONÁRIO</h1>
+        <h1 class="h3 mb-2 fw-normal">UTILIZE OS FILTROS PARA CONSULTAR</h1>
     </div>
-    <form method="GET" class="row g-3">
-        <div class="col-md-8">
-            <input name="filtro" type="text" class="form-control" id="filtro"
-                placeholder="Ex. Funcionário Antônio">
-        </div>
-        <div class="row">
-            <div class="col-md-2 mt-4">
-                <button type="submit" class="btn btn-primary">CONSULTAR</button>
-            </div>
-        </div>
-    </form>
-    <?php $options = array('Departamento','Marketing', 'T.I', 'Finanças'); ?>
-    
     <!-- Select do departamento -->
     <div>
-        <p> Filtrar Por </p>
         <!-- Selecionar todos -->
-        <form method='GET'>
+        <form method='POST'>
             <button type="submit" class="btn btn-primary" name="all">ALL</button>
         </form>
     
         <br><br>
-        <form method='GET'>
-            <select class="form-select col" aria-label="Default select example" name='options_dp'
-                onchange="this.form.submit()">
-                <?php foreach ($options as $option) { 
-        echo "<option value='$option'>$option</option>";
-    } ?>
+        <form method='POST'>
+            <select class="form-select col" aria-label="Default select example" name='options_dp' onchange="this.form.submit()">
+                <option value="">Escolha</option>
+                <option value="Administrativo">Administrativo</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="RH">RH</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Operacional">Operacional</option>
+                <option value="Vendas">Vendas</option>
+                <option value="TI">TI</option>
             </select>
         </form>
     </div>
-        <form method='GET'>
+        <form method='POST'>
             Ordenar:
             <select name="ordenar" id="ordenar" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
                 <option value="">Escolha</option>
@@ -131,8 +50,6 @@
                 <option value="departamento_nome">Departamento</option>";
             </select>
         </form>
-    
-    <!-- LISTA -->
     <div>
         </br>
         <table class="table table-striped table-hover table-bordered border-secondary">
@@ -152,8 +69,6 @@
                     <td><?= $funcionarios['nome_funcionario'] ?></td>
                     <td><?= $funcionarios['departamento_nome'] ?></td>
                     <td><?= $funcionarios['cargo'] ?></td>
-    
-    
                     <!-- Botão que direciona para o perfil -->
                     <td>
                         <a class='btn btn-sm btn-primary'
