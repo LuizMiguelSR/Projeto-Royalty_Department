@@ -28,8 +28,8 @@
         /**
          * Método responsável por consultar no banco dados recebendo como parâmetros a tabela de consulta, uma clausula where e o valor da clausula
          */
-        public function selectWhereOrder($tabela, $condicao, $id){
-            $sql = "Select * FROM ".$tabela." WHERE ".$condicao." = ".$id;
+        public function selectWhereOrder($tabela, $condicao, $id, $ordem){
+            $sql = "Select * FROM ".$tabela." WHERE ".$condicao." = ".$id." ORDER BY ".$ordem." DESC LIMIT 10";
             $dado = $this->conexao->query($sql);
             $valida=$dado->fetchAll(PDO::FETCH_ASSOC);
             return $valida;
