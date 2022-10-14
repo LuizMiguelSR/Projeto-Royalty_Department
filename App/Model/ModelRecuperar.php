@@ -18,13 +18,13 @@
                 (new DAOOperacoes)->updateFuncionario('recuperar', $idHash, $id);
                 try {
                     $mail->isSMTP();
-                    $mail->Host = 'mail.digitaltrainer.com.br';
+                    $mail->Host = $_ENV['smtp']['host'];
                     $mail->SMTPAuth = True;
-                    $mail->Username = 'informeroyal@digitaltrainer.com.br';
-                    $mail->Password = 'mo#144mHn{TJ';
-                    $mail->Port = 587;
+                    $mail->Username = $_ENV['smtp']['user'];
+                    $mail->Password = $_ENV['smtp']['pass'];
+                    $mail->Port = $_ENV['smtp']['port'];
 
-                    $mail->setFrom('informeroyal@digitaltrainer.com.br');
+                    $mail->setFrom($_ENV['smtp']['user']);
                     $mail->addAddress($recuperar);
 
                     $mail->isHTML(true);

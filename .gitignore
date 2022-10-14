@@ -1,4 +1,2 @@
-configs/recuperar.php
-configs/connectDb.php
-configs/connectDb.php
-configs/recuperar.php
+.htaccess
+config.php
