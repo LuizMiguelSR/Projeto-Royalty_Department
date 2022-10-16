@@ -17,10 +17,21 @@ body {
     background: linear-gradient(360deg, #ffffff, #ffffff 62%);
     background-attachment: fixed;
     text-align: center !important;
-    display: flex;
     padding-top: 10em;
     padding-bottom: 3.1em;
     font-family: 'Roboto Flex', sans-serif;
+}
+
+section {
+    max-width: 80vw;
+    color: rgb(0, 0, 0);
+    margin: auto;
+}
+
+footer {
+    max-width: 80vw;
+    color: rgb(0, 0, 0);
+    margin: auto;
 }
 
 /* --- Estilos dos links --- */
@@ -78,6 +89,15 @@ form {
     margin-top: 0em;
 }
 
+.row.g-3.formCad{
+    max-width: 60vw;
+}
+
+.row.tabela{
+    max-width: 60vw;
+    margin: auto;
+}
+
 .form-control {
     background-color: transparent;
     border-color: var(--cor1);
@@ -101,10 +121,12 @@ form {
 
 .form-control::placeholder {
     color: var(--cor1);
+    text-align: center;
 }
 
 .form-control:valid {
     color: var(--cor1);
+    text-align: center;
 }
 
 .form-floating {
@@ -115,13 +137,6 @@ form {
     max-width: 25em;
     padding: 1em;
 }
-
-.form-add.w-100.m-auto {
-    max-width: 50em;
-    padding: 1em;
-    color: rgb(0, 0, 0);
-}
-
 
 .form-control-file {
     background-color: transparent;
@@ -143,7 +158,16 @@ form {
     border-radius: 0%;
 }
 
-.form-control-file::placeholder {
+.form-control-file{
+    color: var(--cor1);
+    border: var(--cor1);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0%;
+}
+
+.form-select {
     color: var(--cor1);
 }
 
@@ -252,25 +276,6 @@ img{
     width: 452px;
 }
 
-/* --- Estilos do componente acordeon --- */
-.accordion.accordion-flush {
-    max-width: 50em;
-}
-
-.accordion-item {
-    background-color: var(--cor4);
-}
-
-.accordion-button {
-    background-color: var(--cor1);
-    color: rgb(255, 255, 255);
-}
-
-.accordion-body {
-    background-color: var(--cor7);
-    color: black;
-}
-
 /* --- Estilos dos containers --- */
 .container {
     border-radius: 50%;
@@ -373,6 +378,16 @@ img{
 @media only screen and (min-width: 1400px){
     p {
         font-size: 14px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .row.g-3.formCad{
+        max-width: 100vw;
+    }
+    .row.tabela{
+        max-width: 100vw;
+        margin: auto;
+        font-size: small;
     }
 }
 

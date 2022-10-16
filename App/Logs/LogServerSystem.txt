@@ -1,0 +1,18 @@
+IP: ::1 - DATE: 2022,10,14,22,48,32 - ERROR: PDOException: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1 in D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\App\DAO\DAOOperacoes.php:55
+Stack trace:
+#0 D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\App\DAO\DAOOperacoes.php(55): PDO->exec('INSERT INTO fun...')
+#1 D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\App\Model\ModelRegistroPonto.php(47): DAOOperacoes->insereRegistro('4', '2022-10-14', '22:48:20')
+#2 D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\App\Controller\Controller.php(61): include('D:\\Meus_Documen...')
+#3 D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\rotas.php(60): Controller::registroPontoValida('22:48:20')
+#4 D:\Meus_Documentos\ArquivosAcademicos\Projetos\projetoRoyaltyDepartment\index.php(4): include('D:\\Meus_Documen...')
+#5 {main}
+ 
+IP: ::1 - DATE: 2022,10,16,02,26,42 - ERROR: PDOException: SQLSTATE[HY000] [1044] Access denied for user ''@'localhost' to database 'fhr' in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:7
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(7): PDO->__construct('mysql:host=127....', 'root1', '')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelValida.php(10): DAOOperacoes->__construct()
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(10): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(10): Controller::valida('admin@email.com', 'admin')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}
+ 

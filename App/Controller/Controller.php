@@ -45,6 +45,9 @@
         public static function folhaPagamento() {
             include 'App/View/Pages/PageFolhaPagamento.php';
         }
+        public static function horaExtra() {
+            include 'App/View/Pages/PageHorasExtras.php';
+        }
         public static function holerite() {
             include 'App/View/Pages/PageHolerite.php';
         }

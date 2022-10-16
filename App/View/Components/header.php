@@ -9,10 +9,3 @@
     <title><?php echo $titulo; ?></title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
-<body onLoad="showtime()">
-    <div class="container-fluid m-auto text-center">
-        <header>
-            <div class="row">
-                <?php include 'App/View/Components/navbar.php'; ?>
-            </div>
-        </header>

@@ -1,28 +1,14 @@
 <?php
     ModelSession::verificaSessao();
+    $titulo = 'Painel de '.$_SESSION['nome'];
+    include 'App/View/Components/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="App/View/Styles/style.css">
-    <title>Painel de <?php echo "{$_SESSION['nome']}"; ?></title>
-</head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-    <div class="container-fluid m-auto text-center">
-        <header>
-            <div class="row">
-                <?php include 'App/View/Components/navbar.php'; ?>
-            </div>
+    <?php include 'App/View/Components/navbar.php'; ?>
+    <section>
+        <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
                 <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
-        </header>
-        <main>
             <?php if($_SESSION['nome'] == 'Administrador') { ?>
                 <div class="row mt-5" >
                     <a href="/cadastrarFuncionario" style="width: auto">
@@ -80,6 +66,19 @@
                         <div class="title">Saiba mais</div>
                     </div>
                 </a>
+                <a href="/horaExtra" style="width: auto">
+                    <div class="person">
+                        <div class="container">
+                            <div class="container-inner">
+                                <img class="circle"/>
+                                <img class="img img1" alt="Hora Extra" src="App/View/Images/SystemImages/bancoHoras1.svg"/>
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="name">HORAS EXTRAS</div>
+                        <div class="title">Saiba mais</div>
+                    </div>
+                </a>
                 <a href="/folhaPonto" style="width: auto">
                     <div class="person">
                         <div class="container">
@@ -108,9 +107,7 @@
                 </a>
             </div>
         </main>
-        <div class="row mt-5">
-            <?php include 'App/View/Components/footer.php'; ?>
-        </div>
-    </div> 
+    </section>
+    <?php include 'App/View/Components/footer.php'; ?>
 </body>
 </html>

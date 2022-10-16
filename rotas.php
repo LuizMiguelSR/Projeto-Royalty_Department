@@ -44,6 +44,9 @@
         case '/folhaPagamento':
             Controller::folhaPagamento();
         break;
+        case '/horaExtra':
+            Controller::horaExtra();
+        break;
         case '/holerite':
             Controller::holerite();
         break;
