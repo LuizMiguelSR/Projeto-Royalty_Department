@@ -45,7 +45,7 @@
          * Método responsável por atualizar a registro de ponto do funcionário
          */
         public function updateFuncionarioPonto($coluna, $campo, $id){
-            $sql = "UPDATE funcionario_ponto SET $coluna = '$campo' WHERE funcionario_ponto.id_funcionario = $id";
+            $sql = "UPDATE funcionario_ponto SET $coluna = '$campo' WHERE funcionario_ponto.id_funcionario_ponto = $id";
             $this->conexao->exec($sql);
         }
         /**
