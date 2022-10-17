@@ -1,5 +1,7 @@
 <?php
     ModelSession::verificaSessao();
+    date_default_timezone_set('America/Sao_Paulo');
+    $data = date('Y-m-d');
     $titulo = 'Folha de Ponto de '.$_SESSION['nome'];
     include 'App/View/Components/header.php';
 ?>
@@ -15,21 +17,21 @@
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Entrada</th>
-                            <th>Intervalo Ida</th>
-                            <th>Intervalo Volta</th>
-                            <th>Saída</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Data</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Entrada</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Intervalo Ida</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Intervalo Volta</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach((new DAOOperacoes)->selectWhereOrder("funcionario_ponto", "id_funcionario", $_SESSION['id_funcionario'], "diames") as $func): ?>
+                        <?php foreach((new DAOOperacoes)->selectMes($_SESSION['id_funcionario'], $data) as $func): ?>
                             <tr>
-                                <td><?php echo date('d/m/Y', strtotime($func['diames']))?></td>
-                                <td><?php echo $func['entrada']?></td>
-                                <td><?php echo $func['almoco_sai']?></td>
-                                <td><?php echo $func['almoco_che']?></td>
-                                <td><?php echo $func['saida']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo date('d/m/Y', strtotime($func['diames']))?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['entrada']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['almoco_sai']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['almoco_che']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['saida']?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

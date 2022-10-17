@@ -1,24 +1,9 @@
 <?php
-    # Incluir página com de conexão com o banco de dados
-    //include_once('../configs/connectDB.php');
-    
-    /*if (!empty($_GET['id'])) {
+    ModelSession::verificaSessao();
+    ModelSession::verificaRole();
 
-        $id = $_GET['id'];
-
-    # Select que faz a junção das tabelas e mostra as informações que estão de acordo com a variável consultar
-    $sqlConsultar = "SELECT * FROM funcionario AS f
-    INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
-    INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-    WHERE f.id_funcionario = '$id'";
-    
-    $result = $conexao->query($sqlConsultar) or die("ERRO ao consultar!" . $mysqli->error);
-
-    if($result->rowCount() > 0)
-    { 
-    foreach ($result as $funcionarios) :*/
-    $titulo = 'Perfil de Teste';
-    include 'App/View/Components/header.php';    
+    $titulo = 'Perfil de '.'';
+    include 'App/View/Components/header.php';        
 ?>
 <main>
     <div class="row mt-5">
@@ -106,11 +91,4 @@
     </div>
     <?php include 'App/View/Components/back.php'; ?>
 </main>
-<?php
-    # Se não tiver o nome consultado, volta para a página consultar
-    /*    } else {
-    header ("location: lista.php");
-        }
-    }*/
-?>
 <?php include 'App/View/Components/footer.php'; ?>

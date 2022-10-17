@@ -11,7 +11,7 @@
                 <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
             <?php if($_SESSION['nome'] == 'Administrador') { ?>
                 <div class="row mt-5" >
-                    <a href="/cadastrarFuncionario" style="width: auto">
+                    <a href="/inserir_funcionario" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -24,7 +24,7 @@
                             <div class="title">Saiba mais</div>
                         </div>
                     </a>
-                    <a href="/listaFuncionario" style="width: auto">
+                    <a href="/listar_funcionario" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -37,7 +37,7 @@
                             <div class="title">Saiba mais</div>
                         </div>
                     </a>
-                    <a href="/folhaPagamento" style="width: auto">
+                    <a href="/folha_pagamento" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -66,20 +66,7 @@
                         <div class="title">Saiba mais</div>
                     </div>
                 </a>
-                <a href="/horaExtra" style="width: auto">
-                    <div class="person">
-                        <div class="container">
-                            <div class="container-inner">
-                                <img class="circle"/>
-                                <img class="img img1" alt="Hora Extra" src="App/View/Images/SystemImages/bancoHoras1.svg"/>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="name">HORAS EXTRAS</div>
-                        <div class="title">Saiba mais</div>
-                    </div>
-                </a>
-                <a href="/folhaPonto" style="width: auto">
+                <a href="/folha_ponto" style="width: auto">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
@@ -92,7 +79,7 @@
                         <div class="title">Saiba mais</div>
                     </div>
                 </a>
-                <a href="/registroPonto" style="width: auto">
+                <a href="/registro_ponto" style="width: auto">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">

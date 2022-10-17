@@ -5,9 +5,9 @@
                 $arquivo = $_FILES['arquivo'];
         
                 if($arquivo['error'])
-                    header('Location: /cadastrarFuncionario');
+                    header('Location: /painel');
                 if($arquivo['size'] > 5242880)
-                    header('Location: /cadastrarFuncionario');
+                    header('Location: /painel');
         
                 $pasta = "App/View/Images/UserPictures/";
                 $nomeDoArquivo = $arquivo['name'];
@@ -15,7 +15,7 @@
                 $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
         
                 if($extensao != "jpg" && $extensao != 'png')
-                    header('Location: /cadastrarFuncionario');
+                    header('Location: /painel');
                 
                 $caminho = $pasta . $novoNomeDoArquivo . "." . $extensao;
                 $deuCerto = move_uploaded_file($arquivo["tmp_name"], $caminho);

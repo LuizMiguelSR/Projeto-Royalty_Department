@@ -1,7 +1,7 @@
 <?php 
     class Controller {
         /**
-         * Metodos responsáveis por redirecionar para as views de login, validar o login e erro ao tentar realizar o login.
+         * Controllers responsáveis por redirecionar para as views/models de login, validar o login e erro ao tentar realizar o login.
          */
         public static function login() {
             include 'App/View/Pages/PageLogin.php';
@@ -12,9 +12,6 @@
         public static function errou() {
             include 'App/View/Pages/PageErrou.php';
         }
-        /**
-         * Métodos responsáveis por redirecionar o usuário para as views de redefinição de senha e validar a nova senha do usuário.
-         */
         public static function redefine() {
             include 'App/View/Pages/PageRedefine.php';
         }
@@ -28,36 +25,47 @@
             include 'App/View/Pages/PageRedefineSucesso.php';
         }
         /**
-         * Métodos responsáveis por redirecionar as views internas da aplicação.
+         * Controller responsável por redirecionar para a view do menu principal da aplicação.
          */
-        public static function painel() {
+        public static function painelView() {
             include 'App/View/Pages/PagePainelFuncionario.php';
         }
-        public static function cadastrarFuncionario() {
-            include 'App/View/Pages/PageCadastrarFuncionario.php';
+        /**
+         * Controllers responsáveis por devolver as views/models das operações de CRUD pertinentes aos funcionários
+         */
+        public static function inserirFuncionarioView() {
+            include 'App/View/Pages/PageInserirFuncionario.php';
         }
-        public static function listaFuncionario() {
+        public static function inserirFuncionarioModel($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
+            include 'App/Model/ModelInserirFuncionario.php';
+        }
+
+        public static function listarFuncionarioView() {
             include 'App/View/Pages/PageListaFuncionario.php';
         }
-        public static function cadastrarFuncionarioValida($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
-            include 'App/Model/ModelFuncionarioCadastro.php';
+        public static function editarFuncionarioView($post) {
+            include 'App/View/Pages/PageEditarFuncionario.php';
         }
-        public static function folhaPagamento() {
+        public static function editarFuncionarioModel($nome, $rg, $cpf, $senha, $email, $telefone, $numeroDependentes, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais) {
+            include 'App/Model/ModelEditarFuncionario.php';
+        }
+
+        public static function folhaPagamentoView() {
             include 'App/View/Pages/PageFolhaPagamento.php';
         }
-        public static function horaExtra() {
-            include 'App/View/Pages/PageHorasExtras.php';
-        }
-        public static function holerite() {
+
+        public static function holeriteView() {
             include 'App/View/Pages/PageHolerite.php';
         }
-        public static function folhaPonto() {
+
+        public static function folhaPontoView() {
             include 'App/View/Pages/PageFolhaPonto.php';
         }
-        public static function registroPonto() {
+
+        public static function registroPontoView() {
             include 'App/View/Pages/PageRegistroPonto.php';
         }
-        public static function registroPontoValida($hora) {
+        public static function registroPontoModel($hora) {
             include 'App/Model/ModelRegistroPonto.php';
         }
         /**
@@ -65,9 +73,6 @@
          */
         public static function errorConnect() {
             include 'App/View/Pages/PageErrorConnect.php';
-        }
-        public static function perfil($nome) {
-            include 'App/View/Pages/PagePerfil.php';
         }
         public static function errorNotFound() {
             include 'App/View/Pages/PageErrorNotFound.php';

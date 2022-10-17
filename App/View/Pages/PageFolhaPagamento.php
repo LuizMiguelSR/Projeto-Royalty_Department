@@ -12,6 +12,9 @@
             <div class="row">
                 <h1 class="h3 my-5 fw-normal">FOLHA DE PAGAMENTO</h1>
             </div>
+            <div class="row my-3">
+                <h5>ADMINISTRATIVO</h5>
+            </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
@@ -21,13 +24,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Pedro Bial</td>
-                            <td>R$ 5.000,00</td>
-                        </tr>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Administrativo') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div><br>  
+            </div>
+            <div class="row my-3">
+                <h5>FINANCEIRO</h5>
+            </div>  
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
@@ -37,13 +45,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Pedro Bial</td>
-                            <td>R$ 5.000,00</td>
-                        </tr>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Financeiro') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div><br>  
+            </div>
+            <div class="row my-3">
+                <h5>RECURSOS HUMANOS</h5>
+            </div> 
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
@@ -53,29 +66,136 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Pedro Bial</td>
-                            <td>R$ 5.000,00</td>
-                        </tr>
+                        <?php foreach((new DAOOperacoes)->selectFolha('RH') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
-            </div><br>  
+            </div>
+            <div class="row my-3">
+                <h5>MARKETING</h5>
+            </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
-                            <th>FGTS</th>
-                            <th>INSS</th>
-                            <th>Sist. S</th>
-                            <th>RAT</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Nome</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sal. Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Marketing') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row my-3">
+                <h5>COMERCIAL</h5>
+            </div> 
+            <div class="row tabela">
+                <table class="table-responsive-sm table-bordered border-success">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Nome</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sal. Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Comercial') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row my-3">
+                <h5>OPERACIONAL</h5>
+            </div> 
+            <div class="row tabela">
+                <table class="table-responsive-sm table-bordered border-success">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Nome</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sal. Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Operacional') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row my-3">
+                <h5>VENDAS</h5>
+            </div> 
+            <div class="row tabela">
+                <table class="table-responsive-sm table-bordered border-success">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Nome</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sal. Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach((new DAOOperacoes)->selectFolha('Vendas') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row my-3">
+                <h5>TECNLOGIA DA INFORMAÇÃO</h5>
+            </div> 
+            <div class="row tabela">
+                <table class="table-responsive-sm table-bordered border-success">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Nome</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sal. Base</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach((new DAOOperacoes)->selectFolha('T.I') as $func): ?>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['nome_funcionario']?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo 'R$ '.number_format($func['salario_base'], 2, ',', '.')?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div><br> 
+            <div class="row tabela">
+                <table class="table-responsive-sm table-bordered border-success">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">FGTS</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Sist. S</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">RAT</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Pedro Bial</td>
-                            <td>R$ 5.000,00</td>
-                            <td>R$ 5.000,00</td>
-                            <td>R$ 5.000,00</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ 5.000,00</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ 5.000,00</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ 5.000,00</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ 5.000,00</td>
                         </tr>
                     </tbody>
                 </table>
@@ -84,10 +204,10 @@
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
-                            <th>Total da Folha de pagamento</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Total da Folha de pagamento</th>
                         </tr>
                         <tr>
-                            <td>R$ 5.000,00</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ 5.000,00</td>
                         </tr>
                 </table>
             </div>

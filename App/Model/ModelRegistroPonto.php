@@ -13,14 +13,14 @@
 
                     (new DAOOperacoes)->updateFuncionarioPonto("almoco_sai", $hora, $val['id_funcionario_ponto']); 
 
-                    header('Location: /registroPonto');
+                    header('Location: /registro_ponto');
                     die();
 
                 } else if ($val['entrada'] != null && $val['almoco_sai'] != null && $val['almoco_che'] == null) {
                     
                     (new DAOOperacoes)->updateFuncionarioPonto("almoco_che", $hora, $val['id_funcionario_ponto']);
 
-                    header('Location: /registroPonto');
+                    header('Location: /registro_ponto');
                     die();
 
                 }else if ($val['entrada'] != null && $val['almoco_sai'] != null && $val['almoco_che'] != null && $val['saida'] == null) {
@@ -31,12 +31,12 @@
                     echo $result;
 
                     (new DAOOperacoes)->updateFuncionarioPonto("horas_trabalhadas", $result, $val['id_funcionario_ponto']);
-                    header('Location: /registroPonto');
+                    header('Location: /registro_ponto');
                     die();
 
                 }else if ($val['entrada'] != null && $val['almoco_sai'] != null && $val['almoco_che'] != null && $val['saida'] != null) {
                     
-                    header('Location: /registroPonto');
+                    header('Location: /registro_ponto');
                     die();
 
                 } 
@@ -45,7 +45,7 @@
         
         (new DAOOperacoes)->insereRegistro($_SESSION['id_funcionario'], $dataAtual, $hora);
         
-        header('Location: /registroPonto');
+        header('Location: /registro_ponto');
         die();
 
     } catch(PDOException $e) {    

@@ -3,8 +3,8 @@
 
     date_default_timezone_set('America/Sao_Paulo');
     $data = date('Y-m-d');
-    $horaAtual = date("H:i:s");
     $dataDysplay = date('d/m/Y');
+    $horaAtual = date("H:i:s");
 
     $titulo = 'Registro de Ponto de '.$_SESSION['nome'];
     include 'App/View/Components/header.php';
@@ -33,7 +33,7 @@
             <div class="row my-3">
                 <h1 class="h3 mb-2 fw-normal">REGISTRE SUA ENTRADA</h1>
             </div>
-            <form method="POST" action="/registroPontoValida">
+            <form method="POST" action="/registro_ponto_model">
                 <div class="row mt-5">
                     <main class="form-add w-100 m-auto">
                         <div class="container1">
@@ -43,7 +43,7 @@
                 </div>
                 <div class="row my-5">
                     <div class="col-md-3 mt-4">
-                        <button name="hora" type="submit" class="btn btn-primary" value="<?php $horaAtual ?>">REGISTRAR PONTO</button>
+                        <button name="hora" type="submit" class="btn btn-primary" value="<?php echo $horaAtual ?>">REGISTRAR PONTO</button>
                     </div>
                 </div>
             </form>
@@ -51,24 +51,25 @@
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Entrada</th>
-                            <th>Pausa</th>
-                            <th>Retorno</th>
-                            <th>Saída</th>
-                            <th>Horas</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Data</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Entrada</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Pausa</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Retorno</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
+                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Horas</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?php echo $dataDysplay ?></td>
+                            
                             <?php foreach((new DAOOperacoes)->select("funcionario_ponto") as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_funcionario'] && $func['diames'] == $data){ ?>
-                                    <td><?php echo $func['entrada']; ?></td>
-                                    <td><?php echo $func['almoco_sai']; ?></td>
-                                    <td><?php echo $func['almoco_che']; ?></td>
-                                    <td><?php echo $func['saida']; ?></td>
-                                    <td><?php echo $func['horas_trabalhadas']; ?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo date('d/m/Y', strtotime($func['diames']))?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['entrada']; ?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['almoco_sai']; ?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['almoco_che']; ?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['saida']; ?></td>
+                                    <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['horas_trabalhadas']; ?></td>
                             <?php } endforeach; ?>
                         </tr>
                     </tbody>

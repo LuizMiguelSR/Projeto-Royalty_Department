@@ -25,11 +25,28 @@
             $valida=$dado->fetchAll(PDO::FETCH_ASSOC);
             return $valida;
         }
+
+        public function selectFolha($departamento){
+            $sql = "SELECT funcionario.nome_funcionario, departamento.salario_base
+                FROM funcionario
+                INNER JOIN departamento 
+                ON funcionario.id_funcionario = departamento.id_departamento
+                WHERE departamento.departamento_nome = '$departamento'";
+            $dado = $this->conexao->query($sql);
+            $valida=$dado->fetchAll(PDO::FETCH_ASSOC);
+            return $valida;
+        }
         /**
-         * Método responsável por consultar no banco dados recebendo como parâmetros a tabela de consulta, uma clausula where e o valor da clausula
+         * Método responsável por consultar no banco dados recebendo como parâmetros a tabela de consulta, uma clausula where e o valor da clausula que será o escopo mensal
          */
-        public function selectWhereOrder($tabela, $condicao, $id, $ordem){
-            $sql = "Select * FROM ".$tabela." WHERE ".$condicao." = ".$id." ORDER BY ".$ordem." DESC LIMIT 10";
+        public function selectMes($id, $data){
+            $sql = "SELECT * 
+                    FROM funcionario_ponto 
+                    WHERE id_funcionario = ".$id."
+                        AND diames between 
+                        DATE_FORMAT('$data' ,'%Y-%m-01')
+                        AND LAST_DAY('$data')
+                    ORDER BY diames DESC";
             $dado = $this->conexao->query($sql);
             $valida=$dado->fetchAll(PDO::FETCH_ASSOC);
             return $valida;
@@ -81,20 +98,12 @@
 
         public function listaFuncionario($post){
             $filtro_sql = " ";
-            
-            //Clicou em filtrar?
 
             if(!empty($post['all'])) {
-
-                // Cria filtro em SQL
                 $filtro_sql = "";
-        
             } 
 
             if(!empty($post['filtro'])) {
-
-                // Cria filtro em SQL
-
                 $filtro = $post["filtro"];
 
                 $filtro_sql = "WHERE f.nome_funcionario LIKE '%$filtro%' OR f.cpf LIKE '$filtro'";       
@@ -102,9 +111,6 @@
             
             # Botão para ordernar por departamento
                 else if (!empty($post['options_dp'])){
-
-                //Obtém o filtro digitado pelo usuário
-                
                 $filtro_dp = $_POST["options_dp"];
 
                 $filtro_sql = "WHERE d.departamento_nome LIKE '%$filtro_dp%'";
@@ -129,29 +135,34 @@
             $filtro_sql
             $ordenar_sql";
 
-            #WHERE d.departamento_nome = 'Comercial'
-
             # Passa a váriavel $sql para uma query. 
             # Query é uma solicitação ao banco de dados.
             # Result é o resultado dessa solicitação, vai passar o número de linhas que
             # existem no banco de dados com os parâmetros passados.
             # conexão é a várivel declarada no config.php
+
             return $resultado = $this->conexao->query($sql);
         }
 
-        public function alteraFuncionario($postAlterar){
-            if (!empty($postAlterar['id'])) {
+        public function editarFuncionarioSalvar($nome, $rg, $cpf, $senha, $email, $telefone, $numeroDependentes, $caminho, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais, $salarioLiquido, $inss, $irrf){
 
-                $id = $postAlterar['id'];
-            
-                $sqlSelect = "SELECT * FROM funcionario AS f
-                INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
-                INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-                WHERE f.id_funcionario = '$id' ";
-            
-            
-                return $result = $this->conexao->query($sqlSelect);
-            }
+            $sql = "UPDATE funcionario SET nome_funcionario = '$nome', registro_geral = '$rg', cpf = '$cpf', senha = '$senha', email = '$email', telefone = '$telefone', numero_dependentes = '$numeroDependentes', foto = '$caminho' WHERE funcionario.id_funcionario = '$id'";
+            $this->conexao->exec($sql);
+
+            $sql = "UPDATE departamento SET departamento_nome = '$departamento', cargo = '$cargo', salario_base = '$salarioBase' WHERE departamento.id_departamento = '$id'";
+            $this->conexao->exec($sql);
+
+            $sql = "UPDATE endereco SET rua = '$rua', numero = '$numero', cep = '$cep', complemento = '$complemento', cidade = '$cidade', bairro = '$bairro', estado = '$estado', pais = '$pais' WHERE endereco.id_endereco = '$id'";
+            $this->conexao->exec($sql);
+
+            $sql = "UPDATE holerite SET salario_liquido = '$salarioLiquido' WHERE holerite.id_holerite = '$id'";
+            $this->conexao->exec($sql);
+
+            $sql = "UPDATE inss SET faixa_1 = '$inss[0]', faixa_2 = '$inss[1]', faixa_3 = '$inss[2]', faixa_4 = '$inss[3]', total_inss = '$inss[4]' WHERE inss.id_inss = '$id'";
+            $this->conexao->exec($sql);
+
+            $sql = "UPDATE irrf SET faixa_irrf1 = '$irrf[0]', faixa_irrf2 = '$irrf[1]', faixa_irrf3 = '$irrf[2]', faixa_irrf4 = '$irrf[3]', faixa_irrf5 = '$irrf[4]', total_irrf = '$irrf[5]' WHERE irrf.id_irrf = '$id'";
+            $this->conexao->exec($sql);
         }
     }
 
