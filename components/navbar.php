@@ -90,7 +90,7 @@
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="consultar.php">Consultar</a>
+                    <a href="lista.php">Consultar</a>
                 </div>
             </div>
             <div class="row">
