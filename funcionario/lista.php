@@ -11,7 +11,6 @@ include_once('../configs/connectDB.php');
     $filtro_sql = " ";
     
     //Clicou em filtrar?
-
     if(!empty($_GET['all'])) {
 
         // Cria filtro em SQL
@@ -54,28 +53,33 @@ include_once('../configs/connectDB.php');
 
     }  
 
-        
+    # Pegar a página atual
+    $pag = (isset($_GET['pagina'])) ? $_GET['pagina'] : 1;
 
-# Passa para a variável chamada $sql o comando SELECT que verifica
-# se esses parâmetros existem no banco de dados. 
+    # Buscar todos os funcionarios
+    # Junção das tabelas
+    $busca = "SELECT  * FROM funcionario AS f 
+    INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
+    INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
+    $filtro_sql
+    $ordenar_sql";
 
-# Junção de duas tabelas
-$sql = "SELECT  * FROM funcionario AS f 
-INNER JOIN departamento AS d ON f.id_departamento = d.id_departamento
-INNER JOIN endereco AS e ON e.id_endereco = f.id_endereco
-$filtro_sql
-$ordenar_sql";
+    $todos = $conexao->query($busca);
 
-#WHERE d.departamento_nome = 'Comercial'
+    # Itens que vão ser exibidos por página
+    $itens_por_pagina = "5";
 
-# Passa a váriavel $sql para uma query. 
-# Query é uma solicitação ao banco de dados.
-# Result é o resultado dessa solicitação, vai passar o número de linhas que
-# existem no banco de dados com os parâmetros passados.
-# conexão é a várivel declarada no config.php
-$resultado = $conexao->query($sql);
+    # Numero total de linhas, quantidade total de funcionários
+    $total_registros = $todos->rowCount();
 
-//print_r($result); mostrar o resultado
+    # Saber total de páginas
+    $paginas = ceil($total_registros/$itens_por_pagina);
+
+    $inicio = ($itens_por_pagina*$pag) - $itens_por_pagina;
+    $limite = $conexao->query("$busca LIMIT $inicio, $itens_por_pagina");
+
+    $anterior = $pag - 1;
+    $proximo = $pag + 1;
 
 ?>
 <!DOCTYPE html>
@@ -153,14 +157,15 @@ $resultado = $conexao->query($sql);
                     </select>
                 </form>
             </div>
-                <form method='GET'>
-                    Ordenar:
-                    <select name="ordenar" id="ordenar" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
-                        <option value="">Escolha</option>
-                        <option value="nome_funcionario">Nome</option>";
-                        <option value="departamento_nome">Departamento</option>";
-                    </select>
-                </form>
+            <form method='GET'>
+                Ordenar:
+                <select name="ordenar" id="ordenar" class="form-select col" aria-label="Default select example"
+                    onchange="this.form.submit()">
+                    <option value="">Escolha</option>
+                    <option value="nome_funcionario">Nome</option>";
+                    <option value="departamento_nome">Departamento</option>";
+                </select>
+            </form>
 
             <!-- LISTA -->
             <div>
@@ -177,7 +182,7 @@ $resultado = $conexao->query($sql);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($resultado as $funcionarios) : ?>
+                        <?php foreach ($limite as $funcionarios) : ?>
                         <tr>
                             <td><?= $funcionarios['nome_funcionario'] ?></td>
                             <td><?= $funcionarios['departamento_nome'] ?></td>
@@ -224,7 +229,30 @@ $resultado = $conexao->query($sql);
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+
+                <!-- Paginação -->
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <?php if($pag > 1){ ?>
+                        <li class="page-item"><a class="page-link" href="?pagina=<?= $anterior?>">Previous</a></li>
+                        <?php }?>
+
+                        <?php for($i=1; $i<=$paginas; $i++) {
+                                  if($pag == $i) {
+                                    echo "<li class='page-item active'><a class='page-link' href='?pagina=$i'>$i</a></li>";
+                                  }else {
+                                    echo "<li class='page-item'><a class='page-link' href='?pagina=$i'>$i</a></li>";
+                                  } 
+                              } ?>
+
+                        <?php if($pag < $paginas) { ?>
+                        <li class="page-item"><a class="page-link" href="?pagina=<?= $proximo?>">Next</a></li>
+                        <?php }?>
+                    </ul>
+                </nav>
             </div>
+
             <br><br>
             <div class="row mt-5">
                 <a href="painelFuncionario.php"><img class="mt-3 voltar" src="../img/voltar1.png" alt="voltar"></a>
