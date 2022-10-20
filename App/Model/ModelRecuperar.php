@@ -8,9 +8,9 @@
     $mail = new PHPMailer(true);
 
     try {
-        $valida = (new DAOOperacoes)->select("funcionario");
+        //$valida = (new DAOOperacoes)->select("funcionario");
         
-        foreach($valida as $val) {
+        foreach((new DAOOperacoes)->select("funcionario") as $val) {
             if($recuperar == $val['email']){
                 $nome = $val['nome_funcionario'];
                 $id = $val['id_funcionario'];
