@@ -102,9 +102,9 @@
                     </div>
                 </form>
             </div>
+            <?php include 'App/View/Components/back.php'; ?>
+            <?php include 'App/View/Components/footer.php'; ?>
         </main>
-        <?php include 'App/View/Components/back.php'; ?>
     </section>
-    <?php include 'App/View/Components/footer.php'; ?>
 </body>
 </html>

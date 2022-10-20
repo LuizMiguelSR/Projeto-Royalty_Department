@@ -93,8 +93,8 @@
                     </div>
                 </a>
             </div>
+            <?php include 'App/View/Components/footer.php'; ?>
         </main>
     </section>
-    <?php include 'App/View/Components/footer.php'; ?>
 </body>
 </html>
