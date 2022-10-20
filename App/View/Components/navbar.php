@@ -83,17 +83,17 @@
         <div class="offcanvas-body">
             <div class="row">
                 <div class="col-8">
-                    <a href="/cadastrarFuncionario">Cadastrar</a>
+                    <a href="/inserir_funcionario">Cadastrar</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/listaFuncionario">Consultar</a>
+                    <a href="/listar_funcionario">Consultar</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/folhaPagamento">Folha de pagamento</a>
+                    <a href="/folha_pagamento">Folha de pagamento</a>
                 </div>
             </div>
             <div class="row">
@@ -103,12 +103,12 @@
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/folhaPonto">Folha de Ponto</a>
+                    <a href="/folha_ponto">Folha de Ponto</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/registroPonto">Registro de Ponto</a>
+                    <a href="/registro_ponto">Registro de Ponto</a>
                 </div>
             </div>
         </div>
@@ -130,12 +130,12 @@
             </div>
             <div class="row m-2">
                 <div class="col-8">
-                    <a href="/folhaPonto">Folha de Ponto</a>
+                    <a href="/folha_ponto">Folha de Ponto</a>
                 </div>
             </div>
             <div class="row m-2">
                 <div class="col-8">
-                    <a href="/registroPonto">Registro de Ponto</a>
+                    <a href="/registro_ponto">Registro de Ponto</a>
                 </div>
             </div>
         </div>

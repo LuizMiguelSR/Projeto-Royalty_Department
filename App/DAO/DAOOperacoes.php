@@ -164,6 +164,16 @@
             $sql = "UPDATE irrf SET faixa_irrf1 = '$irrf[0]', faixa_irrf2 = '$irrf[1]', faixa_irrf3 = '$irrf[2]', faixa_irrf4 = '$irrf[3]', faixa_irrf5 = '$irrf[4]', total_irrf = '$irrf[5]' WHERE irrf.id_irrf = '$id'";
             $this->conexao->exec($sql);
         }
+
+        public function deletaFuncionario($id){
+
+            $sqlDelete = "DELETE from funcionario where id_funcionario = $id";
+            $this->conexao->exec($sqlDelete);
+            $sqlDelete = "DELETE from endereco where id_endereco = $id";
+            $this->conexao->exec($sqlDelete);
+            $sqlDelete = "DELETE from departamento where id_departamento = $id";
+            $this->conexao->exec($sqlDelete);
+        }
     }
 
 ?>

@@ -9,25 +9,17 @@
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">Bem vindo(a), <?php echo "{$_SESSION['nome']}"; ?>, este é seu holerite do mês</h1>
+                <h1 class="h3 my-5 fw-normal">Bem vindo(a), <?php echo "{$_SESSION['nome']}"; ?>, este é seu holerite do mês</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 04</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 01</td>
                             <?php foreach((new DAOOperacoes)->select('inss') as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
                             ?>
-                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_4"], 2, ',', '.') ?></td>
-                            <?php } endforeach; ?>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 03</td>
-                            <?php foreach((new DAOOperacoes)->select('inss') as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
-                            ?>
-                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_3"], 2, ',', '.') ?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_1"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                         <tr>
@@ -39,11 +31,19 @@
                             <?php } endforeach; ?>
                         </tr>
                         <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 01</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 03</td>
                             <?php foreach((new DAOOperacoes)->select('inss') as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
                             ?>
-                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_1"], 2, ',', '.') ?></td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_3"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 04</td>
+                            <?php foreach((new DAOOperacoes)->select('inss') as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_inss'] ){
+                            ?>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_4"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                         <tr>
@@ -62,27 +62,11 @@
                 <table class="table-responsive-sm table-bordered border-success hole">
                 <thead>
                         <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 05</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 01</td>
                             <?php foreach((new DAOOperacoes)->select('irrf') as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
                             ?>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf5"], 2, ',', '.') ?></td>
-                            <?php } endforeach; ?>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 04</td>
-                            <?php foreach((new DAOOperacoes)->select('irrf') as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
-                            ?>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf4"], 2, ',', '.') ?></td>
-                            <?php } endforeach; ?>
-                        </tr>
-                        <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 03</td>
-                            <?php foreach((new DAOOperacoes)->select('irrf') as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
-                            ?>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf3"], 2, ',', '.') ?></td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf1"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                         <tr>
@@ -94,11 +78,27 @@
                             <?php } endforeach; ?>
                         </tr>
                         <tr>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 01</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 03</td>
                             <?php foreach((new DAOOperacoes)->select('irrf') as $func):
                                 if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
                             ?>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf1"], 2, ',', '.') ?></td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf3"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 04</td>
+                            <?php foreach((new DAOOperacoes)->select('irrf') as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf4"], 2, ',', '.') ?></td>
+                            <?php } endforeach; ?>
+                        </tr>
+                        <tr>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">IRRF Faixa 05</td>
+                            <?php foreach((new DAOOperacoes)->select('irrf') as $func):
+                                if ($_SESSION['id_funcionario'] == $func['id_irrf'] ){
+                            ?>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["faixa_irrf5"], 2, ',', '.') ?></td>
                             <?php } endforeach; ?>
                         </tr>
                         <tr>

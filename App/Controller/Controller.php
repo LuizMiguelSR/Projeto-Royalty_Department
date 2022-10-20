@@ -49,6 +49,12 @@
         public static function editarFuncionarioModel($nome, $rg, $cpf, $senha, $email, $telefone, $numeroDependentes, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais) {
             include 'App/Model/ModelEditarFuncionario.php';
         }
+        public static function excluirFuncionarioModel($post) {
+            include 'App/Model/ModelExcluirFuncionario.php';
+        }
+        public static function consultarFuncionarioModel($post) {
+            include 'App/Model/ModelConsultarFuncionario.php';
+        }
 
         public static function folhaPagamentoView() {
             include 'App/View/Pages/PageFolhaPagamento.php';
