@@ -20,7 +20,7 @@
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">Alterar Perfil</h1>
+                <h1 class="h3 mb-2 fw-normal">Alterar Perfil de <?= $funcionario[0]['nome_funcionario']?></h1>
             </div>
             <div class="row mt-1">
                 <form class="row g-3 formCad" method="post" enctype="multipart/form-data" action="/editar_funcionario_model">
