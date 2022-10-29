@@ -5,9 +5,7 @@
     $funcionario = (new DAOOperacoes)->selectWhere('funcionario','id_funcionario',$post);
     $departamento = (new DAOOperacoes)->selectWhere('departamento', 'id_departamento', $post);
     $endereco = (new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post);
-    
-    
-    //echo $departamento[0]['departamento_nome'];
+
     $titulo = 'Alterar Perfil de '.$funcionario[0]['nome_funcionario'];
     include 'App/View/Components/header.php';
 ?>

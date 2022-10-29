@@ -22,7 +22,7 @@
                                         <div class="col-sm-4 bg-c-lite-green user-profile">
                                             <div class="card-block text-center text-white">
                                                 <div class="m-b-25">
-                                                    <img src="<?php echo $funcionarios[0]["foto"]?>" class="img-radius" alt="Perfil"/>
+                                                    <img src="<?php echo $funcionarios[0]["foto"]?>" class="img-radius" style="width: 170px; height: 150px" alt="Perfil"/>
                                                 </div>
                                                 <h6 class="f-w-600"><?= $funcionarios[0]['nome_funcionario'] ?></h6>
                                                 <h1 class="user-descrip"><?= $departamento[0]['cargo'] ?></p>
