@@ -3,6 +3,7 @@
     ModelSession::verificaRole();
 
     $funcionario = (new DAOOperacoes)->selectWhere('funcionario','id_funcionario',$post);
+    $usuario = (new DAOOperacoes)->selectWhere('usuarios','id_usuario',$post);
     $departamento = (new DAOOperacoes)->selectWhere('departamento', 'id_departamento', $post);
     $endereco = (new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post);
 
@@ -41,7 +42,7 @@
                         ?>">
                     </div>
                     <div class="col-6">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" required value="<?=  $funcionario[0]['email']
+                        <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" required value="<?=  $usuario[0]['email']
                         ?>">
                     </div>
                     <div class="col-6">
@@ -126,7 +127,7 @@
                     </div>
                 </form>
             </div>
-            <?php include 'App/View/Components/back.php'; ?>
+            <?php include 'App/View/Components/backLista.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
     </section>

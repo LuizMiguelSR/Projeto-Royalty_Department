@@ -5,7 +5,7 @@
         date_default_timezone_set('America/Sao_Paulo'); 
         $dataAtual = date("Y-m-d"); 
 
-        $valida = (new DAOOperacoes)->selectWhere("funcionario_ponto", "id_funcionario", $_SESSION['id_funcionario']);      
+        $valida = (new DAOOperacoes)->selectWhere("funcionario_ponto", "id_funcionario", $_SESSION['id_usuario']);      
 
         foreach($valida as $val) {
             if ($val['diames'] == $dataAtual) {
@@ -28,9 +28,9 @@
                     (new DAOOperacoes)->updateFuncionarioPonto("saida", $hora, $val['id_funcionario_ponto']);
 
                     $result = (new ModelHora)->calculoHora($dataAtual);
-                    echo $result;
 
                     (new DAOOperacoes)->updateFuncionarioPonto("horas_trabalhadas", $result, $val['id_funcionario_ponto']);
+                    
                     header('Location: /registro_ponto');
                     die();
 
@@ -43,7 +43,7 @@
             }
         }
         
-        (new DAOOperacoes)->insereRegistro($_SESSION['id_funcionario'], $dataAtual, $hora);
+        (new DAOOperacoes)->insereRegistro($_SESSION['id_usuario'], $dataAtual, $hora);
         
         header('Location: /registro_ponto');
         die();

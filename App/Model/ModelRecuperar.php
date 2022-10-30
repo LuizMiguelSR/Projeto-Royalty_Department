@@ -8,13 +8,13 @@
     $mail = new PHPMailer(true);
 
     try {
-        //$valida = (new DAOOperacoes)->select("funcionario");
         
-        foreach((new DAOOperacoes)->select("funcionario") as $val) {
+        foreach((new DAOOperacoes)->select("usuarios") as $val) {
             if($recuperar == $val['email']){
-                $nome = $val['nome_funcionario'];
-                $id = $val['id_funcionario'];
-                $idHash = password_hash($val['id_funcionario'], PASSWORD_DEFAULT);
+                $funcionario = (new DAOOperacoes)->selectWhere("funcionario", "id_funcionario", $val['id_usuario']);
+                $nome = $funcionario['nome_funcionario'];
+                $id = $val['id_usuario'];
+                $idHash = password_hash($val['id_usuario'], PASSWORD_DEFAULT);
                 (new DAOOperacoes)->updateFuncionario('recuperar', $idHash, $id);
                 try {
                     $mail->isSMTP();

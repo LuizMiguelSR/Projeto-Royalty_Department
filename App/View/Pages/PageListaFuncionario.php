@@ -19,7 +19,7 @@
             <div class="row mx-5 mt-5">
                 <!-- Selecionar todos -->
                 <form method='POST'>
-                    <button type="submit" class="btn btn-primary" name="all">ALL</button>
+                    <button type="submit" class="btn btn-primary" name="all">Listar Todos</button>
                 </form>
             
                 <br><br>

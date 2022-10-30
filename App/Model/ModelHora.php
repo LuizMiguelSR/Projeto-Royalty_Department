@@ -2,7 +2,7 @@
     class ModelHora{
         public function calculoHora($dataAtual){
 
-            $valida = (new DAOOperacoes)->selectWhere("funcionario_ponto", "id_funcionario", $_SESSION['id_funcionario']);   
+            $valida = (new DAOOperacoes)->selectWhere("funcionario_ponto", "id_funcionario", $_SESSION['id_usuario']);   
 
             foreach($valida as $val) {
                 if ($val['diames'] == $dataAtual) {

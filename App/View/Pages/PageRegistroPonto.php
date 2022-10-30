@@ -63,7 +63,7 @@
                         <tr>
                             
                             <?php foreach((new DAOOperacoes)->select("funcionario_ponto") as $func):
-                                if ($_SESSION['id_funcionario'] == $func['id_funcionario'] && $func['diames'] == $data){ ?>
+                                if ($_SESSION['id_usuario'] == $func['id_funcionario'] && $func['diames'] == $data){ ?>
                                     <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo date('d/m/Y', strtotime($func['diames']))?></td>
                                     <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['entrada']; ?></td>
                                     <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?php echo $func['almoco_sai']; ?></td>

@@ -10,7 +10,7 @@
             }
         }
         public static function verificaRole(){
-            if($_SESSION['nome'] !== 'Administrador'){
+            if($_SESSION['role'] !== 1){
                 header('Location: /painel');
             }
         }

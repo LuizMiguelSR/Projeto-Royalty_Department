@@ -35,15 +35,15 @@
                                                 <div class="row mt-2">
                                                     <div class="col-sm-4">
                                                         <p class="m-b-10 f-w-600">Email</p>
-                                                        <h6 class="text-muted f-w-400"><?= $funcionarios[0]['email'] ?></h6>
+                                                        <h6 class="text-muted f-w-400"><?= $usuarios[0]['email'] ?></h6>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <p class="m-b-10 f-w-600">Telefone</p>
                                                         <h6 class="text-muted f-w-400"><?= $funcionarios[0]['telefone'] ?></h6>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <p class="m-b-10 f-w-600">Endereço</p>
-                                                        <h6 class="text-muted f-w-400"><?= $endereco ?></h6>
+                                                        <p class="m-b-10 f-w-600">Dependentes</p>
+                                                        <h6 class="text-muted f-w-400"><?= $funcionarios[0]['numero_dependentes'] ?></h6>
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
@@ -61,17 +61,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
-                                                    <div class="col-sm-4">
-                                                        <p class="m-b-10 f-w-600">IRRF</p>
-                                                        <h6 class="text-muted f-w-400"><?= 'R$ '.number_format($irrf[0]['total_irrf'], 2, ',', '.') ?></h6>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <p class="m-b-10 f-w-600">INSS</p>
-                                                        <h6 class="text-muted f-w-400"><?= 'R$ '.number_format($inss[0]['total_inss'], 2, ',', '.') ?></h6>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <p class="m-b-10 f-w-600">Nº Dep.</p>
-                                                        <h6 class="text-muted f-w-400"><?= $funcionarios[0]['numero_dependentes'] ?></h6>
+                                                    <div class="col-sm-12">
+                                                        <p class="m-b-10 f-w-600">Endereço</p>
+                                                        <h6 class="text-muted f-w-400"><?= $endereco ?></h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +75,7 @@
                     </div>
                 </div>
             </div>
-            <?php include 'App/View/Components/back.php'; ?>
+            <?php include 'App/View/Components/backLista.php'; ?>
         <?php include 'App/View/Components/footer.php'; ?>
         </main>
 </body>

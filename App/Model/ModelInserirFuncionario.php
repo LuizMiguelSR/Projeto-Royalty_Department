@@ -1,4 +1,7 @@
 <?php
+    date_default_timezone_set('America/Sao_Paulo'); 
+    $data = date('Y-m-d');
+
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $salarioLiquido = (new ModelHolerite($salarioBase, $numeroDependentes))->calcularSalarioLiquido();
@@ -8,7 +11,7 @@
     $caminho = ModelInsereImagem::repassaCaminho();
 
     try {
-        (new DAOOperacoes)->insereFuncionario($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senhaHash, $salarioLiquido, $inss, $irrf, $caminho);
+        (new DAOOperacoes)->insereFuncionario($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senhaHash, $salarioLiquido, $inss, $irrf, $caminho, $data);
         header('Location: /painel');
         die();
 

@@ -2,11 +2,10 @@
     $novaSenhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
     
     try {
-        $valida = (new DAOOperacoes)->select("funcionario");
         
-        foreach($valida as $val) {
-            if(password_verify($val['id_funcionario'], $chave) == true){
-                $id = $val['id_funcionario'];
+        foreach((new DAOOperacoes)->select("usuarios") as $val) {
+            if(password_verify($val['id_usuario'], $chave) == true){
+                $id = $val['id_usuario'];
                 $zerar = '';
 
                 (new DAOOperacoes)->updateFuncionario('senha', $novaSenhaHash, $id);
