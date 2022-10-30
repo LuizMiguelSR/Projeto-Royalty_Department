@@ -99,3 +99,12 @@ Stack trace:
 #4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
 #5 {main}
  
+IP: ::1 - DATE: 2022,10,30,00,08,20 - ERROR: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'data' in 'field list' in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:99
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(99): PDO->exec('INSERT INTO hol...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelInserirFuncionario.php(14): DAOOperacoes->insereFuncionario('Maria Silva', '78946123', '13245689', 'maria@email.com', '12345789', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Operacional', 'Supervisor', '$2y$10$G4yew0R1...', 3960.907815, Array, Array, 'App/View/Images...', '2022-10-30')
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(40): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(43): Controller::inserirFuncionarioModel('Maria Silva', '78946123', '13245689', 'maria@email.com', '12345789', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Operacional', 'Supervisor', 'admin')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}
+ 

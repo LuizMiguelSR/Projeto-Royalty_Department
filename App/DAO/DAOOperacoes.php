@@ -96,7 +96,7 @@
             $this->conexao->exec("INSERT INTO funcionario (nome_funcionario, telefone, registro_geral, cpf, numero_dependentes, id_departamento, id_endereco, foto, id_usuario) VALUES ('$nome', '$telefone', '$rg', '$cpf', '$numeroDependentes', '$id_departamento', '$id_endereco', '$caminho', '$id_usuario')");
             $id_funcionario = $this->conexao->lastInsertId();
             
-            $this->conexao->exec("INSERT INTO holerite (id_funcionario, id_departamento, data, inss_fx1, inss_fx2, inss_fx3, inss_fx4, inss_total, irrf_fx1,  irrf_fx2, irrf_fx3, irrf_fx4, irrf_fx5, irrf_total, salario_base, salario_liquido) VALUES ('$id_funcionario', '$id_departamento', '$data', '$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]', '$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]', '$salarioBase', '$salarioLiquido')");
+            $this->conexao->exec("INSERT INTO holerite (id_funcionario, id_departamento, data_holerite, inss_fx1, inss_fx2, inss_fx3, inss_fx4, inss_total, irrf_fx1,  irrf_fx2, irrf_fx3, irrf_fx4, irrf_fx5, irrf_total, salario_base, salario_liquido) VALUES ('$id_funcionario', '$id_departamento', '$data', '$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]', '$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]', '$salarioBase', '$salarioLiquido')");
             $id_holerite = $this->conexao->lastInsertId();
     
             $this->conexao->commit();
