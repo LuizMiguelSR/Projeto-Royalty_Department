@@ -12,7 +12,7 @@
         foreach((new DAOOperacoes)->select("usuarios") as $val) {
             if($recuperar == $val['email']){
                 $funcionario = (new DAOOperacoes)->selectWhere("funcionario", "id_funcionario", $val['id_usuario']);
-                $nome = $funcionario['nome_funcionario'];
+                $nome = $funcionario[0]['nome_funcionario'];
                 $id = $val['id_usuario'];
                 $idHash = password_hash($val['id_usuario'], PASSWORD_DEFAULT);
                 (new DAOOperacoes)->updateFuncionario('recuperar', $idHash, $id);

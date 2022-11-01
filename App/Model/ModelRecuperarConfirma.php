@@ -6,7 +6,7 @@
         foreach((new DAOOperacoes)->select("usuarios") as $val) {
             if(password_verify($val['id_usuario'], $chave) == true){
                 $id = $val['id_usuario'];
-                $zerar = '';
+                $zerar = NULL;
 
                 (new DAOOperacoes)->updateFuncionario('senha', $novaSenhaHash, $id);
                 
