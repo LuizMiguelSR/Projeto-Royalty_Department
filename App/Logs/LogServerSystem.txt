@@ -1,0 +1,18 @@
+IP: ::1 - DATE: 2022,11,02,22,09,55 - ERROR: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:24
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(24): PDO->query('Select * FROM f...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelConsultarHolerite.php(7): DAOOperacoes->selectWhere('funcionario', 'id_funcionario', NULL)
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(88): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(91): Controller::consultarHoleriteModel('1', '10')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}
+ 
+IP: ::1 - DATE: 2022,11,03,03,10,32 - ERROR: PDOException: SQLSTATE[22007]: Invalid datetime format: 1366 Incorrect double value: '' for column `fhr`.`holerite`.`salario_base` at row 1 in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:123
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(123): PDO->exec('INSERT INTO hol...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelRegistrarHolerites.php(16): DAOOperacoes->insereFuncionario2('6', 4488.709585, Array, Array, '2022-11-03')
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(85): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(91): Controller::registrarHoleriteModel('6')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}
+ 
