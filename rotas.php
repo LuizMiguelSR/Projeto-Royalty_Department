@@ -36,15 +36,20 @@
         /**
          * Rotas que levam aos controllers responsáveis pelas operações de CRUD do funcionário
          */
+        case '/gerenciar_funcionarios':
+            Controller::gerenciarFuncionariosView();
+        break;
         case '/inserir_funcionario':
             Controller::inserirFuncionarioView();
         break;
         case '/inserir_funcionario_model':
             Controller::inserirFuncionarioModel($_POST["nome"], $_POST["rg"], $_POST["cpf"], $_POST["email"], $_POST["telefone"], $_POST["cep"], $_POST["rua"], $_POST["complemento"], $_POST["numero"], $_POST["bairro"], $_POST["cidade"], $_POST["estado"], $_POST["pais"], $_POST["salarioBase"], $_POST["numeroDependentes"], $_POST["departamento"], $_POST["cargo"], $_POST["senha"]);
         break;
-
         case '/listar_funcionario':
             Controller::listarFuncionarioView();
+        break;
+        case '/edita_remove_funcionario':
+            Controller::editaRemoveFuncionarioView();
         break;
         case '/editar_funcionario':
             Controller::editarFuncionarioView($_POST["id"]);
@@ -64,11 +69,41 @@
         case '/folha_pagamento':
             Controller::folhaPagamentoView();
         break;
+        case '/gerenciar_folha_pagamento':
+            Controller::gerenciarFolhaPagamentoView();
+        break;
+        case '/alterar_aliquota_folha_pagamento':
+            Controller::alterarAliquotaFolhaPagamentoView();
+        break;
+        case '/alterar_aliquota_folha_pagamento_model':
+            Controller::alterarAliquotaFolhaPagamentoModel($_POST);
+        break;
         /**
          * Rota que leva ao controller reponsável pelo holerite do funcionário
          */
         case '/holerite':
             Controller::holeriteView();
+        break;
+        case '/registrar_holerite':
+            Controller::registrarHoleriteView();
+        break;
+        case '/registrar_holerite_model':
+            Controller::registrarHoleriteModel($_POST["id"]);
+        break;
+        case '/listar_holerite':
+            Controller::listarHoleriteView();
+        break;
+        case '/consultar_holerite':
+            Controller::consultarHoleriteModel($_POST["id"], $_POST["mes"]);
+        break;
+        case '/alterar_aliquota_holerite':
+            Controller::alterarAliquotasHoleriteView();
+        break;
+        case '/alterar_aliquota_holerite_model':
+            Controller::alterarAliquotasHoleriteModel($_POST);
+        break;
+        case '/gerenciar_holerite':
+            Controller::gerenciarHoleriteView();
         break;
         /**
          * Rotas que levam aos controllers responsáveis pela folha de ponto dos funcionários

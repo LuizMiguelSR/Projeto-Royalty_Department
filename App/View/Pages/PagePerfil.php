@@ -2,6 +2,7 @@
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
     
+    $voltar = '/listar_funcionario';
     $titulo = 'Perfil de '. $funcionarios[0]['nome_funcionario'];
     include 'App/View/Components/header.php';        
 ?>
@@ -75,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            <?php include 'App/View/Components/backLista.php'; ?>
+            <?php include 'App/View/Components/backPainel.php'; ?>
         <?php include 'App/View/Components/footer.php'; ?>
         </main>
 </body>

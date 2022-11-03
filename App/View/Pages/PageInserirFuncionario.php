@@ -1,7 +1,9 @@
 <?php
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
+
     $titulo = 'Cadastro de Funcionários';
+    $voltar = '/gerenciar_funcionarios';
     include 'App/View/Components/header.php';
 ?>
 <body>
@@ -13,7 +15,7 @@
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">Cadastro de um novo Funcionário</h1>
+                <h1 class="h3 mt-5 mb-2 fw-normal">Cadastro de um novo Funcionário</h1>
             </div>
             <div class="row mt-1">
                 <form class="row g-3 formCad" method="post" enctype="multipart/form-data" action="/inserir_funcionario_model">
@@ -102,7 +104,7 @@
                     </div>
                 </form>
             </div>
-            <?php include 'App/View/Components/back.php'; ?>
+            <?php include 'App/View/Components/backPainel.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
     </section>

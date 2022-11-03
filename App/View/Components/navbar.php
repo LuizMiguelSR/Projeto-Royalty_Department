@@ -83,17 +83,17 @@
         <div class="offcanvas-body">
             <div class="row">
                 <div class="col-8">
-                    <a href="/inserir_funcionario">Cadastrar</a>
+                    <a href="/gerenciar_funcionarios">Gerenciar Funcionários</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/listar_funcionario">Consultar</a>
+                    <a href="/gerenciar_folha_pagamento">Gerenciar folha de pagamento</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="/folha_pagamento">Folha de pagamento</a>
+                    <a href="/gerenciar_holerite">Gerenciar holerite</a>
                 </div>
             </div>
             <div class="row">

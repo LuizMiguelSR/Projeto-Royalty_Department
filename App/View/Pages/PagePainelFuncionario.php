@@ -8,10 +8,10 @@
     <section>
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
-                <h1 class="h1 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
+                <h1 class="h1 mt-5 mb-2 fw-normal">Bem vindo, <?php echo "{$_SESSION['nome']}"; ?>!</h1>
             <?php if($_SESSION['nome'] == 'Administrador') { ?>
                 <div class="row mt-5" >
-                    <a href="/inserir_funcionario" style="width: auto">
+                    <a href="/gerenciar_funcionarios" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -20,24 +20,11 @@
                                 </div>
                             </div>
                             <div class="divider"></div>
-                            <div class="name">CADASTRAR</div>
-                            <div class="title">Saiba mais</div>
+                            <div class="name">GERENCIAR FUNCIONÁRIOS</div>
+                            <div class="title">Consulta, altera e remove informações pertinentes aos funcionários</div>
                         </div>
                     </a>
-                    <a href="/listar_funcionario" style="width: auto">
-                        <div class="person">
-                            <div class="container">
-                                <div class="container-inner">
-                                    <img class="circle"/>
-                                    <img class="img img1" alt="Consulta" src="App/View/Images/SystemImages/consultar.svg"/>
-                                </div>
-                            </div>
-                            <div class="divider"></div>
-                            <div class="name">CONSULTAR</div>
-                            <div class="title">Saiba mais</div>
-                        </div>
-                    </a>
-                    <a href="/folha_pagamento" style="width: auto">
+                    <a href="/gerenciar_folha_pagamento" style="width: auto">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -46,8 +33,21 @@
                                 </div>
                             </div>
                             <div class="divider"></div>
-                            <div class="name">FOLHA DE PAGAMENTO</div>
-                            <div class="title">Saiba mais</div>
+                            <div class="name">GERENCIAR<br>FOLHA DE PAGAMENTO</div>
+                            <div class="title">Registra e consulta a folha de pagamento e altera informações</div>
+                        </div>
+                    </a>
+                    <a href="/gerenciar_holerite" style="width: auto">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Holerite" src="App/View/Images/SystemImages//holerite.svg"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">GERENCIAR<br>HOLERITE</div>
+                            <div class="title">Registra os holerites dos funcionários e altera informações pertinentes a alíquotas</div>
                         </div>
                     </a>
                 </div>
@@ -58,12 +58,12 @@
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Holerite" src="App/View/Images/SystemImages//holerite.svg"/>
+                                <img class="img img1" alt="Holerite" src="App/View/Images/SystemImages//holerite2.svg"/>
                             </div>
                         </div>
                         <div class="divider"></div>
                         <div class="name">HOLERITE</div>
-                        <div class="title">Saiba mais</div>
+                        <div class="title">Consulta ao seu holerite</div>
                     </div>
                 </a>
                 <a href="/folha_ponto" style="width: auto">
@@ -76,7 +76,7 @@
                         </div>
                         <div class="divider"></div>
                         <div class="name">FOLHA DE PONTO</div>
-                        <div class="title">Saiba mais</div>
+                        <div class="title">Consulta a sua folha de ponto</div>
                     </div>
                 </a>
                 <a href="/registro_ponto" style="width: auto">
@@ -89,7 +89,7 @@
                         </div>
                         <div class="divider"></div>
                         <div class="name">REGISTRO DE PONTO</div>
-                        <div class="title">Saiba mais</div>
+                        <div class="title">Registra o seu ponto diário</div>
                     </div>
                 </a>
             </div>

@@ -12,6 +12,7 @@
 
     try {
         (new DAOOperacoes)->insereFuncionario($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senhaHash, $salarioLiquido, $inss, $irrf, $caminho, $data);
+        
         header('Location: /painel');
         die();
 

@@ -7,6 +7,7 @@
     $departamento = (new DAOOperacoes)->selectWhere('departamento', 'id_departamento', $post);
     $endereco = (new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post);
 
+    $voltar = '/edita_remove_funcionario';
     $titulo = 'Alterar Perfil de '.$funcionario[0]['nome_funcionario'];
     include 'App/View/Components/header.php';
 ?>
@@ -19,7 +20,7 @@
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
             <div class="row">
-                <h1 class="h3 mb-2 fw-normal">Alterar Perfil de <?= $funcionario[0]['nome_funcionario']?></h1>
+                <h1 class="h3 mt-5 mb-2 fw-normal">Alterar Perfil de <?= $funcionario[0]['nome_funcionario']?></h1>
             </div>
             <div class="row mt-1">
                 <form class="row g-3 formCad" method="post" enctype="multipart/form-data" action="/editar_funcionario_model">
@@ -127,7 +128,7 @@
                     </div>
                 </form>
             </div>
-            <?php include 'App/View/Components/backLista.php'; ?>
+            <?php include 'App/View/Components/backPainel.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
     </section>

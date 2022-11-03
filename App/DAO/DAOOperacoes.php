@@ -48,6 +48,14 @@
             
             return $valida;
         }
+        public function selectMesAnoHolerite2($id, $ano, $mes){
+            $sql = "SELECT * FROM holerite WHERE MONTH(data_holerite) = '$mes' AND YEAR(data_holerite) = '$ano' AND id_funcionario = '$id';";
+
+            $dado = $this->conexao->query($sql);
+            $valida=$dado->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $valida;
+        }
 
         public function selectMesAnoPonto($id, $ano, $mes){
             $sql = "SELECT * FROM funcionario_ponto WHERE MONTH(diames) = '$mes' AND YEAR(diames) = '$ano' AND id_funcionario = '$id'
@@ -63,6 +71,14 @@
          */
         public function updateFuncionario($coluna, $campo, $id){
             $sql = "UPDATE usuarios SET $coluna = '$campo' WHERE id_usuario = $id";
+            $this->conexao->exec($sql);
+        }
+        public function updateAliquota($coluna, $valor){
+            $sql = "UPDATE aliquota_folha SET $coluna = '$valor' WHERE id_aliquota_folha = 1";
+            $this->conexao->exec($sql);
+        }
+        public function updateAliquota2($coluna, $valor){
+            $sql = "UPDATE aliquota_holerite SET $coluna = '$valor' WHERE id_aliquota_holerite = 1";
             $this->conexao->exec($sql);
         }
         /**
@@ -98,6 +114,13 @@
             
             $this->conexao->exec("INSERT INTO holerite (id_funcionario, id_departamento, data_holerite, inss_fx1, inss_fx2, inss_fx3, inss_fx4, inss_total, irrf_fx1,  irrf_fx2, irrf_fx3, irrf_fx4, irrf_fx5, irrf_total, salario_base, salario_liquido) VALUES ('$id_funcionario', '$id_departamento', '$data', '$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]', '$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]', '$salarioBase', '$salarioLiquido')");
             $id_holerite = $this->conexao->lastInsertId();
+    
+            $this->conexao->commit();
+        }
+        public function insereFuncionario2($id, $salarioBase, $salarioLiquido, $inss, $irrf, $data){
+            $this->conexao->beginTransaction();
+            
+            $this->conexao->exec("INSERT INTO holerite (id_funcionario, id_departamento, data_holerite, inss_fx1, inss_fx2, inss_fx3, inss_fx4, inss_total, irrf_fx1,  irrf_fx2, irrf_fx3, irrf_fx4, irrf_fx5, irrf_total, salario_base, salario_liquido) VALUES ('$id', '$id', '$data', '$inss[0]', '$inss[1]', '$inss[2]', '$inss[3]', '$inss[4]', '$irrf[0]', '$irrf[1]', '$irrf[2]', '$irrf[3]', '$irrf[4]', '$irrf[5]', '$salarioBase', '$salarioLiquido')");
     
             $this->conexao->commit();
         }

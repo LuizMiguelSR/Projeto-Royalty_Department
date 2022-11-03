@@ -12,6 +12,7 @@
         }
 
         public function calcularInss() {
+            $ali = (new DAOOperacoes)->select('aliquota_holerite');
             $salarioBase = $this -> salarioBase; 
             $faixa1 = 0.0;
             $faixa2 = 0.0;
@@ -19,29 +20,29 @@
             $faixa4 = 0.0;
             $total = 0.0;
 
-            if ($salarioBase > 3641.04) {
-                if ($salarioBase < 7087.22) {
-                    $faixa4 = ($salarioBase - 3641.04) * 0.14;
+            if ($salarioBase > (floatval($ali[0]['inss_salario_fx3'] + 0.01))) {
+                if ($salarioBase < floatval($ali[0]['inss_salario_fx4'])) {
+                    $faixa4 = ($salarioBase - (floatval($ali[0]['inss_salario_fx3'] + 0.01))) * floatval($ali[0]['inss_aliquota_fx4']);
                 } else {
-                    $faixa4 =  (7087.22 - 3641.04) * 0.14;
+                    $faixa4 =  (floatval($ali[0]['inss_salario_fx4']) - (floatval($ali[0]['inss_salario_fx3'] + 0.01))) * floatval($ali[0]['inss_aliquota_fx4']);
                 }
             }
-            if ($salarioBase > 2427.36){
-                if ($salarioBase < 3641.03) {
-                    $faixa3 = ($salarioBase - 2427.36) * 0.12;
+            if ($salarioBase > (floatval($ali[0]['inss_salario_fx2'] + 0.01))){
+                if ($salarioBase < floatval($ali[0]['inss_salario_fx3'])) {
+                    $faixa3 = ($salarioBase - (floatval($ali[0]['inss_salario_fx2'] + 0.01))) * floatval($ali[0]['inss_aliquota_fx3']);
                 } else {
-                    $faixa3 = (3641.03 - 2427.36) * 0.12;
+                    $faixa3 = (floatval($ali[0]['inss_salario_fx3']) - (floatval($ali[0]['inss_salario_fx2'] + 0.01))) * floatval($ali[0]['inss_aliquota_fx3']);
                 }
             }
-            if ($salarioBase > 1212.01){
-                if ($salarioBase < 2427.35) {
-                    $faixa2 = ($salarioBase - 1212.01) * 0.09;
+            if ($salarioBase > (floatval($ali[0]['inss_salario_fx1']) + 0.01)){
+                if ($salarioBase < floatval($ali[0]['inss_salario_fx2'])) {
+                    $faixa2 = ($salarioBase - (floatval($ali[0]['inss_salario_fx1']) + 0.01)) * floatval($ali[0]['inss_aliquota_fx2']);
                 } else {
-                    $faixa2 = (2427.35 - 1212.01) * 0.09;
+                    $faixa2 = (floatval($ali[0]['inss_salario_fx2']) - (floatval($ali[0]['inss_salario_fx1']) + 0.01)) * floatval($ali[0]['inss_aliquota_fx2']);
                 }
             }  
-            if ($salarioBase > 1212.00){
-                $faixa1 = 1212.00 * 0.075;
+            if ($salarioBase > floatval($ali[0]['inss_salario_fx1'])){
+                $faixa1 = floatval($ali[0]['inss_salario_fx1']) * floatval($ali[0]['inss_aliquota_fx1']);
             }
 
             $total = $faixa1 + $faixa2 + $faixa3 + $faixa4;
@@ -57,7 +58,8 @@
             return $salarioBase - $inss[4] - ($numeroDependentes * 189.59);
         }
 
-        public function calcularIrrf() {   
+        public function calcularIrrf() {  
+            $ali = (new DAOOperacoes)->select('aliquota_holerite'); 
             $baseCalculo = $this -> calcularBase();
            
             $faixa1 = 0.0;
@@ -67,32 +69,32 @@
             $faixa5 = 0.0;
             $total = 0.0;
             
-            if ($baseCalculo > 4664.68) {
-                $faixa5 = ($baseCalculo  - 4667.68) * 0.275;
+            if ($baseCalculo > floatval($ali[0]['irrf_salario_fx4'])) {
+                $faixa5 = ($baseCalculo  - floatval($ali[0]['irrf_salario_fx4'])) * floatval($ali[0]['irrf_aliquota_fx5']);
             }
-            if ($baseCalculo > 3751.05) {
-                if ($baseCalculo < 4664.67) {
-                    $faixa4 = ($baseCalculo - 3751.05) * 0.225;
+            if ($baseCalculo > floatval($ali[0]['irrf_salario_fx3'])) {
+                if ($baseCalculo < (floatval($ali[0]['irrf_salario_fx4']) - 0.01)) {
+                    $faixa4 = ($baseCalculo - (floatval($ali[0]['irrf_salario_fx3']) - 0.01)) * floatval($ali[0]['irrf_aliquota_fx4']);
                 } else {
-                    $faixa4 = (4664.67 - 3751.05) * 0.225;
+                    $faixa4 = (floatval($ali[0]['irrf_salario_fx4']) - floatval($ali[0]['irrf_salario_fx3'])) * floatval($ali[0]['irrf_aliquota_fx4']);
                 }
             }
-            if ($baseCalculo > 2826.66){
-                if ($baseCalculo < 3751.05) {
-                    $faixa3 = ($baseCalculo - 2826.66) * 0.15;
+            if ($baseCalculo > (floatval($ali[0]['irrf_salario_fx2']) + 0.01)){
+                if ($baseCalculo < floatval($ali[0]['irrf_salario_fx3'])) {
+                    $faixa3 = ($baseCalculo - (floatval($ali[0]['irrf_salario_fx2']) + 0.01)) * floatval($ali[0]['irrf_aliquota_fx3']);
                 } else {
-                    $faixa3 = (3751.05 - 2826.66) * 0.15;
+                    $faixa3 = (floatval($ali[0]['irrf_salario_fx3']) - (floatval($ali[0]['irrf_salario_fx2']) + 0.01)) * floatval($ali[0]['irrf_aliquota_fx3']);
                 }
             }
-            if ($baseCalculo > 1903.99){
-                if ($baseCalculo < 2826.65) {
-                    $faixa2 = ($baseCalculo - 1903.99) * 0.075;
+            if ($baseCalculo > (floatval($ali[0]['irrf_salario_fx1']) + 0.01)){
+                if ($baseCalculo < floatval($ali[0]['irrf_salario_fx2'])) {
+                    $faixa2 = ($baseCalculo - (floatval($ali[0]['irrf_salario_fx1']) + 0.01)) * floatval($ali[0]['irrf_aliquota_fx2']);
                 } else {
-                    $faixa2 = (2826.65 - 1903.99) * 0.075;
+                    $faixa2 = (floatval($ali[0]['irrf_salario_fx2']) - (floatval($ali[0]['irrf_salario_fx1']) + 0.01)) * floatval($ali[0]['irrf_aliquota_fx2']);
                 }
             }  
-            if ($baseCalculo > 1903.98){
-                    $faixa1 = 0;
+            if ($baseCalculo > floatval($ali[0]['irrf_salario_fx1'])){
+                    $faixa1 = floatval($ali[0]['irrf_aliquota_fx1']);
             }
 
             $total = $faixa1 + $faixa2 + $faixa3 + $faixa4 + $faixa5;

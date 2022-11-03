@@ -4,8 +4,8 @@
 
     $resultado = (new DAOOperacoes)->listaFuncionario($_POST);
 
-    $voltar = '/gerenciar_funcionarios';
-    $titulo = 'Lista de Funcionários';
+    $voltar = '/gerenciar_holerite';
+    $titulo = 'Lista de Holerites';
     include 'App/View/Components/header.php';
 ?>
 <body>
@@ -16,9 +16,7 @@
             <div class="row mx-5 mt-5">
                 <h1 class="h3 mt-5 mb-2 fw-normal">Utilize os filtros para consultar</h1>
             </div>
-            <!-- Select do departamento -->
             <div class="row mx-5 mt-5">
-                <!-- Selecionar todos -->
                 <form method='POST'>
                     <button type="submit" class="btn btn-primary" name="all">Listar Todos</button>
                 </form>
@@ -26,7 +24,7 @@
                 <br><br>
                 <form class="row tabela" method='POST'>
                     <select class="form-select col" aria-label="Default select example" name='options_dp' onchange="this.form.submit()">
-                        <option value="">Escolha</option>
+                        <option value="">Consulta por departamento</option>
                         <option value="Administrativo">Administrativo</option>
                         <option value="Financeiro">Financeiro</option>
                         <option value="RH">RH</option>
@@ -34,14 +32,6 @@
                         <option value="Operacional">Operacional</option>
                         <option value="Vendas">Vendas</option>
                         <option value="T.I">TI</option>
-                    </select>
-                </form>
-                <span>Ordenar: </span>
-                <form class="row tabela" method='POST'>
-                    <select name="ordenar" id="ordenar" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
-                        <option value="">Escolha</option>
-                        <option value="nome_funcionario">Nome</option>";
-                        <option value="departamento_nome">Departamento</option>";
                     </select>
                 </form>
             </div><br>
@@ -52,8 +42,7 @@
                         <tr>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">NOME</td>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">DEPARTAMENTO</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">CARGO</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">VER PERFIL</td>
+                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">VER HOLERITE</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,10 +50,24 @@
                         <tr>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?= $funcionarios['nome_funcionario'] ?></td>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?= $funcionarios['departamento_nome'] ?></td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?= $funcionarios['cargo'] ?></td>
                             <!-- Botão que direciona para o perfil -->
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                <form method="post" action="/consultar_funcionario">
+                                <form method="post" action="/consultar_holerite">
+                                    <select name="mes" id="mes" aria-label="Default select example">
+                                        <option value="">Selecione um mês</option>
+                                        <option value="12">Dezembro</option>";
+                                        <option value="11">Novembro</option>";
+                                        <option value="10">Outubro</option>";
+                                        <option value="09">Setembro</option>";
+                                        <option value="08">Agosto</option>";
+                                        <option value="07">Julho</option>";
+                                        <option value="06">Junho</option>";
+                                        <option value="05">Maio</option>";
+                                        <option value="04">Abril</option>";
+                                        <option value="03">Março</option>";
+                                        <option value="02">Fevereiro</option>";
+                                        <option value="01">Janeiro</option>";
+                                    </select>
                                     <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-eye" viewBox="0 0 16 16">

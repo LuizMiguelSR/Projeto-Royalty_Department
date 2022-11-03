@@ -5,6 +5,7 @@
     $resultado = (new ModelFolhaPagamento)->calculaFolha();
     
     $titulo = 'Folha de Pagamento';
+    $voltar = '/gerenciar_folha_pagamento';
     include 'App/View/Components/header.php';
 ?>
 <body>
@@ -214,7 +215,7 @@
                         </tr>
                 </table>
             </div>
-            <?php include 'App/View/Components/back.php'; ?>
+            <?php include 'App/View/Components/backPainel.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
     </section>

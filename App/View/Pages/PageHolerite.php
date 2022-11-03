@@ -172,13 +172,6 @@
                     </tbody>
                 </table>
             </div>
-            <div class="row">
-                <div class="col-md-2 mt-4">
-                    <form action="../classes/holeriteGerarPdf.php" method="post" target="_blank">
-                        <button type="submit" class="btn btn-primary">GERAR PDF</button>
-                    </form>
-                </div>
-            </div>
             <?php include 'App/View/Components/back.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
