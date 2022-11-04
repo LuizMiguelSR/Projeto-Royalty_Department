@@ -22,16 +22,16 @@
                     <!-- Dados Pessoais -->
                     <h3 class="my-5">Dados Pessoais</h3>
                     <div class="col-12">
-                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50">
+                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required pattern="([aA-zZ ]+)" maxlength="50">
                     </div>
                     <div class="col-4">
                         <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="30">
                     </div>
                     <div class="col-4">
-                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required maxlength="11" onblur="return verificarCPF(this.value)">
+                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" onblur="return verificarCPF(this.value)" inputmode="number" minlength="11" maxlength="11" pattern="^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}" required autocomplete="off">
                     </div>
                     <div class="col-4">
-                        <input name="telefone" type="tel" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" class="form-control" id="telefone" placeholder="Telefone" required>
+                        <input name="telefone" type="text" pattern="[0-9]+$" maxlength="15" class="form-control" id="telefone" placeholder="Telefone" required>
                     </div>
                     <div class="col-6">
                         <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
@@ -45,7 +45,7 @@
                     <h3 class="my-5">Endereço</h3>
                     <!-- Endereço -->
                     <div class="col-4">
-                        <input name="cep" type="number" class="form-control" id="cep" placeholder="CEP" autocomplete="email" maxlength="8" required>
+                        <input name="cep" type="number" class="form-control" id="cep" placeholder="CEP" maxlength="8" required>
                     </div>
                     <div class="col-4">
                         <input name="numero" type="number" class="form-control" id="numero" placeholder="Número" maxlength="6" required>
