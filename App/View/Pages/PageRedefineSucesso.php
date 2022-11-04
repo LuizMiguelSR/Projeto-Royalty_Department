@@ -12,11 +12,11 @@
             <h3>Digite abaixo a chave de recuperação e a nova senha</h3>
             <form  method="post" class="p-4 p-md-5 border rounded-3 bg-light" action="/recuperarConfirma">
                 <div class="form-floating">
-                    <input name="chave" class="form-control" id="floatingInput" placeholder="Sua nova senha">
+                    <input name="chave" class="form-control" id="floatingInput" placeholder="Sua nova senha" maxlength="256" required>
                     <label for="floatingInput">Chave</label>
                 </div>
                 <div class="form-floating mt-2">
-                    <input name="novaSenha" type="password" class="form-control" id="floatingInput" placeholder="Sua nova senha">
+                    <input name="novaSenha" type="password" class="form-control" id="floatingInput" placeholder="Sua nova senha" maxlength="50" required>
                     <label for="floatingInput">Nova Senha</label>
                 </div>
                 <input class="w-100 btn btn-lg btn-primary mt-2" type="submit" value="RECUPERAR">

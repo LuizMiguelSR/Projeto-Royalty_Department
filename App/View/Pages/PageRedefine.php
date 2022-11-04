@@ -18,7 +18,7 @@
                         }else{
                             echo $_SESSION['email'];
                         }; 
-                    ?>" >
+                    ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
                     <label for="floatingInput">Email</label>
                 </div>
                 <input class="w-100 btn btn-lg btn-primary mt-2" type="submit" value="RECUPERAR">

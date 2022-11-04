@@ -22,59 +22,59 @@
                     <!-- Dados Pessoais -->
                     <h3 class="my-5">Dados Pessoais</h3>
                     <div class="col-12">
-                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required>
+                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50">
                     </div>
                     <div class="col-4">
-                        <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required>
+                        <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="30">
                     </div>
                     <div class="col-4">
                         <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" required maxlength="11" onblur="return verificarCPF(this.value)">
                     </div>
                     <div class="col-4">
-                        <input name="telefone" type="text" class="form-control" id="telefone" placeholder="Telefone" required>
+                        <input name="telefone" type="tel" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" class="form-control" id="telefone" placeholder="Telefone" required>
                     </div>
                     <div class="col-6">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" required>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
                     </div>
                     <div class="col-6">
-                        <input name="senha" type="password" class="form-control" id="senha" placeholder="Senha" required>
+                        <input name="senha" type="password" class="form-control" id="senha" placeholder="Senha" maxlength="50" required>
                     </div>
                     <div class="col-12">
-                        <input name="arquivo" type="file" class="form-control-file" id="arquivo" required>
+                        <input name="arquivo" type="file" accept="image/*" class="form-control-file" id="arquivo" required>
                     </div>
                     <h3 class="my-5">Endereço</h3>
                     <!-- Endereço -->
                     <div class="col-4">
-                        <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" autocomplete="email" required>
+                        <input name="cep" type="number" class="form-control" id="cep" placeholder="CEP" autocomplete="email" maxlength="8" required>
                     </div>
                     <div class="col-4">
-                        <input name="numero" type="text" class="form-control" id="numero" placeholder="Número" required>
+                        <input name="numero" type="number" class="form-control" id="numero" placeholder="Número" maxlength="6" required>
                     </div>
                     <div class="col-4">
-                        <input name="complemento" type="text" class="form-control" id="complemento" placeholder="Complemento">
+                        <input name="complemento" type="text" class="form-control" id="complemento" maxlength="50" placeholder="Complemento">
                     </div>
                     <div class="col-6">
-                        <input name="rua" type="text" class="form-control" id="endereco" placeholder="Rua" required>
+                        <input name="rua" type="text" class="form-control" id="endereco" maxlength="50" placeholder="Rua" required>
                     </div>
                     <div class="col-6">
-                        <input name="bairro" type="text" class="form-control" id="bairro" placeholder="Bairro" required>
+                        <input name="bairro" type="text" class="form-control" id="bairro" maxlength="50" placeholder="Bairro" required>
                     </div>
                     <div class="col-6">
-                        <input name="cidade" type="text" class="form-control" id="cidade" placeholder="Cidade" required>
+                        <input name="cidade" type="text" class="form-control" id="cidade" maxlength="50" placeholder="Cidade" required>
                     </div>
                     <div class="col-6">
-                        <input name="estado" type="text" class="form-control" id="estado" placeholder="Estado" required>
+                        <input name="estado" type="text" class="form-control" id="estado" maxlength="50" placeholder="Estado" required>
                     </div>
                     <div class="col-6">
-                        <input name="pais" type="text" class="form-control" id="pais" placeholder="País" value="Brasil" required>
+                        <input name="pais" type="text" class="form-control" id="pais" maxlength="50" placeholder="País" value="Brasil">
                     </div>
                     <h3 class="my-5">Dados da Empresa</h3>
                     <!-- Dados pertinentes a empresa -->
                     <div class="col-6">
-                        <input name="salarioBase" type="text" class="form-control" id="salarioBase" placeholder="Salário Base" required>
+                        <input name="salarioBase" type="tel" maxlength="10" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" class="form-control" id="salarioBase" placeholder="Salário Base" required>
                     </div>
                     <div class="col-6">
-                        <input name="numeroDependentes" type="text" class="form-control" id="numeroDependentes" placeholder="Nº Dependentes" required>
+                        <input name="numeroDependentes" type="number" class="form-control" id="numeroDependentes" placeholder="Nº Dependentes" maxlength="2" required>
                     </div>
                     <div class="col-6">
                         <select class="form-select" aria-h3="Default select example" name="departamento" id="departamento">
