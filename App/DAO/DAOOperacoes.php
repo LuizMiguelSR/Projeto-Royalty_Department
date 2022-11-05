@@ -196,8 +196,6 @@
             $this->conexao->exec($sqlDelete);
             $sqlDelete = "DELETE from departamento where id_departamento = $id";
             $this->conexao->exec($sqlDelete);
-            $sqlDelete = "DELETE from holerite where id_holerite = $id";
-            $this->conexao->exec($sqlDelete);
             $sqlDelete = "DELETE from usuarios where id_usuario = $id";
             $this->conexao->exec($sqlDelete);
         }

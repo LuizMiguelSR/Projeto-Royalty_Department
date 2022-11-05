@@ -31,7 +31,7 @@
                             <td><?= $ali[0]['fgts']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_folha_pagamento_model">
-                                    <input name="fgts" type="text" id="fgts">
+                                    <input name="fgts" type="number" id="fgts" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -41,7 +41,7 @@
                             <td><?= $ali[0]['inss']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_folha_pagamento_model">
-                                    <input name="fgts" type="text" id="fgts">
+                                    <input name="fgts" type="number" id="fgts" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -51,7 +51,7 @@
                             <td><?= $ali[0]['sistema_s']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_folha_pagamento_model">
-                                    <input name="fgts" type="text" id="fgts">
+                                    <input name="fgts" type="number" id="fgts" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -61,7 +61,7 @@
                             <td><?= $ali[0]['rat']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_folha_pagamento_model">
-                                    <input name="fgts" type="text" id="fgts">
+                                    <input name="fgts" type="number" id="fgts" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>

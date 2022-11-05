@@ -1,7 +1,7 @@
 <?php
     try {
         (new DAOOperacoes)->deletaFuncionario($post);
-        header('Location: /listar_funcionario');
+        header('Location: /edita_remove_funcionario');
         die();
     } catch(PDOException $e) {    
         $e->getMessage();

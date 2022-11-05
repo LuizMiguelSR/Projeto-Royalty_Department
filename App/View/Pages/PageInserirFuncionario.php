@@ -10,7 +10,7 @@
     <?php include 'App/View/Components/navbar.php'; ?>
     <section>
         <script src="App/View/js/apiCEP.js" type='module' defer></script>
-        <script type="text/javascript" src="App/View/js/validaCPF.js"></script>
+        <script src="App/View/js/mascara.js" type='text/javascript'></script>
         <script src="path/to/jquery.js"></script>
         <main>
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
@@ -22,16 +22,16 @@
                     <!-- Dados Pessoais -->
                     <h3 class="my-5">Dados Pessoais</h3>
                     <div class="col-12">
-                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required pattern="([aA-zZ ]+)" maxlength="50">
+                        <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50">
                     </div>
                     <div class="col-4">
-                        <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="30">
+                        <input name="rg" type="text" class="form-control" id="rg" placeholder="RG" onKeyPress="MascaraGenerica(this, 'RG');" inputmode="number" required pattern="[a-z0-9]+)" maxlength="13">
                     </div>
                     <div class="col-4">
-                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" onblur="return verificarCPF(this.value)" inputmode="number" minlength="11" maxlength="11" pattern="^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}" required autocomplete="off">
+                        <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" onKeyPress="MascaraGenerica(this, 'CPF');" inputmode="number" maxlength="14" pattern="^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}" required>
                     </div>
                     <div class="col-4">
-                        <input name="telefone" type="text" pattern="[0-9]+$" maxlength="15" class="form-control" id="telefone" placeholder="Telefone" required>
+                        <input name="telefone" type="text" maxlength="15" onKeyPress="MascaraGenerica(this, 'CELULAR');" class="form-control" id="telefone" placeholder="Telefone" required>
                     </div>
                     <div class="col-6">
                         <input name="email" type="email" class="form-control" id="email" placeholder="E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
@@ -45,36 +45,36 @@
                     <h3 class="my-5">Endereço</h3>
                     <!-- Endereço -->
                     <div class="col-4">
-                        <input name="cep" type="number" class="form-control" id="cep" placeholder="CEP" maxlength="8" required>
+                        <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" pattern="[0-9]+$" maxlength="8" required>
                     </div>
                     <div class="col-4">
-                        <input name="numero" type="number" class="form-control" id="numero" placeholder="Número" maxlength="6" required>
+                        <input name="numero" type="text" class="form-control" id="numero" placeholder="Número" maxlength="6" pattern="[0-9]+$" required>
                     </div>
                     <div class="col-4">
-                        <input name="complemento" type="text" class="form-control" id="complemento" maxlength="50" placeholder="Complemento">
+                        <input name="complemento" type="text" class="form-control" id="complemento" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50" placeholder="Complemento">
                     </div>
                     <div class="col-6">
-                        <input name="rua" type="text" class="form-control" id="endereco" maxlength="50" placeholder="Rua" required>
+                        <input name="rua" type="text" class="form-control" id="endereco" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9 ]+)" placeholder="Rua" required>
                     </div>
                     <div class="col-6">
-                        <input name="bairro" type="text" class="form-control" id="bairro" maxlength="50" placeholder="Bairro" required>
+                        <input name="bairro" type="text" class="form-control" id="bairro" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Bairro" required>
                     </div>
                     <div class="col-6">
-                        <input name="cidade" type="text" class="form-control" id="cidade" maxlength="50" placeholder="Cidade" required>
+                        <input name="cidade" type="text" class="form-control" id="cidade" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Cidade" required>
                     </div>
                     <div class="col-6">
-                        <input name="estado" type="text" class="form-control" id="estado" maxlength="50" placeholder="Estado" required>
+                        <input name="estado" type="text" class="form-control" id="estado" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Estado" required>
                     </div>
                     <div class="col-6">
-                        <input name="pais" type="text" class="form-control" id="pais" maxlength="50" placeholder="País" value="Brasil">
+                        <input name="pais" type="text" class="form-control" id="pais" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="País" value="Brasil">
                     </div>
                     <h3 class="my-5">Dados da Empresa</h3>
                     <!-- Dados pertinentes a empresa -->
                     <div class="col-6">
-                        <input name="salarioBase" type="tel" maxlength="10" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$" class="form-control" id="salarioBase" placeholder="Salário Base" required>
+                        <input name="salarioBase" type="number" step="0.01" min="0" max="50000" class="form-control" id="salarioBase" placeholder="Salário Base" required>
                     </div>
                     <div class="col-6">
-                        <input name="numeroDependentes" type="number" class="form-control" id="numeroDependentes" placeholder="Nº Dependentes" maxlength="2" required>
+                        <input name="numeroDependentes" type="text" class="form-control" id="numeroDependentes" placeholder="Nº Dependentes" pattern="[0-9]+$" maxlength="2" required>
                     </div>
                     <div class="col-6">
                         <select class="form-select" aria-h3="Default select example" name="departamento" id="departamento">

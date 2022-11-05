@@ -31,7 +31,7 @@
                             <td><?= $ali[0]['inss_aliquota_fx1']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_aliquota_fx1" type="text" id="inss_aliquota_fx1">
+                                    <input name="inss_aliquota_fx1" type="number" id="inss_aliquota_fx1" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -41,7 +41,7 @@
                             <td><?= $ali[0]['inss_aliquota_fx2']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_aliquota_fx2" type="text" id="inss_aliquota_fx2">
+                                    <input name="inss_aliquota_fx2" type="number" id="inss_aliquota_fx2" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -51,7 +51,7 @@
                             <td><?= $ali[0]['inss_aliquota_fx3']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_aliquota_fx3" type="text" id="inss_aliquota_fx3">
+                                    <input name="inss_aliquota_fx3" type="number" id="inss_aliquota_fx3" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -61,7 +61,7 @@
                             <td><?= $ali[0]['inss_aliquota_fx4']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_aliquota_fx4" type="text" id="inss_aliquota_fx4">
+                                    <input name="inss_aliquota_fx4" type="number" id="inss_aliquota_fx4" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -71,7 +71,7 @@
                             <td><?= $ali[0]['irrf_aliquota_fx1']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_aliquota_fx1" type="text" id="irrf_aliquota_fx1">
+                                    <input name="irrf_aliquota_fx1" type="number" id="irrf_aliquota_fx1" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -81,7 +81,7 @@
                             <td><?= $ali[0]['irrf_aliquota_fx2']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_aliquota_fx2" type="text" id="irrf_aliquota_fx2">
+                                    <input name="irrf_aliquota_fx2" type="number" id="irrf_aliquota_fx2" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -91,7 +91,7 @@
                             <td><?= $ali[0]['irrf_aliquota_fx3']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_aliquota_fx3" type="text" id="irrf_aliquota_fx3">
+                                    <input name="irrf_aliquota_fx3" type="number" id="irrf_aliquota_fx3" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -101,7 +101,7 @@
                             <td><?= $ali[0]['irrf_aliquota_fx4']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_aliquota_fx4" type="text" id="irrf_aliquota_fx4">
+                                    <input name="irrf_aliquota_fx4" type="number" id="irrf_aliquota_fx4" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -111,7 +111,7 @@
                             <td><?= $ali[0]['irrf_aliquota_fx5']*100 ?> %</td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_aliquota_fx5" type="text" id="irrf_aliquota_fx5">
+                                    <input name="irrf_aliquota_fx5" type="number" id="irrf_aliquota_fx5" step="0.01" min="0" max="99" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -135,7 +135,7 @@
                             <td>R$ <?= number_format($ali[0]['inss_salario_fx1'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_salario_fx1" type="text" id="inss_salario_fx1">
+                                    <input name="inss_salario_fx1" type="number" id="inss_salario_fx1" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -145,7 +145,7 @@
                             <td>R$ <?= number_format($ali[0]['inss_salario_fx2'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_salario_fx2" type="text" id="inss_salario_fx2">
+                                    <input name="inss_salario_fx2" type="number" id="inss_salario_fx2" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -155,7 +155,7 @@
                             <td>R$ <?= number_format($ali[0]['inss_salario_fx3'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_salario_fx3" type="text" id="inss_salario_fx3">
+                                    <input name="inss_salario_fx3" type="number" id="inss_salario_fx3" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -165,7 +165,7 @@
                             <td>R$ <?= number_format($ali[0]['inss_salario_fx4'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="inss_salario_fx4" type="text" id="inss_salario_fx4">
+                                    <input name="inss_salario_fx4" type="number" id="inss_salario_fx4" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -175,7 +175,7 @@
                             <td>R$ <?= number_format($ali[0]['irrf_salario_fx1'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_salario_fx1" type="text" id="irrf_salario_fx1">
+                                    <input name="irrf_salario_fx1" type="number" id="irrf_salario_fx1" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -185,7 +185,7 @@
                             <td>R$ <?= number_format($ali[0]['irrf_salario_fx2'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_salario_fx2" type="text" id="irrf_salario_fx2">
+                                    <input name="irrf_salario_fx2" type="number" id="irrf_salario_fx2" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -195,7 +195,7 @@
                             <td>R$ <?= number_format($ali[0]['irrf_salario_fx3'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_salario_fx3" type="text" id="irrf_salario_fx3">
+                                    <input name="irrf_salario_fx3" type="number" id="irrf_salario_fx3" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -205,7 +205,7 @@
                             <td>R$ <?= number_format($ali[0]['irrf_salario_fx4'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_salario_fx4" type="text" id="irrf_salario_fx4">
+                                    <input name="irrf_salario_fx4" type="number" id="irrf_salario_fx4" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>
@@ -215,7 +215,7 @@
                             <td>R$ <?= number_format($ali[0]['irrf_salario_fx5'], 2, ',', '.') ?></td>
                             <td>
                                 <form method="post" action="/alterar_aliquota_holerite_model">
-                                    <input name="irrf_salario_fx5" type="text" id="irrf_salario_fx5">
+                                    <input name="irrf_salario_fx5" type="number" id="irrf_salario_fx5" step="0.01" min="0" max="50000" required>
                                     <button type="submit" class="btn btn-primary">Alterar</button>
                                 </form>
                             </td>

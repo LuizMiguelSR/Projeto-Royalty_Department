@@ -4,7 +4,7 @@
     $caminho = ModelInsereImagem::repassaCaminho();
     try {
         (new DAOOperacoes)->editarFuncionarioSalvar($nome, $rg, $cpf, $senhaHash, $email, $telefone, $numeroDependentes, $caminho, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais);
-        header('Location: /listar_funcionario');
+        header('Location: /edita_remove_funcionario');
         die();
     } catch(PDOException $e) {    
         $e->getMessage();
