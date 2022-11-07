@@ -2,12 +2,20 @@
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
 
-    $funcionario = (new DAOOperacoes)->selectWhere('funcionario','id_funcionario',$post);
-    $usuario = (new DAOOperacoes)->selectWhere('usuarios','id_usuario',$post);
-    $departamento = (new DAOOperacoes)->selectWhere('departamento', 'id_departamento', $post);
-    $endereco = (new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post);
+    try{
+        $funcionario = (new DAOOperacoes)->selectWhere('funcionario','id_funcionario',$post);
+        $usuario = (new DAOOperacoes)->selectWhere('usuarios','id_usuario',$post);
+        $departamento = (new DAOOperacoes)->selectWhere('departamento', 'id_departamento', $post);
+        $endereco = (new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post);
+    } catch(PDOException $e) {    
+        $e->getMessage();
+        $erro = "Page Editar funcionario passagem de parametro de consulta ao servidor";
+        ModelSystemLog::logServerFail($e, $erro);
+        header('Location: /errorConnect');
+        die();
+    }
 
-    $voltar = '/edita_remove_funcionario';
+    $voltar = '/gerenciar_funcionarios';
     $titulo = 'Alterar Perfil de '.$funcionario[0]['nome_funcionario'];
     include 'App/View/Components/header.php';
 ?>

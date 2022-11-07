@@ -2,7 +2,7 @@
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
     
-    $voltar = '/listar_funcionario';
+    $voltar = '/gerenciar_funcionarios';
     $titulo = 'Perfil de '. $funcionarios[0]['nome_funcionario'];
     include 'App/View/Components/header.php';        
 ?>

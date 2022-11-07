@@ -1,11 +1,13 @@
 <?php
     try {
         (new DAOOperacoes)->deletaFuncionario($post);
-        header('Location: /edita_remove_funcionario');
+        header('Location: /gerenciar_funcionarios');
         die();
-    } catch(PDOException $e) {    
-        $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        
+    } catch(PDOException $e) {
+        $e->getMessage();    
+        $erro = "Exclusao de funcionario";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

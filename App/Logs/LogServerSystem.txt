@@ -1,18 +1,36 @@
-IP: ::1 - DATE: 2022,11,05,03,02,20 - ERROR: PDOException: SQLSTATE[HY000]: General error: 1364 Field 'id_funcionario' doesn't have a default value in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:106
+Erro de Page Select Aliquota folha
+IP: ::1
+DATE: 2022,11,06,22,30,41
+ERROR INFO: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fhr.aliquota_folha1' doesn't exist in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:16
 Stack trace:
-#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(106): PDO->exec('INSERT INTO dep...')
-#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelInserirFuncionario.php(14): DAOOperacoes->insereFuncionario('Teste da Silva', '12.312.313-13', '123.131.313-31', 'santostestes@em...', '(13) 13131-2313', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Administrativo', 'Diretor', '$2y$10$dWq4uIkl...', 3960.9230025, Array, Array, 'App/View/Images...', '2022-11-05')
-#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(46): include('/mnt/8EA8ED11A8...')
-#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(46): Controller::inserirFuncionarioModel('Teste da Silva', '12.312.313-13', '123.131.313-31', 'santostestes@em...', '(13) 13131-2313', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Administrativo', 'Diretor', 'admin')
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(16): PDO->query('Select * FROM a...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/View/Pages/PageAlterarAliquotaFolhaPagamento.php(6): DAOOperacoes->select('aliquota_folha1')
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(70): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(73): Controller::alterarAliquotaFolhaPagamentoView()
 #4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
-#5 {main}
+#5 {main}----------------------------
  
-IP: ::1 - DATE: 2022,11,05,03,04,15 - ERROR: PDOException: SQLSTATE[HY000]: General error: 1364 Field 'id_funcionario' doesn't have a default value in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:106
+Erro de Page Select Aliquota Holerite
+IP: ::1
+DATE: 2022,11,06,22,32,56
+ERROR INFO: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fhr.aliquota_holerite1' doesn't exist in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:16
 Stack trace:
-#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(106): PDO->exec('INSERT INTO dep...')
-#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelInserirFuncionario.php(14): DAOOperacoes->insereFuncionario('Teste da Silva', '12.312.313-13', '123.131.313-31', 'santostestes@em...', '(13) 13131-2313', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Administrativo', 'Diretor', '$2y$10$6MjW0Lyy...', 3960.9230025, Array, Array, 'App/View/Images...', '2022-11-05')
-#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(46): include('/mnt/8EA8ED11A8...')
-#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(46): Controller::inserirFuncionarioModel('Teste da Silva', '12.312.313-13', '123.131.313-31', 'santostestes@em...', '(13) 13131-2313', '01001901', 'Pra\xC3\xA7a da S\xC3\xA9', 'Apartamento', '456', 'S\xC3\xA9', 'S\xC3\xA3o Paulo', 'SP', 'Brasil', '5000', '2', 'Administrativo', 'Diretor', 'admin')
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(16): PDO->query('Select * FROM a...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/View/Pages/PageAlterarAliquotaHolerite.php(6): DAOOperacoes->select('aliquota_holeri...')
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(91): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(94): Controller::alterarAliquotasHoleriteView()
 #4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
-#5 {main}
+#5 {main}----------------------------
+ 
+Erro de Page Select Aliquota Holerite
+IP: ::1
+DATE: 2022,11,06,22,42,51
+ERROR INFO: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'fhr.aliquota_holerite1' doesn't exist in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:16
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(16): PDO->query('Select * FROM a...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/View/Pages/PageAlterarAliquotaHolerite.php(6): DAOOperacoes->select('aliquota_holeri...')
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(91): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(94): Controller::alterarAliquotasHoleriteView()
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}----------------------------
  

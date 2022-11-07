@@ -9,9 +9,11 @@
         $endereco = (new ModelEndereco)->construirEndereco((new DAOOperacoes)->selectWhere('endereco', 'id_endereco', $post));
 
         include 'App/View/Pages/PagePerfil.php';
+        
     } catch(PDOException $e) {    
         $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        $erro = "Consulta de Funcionário";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

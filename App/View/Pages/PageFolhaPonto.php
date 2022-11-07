@@ -1,7 +1,10 @@
 <?php
     ModelSession::verificaSessao();
+
     date_default_timezone_set('America/Sao_Paulo');
     $data = date('Y-m-d');
+    $dataMes = date('m');
+    $dataAno = date('Y');
     
     $titulo = 'Folha de Ponto de '.$_SESSION['nome'];
     include 'App/View/Components/header.php';
@@ -16,24 +19,22 @@
             </div>
             <span>Ordenar por mês e ano: </span>
             <form class="row tabela" method='POST'>
-                <select name="mes" id="mes" class="form-select col" aria-label="Default select example">
-                    <option value="">Selecione um mês</option>
-                    <option value="12">Dezembro</option>";
-                    <option value="11">Novembro</option>";
-                    <option value="10">Outubro</option>";
-                    <option value="09">Setembro</option>";
-                    <option value="08">Agosto</option>";
-                    <option value="07">Julho</option>";
-                    <option value="06">Junho</option>";
-                    <option value="05">Maio</option>";
-                    <option value="04">Abril</option>";
-                    <option value="03">Março</option>";
-                    <option value="02">Fevereiro</option>";
-                    <option value="01">Janeiro</option>";
+                <select name="mes" id="mes" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
+                    <?php 
+                        for($i = $dataMes; $i >= 1; $i--) { 
+                            if($i == $dataMes){
+                    ?>
+                                <option value="<?= $i ?>" selected><?= (new ModelMes)->Mes($i); ?></option>;
+                    <?php   } else { ?>
+                                <option value="<?= $i ?>"><?= (new ModelMes)->Mes($i); ?></option>;
+                    <?php 
+                            }
+                        } 
+                    ?>
                 </select>
-                <select name="ano" id="ano" class="form-select col" aria-label="Default select example">
-                    <option value="">Selecione um ano</option>
-                    <option value="2022">2022</option>";
+                <select name="ano" id="ano" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
+                    <option value=""selected>Selecione um ano</option>
+                    <option value="2022" selected>2022</option>";
                 </select>
                 <button type="submit" class="btn btn-primary mt-2" name="all">Consultar</button>
             </form><br>

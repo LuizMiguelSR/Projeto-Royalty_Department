@@ -7,9 +7,11 @@
         $holerite = (new DAOOperacoes)->selectMesAnoHolerite2($postId, $dataAtualAno, $postMes);
 
         include 'App/View/Pages/PageConsultaHolerite.php';
-    } catch(PDOException $e) {    
-        $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+
+    } catch(PDOException $e) {   
+        $e->getMessage(); 
+        $erro = "Consulta de Holerite";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

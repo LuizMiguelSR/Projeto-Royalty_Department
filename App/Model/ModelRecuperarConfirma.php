@@ -20,7 +20,8 @@
         die();
     } catch(PDOException $e) {     
         $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        $erro = "Comunicao com server ao confirmar a recuperacao de senha";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

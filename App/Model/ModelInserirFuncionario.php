@@ -13,12 +13,13 @@
     try {
         (new DAOOperacoes)->insereFuncionario($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senhaHash, $salarioLiquido, $inss, $irrf, $caminho, $data);
         
-        header('Location: /painel');
+        header('Location: /gerenciar_funcionarios');
         die();
 
     } catch(PDOException $e) {    
         $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        $erro = "Insercao de Funcionario";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

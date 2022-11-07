@@ -2,8 +2,15 @@
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
 
-    $resultado = (new ModelFolhaPagamento)->calculaFolha();
-    
+    try{
+        $resultado = (new ModelFolhaPagamento)->calculaFolha();
+    } catch(PDOException $e) {    
+        $e->getMessage();
+        $erro = "Busca de folha de pagamento";
+        ModelSystemLog::logServerFail($e, $erro);
+        header('Location: /errorConnect');
+        die();
+    }
     $titulo = 'Folha de Pagamento';
     $voltar = '/gerenciar_folha_pagamento';
     include 'App/View/Components/header.php';

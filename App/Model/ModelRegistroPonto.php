@@ -51,7 +51,8 @@
     } catch(PDOException $e) {    
         
         $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        $erro = "Registro de Ponto";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
 

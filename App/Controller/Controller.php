@@ -45,9 +45,6 @@
         public static function inserirFuncionarioModel($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
             include 'App/Model/ModelInserirFuncionario.php';
         }
-        public static function listarFuncionarioView() {
-            include 'App/View/Pages/PageListaFuncionario.php';
-        }
         public static function editarFuncionarioView($post) {
             include 'App/View/Pages/PageEditarFuncionario.php';
         }
@@ -83,9 +80,6 @@
         }
         public static function registrarHoleriteModel($post) {
             include 'App/Model/ModelRegistrarHolerites.php';
-        }
-        public static function registrarHoleriteView() {
-            include 'App/View/Pages/PageRegistraHolerites.php';
         }
         public static function listarHoleriteView() {
             include 'App/View/Pages/PageListaHolerites.php';

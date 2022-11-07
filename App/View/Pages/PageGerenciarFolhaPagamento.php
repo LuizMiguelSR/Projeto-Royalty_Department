@@ -1,6 +1,7 @@
 <?php
     ModelSession::verificaSessao();
-
+    ModelSession::verificaRole();
+    
     $titulo = 'Gerenciar Folha de Pagamento';
     $voltar = '/painel';
     include 'App/View/Components/header.php';
@@ -12,19 +13,6 @@
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
             <h1 class="h1 mt-5 mb-2 fw-normal">GERENCIAMENTO DE FOLHA DE PAGAMENTO</h1>
             <div class="row mt-5" >
-                <a href="/listar_funcionario" style="width: auto">
-                    <div class="person">
-                        <div class="container">
-                            <div class="container-inner">
-                                <img class="circle"/>
-                                <img class="img img1" alt="Consulta" src="App/View/Images/SystemImages/cadastrar2.svg"/>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="name">REGISTRAR</div>
-                        <div class="title">Registra a folha de pagamento mensal</div>
-                    </div>
-                </a>
                 <a href="/folha_pagamento" style="width: auto">
                     <div class="person">
                         <div class="container">

@@ -39,7 +39,8 @@
         }       
     } catch(PDOException $e) {  
         $e->getMessage();
-        ModelSystemLog::logServerFail($e);
+        $erro = "Validacao da Sessao";
+        ModelSystemLog::logServerFail($e, $erro);
         header('Location: /errorConnect');
         die();
     }

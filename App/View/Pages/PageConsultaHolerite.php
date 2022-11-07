@@ -2,7 +2,7 @@
     ModelSession::verificaSessao();
     ModelSession::verificaRole();
 
-    $voltar = '/listar_holerite';
+    $voltar = '/gerenciar_holerite';
     $titulo = 'Holerite de '.$funcionarios[0]['nome_funcionario'];
     $id = $funcionarios[0]['id_funcionario'];
 
