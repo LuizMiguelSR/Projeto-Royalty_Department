@@ -41,7 +41,7 @@
              * Métodos responsáveis por consultar no banco dados recebendo como parâmetros a tabela de consulta, uma clausula where e o valor da clausula que será o escopo mensal e anual
              */
             public function selectMesAnoHolerite($id, $ano, $mes){
-                $sql = "SELECT * FROM holerite WHERE MONTH(data_holerite) = '$mes' AND YEAR(data_holerite) = '$ano' AND id_holerite = '$id'
+                $sql = "SELECT * FROM holerite WHERE MONTH(data_holerite) = '$mes' AND YEAR(data_holerite) = '$ano' AND id_funcionario = '$id'
                 ORDER BY data_holerite DESC;";
 
                 $dado = $this->conexao->query($sql);

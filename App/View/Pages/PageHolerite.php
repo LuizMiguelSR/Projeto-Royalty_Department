@@ -35,7 +35,7 @@
                     <option value=""selected>Selecione um ano</option>
                     <option value="2022" selected>2022</option>";
                 </select>
-                <button type="submit" class="btn btn-primary mt-2" name="all">Consultar</button>
+                <button type="submit" class="btn btn-primary mt-2" >Consultar</button>
             </form><br>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -43,10 +43,9 @@
                         <tr>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 01</td>
                             <?php foreach((new DAOOperacoes)->selectMesAnoHolerite($_SESSION['id_usuario'],$_POST['ano'], $_POST['mes']) as $func):
-                                if ($_SESSION['id_usuario'] == $func['id_funcionario'] ){
                             ?>
                                 <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">R$ <?= number_format($func["inss_fx1"], 2, ',', '.') ?></td>
-                            <?php } endforeach; ?>
+                            <?php endforeach; ?>
                         </tr>
                         <tr>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">INSS Faixa 02</td>
