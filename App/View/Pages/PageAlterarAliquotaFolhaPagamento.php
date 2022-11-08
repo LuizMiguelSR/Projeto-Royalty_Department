@@ -64,7 +64,7 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button type="submit" id="botao" class="btn btn-primary mt-3" style="width: 20%;">Alterar</button>
+                    <button type="submit" id="botao" class="btn btn-primary mt-3" style="width: 30%;">Alterar</button>
                 </form>
             </div>
             <?php include 'App/View/Components/backPainel.php'; ?>

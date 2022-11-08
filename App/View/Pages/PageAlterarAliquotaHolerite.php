@@ -99,7 +99,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" id="botao" class="btn btn-primary mt-4" style="width: 20%;">Alterar</button>
+                <button type="submit" id="botao" class="btn btn-primary mt-4" style="width: 30%;">Alterar</button>
                 </form>
                 <div class="row">
                     <h1 class="h3 my-5 fw-normal">Alterar Base</h1>
@@ -179,7 +179,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" id="botao2" class="btn btn-primary mt-4" style="width: 20%;">Alterar</button>
+                <button type="submit" id="botao2" class="btn btn-primary mt-4" style="width: 30%;">Alterar</button>
                 </form>
             </div>
             <script src="App/View/js/desabilitarBotaoHolerite1.js" type='module' defer></script>
