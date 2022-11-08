@@ -104,7 +104,7 @@
                 <div class="row">
                     <h1 class="h3 my-5 fw-normal">Alterar Base</h1>
                 </div>
-                <form method="post" action="/alterar_aliquota_holerite_model">
+                <form method="post" class="row tabela" action="/alterar_aliquota_holerite_model">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
