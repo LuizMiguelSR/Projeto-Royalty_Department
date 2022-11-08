@@ -19,13 +19,10 @@
     <?php include 'App/View/Components/navbar.php'; ?>
     <section>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded">
-            <div class="row mx-5 mt-5">
-                <h1 class="h2 mt-2 mb-5 fw-normal">GERENCIAR COLABORADORES</h1>
-            </div>
-            <div class="row mx-5 mt-2">
-                <div class="row tabela">
-                <form class="mb-3" method='POST'>
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty">
+            <h1 class="h2 mt-5 mb-5 fw-normal">GERENCIAR COLABORADORES</h1>
+            <div class="row mx-5">
+                <form class="mb-3" method='POST' style="width: 1180px">
                     <select class="form-select" aria-label="Default select example" name='options_dp' onchange="this.form.submit()">
                         <option value="">Listar por Departamento</option>
                         <option value="Administrativo">Administrativo</option>
@@ -37,6 +34,8 @@
                         <option value="T.I">TI</option>
                     </select>
                 </form>
+            </div>
+            <div class="row tabela"></br>
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
                         <tr>
@@ -54,7 +53,7 @@
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><?= $funcionarios['departamento_nome'] ?></td>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                 <form method="post" action="/consultar_funcionario">
-                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>">
+                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>" title="Ver perfil">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-eye" viewBox="0 0 16 16">
                                             <path
@@ -67,7 +66,7 @@
                             </td>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                 <form method="post" action="/editar_funcionario">
-                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>">
+                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>" title="Editar informações">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-pencil-fill" viewBox="0 0 16 16">
                                             <path
@@ -78,7 +77,7 @@
                             </td>
                             <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                 <form method="post" action="/excluir_funcionario">
-                                        <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>">
+                                        <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>" title="Remover funcionário">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                             class="bi bi-trash-fill" viewBox="0 0 16 16">
                                             <path
@@ -92,7 +91,7 @@
                     </tbody>
                 </table>
                 <div class="row tabela" role="toolbar" aria-label="Toolbar with button groups">
-                    <form method='post' class='mt-4 mb-5'>
+                    <form method='post' class='mt-5'>
                         <div class="btn-group mr-2" role="group" aria-label="First group">
 
                         <?php 
@@ -118,8 +117,8 @@
                     </form>
                 </div>
                 <div class="row mx-5 mt-2 mb-5">
-                    <h1 class="h2 fw-normal">ADICIONAR COLABORADORES</h1>
-                    <a href="/inserir_funcionario" style="width: auto">
+                    <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
+                    <a href="/inserir_funcionario" style="width: auto" title="Cadastrar colaborador">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -131,7 +130,7 @@
                             <div class="name">CADASTRAR COLABORADOR</div>
                         </div>
                     </a>
-                    <a href="/gerenciar_funcionarios" method='POST' style="width: auto" class="mb-5">
+                    <a href="/gerenciar_funcionarios" method='POST' style="width: auto" class="mb-5" title="Listar todos colaboradores">
                         <input type="hidden" name="all">
                         <div class="person">
                             <div class="container">

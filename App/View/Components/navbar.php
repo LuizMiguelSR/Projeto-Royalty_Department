@@ -7,11 +7,16 @@
 <nav class="navbar fixed-top navbar-expand-lg">
     <div class="container-fluid">
         <div class="col-2">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"> Menu </button>
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"> 
+                <img class="logout12" src="App/View/Images/SystemImages/menu.png" alt="menu" title="Menu">
+                <h1 class="menu">MENU</h1>
+            </button>
         </div>
         <div class="col-8"></div>
         <div class="col-2 left">
-            <a href="/"><img class="logout12" src="App/View/Images/SystemImages/logoff.png" alt="logout"></a>
+            <a href="/"><img class="logout12" src="App/View/Images/SystemImages/logoff.png" alt="logout" title="Logout">
+            <h1 class="sair">SAIR</h1>
+            </a>
         </div>
     </div>
 </nav>
@@ -24,6 +29,22 @@
 
         --fonte-padrao: 'Roboto Flex', sans-serif;
         --fonte-destaque: 'Roboto Condensed', sans-serif;
+    }
+    .sair{
+        margin-right: 20px;
+        margin-left: 1%;
+        margin-top: -23px;
+        position:absolute;
+        color: white;
+        font-size: 120%;
+    }
+    .menu{
+        margin-right: 20px;
+        margin-left: 3%;
+        margin-top: -23px;
+        position:absolute;
+        color: white;
+        font-size: 120%;
     }
     .offcanvas-header {
         margin-right: 20px;
@@ -70,11 +91,65 @@
         transform: none;
         padding: 0px;
     }
+    @media only screen and (min-width: 1400px){
+        .sair{
+            margin-right: 20px;
+            margin-left: 4%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+        .menu{
+            margin-right: 20px;
+            margin-left: 3%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+    }
+    @media only screen and (max-width: 800px){
+        .sair{
+            margin-right: 20px;
+            margin-left: -7%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+        .menu{
+            margin-right: 20px;
+            margin-left: 8%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+    }
+    @media only screen and (max-width: 400px){
+        .sair{
+            margin-right: 20px;
+            margin-left: -10%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+        .menu{
+            margin-right: 20px;
+            margin-left: 7%;
+            margin-top: -23px;
+            position:absolute;
+            color: white;
+            font-size: 120%;
+        }
+    }
 </style>
 <?php if($_SESSION['nome'] === 'Administrador'){?>
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
-            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena">
+            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena" title="Foto de perfil de <?php echo "{$_SESSION['nome']}"; ?>">
             <div class="log"></div>
             <h5 class="offcanvas-title" id="staticBackdropLabel"><?php echo "{$_SESSION['nome']}"; ?></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -116,7 +191,7 @@
 <?php } else { ?>
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
-            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena">
+            <img class="fotoPerfilPequena" src="<?php echo $_SESSION['caminho']; ?>" alt="Foto Perfil Pequena" title="Foto de perfil de <?php echo "{$_SESSION['nome']}"; ?>">
             <div class="log"></div>
             <h5 class="offcanvas-title" id="staticBackdropLabel"><?php echo "{$_SESSION['nome']}"; ?></h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

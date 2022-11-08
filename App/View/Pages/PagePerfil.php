@@ -9,7 +9,7 @@
 <body>
     <?php include 'App/View/Components/navbar.php'; ?>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded">
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty">
             <div class="row mt-5">
                 <h1 class="h3 mb-2 fw-normal">CONSULTA DE INFORMAÇÕES</h1>
             </div>
@@ -23,7 +23,7 @@
                                         <div class="col-sm-4 bg-c-lite-green user-profile">
                                             <div class="card-block text-center text-white">
                                                 <div class="m-b-25">
-                                                    <img src="<?php echo $funcionarios[0]["foto"]?>" class="img-radius" style="width: 170px; height: 150px" alt="Perfil"/>
+                                                    <img src="<?php echo $funcionarios[0]["foto"]?>" class="img-radius" style="width: 170px; height: 150px" alt="Perfil" title="Perfil de <?= $funcionarios[0]['nome_funcionario'] ?>"/>
                                                 </div>
                                                 <h6 class="f-w-600"><?= $funcionarios[0]['nome_funcionario'] ?></h6>
                                                 <h1 class="user-descrip"><?= $departamento[0]['cargo'] ?></p>

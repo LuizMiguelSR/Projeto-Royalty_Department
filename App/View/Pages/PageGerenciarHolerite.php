@@ -24,10 +24,10 @@
     <?php include 'App/View/Components/navbar.php'; ?>
     <section>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded mb-5">
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded mb-5" alt="Logo da Royalty" title="Logo da Royalty">
             <h1 class="h2 mt-5 mb-4 fw-normal">GERENCIAR HOLERITES</h1>
             <div class="row mx-5">
-                <form class="row tabela mb-3" method='POST'>
+                <form class="row tabela mb-3" method='POST' style="width: 1180px">
                     <select class="form-select col" aria-label="Default select example" name='options_dp' onchange="this.form.submit()">
                         <option value="">Consulta por departamento</option>
                         <option value="Administrativo">Administrativo</option>
@@ -61,13 +61,10 @@
                                 if (empty((new DAOOperacoes)->selectMesAnoHolerite2($funcionarios['id_funcionario'], $dataAno, $dataMes))){
                                 ?>
                                 <form method="post" action="/registrar_holerite_model">
-                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                            class="bi bi-eye" viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                            <path
-                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                    <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>" title="Registrar Holerite">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
+                                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
                                         </svg>
                                     </button>
                                 </form>
@@ -75,12 +72,9 @@
                                     } else {
                                 ?>
                                     <button type="submit" class='btn btn-sm btn-primary' name="id" value="<?=$funcionarios['id_funcionario']?>" disabled>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                            class="bi bi-eye" viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                            <path
-                                                d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16" title="Registrar Holerite">
+                                            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
+                                            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
                                         </svg>
                                     </button>
                                 <?php
@@ -131,7 +125,7 @@
                 </div>
                 <div class="row mx-5 mt-2 mb-5">
                     <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
-                    <a href="/alterar_aliquota_holerite" style="width: auto">
+                    <a href="/alterar_aliquota_holerite" style="width: auto" title="Alterar Alíquotas">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
@@ -143,7 +137,7 @@
                             <div class="name">ALTERAR ALÍQUOTAS</div>
                         </div>
                     </a>
-                    <a href="/gerenciar_holerite" method='POST' style="width: auto">
+                    <a href="/gerenciar_holerite" method='POST' style="width: auto" title="Listar todos">
                         <input type="hidden" name="all">
                         <div class="person">
                             <div class="container">

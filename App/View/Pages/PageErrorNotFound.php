@@ -13,7 +13,7 @@
         <div class="row">
             <main class="form-signin w-100 m-auto">
                 <h1 class="h1 my-4 fw-normal">PÁGINA NÃO ENCONTRADA</h1>
-                <img class="erroimg" src="App/View/Images/SystemImages/erro404.svg" alt="Erro">
+                <img class="erroimg" src="App/View/Images/SystemImages/erro404.svg" alt="Erro página não encontrada" title="Erro de página não encontrada">
             </main>
         </div>
     <?php 

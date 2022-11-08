@@ -13,7 +13,7 @@
     <?php include 'App/View/Components/navbar.php'; ?>
     <section>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty"><br><br>
             <div class="row">
                 <h1 class="h3 my-5 fw-normal">CONSULTA A FOLHA DE PONTO</h1>
             </div>

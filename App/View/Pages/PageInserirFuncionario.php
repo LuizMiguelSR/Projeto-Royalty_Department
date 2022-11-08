@@ -13,7 +13,7 @@
         <script src="App/View/js/mascara.js" type='text/javascript'></script>
         <script src="path/to/jquery.js"></script>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty"><br><br>
             <div class="row">
                 <h1 class="h3 mt-5 mb-2 fw-normal">Cadastro de um novo Funcionário</h1>
             </div>

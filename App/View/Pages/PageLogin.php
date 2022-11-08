@@ -7,7 +7,7 @@
 <div class="container-fluid m-auto text-center">
     <div class="row">
         <main class="form-signin w-100 m-auto">
-            <img src="App/View/Images/SystemImages/logobase.png" alt="Logo">
+            <img src="App/View/Images/SystemImages/logobase.png" alt="Logo" title="Logo da Royalty">
             <h1 class="h3 my-4 fw-normal">BEM VINDO</h1>
             <form  method="POST" class="p-4 p-md-5 border rounded-3 bg-light" action="/valida">
                 <div class="form-floating">

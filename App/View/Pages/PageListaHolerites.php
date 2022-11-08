@@ -24,7 +24,7 @@
     <?php include 'App/View/Components/navbar.php'; ?>
     <section>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded">
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty">
             <div class="row mx-5 mt-5">
                 <h1 class="h3 mt-5 mb-2 fw-normal">Utilize os filtros para consultar</h1>
             </div>

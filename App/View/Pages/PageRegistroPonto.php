@@ -29,7 +29,7 @@
             callerdate=new Date(<?php date("Y,m,d,H,i,s");?>);
         </script>
         <main>
-            <img src="App/View/Images/SystemImages/logobase.png" class="rounded"><br><br>
+            <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty"><br><br>
             <div class="row my-3">
                 <h1 class="h3 mb-2 fw-normal">REGISTRE SUA ENTRADA</h1>
             </div>
