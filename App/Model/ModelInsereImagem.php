@@ -6,21 +6,24 @@
                     $arquivo = $_FILES['arquivo'];
             
                     if($arquivo['error'])
-                        header('Location: /painel');
+                        die(header('Location: /error_image'));
                     if($arquivo['size'] > 5242880)
-                        header('Location: /painel');
+                        die(header('Location: /error_image'));
             
                     $pasta = "App/View/Images/UserPictures/";
                     $nomeDoArquivo = $arquivo['name'];
                     $novoNomeDoArquivo = uniqid();
                     $extensao = strtolower(pathinfo($nomeDoArquivo, PATHINFO_EXTENSION));
+
+                    if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"){
+                        die(header('Location: /error_image'));
+                    } else {
+                        $caminho = $pasta . $novoNomeDoArquivo . "." . $extensao;
+                        move_uploaded_file($arquivo["tmp_name"], $caminho);
+                        return $caminho;
+                    }
             
-                    if($extensao != "jpg" && $extensao != 'png')
-                        header('Location: /painel');
                     
-                    $caminho = $pasta . $novoNomeDoArquivo . "." . $extensao;
-                    $deuCerto = move_uploaded_file($arquivo["tmp_name"], $caminho);
-                    return $caminho;
                 }
             }
         }

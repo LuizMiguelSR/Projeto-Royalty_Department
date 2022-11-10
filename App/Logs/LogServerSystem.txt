@@ -34,3 +34,39 @@ Stack trace:
 #4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
 #5 {main}----------------------------
  
+Erro de Validacao da Sessao
+IP: ::1
+DATE: 2022,11,09,22,15,29
+ERROR INFO: PDOException: SQLSTATE[HY000] [1045] Access denied for user 'dgt_luiz'@'localhost' (using password: YES) in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:8
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(8): PDO->__construct('mysql:host=loca...', 'dgt_luiz', 'nF(wC3X54KJy')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelValida.php(10): DAOOperacoes->__construct()
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(10): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(13): Controller::valida('admin@email.com', 'admin')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}----------------------------
+ 
+Erro de Validacao da Sessao
+IP: ::1
+DATE: 2022,11,09,22,15,43
+ERROR INFO: PDOException: SQLSTATE[HY000] [1045] Access denied for user 'dgt_luiz'@'localhost' (using password: YES) in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:8
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(8): PDO->__construct('mysql:host=loca...', 'dgt_luiz', 'nF(wC3X54KJy')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Model/ModelValida.php(10): DAOOperacoes->__construct()
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(10): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(13): Controller::valida('admin@email.com', 'admin')
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}----------------------------
+ 
+Erro de Page Editar funcionario passagem de parametro de consulta ao servidor
+IP: ::1
+DATE: 2022,11,09,23,30,36
+ERROR INFO: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php:25
+Stack trace:
+#0 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/DAO/DAOOperacoes.php(25): PDO->query('Select * FROM f...')
+#1 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/View/Pages/PageEditarFuncionario.php(6): DAOOperacoes->selectWhere('funcionario', 'id_funcionario', NULL)
+#2 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/App/Controller/Controller.php(49): include('/mnt/8EA8ED11A8...')
+#3 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/rotas.php(52): Controller::editarFuncionarioView(NULL)
+#4 /mnt/8EA8ED11A8ECF89B/Meus_Documentos/ArquivosAcademicos/Projetos/projetoRoyaltyDepartment/index.php(4): include('/mnt/8EA8ED11A8...')
+#5 {main}----------------------------
+ 

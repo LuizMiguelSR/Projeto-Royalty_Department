@@ -117,5 +117,8 @@
         public static function errorNotFound() {
             include 'App/View/Pages/PageErrorNotFound.php';
         }
+        public static function errorImageNotFound() {
+            include 'App/View/Pages/PageErrorImage.php';
+        }
     }
 ?>

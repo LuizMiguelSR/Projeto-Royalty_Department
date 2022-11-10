@@ -58,7 +58,7 @@
                         <input name="senha" type="password" class="form-control" id="senha" placeholder="Senha" maxlength="50" required>
                     </div>
                     <div class="col-12">
-                        <input name="arquivo" type="file" accept="image/*" class="form-control-file" id="arquivo">
+                        <input name="arquivo" type="file" accept="image/png, image/jpeg" class="form-control-file" id="arquivo">
                     </div>
                     <h3 class="my-5">Endereço</h3>
                     <!-- Endereço -->

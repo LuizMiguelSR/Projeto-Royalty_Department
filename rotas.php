@@ -118,6 +118,9 @@
             case '/errorConnect':
                 Controller::errorConnect();
             break;
+            case '/error_image':
+                Controller::errorImageNotFound();
+            break;
             default:
                 Controller::errorNotFound();
             break;
