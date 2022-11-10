@@ -12,7 +12,7 @@
         die();
     }
     $voltar = '/painel';
-    $titulo = 'Gerenciar Funcionários';
+    $titulo = 'Gerenciar Colaboradores';
     include 'App/View/Components/header.php';
 ?>
 <body>
