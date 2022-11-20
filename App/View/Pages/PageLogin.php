@@ -11,11 +11,11 @@
             <h1 class="h3 my-4 fw-normal">BEM VINDO</h1>
             <form  method="POST" class="p-4 p-md-5 border rounded-3 bg-light" action="/valida">
                 <div class="form-floating">
-                    <input name="email" type="email" class="form-control" id="floatingInput" placeholder="nome@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required value="admin@email.com">
+                    <input name="email" type="email" class="form-control" id="floatingInput" placeholder="nome@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
                     <label for="floatingInput">Email</label>
                 </div>
                 <div class="form-floating mt-2">
-                    <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Password" maxlength="50" required value="admin">
+                    <input name="senha" type="password" class="form-control" id="floatingPassword" placeholder="Password" maxlength="50" required>
                     <label for="floatingPassword">Senha</label>
                 </div><br>
                 <a href="/redefine">Esqueceu a senha?</a>
