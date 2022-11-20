@@ -1,2 +1,6 @@
 .htaccess
 config.php
+
+.vscode
+
+App/Logs/

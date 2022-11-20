@@ -81,6 +81,9 @@
             case '/holerite':
                 Controller::holeriteView();
             break;
+            case '/holerite_pdf':
+                Controller::holeritePDFView();
+            break;
             case '/registrar_holerite_model':
                 Controller::registrarHoleriteModel($_POST["id"]);
             break;

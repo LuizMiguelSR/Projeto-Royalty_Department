@@ -78,6 +78,9 @@
         public static function holeriteView() {
             include 'App/View/Pages/PageHolerite.php';
         }
+        public static function holeritePDFView() {
+            include 'App/View/Pages/PageHoleritePDF.php';
+        }
         public static function registrarHoleriteModel($post) {
             include 'App/Model/ModelRegistrarHolerites.php';
         }

@@ -2,8 +2,16 @@
     ModelSession::verificaSessao();
 
     date_default_timezone_set('America/Sao_Paulo');
+    
     $dataMes = date('m');
     $dataAno = date('Y');
+    $dataMesSelect = $dataMes;
+    $dataAnoSelect = $dataAno;
+    session_start();
+    if(isset($_POST['mes']) && isset($_POST['ano']) ) {
+        $dataMesSelect = $_POST['mes'];
+        $dataAnoSelect = $_POST['ano'];
+    }
 
     $titulo = 'Holerite de '.$_SESSION['nome'];
     include 'App/View/Components/header.php';
@@ -18,24 +26,28 @@
             </div>
             <span>Ordenar por mês e ano: </span>
             <form class="row tabela" method='POST'>
-                <select name="mes" id="mes" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
+                <select name="mes" id="mes" class="form-select col" aria-label="Default select example">
                     <?php 
                         for($i = $dataMes; $i >= 1; $i--) { 
-                            if($i == $dataMes){
+                            if($i == $dataMesSelect){
                     ?>
                                 <option value="<?= $i ?>" selected><?= (new ModelMes)->Mes($i); ?></option>;
                     <?php   } else { ?>
                                 <option value="<?= $i ?>"><?= (new ModelMes)->Mes($i); ?></option>;
-                    <?php 
+                    <?php  
                             }
                         } 
                     ?>
                 </select>
-                <select name="ano" id="ano" class="form-select col" aria-label="Default select example" onchange="this.form.submit()">
+                <select name="ano" id="ano" class="form-select col" aria-label="Default select example">
                     <option value=""selected>Selecione um ano</option>
                     <option value="2022" selected>2022</option>";
                 </select>
-                <button type="submit" class="btn btn-primary mt-2" >Consultar</button>
+                <button onclick="<?php
+                                    session_start();
+                                    $_SESSION['ano'] = $_POST['ano'];
+                                    $_SESSION['mes'] = $_POST['mes'];
+                                 ?>" type="submit" class="btn btn-primary mt-2" >Consultar</button>
             </form><br>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -173,6 +185,7 @@
                     </tbody>
                 </table>
             </div>
+            <?php include 'App/View/Components/holeritePDF.php'; ?>
             <?php include 'App/View/Components/back.php'; ?>
             <?php include 'App/View/Components/footer.php'; ?>
         </main>
