@@ -1,11 +1,16 @@
 # 📋 Projeto folha de pagamento 📋
 
-- Hospedagem Digital Trainer - [Projeto Folha de pagamento](https://digitaltrainer.com.br);
+- **DADOS DO SERVIDOR DE PRODUÇÃO**
+
+  - Hospedagem: Hosting EU - [Projeto Folha de pagamento](https://digitaltrainer.com.br);
+  - Apache PHP versão 8.1;
+  - Banco de dados MySQL 10.5.16 MARIA DB Server
 
 
-- Projeto realizado utilizando PHP 8;
-- Usando framework front end BootStrap;
-- Utilizando MySql como banco de dados;
-- Utilizando VueJs como framework de interação;
-- Usando o PHP mailer 6.4 como bliblioteca para envio de emails;
-- Banco de dados MySQL 10.5.16 MARIA DB Server
+- **DADOS DO PROJETO**
+
+  - Projeto realizado utilizando PHP versão 8.1;
+  - Usando framework front end BootStrap versão 5.2;
+  - Usando o PHP mailer versão 6.4 como bliblioteca para envio de emails;
+  - Biblioteca de geração de pdf TCPDF versão 6.5;
+  - Banco de dados MySQL 10.5.16 MARIA DB Server
