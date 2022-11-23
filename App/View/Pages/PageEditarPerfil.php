@@ -49,7 +49,7 @@
                     <div class="col-12">
                         <input name="arquivo" type="file" accept="image/png, image/jpeg" class="form-control-file" id="arquivo">
                     </div>
-                    <input type="hidden" name="id" value=<?=$post?>>
+                    <input type="hidden" name="id" value=<?=$_SESSION['id_usuario']?>>
                     <div class="col-12 mt-5">
                         <button type="submit" name="update" id="update" class="btn btn-primary">SALVAR</button>
                     </div>

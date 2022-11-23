@@ -50,16 +50,6 @@
                         <input name="telefone" type="text" class="form-control" id="telefone" maxlength="15" onKeyPress="MascaraGenerica(this, 'CELULAR');" placeholder="Telefone" required value="<?=  $funcionario[0]['telefone']
                         ?>">
                     </div>
-                    <div class="col-6">
-                        <input name="email" type="email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" placeholder="E-mail" required value="<?=  $usuario[0]['email']
-                        ?>">
-                    </div>
-                    <div class="col-6">
-                        <input name="senha" type="password" class="form-control" id="senha" placeholder="Senha" maxlength="50" required>
-                    </div>
-                    <div class="col-12">
-                        <input name="arquivo" type="file" accept="image/png, image/jpeg" class="form-control-file" id="arquivo">
-                    </div>
                     <h3 class="my-5">Endereço</h3>
                     <!-- Endereço -->
                     <div class="col-4">
