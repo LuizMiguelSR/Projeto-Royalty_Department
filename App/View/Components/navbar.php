@@ -17,7 +17,7 @@
                 <a data-bs-toggle="dropdown" aria-expanded="false" class="dropdown-toggle"><img class="logout12" src="App/View/Images/SystemImages/profile.png" alt="logout" title="Logout" id="dropdownUser1" >
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" href="/editar_perfil">Perfil</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="/">SAIR</a></li>
                 </ul>

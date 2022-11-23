@@ -48,12 +48,18 @@
             case '/edita_remove_funcionario':
                 Controller::editaRemoveFuncionarioView();
             break;
+            case '/editar_perfil':
+                Controller::editaPerfilView();
+            break;
             case '/editar_funcionario':
                 Controller::editarFuncionarioView($_POST["id"]);
             break;
             case '/editar_funcionario_model':
                 Controller::editarFuncionarioModel($_POST["nome"], $_POST["rg"], $_POST["cpf"], $_POST["senha"], $_POST["email"], $_POST["telefone"],$_POST["numeroDependentes"], $_POST["id"], $_POST["departamento"], $_POST["cargo"], $_POST["salarioBase"], $_POST["rua"], $_POST["numero"], $_POST["cep"], $_POST["complemento"], $_POST["cidade"], $_POST["bairro"], $_POST["estado"], $_POST["pais"]);
-                break;
+            break;
+            case '/editar_perfil_model':
+                Controller::editarPerfilModel($_POST["nome"], $_POST["senha"], $_POST["email"], $_POST["id"]);
+            break;
             case '/excluir_funcionario':
                 Controller::excluirFuncionarioModel($_POST["id"]);
             break;

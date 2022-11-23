@@ -42,6 +42,9 @@
         public static function editaRemoveFuncionarioView() {
             include 'App/View/Pages/PageEditaRemoveFuncionario.php';
         }
+        public static function editaPerfilView() {
+            include 'App/View/Pages/PageEditarPerfil.php';
+        }
         public static function inserirFuncionarioModel($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
             include 'App/Model/ModelInserirFuncionario.php';
         }
