@@ -1,8 +1,8 @@
 <?php
-    $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-
-    $caminho = ModelInsereImagem::repassaCaminho();
     try {
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+    
+        $caminho = ModelInsereImagem::repassaCaminho();
         
         (new DAOOperacoes)->editarPerfilSalvar($nome, $senhaHash, $email, $telefone, $caminho, $id);
         header('Location: /painel');
