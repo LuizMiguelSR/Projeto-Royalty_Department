@@ -3,6 +3,7 @@
         class ModelFolhaPagamento{
             public function calculaFolha(){
                 $result = (new DAOOperacoes)->select('departamento');
+                $final = 0.00;
                 foreach ($result as $val) {
                     $final += floatval($val['salario_base']);
                 };

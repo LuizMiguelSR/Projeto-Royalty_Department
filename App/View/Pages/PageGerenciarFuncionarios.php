@@ -22,7 +22,7 @@
             <img src="App/View/Images/SystemImages/logobase.png" class="rounded" alt="Logo da Royalty" title="Logo da Royalty">
             <h1 class="h2 mt-5 mb-5 fw-normal">GERENCIAR COLABORADORES</h1>
             <div class="row mx-5">
-                <form class="mb-3" method='POST' style="width: 1180px">
+                <form class="row tabela mb-3" method='POST' style="width: 1180px">
                     <select class="form-select" aria-label="Default select example" name='options_dp' onchange="this.form.submit()">
                         <option value="">Listar por Departamento</option>
                         <option value="Administrativo">Administrativo</option>

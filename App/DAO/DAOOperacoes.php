@@ -191,18 +191,24 @@
                 return $valor;
             }
 
-            public function editarFuncionarioSalvar($nome, $rg, $cpf, $senha, $email, $telefone, $numeroDependentes, $caminho, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais){
+            public function editarFuncionarioSalvar($nome, $rg, $cpf, $telefone, $numeroDependentes, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais){
 
-                $sql = "UPDATE funcionario SET nome_funcionario = '$nome', registro_geral = '$rg', cpf = '$cpf', telefone = '$telefone', numero_dependentes = '$numeroDependentes', foto = '$caminho' WHERE funcionario.id_funcionario = '$id'";
-                $this->conexao->exec($sql);
-
-                $sql = "UPDATE usuarios SET email = '$email', senha = '$senha' WHERE usuarios.id_usuario = '$id'";
+                $sql = "UPDATE funcionario SET nome_funcionario = '$nome', registro_geral = '$rg', cpf = '$cpf', telefone = '$telefone', numero_dependentes = '$numeroDependentes' WHERE funcionario.id_funcionario = '$id'";
                 $this->conexao->exec($sql);
 
                 $sql = "UPDATE departamento SET departamento_nome = '$departamento', cargo = '$cargo', salario_base = '$salarioBase' WHERE departamento.id_departamento = '$id'";
                 $this->conexao->exec($sql);
 
                 $sql = "UPDATE endereco SET rua = '$rua', numero = '$numero', cep = '$cep', complemento = '$complemento', cidade = '$cidade', bairro = '$bairro', estado = '$estado', pais = '$pais' WHERE endereco.id_endereco = '$id'";
+                $this->conexao->exec($sql);
+            }
+
+            public function editarPerfilSalvar($nome, $senha, $email, $telefone, $caminho, $id){
+
+                $sql = "UPDATE funcionario SET nome_funcionario = '$nome', telefone = '$telefone', foto = '$caminho' WHERE funcionario.id_funcionario = '$id'";
+                $this->conexao->exec($sql);
+
+                $sql = "UPDATE usuarios SET email = '$email', senha = '$senha' WHERE usuarios.id_usuario = '$id'";
                 $this->conexao->exec($sql);
             }
 

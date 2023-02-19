@@ -39,16 +39,22 @@
         public static function inserirFuncionarioView() {
             include 'App/View/Pages/PageInserirFuncionario.php';
         }
+        public static function inserirFuncionarioModel($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
+            include 'App/Model/ModelInserirFuncionario.php';
+        }
         public static function editaRemoveFuncionarioView() {
             include 'App/View/Pages/PageEditaRemoveFuncionario.php';
         }
-        public static function inserirFuncionarioModel($nome, $rg, $cpf, $email, $telefone, $cep, $rua, $complemento, $numero, $bairro, $cidade, $estado, $pais, $salarioBase, $numeroDependentes, $departamento, $cargo, $senha) {
-            include 'App/Model/ModelInserirFuncionario.php';
+        public static function editaPerfilView() {
+            include 'App/View/Pages/PageEditarPerfil.php';
+        }
+        public static function editarPerfilModel($nome, $senha, $email, $telefone, $id) {
+            include 'App/Model/ModelEditarPerfil.php';
         }
         public static function editarFuncionarioView($post) {
             include 'App/View/Pages/PageEditarFuncionario.php';
         }
-        public static function editarFuncionarioModel($nome, $rg, $cpf, $senha, $email, $telefone, $numeroDependentes, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais) {
+        public static function editarFuncionarioModel($nome, $rg, $cpf, $telefone, $numeroDependentes, $id, $departamento, $cargo, $salarioBase, $rua, $numero, $cep, $complemento, $cidade, $bairro, $estado, $pais) {
             include 'App/Model/ModelEditarFuncionario.php';
         }
         public static function excluirFuncionarioModel($post) {
