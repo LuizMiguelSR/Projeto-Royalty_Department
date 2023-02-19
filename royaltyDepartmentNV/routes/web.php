@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FolhaPontoController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
 
@@ -66,4 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/holerite', [HoleriteController::class, 'holerite'])->name('holerite');
     Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite.consulta');
+
+    Route::post('/folhaPonto', [FolhaPontoController::class, 'folhaPonto'])->name('folhaPonto');
+    Route::get('/folhaPonto', [FolhaPontoController::class, 'consultaPonto'])->name('folhaPonto.consulta');
 });

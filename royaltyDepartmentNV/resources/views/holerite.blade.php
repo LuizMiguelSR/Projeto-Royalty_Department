@@ -41,7 +41,7 @@
                 @endfor
             </select>
 
-            <button type="submit" class="btn btn-primary">{{ __('Consultar') }}</button>
+            <button type="submit" class="btn btn-primary mt-2">{{ __('Consultar') }}</button>
 
         </form>
 

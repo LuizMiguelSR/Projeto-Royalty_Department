@@ -64,7 +64,7 @@
                     <div class="title">Consulta ao seu holerite</div>
                 </div>
             </a>
-            <a href="/folha_ponto" style="width: auto" title="Folha de Ponto">
+            <a href="/folhaPonto" style="width: auto" title="Folha de Ponto">
                 <div class="person">
                     <div class="container">
                         <div class="container-inner">
