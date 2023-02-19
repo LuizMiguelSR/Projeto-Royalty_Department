@@ -61,11 +61,13 @@
                     </thead>
                     <tbody>
                         @foreach($folha as $fol)
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ date('d/m/Y', strtotime($fol->diames)) }}</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->entrada }}</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->almoco_sai }}</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->almoco_che }}</td>
-                            <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->saida }}</td>
+                            <tr>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ date('d/m/Y', strtotime($fol->diames)) }}</td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->entrada }}</td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->almoco_sai }}</td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->almoco_che }}</td>
+                                <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->saida }}</td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
