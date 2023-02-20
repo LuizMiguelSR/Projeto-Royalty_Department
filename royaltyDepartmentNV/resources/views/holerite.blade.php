@@ -47,7 +47,8 @@
 
         <br><br>
 
-        @if(isset($holerites))
+        @if(!empty($_GET['mes']) && !empty($_GET['ano']))
+
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
@@ -144,8 +145,11 @@
                     </tbody>
                 </table>
             </div>
+
         @else
-            <p>{{ __('Não foram encontrados valores para o mês e ano selecionados.') }}</p>
+
+            <p>{{ __('Selecione os valores para o mês e ano e clique em consultar.') }}</p>
+
         @endif
 
         <br><br>
