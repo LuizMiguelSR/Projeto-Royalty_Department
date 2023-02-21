@@ -19,7 +19,7 @@
 
         <span>Ordenar por mês e ano: </span>
 
-        <form class="row tabela"method="GET" action="{{ route('holerite.consulta') }}">
+        <form class="row tabela"method="GET" action="{{ route('holerite_consulta') }}">
 
             @csrf
 

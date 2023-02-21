@@ -19,7 +19,7 @@
 
         <span>Ordenar por mês e ano: </span>
 
-        <form class="row tabela"method="GET" action="{{ route('folhaPonto.consulta') }}">
+        <form class="row tabela"method="GET" action="{{ route('folha_ponto_consulta') }}">
 
             @csrf
 

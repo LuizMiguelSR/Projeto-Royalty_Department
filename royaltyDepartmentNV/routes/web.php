@@ -66,13 +66,13 @@ Route::middleware(['auth'])->group(function () {
         return view('home');
     })->name('home');
 
-    Route::post('/holerite', [HoleriteController::class, 'holerite'])->name('holerite');
-    Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite.consulta');
+    Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite_consulta');
 
-    Route::post('/folhaPonto', [FolhaPontoController::class, 'folhaPonto'])->name('folhaPonto');
-    Route::get('/folhaPonto', [FolhaPontoController::class, 'consultaPonto'])->name('folhaPonto.consulta');
+    Route::get('/folha_ponto', [FolhaPontoController::class, 'consultaPonto'])->name('folha_ponto_consulta');
 
-    Route::post('/funcionario/registra-ponto', [FuncionarioPontoController::class, 'registraPonto'])->name('funcionario.registra-ponto');
+    Route::post('/funcionario_ponto', [FuncionarioPontoController::class, 'registraPonto'])->name('funcionario_registra_ponto');
     Route::get('/funcionario_ponto', [FuncionarioPontoController::class, 'index'])->name('funcionario_ponto');
+
+    Route::get('/gerenciar_funcionario', [FuncionarioPontoController::class, 'index'])->name('gerenciar_funcionario');
 
 });

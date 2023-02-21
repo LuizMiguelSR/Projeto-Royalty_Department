@@ -34,7 +34,7 @@
                 <h1 class="h3 my-5 fw-normal">{{ __('REGISTRE SUA ENTRADA') }}</h1>
             </div>
 
-            <form action="{{ route('funcionario.registra-ponto') }}" method="POST">
+            <form action="{{ route('funcionario_registra_ponto') }}" method="POST">
                 <div class="row mt-5">
                     <main class="form-add w-100 m-auto">
                         <div class="container1">
@@ -65,7 +65,7 @@
                     <tbody>
                         @foreach($registros as $registro)
                         <tr>
-                            <td>{{ $registro->diames }}</td>
+                            <td>{{ date('d/m/Y', strtotime($registro->diames)) }}</td>
                             <td>{{ $registro->entrada ? date('H:i', strtotime($registro->entrada)) : '' }}</td>
                             <td>{{ $registro->almoco_sai ? date('H:i', strtotime($registro->almoco_sai)) : '' }}</td>
                             <td>{{ $registro->almoco_che ? date('H:i', strtotime($registro->almoco_che)) : '' }}</td>

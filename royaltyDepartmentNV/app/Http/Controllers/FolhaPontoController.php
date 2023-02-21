@@ -8,11 +8,6 @@ use App\Models\FolhaPonto;
 
 class FolhaPontoController extends Controller
 {
-    public function folhaPonto()
-    {
-        $folhaPonto = FolhaPonto::all();
-        return view('folhaPonto', compact('folhaPonto'));
-    }
 
     public function consultaPonto(Request $request)
     {

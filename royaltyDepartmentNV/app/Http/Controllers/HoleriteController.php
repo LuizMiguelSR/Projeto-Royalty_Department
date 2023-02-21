@@ -8,11 +8,6 @@ use App\Models\Holerite;
 
 class HoleriteController extends Controller
 {
-    public function holerite()
-    {
-        $holerite = Holerite::all();
-        return view('holerite', compact('holerite'));
-    }
 
     public function consulta(Request $request)
     {

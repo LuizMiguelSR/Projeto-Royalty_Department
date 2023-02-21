@@ -9,7 +9,7 @@
 
         @if (Auth::user()->role === 1)
             <div class="row mt-5">
-                <a href="/gerenciar_funcionarios" style="width: auto" title="Gerenciar Funcionários">
+                <a href="/gerenciar_funcionario" style="width: auto" title="Gerenciar Funcionários">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
@@ -64,7 +64,7 @@
                     <div class="title">Consulta ao seu holerite</div>
                 </div>
             </a>
-            <a href="/folhaPonto" style="width: auto" title="Folha de Ponto">
+            <a href="/folha_ponto" style="width: auto" title="Folha de Ponto">
                 <div class="person">
                     <div class="container">
                         <div class="container-inner">
