@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FolhaPontoController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
+use App\Http\Controllers\FuncionarioPontoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +71,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/folhaPonto', [FolhaPontoController::class, 'folhaPonto'])->name('folhaPonto');
     Route::get('/folhaPonto', [FolhaPontoController::class, 'consultaPonto'])->name('folhaPonto.consulta');
+
+    Route::post('/funcionario/registra-ponto', [FuncionarioPontoController::class, 'registraPonto'])->name('funcionario.registra-ponto');
+    Route::get('/funcionario_ponto', [FuncionarioPontoController::class, 'index'])->name('funcionario_ponto');
+
 });

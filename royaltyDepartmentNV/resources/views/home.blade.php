@@ -77,7 +77,7 @@
                     <div class="title">Consulta a sua folha de ponto</div>
                 </div>
             </a>
-            <a href="/registro_ponto" style="width: auto" title="Registro de Ponto">
+            <a href="funcionario_ponto" style="width: auto" title="Registro de Ponto">
                 <div class="person">
                     <div class="container">
                         <div class="container-inner">
