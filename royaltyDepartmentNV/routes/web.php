@@ -20,11 +20,15 @@ use App\Http\Controllers\FuncionarioPontoController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/login');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
 
-Route::post('/login', function (Request $request) {
+/*Route::post('/login', function (Request $request) {
     $email = $request->input('email');
     $password = $request->input('password');
 
@@ -39,11 +43,7 @@ Route::post('/login', function (Request $request) {
     return back()->withErrors([
         'email' => 'As credenciais informadas não são válidas.',
     ]);
-})->name('login');
-
-Route::get('/', function () {
-    return redirect('/login');
-});
+})->name('login');*/
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 

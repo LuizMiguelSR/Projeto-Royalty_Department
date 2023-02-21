@@ -15,19 +15,7 @@
     </head>
     <body>
         <div class="container-fluid m-auto text-center">
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
 
-            @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            @endif
             <div class="row">
                 <main class="form-signin w-100 m-auto">
                     <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
@@ -48,6 +36,14 @@
                                 <span>{{ $message }}</span>
                             @enderror
                         </div><br>
+
+                        @if (session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
+
                         <a href="/redefine">Esqueceu a senha?</a>
                         <div>
                             <button class="w-100 btn btn-lg btn-primary mt-2" ype="submit">Entrar</button>
@@ -57,14 +53,17 @@
             </div>
         </div>
     </body>
+    <br><br><br>
+
     <style>
         .text-muted {
             color: #0b6567 !important;
         }
     </style>
-    <br><br><br>
+
     <footer class="mt-5">
-        <p class="text-center text-muted">&copy; 2022 Royalty Department</p>
+        <p class="text-center text-muted">&copy; {{ date('Y') }} Royalty Department</p>
     </footer>
+
 </html>
 
