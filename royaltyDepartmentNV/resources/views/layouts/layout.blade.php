@@ -174,7 +174,7 @@
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-8">
-                            <a href="/gerenciar_funcionarios">Gerenciar Funcionários</a>
+                            <a href="/gerenciar_funcionario">Gerenciar Funcionários</a>
                         </div>
                     </div>
                     <div class="row">

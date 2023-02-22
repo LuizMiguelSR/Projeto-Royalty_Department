@@ -17,6 +17,12 @@ class Funcionario extends Model
     {
         return $this->belongsTo(User::class, 'id_usuario');
     }
+
+    // Relacionamento com a tabela departamento
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class, 'id_departamento');
+    }
 }
 
 
