@@ -11,6 +11,9 @@
         <link rel="manifest" href="{{ asset('images/SystemImages/site.webmanifest') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
         <title>{{ $title ?? 'Painel de '.Auth::user()->funcionario->nome_funcionario }}</title>
     </head>
     <body>
@@ -199,7 +202,7 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <a href="/funcionario_ponto">Registro de Ponto</a>
+                            <a href="/registro_ponto">Registro de Ponto</a>
                         </div>
                     </div>
                 </div>
@@ -232,6 +235,48 @@
             </div>
         </div>
         @yield('content')
+
+        <script>
+            // Função para atualizar os campos de endereço com os valores retornados pela API do ViaCEP
+            function atualizarCamposEndereco(endereco) {
+                console.log(endereco);
+                $('#endereco').val(endereco.logradouro);
+                $('#bairro').val(endereco.bairro);
+                $('#cidade').val(endereco.localidade);
+                $('#estado').val(endereco.uf);
+            }
+
+            // Função para fazer a requisição AJAX para a API do ViaCEP
+            function consultarCEP(cep) {
+                console.log(cep);
+                $.ajax({
+                    url: `https://viacep.com.br/ws/${cep}/json/`,
+                    type: 'GET',
+                    success: function (endereco) {
+                        console.log(endereco);
+                        atualizarCamposEndereco(endereco);
+                    },
+                    error: function () {
+                        alert('Erro ao consultar o CEP. Por favor, verifique se o CEP está correto e tente novamente.');
+                    }
+                });
+            }
+
+            // Evento para chamar a função consultarCEP quando o usuário digitar o CEP
+            $('#cep').on('blur', function () {
+                const cep = $(this).val().replace(/\D/g, ''); // Remove todos os caracteres não numéricos do CEP
+                console.log(cep);
+                if (cep.length === 8) { // Verifica se o CEP tem 8 dígitos
+                    consultarCEP(cep);
+                }
+            });
+            // Máscara para os campos RG, CPF e Telefone
+            $(document).ready(function() {
+                $('#registro_geral').mask('00.000.000-A', {translation: {'A': {pattern: /[0-9a-zA-Z]/}}});
+                $('#cpf').mask('000.000.000-00');
+                $('#telefone').mask('(00) 00000-0000');
+            });
+        </script>
 
     </body>
     <br><br><br><br><br>

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
 use App\Http\Controllers\FuncionarioPontoController;
 use App\Http\Controllers\GerenciarFuncionarioController;
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\CadastrarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,8 +59,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/funcionario_ponto', [FuncionarioPontoController::class, 'index'])->name('funcionario_ponto');
 
     Route::get('/gerenciar_funcionario', [GerenciarFuncionarioController::class, 'index'])->name('gerenciar_funcionario');
-
-    Route::get('/gerenciar_funcionario', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consultaFuncionario');
+    Route::get('/gerenciar_funcionario/consulta', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consulta');
     Route::post('/gerenciar_funcionario', [GerenciarFuncionarioController::class, 'filtrar'])->name('gerenciar_funcionario.filtrar');
 
+    Route::get('/cadastrar_funcionario', [CadastrarController::class, 'cadastrarFuncionario'])->name('cadastrar_funcionario');
+    Route::post('/cadastrar', [CadastrarController::class, 'store'])->name('cadastrar');
 });

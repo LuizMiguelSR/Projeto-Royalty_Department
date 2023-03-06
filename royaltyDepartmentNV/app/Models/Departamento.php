@@ -11,7 +11,14 @@ class Departamento extends Model
 
     protected $table = 'departamento';
     protected $primaryKey = 'id_departamento';
-    protected $fillable = ['nome_funcionario', 'departamento', 'id_usuario'];
+    protected $fillable = [
+        'nome_funcionario',
+        'departamento',
+        'id_usuario',
+        'departamento_nome',
+        'cargo',
+        'salario_base'
+    ];
 
     public function departamento()
     {
@@ -20,7 +27,7 @@ class Departamento extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(User::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class, 'id_usuario');
     }
 
     public function scopeNome($query, $nome)

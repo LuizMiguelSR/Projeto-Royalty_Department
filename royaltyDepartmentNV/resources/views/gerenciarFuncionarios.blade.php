@@ -19,7 +19,7 @@
 
         <div class="row mx-5">
             <div class="col-md-12">
-                <form class="row tabela mb-3" action="{{ route('gerenciar_funcionario.consultaFuncionario') }}" method="GET">
+                <form class="row tabela mb-3" action="{{ route('gerenciar_funcionario.consulta') }}" method="GET">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Filtrar por nome" name="nome_funcionario" value="{{ request()->input('nome_funcionario') }}">
                         <select class="form-select" aria-label="Default select example" name='departamento' onchange="this.form.submit()">
@@ -32,7 +32,7 @@
                             <option value="Vendas" {{ request()->input('options_dp') == 'Vendas' ? 'selected' : '' }}>Vendas</option>
                             <option value="T.I" {{ request()->input('options_dp') == 'T.I' ? 'selected' : '' }}>TI</option>
                         </select>
-                        <button class="btn btn-outline-secondary" type="submit">Filtrar</button>
+                        <button class="btn btn-primary" type="submit">Filtrar</button>
                     </div>
                 </form>
                 <br>
@@ -69,7 +69,7 @@
                             <a class="page-link" href="{{ $funcionarios->url(1) }}">{{ __('Primeira') }}</a>
                         </li>
                         @for ($i = 1; $i <= $funcionarios->lastPage(); $i++)
-                            <li class="page-item {{ ($funcionarios->currentPage() == $i) ? ' active' : '' }}">
+                            <li class="page-item {{ ($funcionarios->currentPage() == $i) ? ' active' : '' }}" style="color: #0b6567">
                                 <a class="page-link" href="{{ $funcionarios->url($i) }}">{{ $i }}</a>
                             </li>
                         @endfor
@@ -83,7 +83,7 @@
 
         <div class="row mx-5 mt-2 mb-5">
             <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
-            <a href="/inserir_funcionario" style="width: auto" title="Cadastrar colaborador">
+            <a href="/cadastrar_funcionario" style="width: auto" title="Cadastrar colaborador">
                 <div class="person">
                     <div class="container">
                         <div class="container-inner">
@@ -97,14 +97,12 @@
             </a>
         </div>
 
-        <br><br>
-
         <a href="/home"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
 
         <div class="row">
             <p>VOLTAR</p>
         </div>
-        
+
     </main>
 </section>
 

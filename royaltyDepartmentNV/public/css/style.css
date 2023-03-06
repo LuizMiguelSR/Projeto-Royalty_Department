@@ -55,6 +55,16 @@ h6 {
     font-size: 14px;
 }
 
+.pagination .page-link {
+    color: #0b6567;
+}
+
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #0b6567;
+    border-color: #0b6567;
+}
+
 .mt-2.titulo{
     font-size: 42px;
     font-family: 'Roboto Condensed', sans-serif;
