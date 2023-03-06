@@ -22,15 +22,15 @@
                     <h1 class="h3 my-4 fw-normal">BEM VINDO</h1>
                     <form method="POST" class="p-4 p-md-5 border rounded-3 bg-light" action="{{ route('login') }}">
                         @csrf
+                        <label for="email" id="email-label">E-mail</label>
                         <div class="form-floating">
-                            <label for="floatingInput">E-mail</label>
-                            <input class="form-control" type="email" name="email" id="email" placeholder="nome@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
+                            <input class="form-control mb-2" type="email" name="email" id="email" placeholder="nome@example.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" maxlength="50" required>
                             @error('email')
                                 <span>{{ $message }}</span>
                             @enderror
                         </div>
-                        <div class="form-floating mt-2">
-                            <label for="floatingPassword">Senha</label>
+                        <label for="password" id="password-label">Senha</label>
+                        <div class="form-floating">
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" maxlength="50" required>
                             @error('password')
                                 <span>{{ $message }}</span>
