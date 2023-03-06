@@ -1,3 +1,10 @@
+@php
+    use Illuminate\Support\Facades\DB;
+
+    $id_usuario = Auth::user()->funcionario->id_funcionario;
+    $caminho_imagem = DB::table('funcionario')->where('id_funcionario', $id_usuario)->value('foto');
+@endphp
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -165,7 +172,7 @@
         @if (Auth::user()->role === 1)
             <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
                 <div class="offcanvas-header">
-                    <img class="fotoPerfilPequena" src="#" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
+                    <img class="fotoPerfilPequena" src="{{ asset('storage/' . $caminho_imagem) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
                     <div class="log"></div>
                     <h5 class="offcanvas-title" id="staticBackdropLabel">{{ Auth::user()->funcionario->nome_funcionario }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -207,7 +214,7 @@
         @endif
         <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header">
-                <img class="fotoPerfilPequena" src="#" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
+                <img class="fotoPerfilPequena" src="{{ asset('storage/' . $caminho_imagem) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
                 <div class="log"></div>
                 <h5 class="offcanvas-title" id="staticBackdropLabel">{{ Auth::user()->funcionario->nome_funcionario }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -226,7 +233,7 @@
                 </div>
                 <div class="row m-2">
                     <div class="col-8">
-                        <a href="/registro_ponto">Registro de Ponto</a>
+                        <a href="/funcionario_ponto">Registro de Ponto</a>
                     </div>
                 </div>
             </div>
