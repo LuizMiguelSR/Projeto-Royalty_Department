@@ -51,7 +51,7 @@ class CadastrarController extends Controller
 
         $dataFuncionario = $request->validate([
             'nome_funcionario' => 'required|max:50',
-            'registro_geral' => 'required|max:13',
+            'registro_geral' => 'required|max:15',
             'cpf' => 'required|max:14',
             'telefone' => 'required|max:15',
             'numero_dependentes' => 'required|max:2',
