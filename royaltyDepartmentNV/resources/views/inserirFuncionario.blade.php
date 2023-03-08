@@ -14,7 +14,7 @@
         <br><br>
 
         <div class="row">
-            <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cdastro de um novo funcionário') }}</h1>
+            <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cadastro de um novo funcionário') }}</h1>
         </div>
         <div class="row mt-1">
             <form class="row g-3 formCad" method="post" action="/cadastrar" enctype="multipart/form-data">

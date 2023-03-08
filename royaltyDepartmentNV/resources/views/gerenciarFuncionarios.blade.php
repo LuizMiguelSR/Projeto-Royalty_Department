@@ -38,6 +38,7 @@
                 <br>
 
                 @if ($funcionarios->count() > 0)
+                
                 <div class="row tabela">
                     <table class="table-responsive-sm table-bordered border-success">
                         <thead>
