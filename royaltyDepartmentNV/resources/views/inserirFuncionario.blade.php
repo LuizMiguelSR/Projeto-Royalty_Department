@@ -17,7 +17,7 @@
             <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cadastro de um novo funcionário') }}</h1>
         </div>
         <div class="row mt-1">
-            <form class="row g-3 formCad" method="post" action="/cadastrar" enctype="multipart/form-data">
+            <form class="row g-3 formCad" method="post" action="{{ route('gerenciar_funcionarios.store') }}" enctype="multipart/form-data">
                 @csrf
                 <!-- Dados Pessoais -->
                 <h3 class="my-5">Dados Pessoais</h3>
@@ -104,7 +104,7 @@
             </form>
         </div>
 
-        <a href="/gerenciar_funcionario"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
+        <a href="{{ route('gerenciar_funcionarios.index') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
 
         <div class="row">
             <p>VOLTAR</p>

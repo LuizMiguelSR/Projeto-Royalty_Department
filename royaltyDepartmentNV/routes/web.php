@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
 use App\Http\Controllers\FuncionarioPontoController;
 use App\Http\Controllers\GerenciarFuncionarioController;
-use App\Http\Controllers\FuncionarioController;
-use App\Http\Controllers\CadastrarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +51,15 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite_consulta');
 
-    Route::get('/folha_ponto', [FolhaPontoController::class, 'consultaPonto'])->name('folha_ponto_consulta');
+    /**
+     * Rotas responsáveis por listar e registrar a folha de ponto
+     */
+    Route::resource('funcionarios', FuncionarioPontoController::class);
+    Route::get('/folha_ponto', [FuncionarioPontoController::class, 'index'])->name('folha_ponto_consulta');
 
-    Route::post('/funcionario_ponto', [FuncionarioPontoController::class, 'registraPonto'])->name('funcionario_registra_ponto');
-    Route::get('/funcionario_ponto', [FuncionarioPontoController::class, 'index'])->name('funcionario_ponto');
-
-    Route::get('/gerenciar_funcionario', [GerenciarFuncionarioController::class, 'index'])->name('gerenciar_funcionario');
+    /**
+     * Rotas responsáveis por listar, cadastrar, editar e excluir funcionários
+     */
+    Route::resource('gerenciar_funcionarios', GerenciarFuncionarioController::class);
     Route::get('/gerenciar_funcionario/consulta', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consulta');
-    Route::post('/gerenciar_funcionario', [GerenciarFuncionarioController::class, 'filtrar'])->name('gerenciar_funcionario.filtrar');
-
-    Route::get('/cadastrar_funcionario', [CadastrarController::class, 'cadastrarFuncionario'])->name('cadastrar_funcionario');
-    Route::post('/cadastrar', [CadastrarController::class, 'store'])->name('cadastrar');
 });

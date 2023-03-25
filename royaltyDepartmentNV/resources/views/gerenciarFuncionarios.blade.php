@@ -38,7 +38,7 @@
                 <br>
 
                 @if ($funcionarios->count() > 0)
-                
+
                 <div class="row tabela">
                     <table class="table-responsive-sm table-bordered border-success">
                         <thead>
@@ -84,7 +84,7 @@
 
         <div class="row mx-5 mt-2 mb-5">
             <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
-            <a href="/cadastrar_funcionario" style="width: auto" title="Cadastrar colaborador">
+            <a href="{{ route('gerenciar_funcionarios.create') }}" style="width: auto" title="Cadastrar colaborador">
                 <div class="person">
                     <div class="container">
                         <div class="container-inner">
