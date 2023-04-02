@@ -30,6 +30,11 @@ Route::get('/login', function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::get('/esqueci-minha-senha', [AuthController::class, 'showLinkRequestForm'])->name('password.request');
+Route::post('/esqueci-minha-senha', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
+
 Route::get('/home', function () {
     if (!Auth::check()) {
         return redirect('/sair');
@@ -40,6 +45,7 @@ Route::get('/home', function () {
 Route::get('/sair', function () {
     Session::flush();
     Auth::logout();
+    Session::flash('sair', 'Sessão finalizada com sucesso.');
     return redirect('/login');
 })->name('sair');
 

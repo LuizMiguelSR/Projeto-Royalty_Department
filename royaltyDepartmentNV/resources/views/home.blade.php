@@ -1,11 +1,26 @@
+@php
+    $funcionario_nome = session('funcionario_nome', '');
+@endphp
 <!-- resources/views/home.blade.php -->
 @extends('layouts.layout')
 
 @section('content')
 <section>
     <main>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                // fecha o alerta após 3 segundos
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 3000);
+            </script>
+        @endif
         <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty"><br><br>
-        <h1 class="h1 mt-5 mb-2 fw-normal">{{ __('Bem vindo, '.Auth::user()->funcionario->nome_funcionario ) }}</h1>
+        <h1 class="h1 mt-5 mb-2 fw-normal">{{ __('Bem vindo, ' . $funcionario_nome ) }}</h1>
 
         @if (Auth::user()->role === 1)
             <div class="row mt-5">

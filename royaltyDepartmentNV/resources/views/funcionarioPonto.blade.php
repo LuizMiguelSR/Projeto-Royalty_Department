@@ -1,5 +1,6 @@
 @php
-    $title = "Registro de Ponto de ".Auth::user()->funcionario->nome_funcionario;
+    $funcionario_nome = session('funcionario_nome', '');
+    $title = "Registro de Ponto de " . $funcionario_nome;
 @endphp
 
 @extends('layouts.layoutClock')
@@ -59,7 +60,6 @@
                             <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Pausa</th>
                             <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Retorno</th>
                             <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Horas</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +70,6 @@
                             <td>{{ $registro->almoco_sai ? date('H:i:s', strtotime($registro->almoco_sai)) : '' }}</td>
                             <td>{{ $registro->almoco_che ? date('H:i:s', strtotime($registro->almoco_che)) : '' }}</td>
                             <td>{{ $registro->saida ? date('H:i:s', strtotime($registro->saida)) : '' }}</td>
-                            <td>{{ $registro->horas_trabalhadas ? $registro->horas_trabalhadas : '' }}</td>
                         </tr>
                         @endforeach
                     </tbody>

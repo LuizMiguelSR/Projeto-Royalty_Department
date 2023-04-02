@@ -1,5 +1,6 @@
 @php
-    $title = "Folha de Ponto de ".Auth::user()->funcionario->nome_funcionario;
+    $funcionario_nome = session('funcionario_nome', '');
+    $title = "Folha de Ponto de " . $funcionario_nome;
 @endphp
 
 @extends('layouts.layout')

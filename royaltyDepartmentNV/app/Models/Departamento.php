@@ -10,11 +10,11 @@ class Departamento extends Model
     use HasFactory;
 
     protected $table = 'departamento';
-    protected $primaryKey = 'id_departamento';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'nome_funcionario',
         'departamento',
-        'id_usuario',
+        'id',
         'departamento_nome',
         'cargo',
         'salario_base'
@@ -27,7 +27,7 @@ class Departamento extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class, 'id');
     }
 
     public function scopeNome($query, $nome)

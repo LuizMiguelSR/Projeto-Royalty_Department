@@ -4,13 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Usuario;
+use App\Models\Departamento;
+use App\Models\Endereco;
 
 class Funcionario extends Model
 {
     use HasFactory;
 
     protected $table = 'funcionario';
-    protected $primaryKey = 'id_funcionario';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'nome_funcionario',
         'registro_geral',
@@ -23,7 +26,7 @@ class Funcionario extends Model
     // Relacionamento com a tabela users
     public function user()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class);
     }
 
     public function cargo()
@@ -34,17 +37,17 @@ class Funcionario extends Model
     // Relacionamento com a tabela departamento
     public function departamento()
     {
-        return $this->belongsTo(Departamento::class, 'id_departamento');
+        return $this->belongsTo(Departamento::class, 'id');
     }
 
     public function endereco()
     {
-        return $this->belongsTo(Endereco::class, 'id_endereco');
+        return $this->belongsTo(Endereco::class, 'id');
     }
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario');
+        return $this->belongsTo(Usuario::class, 'id');
     }
 }
 

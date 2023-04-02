@@ -13,7 +13,7 @@ class FuncionarioPontoController extends Controller
 {
     public function create()
     {
-        $registros = Auth::user()->funcionario->registros;
+        $registros = Auth::user()->registros;
         return view('funcionarioPonto', compact('registros'));
     }
 

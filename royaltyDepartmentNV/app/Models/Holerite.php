@@ -14,12 +14,12 @@ class Holerite extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_usuario');
+        return $this->belongsTo(User::class, 'id');
     }
 
     public static function getByUserMonthYear($userId, $month, $year)
     {
-        return self::where('id_usuario', $userId)
+        return self::where('id', $userId)
                    ->where('mes', $month)
                    ->where('ano', $year)
                    ->get();

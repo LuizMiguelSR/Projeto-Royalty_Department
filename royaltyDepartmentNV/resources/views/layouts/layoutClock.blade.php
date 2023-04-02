@@ -1,8 +1,6 @@
 @php
-    use Illuminate\Support\Facades\DB;
-
-    $id_usuario = Auth::user()->funcionario->id_funcionario;
-    $caminho_imagem = DB::table('funcionario')->where('id_funcionario', $id_usuario)->value('foto');
+    $funcionario_nome = session('funcionario_nome', '');
+    $funcionario_foto = session('funcionario_foto', '');
 @endphp
 
 <!DOCTYPE html>
@@ -18,7 +16,7 @@
         <link rel="manifest" href="{{ asset('images/SystemImages/site.webmanifest') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-        <title>{{ $title ?? 'Painel de '.Auth::user()->funcionario->nome_funcionario }}</title>
+        <title>{{ $title ?? 'Painel de ' . $funcionario_nome }}</title>
     </head>
     <body onLoad="showtime()">
         <style>
@@ -172,9 +170,9 @@
         @if (Auth::user()->role === 1)
             <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
                 <div class="offcanvas-header">
-                    <img class="fotoPerfilPequena" src="{{ asset('storage/' . $caminho_imagem) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
+                    <img class="fotoPerfilPequena" src="{{ asset('storage/' . $funcionario_foto) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ $funcionario_nome }}">
                     <div class="log"></div>
-                    <h5 class="offcanvas-title" id="staticBackdropLabel">{{ Auth::user()->funcionario->nome_funcionario }}</h5>
+                    <h5 class="offcanvas-title" id="staticBackdropLabel">{{ $funcionario_nome }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <hr>
@@ -214,9 +212,9 @@
         @endif
         <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header">
-                <img class="fotoPerfilPequena" src="{{ asset('storage/' . $caminho_imagem) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ Auth::user()->funcionario->nome_funcionario }}">
+                <img class="fotoPerfilPequena" src="{{ asset('storage/' . $funcionario_foto) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ $funcionario_nome }}">
                 <div class="log"></div>
-                <h5 class="offcanvas-title" id="staticBackdropLabel">{{ Auth::user()->funcionario->nome_funcionario }}</h5>
+                <h5 class="offcanvas-title" id="staticBackdropLabel">{{ $funcionario_nome }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <hr>

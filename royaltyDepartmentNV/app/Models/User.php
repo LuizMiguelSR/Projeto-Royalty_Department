@@ -5,11 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use App\Models\Funcionario;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use App\Notifications\ResetPasswordNotification;
 
-class User extends Model implements Authenticatable
+
+class User extends Model implements Authenticatable, CanResetPasswordContract
 {
     protected $table = 'usuarios';
-    protected $primaryKey = 'id_usuario';
+    protected $primaryKey = 'id';
     protected static $email = 'email';
     protected static $password = 'senha';
 
@@ -32,12 +37,12 @@ class User extends Model implements Authenticatable
 
     public function getAuthIdentifierName()
     {
-        return 'id_usuario';
+        return 'id';
     }
 
     public function getAuthIdentifier()
     {
-        return $this->id_usuario;
+        return $this->id;
     }
 
     public function getAuthPassword()
@@ -62,6 +67,31 @@ class User extends Model implements Authenticatable
 
     public function funcionario()
     {
-        return $this->belongsTo(Funcionario::class, 'id_usuario', 'id_funcionario');
+        return $this->belongsTo(Funcionario::class, 'id_usuario', 'id');
+    }
+
+    use Notifiable, CanResetPassword;
+
+    // ...
+
+    /**
+     * Get the e-mail address where password reset links are sent.
+     *
+     * @return string
+     */
+    public function getEmailForPasswordReset()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }

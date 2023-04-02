@@ -219,6 +219,10 @@ input:-webkit-autofill{
     font-weight: normal;
 }
 
+.col-xl-6 {
+    width: 82%;
+}
+
 /* --- Estilo das imagens --- */
 img{
     vertical-align: middle;
@@ -339,10 +343,9 @@ img{
 }
 
 .card {
-    border-radius: 5px;
+    border-radius: 68px;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
-    box-shadow: 0 1px 20px 0 rgba(72, 86, 92, 0.08);
-    border: none;
+    box-shadow: 0 1px 20px 0 rgba(27, 32, 34, 0.08);
     margin-bottom: 30px;
 }
 
