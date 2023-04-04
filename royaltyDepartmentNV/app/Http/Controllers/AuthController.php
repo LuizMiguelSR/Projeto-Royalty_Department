@@ -17,12 +17,11 @@ class AuthController extends Controller
         // validate input
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|max:50'
         ]);
 
         // attempt to authenticate user
         $user = User::findByEmailAndPassword($request->email, $request->password);
-
         if ($user) {
             Auth::login($user);
 
