@@ -14,7 +14,6 @@ class Departamento extends Model
     protected $fillable = [
         'nome_funcionario',
         'departamento',
-        'id',
         'departamento_nome',
         'cargo',
         'salario_base'

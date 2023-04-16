@@ -53,19 +53,6 @@ class GerenciarFuncionarioController extends Controller
         $dataUsuario['senha'] = bcrypt($dataUsuario['senha']);
         $usuario = Usuario::create($dataUsuario);
 
-        $dataEndereco = $request->validate([
-            'rua' => 'required|max:50',
-            'numero' => 'required|max:6',
-            'cep' => 'required|max:8',
-            'complemento' => 'required|max:50',
-            'cidade' => 'required|max:50',
-            'bairro' => 'required|max:50',
-            'estado' => 'required|max:50',
-            'pais' => 'required|max:50'
-        ]);
-
-        $endereco = Endereco::create($dataEndereco);
-
         $dataDepartamento = $request->validate([
             'departamento_nome' => 'required|max:50',
             'cargo' => 'required|max:50',
@@ -74,12 +61,25 @@ class GerenciarFuncionarioController extends Controller
 
         $departamento = Departamento::create($dataDepartamento);
 
+        $dataEndereco = $request->validate([
+            'rua' => 'required|max:50',
+            'numero' => 'required|max:5',
+            'cep' => 'required|max:10',
+            'complemento' => 'required|max:50',
+            'cidade' => 'required|max:50',
+            'bairro' => 'required|max:50',
+            'estado' => 'required|max:50',
+            'pais' => 'required|max:50'
+        ]);
+
+        $endereco = Endereco::create($dataEndereco);
+        
         $dataFuncionario = $request->validate([
             'nome_funcionario' => 'required|max:50',
             'registro_geral' => 'required|max:15',
             'cpf' => 'required|max:14',
             'telefone' => 'required|max:15',
-            'numero_dependentes' => 'required|max:2',
+            'numero_dependentes' => 'required|max:4',
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 

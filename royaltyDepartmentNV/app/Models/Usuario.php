@@ -30,6 +30,6 @@ class Usuario extends Model
 
     public function funcionarios()
     {
-        return $this->hasMany(Funcionario::class, 'id_usuario');
+        return $this->hasMany(Funcionario::class, 'id');
     }
 }

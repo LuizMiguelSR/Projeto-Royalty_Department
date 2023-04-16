@@ -10,7 +10,7 @@ class FuncionarioPonto extends Model
     use HasFactory;
 
     protected $table = 'funcionario_ponto';
-    protected $primaryKey = 'id_funcionario_ponto';
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $fillable = [

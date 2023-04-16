@@ -24,7 +24,7 @@ class FuncionarioPontoController extends Controller
 
         $ultimo_registro = FuncionarioPonto::where('id_funcionario', $funcionario_id)
             ->where('diames', $data_atual)
-            ->orderBy('id_funcionario_ponto', 'desc')
+            ->orderBy('id', 'desc')
             ->first();
 
         if (!$ultimo_registro) {
@@ -46,14 +46,6 @@ class FuncionarioPontoController extends Controller
             // Se a entrada, a saída do almoço e a volta do almoço já foram registrados, registra a saída e calcula as horas trabalhadas
             $ultimo_registro->saida = Carbon::now('America/Sao_Paulo');
             $ultimo_registro->save();
-        }
-
-        dump($ultimo_registro);
-        exit;
-        $horas_trabalhadas = 0;
-        if (!$ultimo_registro->saida_almoco && $ultimo_registro->retorno_almoco) {
-            $duracao_almoco = $ultimo_registro->saida_almoco->diffInMinutes($ultimo_registro->retorno_almoco);
-            $horas_trabalhadas = $ultimo_registro->entrada->diffInMinutes($ultimo_registro->saida) - $duracao_almoco;
         }
 
         // Busca todos os registros para o dia atual e envia para a view
