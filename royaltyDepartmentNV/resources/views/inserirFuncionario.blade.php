@@ -8,19 +8,28 @@
 
 <section>
     <main>
-
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                // fecha o alerta após 3 segundos
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 3000);
+            </script>
+        @endif
         <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-
         <br><br>
-
         <div class="row">
-            <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cadastro de um novo funcionário') }}</h1>
+            <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cadastrar um novo funcionário') }}</h1>
         </div>
         <div class="row mt-1">
             <form class="row g-3 formCad" method="post" action="{{ route('gerenciar_funcionarios.store') }}" enctype="multipart/form-data">
                 @csrf
                 <!-- Dados Pessoais -->
-                <h3 class="my-5">Dados Pessoais</h3>
+                <h3 class="mt-5 mb-2">Dados Pessoais</h3>
                 <div class="col-12">
                     <input name="nome_funcionario" type="text" class="form-control" id="nome_funcionario" placeholder="Nome" required pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50">
                 </div>
@@ -98,18 +107,15 @@
                         <option value="Estagiário">Estagiário</option>
                     </select>
                 </div>
-                <div class="col-12 mt-5">
+                <div class="col-12 my-5">
                     <button type="submit" class="btn btn-primary">CADASTRAR</button>
                 </div>
             </form>
         </div>
-
         <a href="{{ route('gerenciar_funcionarios.index') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
-
         <div class="row">
             <p>VOLTAR</p>
         </div>
-
     </main>
 </section>
 

@@ -8,7 +8,6 @@
 
 <section>
     <div class="container-fluid m-auto text-center">
-
         <div class="row">
             <main class="form-signin w-100 m-auto">
                 <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
@@ -23,7 +22,6 @@
                     <div class="form-floating">
                         <input type="password" name="password" class="form-control" id="password" placeholder="Password" maxlength="50" required>
                     </div><br>
-
                     @if (session('error'))
                         <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
                             {{ session('error') }}

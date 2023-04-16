@@ -21,12 +21,10 @@ class FuncionarioPontoController extends Controller
     {
         $funcionario_id = Auth::id();
         $data_atual = Carbon::now('America/Sao_Paulo')->toDateString();
-
         $ultimo_registro = FuncionarioPonto::where('id_funcionario', $funcionario_id)
             ->where('diames', $data_atual)
             ->orderBy('id', 'desc')
             ->first();
-
         if (!$ultimo_registro) {
             // Se não houver registros para o dia atual, cria um novo registro com a entrada
             $novo_registro = new FuncionarioPonto();
@@ -47,12 +45,10 @@ class FuncionarioPontoController extends Controller
             $ultimo_registro->saida = Carbon::now('America/Sao_Paulo');
             $ultimo_registro->save();
         }
-
         // Busca todos os registros para o dia atual e envia para a view
         $registros = FuncionarioPonto::where('id_funcionario', $funcionario_id)
             ->where('diames', $data_atual)
             ->get();
-
         return view('funcionarioPonto', compact('registros'));
     }
 
@@ -61,13 +57,11 @@ class FuncionarioPontoController extends Controller
         $userId = Auth::id();
         $mes = $request->input('mes');
         $ano = $request->input('ano');
-
         $folha = FolhaPonto::select('*')
                     ->where('id_funcionario', $userId)
                     ->whereYear('diames', $ano)
                     ->whereMonth('diames', $mes)
                     ->get();
-
         return view('folhaPonto', ['folha' => $folha]);
     }
 }

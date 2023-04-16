@@ -6,17 +6,26 @@
 @extends('layouts.layoutClock')
 
 @section('content')
-
     <section>
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                // fecha o alerta após 3 segundos
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 3000);
+            </script>
+        @endif
         <script>
             function showtime(){
                 setTimeout("showtime();",1000);
-
                 callerdate.setTime(callerdate.getTime()+1000);
                 var hh = String(callerdate.getHours());
                 var mm = String(callerdate.getMinutes());
                 var ss = String(callerdate.getSeconds());
-
                 document.getElementById("face").innerHTML =
                 ((hh < 10) ? " " : "") + hh +
                 ((mm < 10) ? ":0" : ":") + mm +
@@ -24,17 +33,12 @@
             }
             callerdate=new Date(<?php date("Y,m,d,H,i,s");?>);
         </script>
-
         <main>
-
             <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-
             <br><br>
-
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('REGISTRE SUA ENTRADA') }}</h1>
+                <h1 class="h3 my-5 fw-normal">{{ __('REGISTRE SEU PONTO') }}</h1>
             </div>
-
             <form action="{{ route('funcionarios.store') }}" method="POST">
                 <div class="row mt-5">
                     <main class="form-add w-100 m-auto">
@@ -76,15 +80,11 @@
                 </table>
             </div>
             @endif
-
             <br><br>
-
             <a href="/home"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
-
             <div class="row">
                 <p>VOLTAR</p>
             </div>
-
         </main>
     </section>
 

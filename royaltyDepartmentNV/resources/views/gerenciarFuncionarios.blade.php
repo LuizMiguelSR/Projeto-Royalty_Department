@@ -9,15 +9,23 @@
 
 <section>
     <main>
-
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                // fecha o alerta após 3 segundos
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 3000);
+            </script>
+        @endif
         <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-
         <br><br>
-
         <div class="row">
             <h1 class="h3 my-5 fw-normal">{{ __('GERENCIAR COLABORADORES') }}</h1>
         </div>
-
         <div class="row mx-5">
             <div class="col-md-12">
                 <form class="row tabela mb-3" action="{{ route('gerenciar_funcionario.consulta') }}" method="GET">
@@ -37,9 +45,7 @@
                     </div>
                 </form>
                 <br>
-
                 @if ($funcionarios->count() > 0)
-
                 <div class="row tabela">
                     <table class="table-responsive-sm table-bordered border-success">
                         <thead>
@@ -53,7 +59,6 @@
                         </thead>
                         <tbody>
                             @foreach ($funcionarios as $funcionario)
-
                                 <tr>
                                     <td>{{ $funcionario->nome_funcionario }}</td>
                                     <td>{{ $funcionario->departamento->departamento_nome }}</td>
@@ -69,13 +74,11 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <button type="button" class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#exampleModal{{ $funcionario->id }}" title="Editar">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                                class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                                        <a href="{{ route('gerenciar_funcionarios.show', $funcionario->id) }}" class="btn btn-sm btn-primary" title="Editar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                                <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
                                             </svg>
-                                        </button>
+                                        </a>
                                     </td>
                                     <td>
                                         <form method="post" action="{{ route('gerenciar_funcionarios.destroy', $funcionario->id) }}">
@@ -91,7 +94,6 @@
                                     </form>
                                     </td>
                                 </tr>
-
                                 <div class="modal fade" id="exampleModal2{{ $funcionario->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl modal-dialog-centered justify-content-center">
                                         <div class="card user-card-full w-75">
@@ -149,7 +151,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="modal fade" id="exampleModal{{ $funcionario->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
                                         <div class="modal-content">
@@ -162,7 +163,6 @@
                                                     <form class="row g-3 formCad" method="post" action="{{ route('gerenciar_funcionarios.update', $funcionario->id) }}" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('PUT')
-
                                                         <!-- Dados Pessoais -->
                                                         <h3 class="mb-5">Dados Pessoais</h3>
                                                         <div class="col-12">
@@ -242,7 +242,6 @@
                                                                 <option value="Estagiário" {{ $funcionario->departamento->cargo === "Estagiário" ? "selected" : "" }}>Estagiário</option>
                                                             </select>
                                                         </div>
-
                                                         <div class="col-12 mt-5">
                                                             <button type="submit" class="btn btn-primary">Atualizar</button>
                                                         </div>
@@ -278,7 +277,6 @@
                 </nav>
             @endif
         </div>
-
         <div class="row mx-5 mt-2 mb-5">
             <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
             <a href="{{ route('gerenciar_funcionarios.create') }}" style="width: auto" title="Cadastrar colaborador">
@@ -294,13 +292,10 @@
                 </div>
             </a>
         </div>
-
         <a href="/home"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
-
         <div class="row">
             <p>VOLTAR</p>
         </div>
-
     </main>
 </section>
 
