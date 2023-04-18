@@ -343,7 +343,7 @@ img{
 }
 
 .card {
-    border-radius: 68px;
+    border-radius: 0;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
     box-shadow: 0 1px 20px 0 rgba(27, 32, 34, 0.08);
     margin-bottom: 30px;
@@ -358,7 +358,7 @@ img{
 }
 
 .user-card-full .user-profile {
-    border-radius: 55px 0 0 55px;
+    border-radius: 0;
     border-color: black;
 }
 
