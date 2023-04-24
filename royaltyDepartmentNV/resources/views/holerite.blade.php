@@ -51,7 +51,9 @@
         <br><br>
 
         @if(!empty($_GET['mes']) && !empty($_GET['ano']))
-
+            <div class="row mb-2">
+                <h4>Nome: {{ $funcionario_nome }}</h4>
+            </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
