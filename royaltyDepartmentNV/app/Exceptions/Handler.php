@@ -45,4 +45,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof \Illuminate\Database\QueryException && strpos($exception->getMessage(), 'SQLSTATE[HY000] [2002]') !== false) {
+            return response()->view('errors.erroConexao', [], 500);
+        }
+        return parent::render($request, $exception);
+    }
 }

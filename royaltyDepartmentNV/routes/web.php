@@ -69,3 +69,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('gerenciar_funcionarios', GerenciarFuncionarioController::class);
     Route::get('/gerenciar_funcionario/consulta', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consulta');
 });
+
+Route::fallback(function() {
+    return view('errors.erro');
+})->name('error');
