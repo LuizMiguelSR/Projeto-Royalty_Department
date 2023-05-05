@@ -38,6 +38,7 @@
             </div>
         </form>
         @if(!empty($_GET['mes']) && !empty($_GET['ano']))
+            @isset($folha[0]['diames'])
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
                     <thead>
@@ -49,8 +50,8 @@
                             <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach($folha as $fol)
+                    @foreach($folha as $fol)
+                        <tbody>
                             <tr>
                                 <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ date('d/m/Y', strtotime($fol->diames)) }}</td>
                                 <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->entrada }}</td>
@@ -58,15 +59,19 @@
                                 <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->almoco_che }}</td>
                                 <td class="col-xs-2 col-sm-2 col-md-2 col-lg-2">{{ $fol->saida }}</td>
                             </tr>
-                        @endforeach
-                    </tbody>
+                        </tbody>
+                    @endforeach
                 </table>
             </div>
+            @endisset
+            @if(!isset($folha[0]['diames']))
+                <p>{{ __('Não constam registros neste mês ou ano.') }}</p>
+            @endif
         @else
             <p>{{ __('Selecione os valores para o mês e ano e clique em consultar.') }}</p>
         @endif
         <br><br>
-        <a href="/home"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
+        <a href="{{ route('home') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
         <div class="row">
             <p>VOLTAR</p>
         </div>

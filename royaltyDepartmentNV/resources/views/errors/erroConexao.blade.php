@@ -20,6 +20,13 @@
                 <img class="erroimg" src="{{ asset('images/SystemImages/erro503.svg') }}" alt="Erro" title="Erro de conexão">
             </main>
         </div>
+
+    <a href="{{ route('login') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
+
+    <div class="row">
+        <p>VOLTAR</p>
+    </div>
+    
 </section>
 
 @endsection
