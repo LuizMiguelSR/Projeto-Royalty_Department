@@ -12,6 +12,9 @@ use App\Models\Endereco;
 use App\Models\Holerite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 
 class GerenciarFuncionarioController extends Controller
 {
@@ -40,19 +43,33 @@ class GerenciarFuncionarioController extends Controller
 
     public function store(Request $request)
     {
+
+        // validação de usuário
         $dataUsuario = $request->validate([
             'email' => 'required|email',
             'senha' => 'required|min:5'
         ]);
         $dataUsuario['role'] = 3;
+        $dataUsuario['status'] = 'ativado';
         $dataUsuario['senha'] = bcrypt($dataUsuario['senha']);
+
+        $usuarios = Usuario::all();
+        foreach ($usuarios as $user) {
+            if ($user->email === $dataUsuario['email']) {
+                return redirect()->route('gerenciar_funcionarios.create')->with('error', 'O email fornecido já está em uso.');
+            }
+        }
         $usuario = Usuario::create($dataUsuario);
+
+        // validação de departamento
         $dataDepartamento = $request->validate([
             'departamento_nome' => 'required|max:50',
             'cargo' => 'required|max:50',
             'salario_base' => 'required|max:50000'
         ]);
         $departamento = Departamento::create($dataDepartamento);
+
+        // validação de endereço
         $dataEndereco = $request->validate([
             'rua' => 'required|max:50',
             'numero' => 'required|max:5',
@@ -63,7 +80,10 @@ class GerenciarFuncionarioController extends Controller
             'estado' => 'required|max:50',
             'pais' => 'required|max:50'
         ]);
+        $dataEndereco['status'] = 'ativado';
         $endereco = Endereco::create($dataEndereco);
+
+        // validação de funcionário
         $dataFuncionario = $request->validate([
             'nome_funcionario' => 'required|max:50',
             'registro_geral' => 'required|max:15',
@@ -72,6 +92,7 @@ class GerenciarFuncionarioController extends Controller
             'numero_dependentes' => 'required|max:4',
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
+        $dataFuncionario['status'] = 'ativado';
         // salva a imagem no sistema de arquivos
         $path = Storage::disk('public')->put('imagens', $dataFuncionario['foto']);
         // adiciona o caminho da imagem aos dados do funcionário
@@ -82,6 +103,7 @@ class GerenciarFuncionarioController extends Controller
         $funcionario->id_endereco = $endereco->id;
         $funcionario->id_departamento = $endereco->id;
         $funcionario->save();
+
         return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Cadastro de dados realizado com sucesso!');
     }
 
@@ -154,13 +176,19 @@ class GerenciarFuncionarioController extends Controller
 
     public function destroy($id)
     {
-        Endereco::destroy($id);
-        Departamento::destroy($id);
-        Funcionario::destroy($id);
-        Usuario::destroy($id);
-        FuncionarioPonto::where('id_funcionario', $id)->delete();
-        Holerite::where('id_funcionario', $id)->delete();
-        return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Exclusão de dado realizada com sucesso!');
+        $usuarios = Usuario::findOrFail($id);
+        $dataUsuarios['status'] = 'desativado';
+        $usuarios->update($dataUsuarios);
+
+        $funcionarios = Funcionario::findOrFail($id);
+        $dataFuncionarios['status'] = 'desativado';
+        $funcionarios->update($dataFuncionarios);
+
+        $endereco = Endereco::findOrFail($id);
+        $dataEndereco['status'] = 'desativado';
+        $endereco->update($dataEndereco);
+
+        return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Funcionário desativado com sucesso!');
     }
 
     public function consultaFuncionario(Request $request)

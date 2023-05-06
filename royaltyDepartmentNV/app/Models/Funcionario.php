@@ -20,7 +20,8 @@ class Funcionario extends Model
         'cpf',
         'telefone',
         'numero_dependentes',
-        'foto'
+        'foto',
+        'status'
     ];
 
     // Relacionamento com a tabela users

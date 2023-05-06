@@ -21,6 +21,18 @@
                 }, 3000);
             </script>
         @endif
+        @if (session('error'))
+            <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                <strong>{{ session('error') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <script>
+                // fecha o alerta após 5 segundos
+                setTimeout(function() {
+                    document.querySelector('.alert').remove();
+                }, 5000);
+            </script>
+        @endif
         <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
         <br><br>
         <div class="row">
@@ -52,9 +64,10 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Departamento</th>
+                                <th>Status</th>
                                 <th>Perfil</th>
                                 <th>Editar</th>
-                                <th>Excluir</th>
+                                <th>Desativar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,6 +75,7 @@
                                 <tr>
                                     <td>{{ $funcionario->nome_funcionario }}</td>
                                     <td>{{ $funcionario->departamento->departamento_nome }}</td>
+                                    <td>Usuário {{ $funcionario->status }}</td>
                                     <td>
                                         <button type="submit" class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#exampleModal2{{ $funcionario->id }}" title="Ver perfil">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

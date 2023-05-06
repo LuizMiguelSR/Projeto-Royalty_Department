@@ -19,7 +19,8 @@ class Endereco extends Model
         'cidade',
         'bairro',
         'estado',
-        'pais'
+        'pais',
+        'status'
     ];
 
 }
