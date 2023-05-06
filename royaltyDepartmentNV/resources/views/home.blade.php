@@ -37,7 +37,7 @@
                         <div class="title">Consulta, altera e remove informações pertinentes aos funcionários</div>
                     </div>
                 </a>
-                <a href="/gerenciar_folha_pagamento" style="width: auto" title="Gerenciar Folha de Pagamento">
+                <a href="{{ route('gerenciar_folha.index') }}" style="width: auto" title="Gerenciar Folha de Pagamento">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
 use App\Http\Controllers\FuncionarioPontoController;
 use App\Http\Controllers\GerenciarFuncionarioController;
+use App\Http\Controllers\GerenciarFolhaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,10 +65,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/folha_ponto', [FuncionarioPontoController::class, 'index'])->name('folha_ponto_consulta');
 
     /**
-     * Rotas responsáveis por listar, cadastrar, editar e excluir funcionários
+     * Rotas responsáveis por listar, consultar, cadastrar, editar e excluir funcionários
      */
     Route::resource('gerenciar_funcionarios', GerenciarFuncionarioController::class);
     Route::get('/gerenciar_funcionario/consulta', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consulta');
+
+    /**
+     * Rotas responsáveis por listar, consultar, cadastrar, editar e excluir folha de pagamento
+     */
+    Route::resource('gerenciar_folha', GerenciarFolhaController::class);
+    Route::get('/gerenciar_folha/consulta', [GerenciarFolhaController::class, 'consultarFolha'])->name('gerenciar_folha.consulta');
 });
 
 Route::fallback(function() {

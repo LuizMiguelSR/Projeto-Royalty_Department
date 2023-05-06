@@ -182,12 +182,12 @@
                 <div class="offcanvas-body">
                     <div class="row">
                         <div class="col-8">
-                            <a href="/gerenciar_funcionario">Gerenciar Funcionários</a>
+                            <a href="{{ route('gerenciar_funcionarios.index') }}">Gerenciar Funcionários</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <a href="/gerenciar_folha_pagamento">Gerenciar folha de pagamento</a>
+                            <a href="{{ route('gerenciar_folha.index') }}">Gerenciar folha de pagamento</a>
                         </div>
                     </div>
                     <div class="row">
@@ -197,17 +197,17 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <a href="/holerite">Holerite</a>
+                            <a href="{{ route('holerite_consulta') }}">Holerite</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <a href="/folha_ponto">Folha de Ponto</a>
+                            <a href="{{ route('folha_ponto_consulta') }}">Folha de Ponto</a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <a href="/funcionario_ponto">Registro de Ponto</a>
+                            <a href="{{ route('funcionarios.create') }}">Registro de Ponto</a>
                         </div>
                     </div>
                 </div>
@@ -222,19 +222,19 @@
             </div>
             <hr>
             <div class="offcanvas-body">
-                <div class="row m-2">
+                <div class="row">
                     <div class="col-8">
-                        <a href="/holerite">Holerite</a>
+                        <a href="{{ route('holerite_consulta') }}">Holerite</a>
                     </div>
                 </div>
-                <div class="row m-2">
+                <div class="row">
                     <div class="col-8">
-                        <a href="/folha_ponto">Folha de Ponto</a>
+                        <a href="{{ route('folha_ponto_consulta') }}">Folha de Ponto</a>
                     </div>
                 </div>
-                <div class="row m-2">
+                <div class="row">
                     <div class="col-8">
-                        <a href="/funcionario_ponto">Registro de Ponto</a>
+                        <a href="{{ route('funcionarios.create') }}">Registro de Ponto</a>
                     </div>
                 </div>
             </div>
