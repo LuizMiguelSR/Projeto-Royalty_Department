@@ -45,34 +45,34 @@
                 </div>
             </form>
             @if (!empty($registros))
-            <div class="row tabela">
-                <table class="table-responsive-sm table-bordered border-success">
-                    <thead>
-                        <tr>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Data</th>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Entrada</th>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Pausa</th>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Retorno</th>
-                            <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($registros as $registro)
-                        <tr>
-                            <td>{{ date('d/m/Y', strtotime($registro->diames)) }}</td>
-                            <td>{{ $registro->entrada ? date('H:i:s', strtotime($registro->entrada)) : '' }}</td>
-                            <td>{{ $registro->almoco_sai ? date('H:i:s', strtotime($registro->almoco_sai)) : '' }}</td>
-                            <td>{{ $registro->almoco_che ? date('H:i:s', strtotime($registro->almoco_che)) : '' }}</td>
-                            <td>{{ $registro->saida ? date('H:i:s', strtotime($registro->saida)) : '' }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+                <div class="row tabela">
+                    <table class="table-responsive-sm table-bordered border-success">
+                        <thead>
+                            <tr>
+                                <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Data</th>
+                                <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Entrada</th>
+                                <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Pausa</th>
+                                <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Retorno</th>
+                                <th class="col-xs-2 col-sm-2 col-md-2 col-lg-2">Saída</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($registros as $registro)
+                            <tr>
+                                <td>{{ date('d/m/Y', strtotime($registro->diames)) }}</td>
+                                <td>{{ $registro->entrada ? date('H:i:s', strtotime($registro->entrada)) : '' }}</td>
+                                <td>{{ $registro->almoco_sai ? date('H:i:s', strtotime($registro->almoco_sai)) : '' }}</td>
+                                <td>{{ $registro->almoco_che ? date('H:i:s', strtotime($registro->almoco_che)) : '' }}</td>
+                                <td>{{ $registro->saida ? date('H:i:s', strtotime($registro->saida)) : '' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             @endif
 
             @include('layouts._partials.voltar')
-            
+
         </main>
     </section>
 

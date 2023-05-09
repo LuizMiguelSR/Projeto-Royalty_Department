@@ -56,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
         return view('home');
     })->name('home');
 
+    /**
+     * Rota responsável pela consulta do holerite do funcionário
+     */
     Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite_consulta');
 
     /**
