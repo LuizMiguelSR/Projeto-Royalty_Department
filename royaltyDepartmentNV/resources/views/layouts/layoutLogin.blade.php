@@ -10,23 +10,16 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/SystemImages/favicon-16x16.png') }}">
         <link rel="manifest" href="{{ asset('images/SystemImages/site.webmanifest') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <title>Royalty - {{ $title ?? 'Login' }}</title>
+        <title>Royalty - @yield('titulo')</title>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     </head>
     <body>
+
         @yield('content')
+        
     </body>
-    <br><br><br>
 
-    <style>
-        .text-muted {
-            color: #0b6567 !important;
-        }
-    </style>
-
-    <footer class="mt-5">
-        <p class="text-center text-muted">&copy; {{ date('Y') }} Royalty Department</p>
-    </footer>
+        @include('layouts._partials.footer')
 
 </html>
 

@@ -1,32 +1,29 @@
 @php
-    $title = "Ops!!!";
+    $voltar = 'login';
 @endphp
 
 @extends('layouts.layoutLogin')
 
+@section('titulo', "Conexão perdida")
 @section('content')
 
-<section>
-    <style>
-        img {
-            vertical-align: middle;
-            height: 21em;
-        }
-    </style>
-    <div class="container-fluid m-auto text-center">
-        <div class="row">
-            <main class="form-signin w-100 m-auto">
-                <h1 class="h1 my-4 fw-normal">CONEXÃO NÃO ESTABELECIDA</h1>
-                <img class="erroimg" src="{{ asset('images/SystemImages/erro503.svg') }}" alt="Erro" title="Erro de conexão">
-            </main>
-        </div>
+    <section>
+        <style>
+            img {
+                vertical-align: middle;
+                height: 21em;
+            }
+        </style>
+        <div class="container-fluid m-auto text-center">
+            <div class="row">
+                <main class="form-signin w-100 m-auto">
+                    <h1 class="h1 my-4 fw-normal">CONEXÃO NÃO ESTABELECIDA</h1>
+                    <img class="erroimg" src="{{ asset('images/SystemImages/erro503.svg') }}" alt="Erro" title="Erro de conexão">
+                </main>
+            </div>
 
-    <a href="{{ route('login') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
+            @include('layouts._partials.voltar')
 
-    <div class="row">
-        <p>VOLTAR</p>
-    </div>
-    
-</section>
+    </section>
 
 @endsection

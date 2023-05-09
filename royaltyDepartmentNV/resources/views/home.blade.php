@@ -1,111 +1,113 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
 @endphp
-<!-- resources/views/home.blade.php -->
+
 @extends('layouts.layout')
 
+@section('titulo', "Painel de $funcionario_nome")
 @section('content')
-<section>
-    <main>
-        @if (session('success'))
-            <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                <strong>{{ session('success') }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <script>
-                // fecha o alerta após 3 segundos
-                setTimeout(function() {
-                    document.querySelector('.alert').remove();
-                }, 3000);
-            </script>
-        @endif
-        <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty"><br><br>
-        <h1 class="h1 mt-5 mb-2 fw-normal">{{ __('Bem vindo, ' . $funcionario_nome ) }}</h1>
 
-        @if (Auth::user()->role === 1)
-            <div class="row mt-5">
-                <a href="{{ route('gerenciar_funcionarios.index') }}" style="width: auto" title="Gerenciar Funcionários">
+    <section>
+        <main>
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <script>
+                    // fecha o alerta após 3 segundos
+                    setTimeout(function() {
+                        document.querySelector('.alert').remove();
+                    }, 3000);
+                </script>
+            @endif
+            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty"><br><br>
+            <h1 class="h1 mt-5 mb-2 fw-normal">{{ __('Bem vindo, ' . $funcionario_nome ) }}</h1>
+
+            @if (Auth::user()->role === 1)
+                <div class="row mt-5">
+                    <a href="{{ route('gerenciar_funcionarios.index') }}" style="width: auto" title="Gerenciar Funcionários">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Gerenciar Funcionários" src="{{ asset('images/SystemImages/cadastrar.svg') }}"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">GERENCIAR FUNCIONÁRIOS</div>
+                            <div class="title">Consulta, altera e remove informações pertinentes aos funcionários</div>
+                        </div>
+                    </a>
+                    <a href="{{ route('gerenciar_folha.index') }}" style="width: auto" title="Gerenciar Folha de Pagamento">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Gerenciar Folha de Pagamento" src="{{ asset('images/SystemImages/folhaPagamento.svg') }}"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">GERENCIAR<br>FOLHA DE PAGAMENTO</div>
+                            <div class="title">Registra e consulta a folha de pagamento e altera informações</div>
+                        </div>
+                    </a>
+                    <a href="/gerenciar_holerite" style="width: auto" title="Gerenciar Holerite">
+                        <div class="person">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <img class="circle"/>
+                                    <img class="img img1" alt="Gerenciar Holerite" src="{{ asset('images/SystemImages/holerite.svg') }}"/>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="name">GERENCIAR<br>HOLERITE</div>
+                            <div class="title">Registra os holerites dos funcionários e altera informações pertinentes a alíquotas</div>
+                        </div>
+                    </a>
+                </div>
+            @endif
+            <div class="row">
+                <a href="/holerite" style="width: auto" title="Seu Holerite">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Gerenciar Funcionários" src="{{ asset('images/SystemImages/cadastrar.svg') }}"/>
+                                <img class="img img1" alt="Seu Holerite" src="{{ asset('images/SystemImages/holerite2.svg') }}"/>
                             </div>
                         </div>
                         <div class="divider"></div>
-                        <div class="name">GERENCIAR FUNCIONÁRIOS</div>
-                        <div class="title">Consulta, altera e remove informações pertinentes aos funcionários</div>
+                        <div class="name">HOLERITE</div>
+                        <div class="title">Consulta ao seu holerite</div>
                     </div>
                 </a>
-                <a href="{{ route('gerenciar_folha.index') }}" style="width: auto" title="Gerenciar Folha de Pagamento">
+                <a href="{{ route('funcionarios.index') }}" style="width: auto" title="Folha de Ponto">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Gerenciar Folha de Pagamento" src="{{ asset('images/SystemImages/folhaPagamento.svg') }}"/>
+                                <img class="img img1" alt="Folha de Ponto" src="{{ asset('images/SystemImages/folhaPonto.svg') }}"/>
                             </div>
                         </div>
                         <div class="divider"></div>
-                        <div class="name">GERENCIAR<br>FOLHA DE PAGAMENTO</div>
-                        <div class="title">Registra e consulta a folha de pagamento e altera informações</div>
+                        <div class="name">FOLHA DE PONTO</div>
+                        <div class="title">Consulta a sua folha de ponto</div>
                     </div>
                 </a>
-                <a href="/gerenciar_holerite" style="width: auto" title="Gerenciar Holerite">
+                <a href="{{ route('funcionarios.create') }}" style="width: auto" title="Registro de Ponto">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
                                 <img class="circle"/>
-                                <img class="img img1" alt="Gerenciar Holerite" src="{{ asset('images/SystemImages/holerite.svg') }}"/>
+                                <img class="img img1" alt="Registro de Ponto" src="{{ asset('images/SystemImages/registroPonto.svg') }}"/>
                             </div>
                         </div>
                         <div class="divider"></div>
-                        <div class="name">GERENCIAR<br>HOLERITE</div>
-                        <div class="title">Registra os holerites dos funcionários e altera informações pertinentes a alíquotas</div>
+                        <div class="name">REGISTRO DE PONTO</div>
+                        <div class="title">Registra o seu ponto diário</div>
                     </div>
                 </a>
             </div>
-        @endif
-        <div class="row">
-            <a href="/holerite" style="width: auto" title="Seu Holerite">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Seu Holerite" src="{{ asset('images/SystemImages/holerite2.svg') }}"/>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="name">HOLERITE</div>
-                    <div class="title">Consulta ao seu holerite</div>
-                </div>
-            </a>
-            <a href="{{ route('funcionarios.index') }}" style="width: auto" title="Folha de Ponto">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Folha de Ponto" src="{{ asset('images/SystemImages/folhaPonto.svg') }}"/>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="name">FOLHA DE PONTO</div>
-                    <div class="title">Consulta a sua folha de ponto</div>
-                </div>
-            </a>
-            <a href="{{ route('funcionarios.create') }}" style="width: auto" title="Registro de Ponto">
-                <div class="person">
-                    <div class="container">
-                        <div class="container-inner">
-                            <img class="circle"/>
-                            <img class="img img1" alt="Registro de Ponto" src="{{ asset('images/SystemImages/registroPonto.svg') }}"/>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="name">REGISTRO DE PONTO</div>
-                    <div class="title">Registra o seu ponto diário</div>
-                </div>
-            </a>
-        </div>
-    </main>
-</section>
+        </main>
+    </section>
 @endsection

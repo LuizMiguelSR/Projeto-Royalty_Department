@@ -1,11 +1,13 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
-    $title = "Registro de Ponto de " . $funcionario_nome;
+    $voltar = 'home';
 @endphp
 
 @extends('layouts.layoutClock')
 
+@section('titulo', "Registro de Ponto de $funcionario_nome")
 @section('content')
+
     <section>
         <script>
             function showtime(){
@@ -19,7 +21,7 @@
                 ((mm < 10) ? ":0" : ":") + mm +
                 ((ss < 10) ? ":0" : ":") + ss;
             }
-            callerdate=new Date(<?php date("Y,m,d,H,i,s");?>);
+            callerdate=new Date( @php date("Y,m,d,H,i,s"); @endphp );
         </script>
         <main>
             <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
@@ -68,11 +70,9 @@
                 </table>
             </div>
             @endif
-            <br><br>
-            <a href="{{ route('home') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
-            <div class="row">
-                <p>VOLTAR</p>
-            </div>
+
+            @include('layouts._partials.voltar')
+            
         </main>
     </section>
 

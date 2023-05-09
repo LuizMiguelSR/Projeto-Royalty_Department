@@ -1,34 +1,31 @@
 @php
-    $title = "Ops Página não encontrada";
+    $voltar = 'login';
 @endphp
 
 @extends('layouts.layoutLogin')
 
+@section('titulo', "Página não encontrada")
 @section('content')
 
-<section>
-        <style>
-            img {
-                vertical-align: middle;
-                height: 21em;
-            }
-        </style>
-        <div class="container-fluid m-auto text-center">
-            <div class="row">
-                <main class="form-signin w-100 m-auto">
-                    <h1 class="h1 my-4 fw-normal">PÁGINA NÃO ENCONTRADA</h1>
-                    <img class="erroimg" src="{{ asset('images/SystemImages/erro404.svg') }}" alt="Erro página não encontrada" title="Erro de página não encontrada">
-                </main>
+    <section>
+            <style>
+                img {
+                    vertical-align: middle;
+                    height: 21em;
+                }
+            </style>
+            <div class="container-fluid m-auto text-center">
+                <div class="row">
+                    <main class="form-signin w-100 m-auto">
+                        <h1 class="h1 my-4 fw-normal">PÁGINA NÃO ENCONTRADA</h1>
+                        <img class="erroimg" src="{{ asset('images/SystemImages/erro404.svg') }}" alt="Erro página não encontrada" title="Erro de página não encontrada">
+                    </main>
+                </div>
             </div>
-        </div>
-    </body>
+        </body>
 
-    <a href="{{ route('login') }}"><img class="mt-3 voltar" src="{{ asset('images/SystemImages/voltar.png') }}" alt="voltar" title="Voltar"></a>
+        @include('layouts._partials.voltar')
 
-    <div class="row">
-        <p>VOLTAR</p>
-    </div>
-    
-</section>
+    </section>
 
 @endsection
