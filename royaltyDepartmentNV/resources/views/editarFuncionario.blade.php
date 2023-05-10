@@ -1,7 +1,3 @@
-@php
-    $voltar = 'gerenciar_funcionarios.index';
-@endphp
-
 @extends('layouts.layoutFuncionario')
 
 @section('titulo', "Editar dados de $funcionario->nome_funcionario")
@@ -9,18 +5,12 @@
 
     <section>
         <main>
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-
-            <br><br>
-
-            <div class="row">
-                <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Editar dados de ' . $funcionario->nome_funcionario) }}</h1>
-            </div>
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => "Editar dados de $funcionario->nome_funcionario"])
+            @endcomponent
             <div class="row mt-5">
                 <form class="row g-3 formCad" method="post" action="{{ route('gerenciar_funcionarios.update', $funcionario->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-
                     <!-- Dados Pessoais -->
                     <h3 class="mb-5">Dados Pessoais</h3>
                     <div class="col-12">
@@ -94,15 +84,14 @@
                             <option value="Estagiário" {{ $funcionario->departamento->cargo === "Estagiário" ? "selected" : "" }}>Estagiário</option>
                         </select>
                     </div>
-
                     <div class="col-12 my-5">
                         <button type="submit" class="btn btn-primary">Atualizar</button>
                     </div>
                 </form>
             </div>
-
-            @include('layouts._partials.voltar')
-
+            @component('layouts._components.voltar')
+                {{ route('gerenciar_funcionarios.index') }}
+            @endcomponent
         </main>
     </section>
 

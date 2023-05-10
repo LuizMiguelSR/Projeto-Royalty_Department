@@ -1,6 +1,5 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
-    $voltar = 'home';
 @endphp
 
 @extends('layouts.layout')
@@ -10,20 +9,12 @@
 
     <section>
         <main>
-
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-
-            <br><br>
-
-            <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('CONSULTA AO HOLERITE') }}</h1>
-            </div>
-
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => "CONSULTA AO HOLERITE"])
+            @endcomponent
             <span>Ordenar por mês e ano: </span>
             <div class="row mx-5">
                 <div class="col-md-12">
                 <form class="row tabela mt-3"method="GET" action="{{ route('holerite_consulta') }}">
-
                 @csrf
                 <div class="input-group mb-3">
                     <select id="mes" name="mes" class="form-select" aria-label="Default select example">
@@ -34,7 +25,6 @@
                             </option>
                         @endfor
                     </select>
-
                     <select id="ano" name="ano" class="form-select" aria-label="Default select example">
                         <option value="" selected>Selecione um ano...</option>
                         @for ($i = date('Y'); $i >= date('Y') - 10; $i--)
@@ -43,14 +33,12 @@
                             </option>
                         @endfor
                     </select>
-
                     <button type="submit" class="btn btn-primary">{{ __('Consultar') }}</button>
                 </div>
                 </form>
                 </div>
             </div>
             <br><br>
-
             @if(!empty($_GET['mes']) && !empty($_GET['ano']))
                 @isset($holerites[0]['inss_fx1'])
                     <div class="row tabela">
@@ -135,9 +123,9 @@
             @else
                 <p>{{ __('Selecione os valores para o mês e ano e clique em consultar.') }}</p>
             @endif
-
-            @include('layouts._partials.voltar')
-
+            @component('layouts._components.voltar')
+                {{ route('home') }}
+            @endcomponent
         </main>
     </section>
 

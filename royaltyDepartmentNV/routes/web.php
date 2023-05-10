@@ -46,7 +46,7 @@ Route::get('/home', function () {
 Route::get('/sair', function () {
     Session::flush();
     Auth::logout();
-    Session::flash('sair', 'Sessão finalizada com sucesso.');
+    Session::flash('sucess', 'Sessão finalizada com sucesso.');
     return redirect('/login');
 })->name('sair');
 

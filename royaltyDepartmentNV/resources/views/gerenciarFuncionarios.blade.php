@@ -1,7 +1,3 @@
-@php
-    $voltar = 'home';
-@endphp
-
 @extends('layouts.layout')
 
 @section('titulo', 'Gerenciar Colaboradores')
@@ -9,35 +5,12 @@
 
     <section>
         <main>
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                    <strong>{{ session('success') }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <script>
-                    // fecha o alerta após 3 segundos
-                    setTimeout(function() {
-                        document.querySelector('.alert').remove();
-                    }, 3000);
-                </script>
-            @endif
-            @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                    <strong>{{ session('error') }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <script>
-                    // fecha o alerta após 5 segundos
-                    setTimeout(function() {
-                        document.querySelector('.alert').remove();
-                    }, 5000);
-                </script>
-            @endif
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-            <br><br>
-            <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('GERENCIAR COLABORADORES') }}</h1>
-            </div>
+            @component('layouts._components.alert_error')
+            @endcomponent
+            @component('layouts._components.alert_sucess')
+            @endcomponent
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => "GERENCIAR COLABORADORES"])
+            @endcomponent
             <div class="row mx-5">
                 <div class="col-md-12">
                     <form class="row tabela mb-3" action="{{ route('gerenciar_funcionario.consulta') }}" method="GET">
@@ -306,9 +279,9 @@
                     </div>
                 </a>
             </div>
-
-            @include('layouts._partials.voltar')
-            
+            @component('layouts._components.voltar')
+                {{ route('home') }}
+            @endcomponent
         </main>
     </section>
 

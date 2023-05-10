@@ -1,9 +1,9 @@
 @php
     use Carbon\Carbon;
 
-    $voltar = 'home';
     $data = Carbon::now();
     $mes = $data->locale('pt_BR')->isoFormat('MMMM');
+    $upperMes = strtoupper($mes);
 @endphp
 
 @extends('layouts.layout')
@@ -13,37 +13,10 @@
 
     <section>
         <main>
-            @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                    <strong>{{ session('success') }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <script>
-                    // fecha o alerta após 3 segundos
-                    setTimeout(function() {
-                        document.querySelector('.alert').remove();
-                    }, 3000);
-                </script>
-            @endif
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-            <br><br>
-            <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('FOLHA DE PAGAMENTO DE '.strtoupper($mes)) }}</h1>
-            </div>
-            @php
-                for ($i = 0; $i < count($funcionarios); $i++) {
-                    if ($funcionarios[$i]['status'] == 'ativado'){
-                        $funcionario_ativo = [
-                            'nome' => $funcionarios[$i]['nome_funcionario'],
-                            'cargo' => $departamentos[$i]['cargo'],
-                            'salario' => $departamentos[$i]['salario_base'],
-                            'departamento' => $departamentos[$i]['departamento_nome']
-                        ];
-
-                        $funcionarios_ativos[] = $funcionario_ativo;
-                    }
-                }
-            @endphp
+            @component('layouts._components.alert_sucess')
+            @endcomponent
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => "FOLHA DE PAGAMENTO DE $upperMes"])
+            @endcomponent
             <div class="row">
                 <h1 class="h3 my-5 fw-normal">{{ __('Administrativo') }}</h1>
             </div>
@@ -275,9 +248,9 @@
                         </tr>
                 </table>
             </div>
-
-            @include('layouts._partials.voltar')
-
+            @component('layouts._components.voltar')
+                {{ route('home') }}
+            @endcomponent
         </main>
     </section>
 

@@ -30,7 +30,6 @@
                 $('#cidade').val(endereco.localidade);
                 $('#estado').val(endereco.uf);
             }
-
             // Função para fazer a requisição AJAX para a API do ViaCEP
             function consultarCEP(cep) {
                 console.log(cep);
@@ -46,7 +45,6 @@
                     }
                 });
             }
-
             // Evento para chamar a função consultarCEP quando o usuário digitar o CEP
             $('#cep').on('blur', function () {
                 const cep = $(this).val().replace(/\D/g, ''); // Remove todos os caracteres não numéricos do CEP
@@ -62,7 +60,6 @@
                 $('#telefone').mask('(00) 00000-0000');
             });
         </script>
-
     </body>
 
         @include('layouts._partials.footer')

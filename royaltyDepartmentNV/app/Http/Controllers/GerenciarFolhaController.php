@@ -17,6 +17,13 @@ class GerenciarFolhaController extends Controller
 
         for ($i = 0; $i < count($funcionarios); $i++) {
             if ($funcionarios[$i]['status'] == 'ativado') {
+                $funcionario_ativo = [
+                    'nome' => $funcionarios[$i]['nome_funcionario'],
+                    'cargo' => $departamentos[$i]['cargo'],
+                    'salario' => $departamentos[$i]['salario_base'],
+                    'departamento' => $departamentos[$i]['departamento_nome']
+                ];
+                $funcionarios_ativos[] = $funcionario_ativo;
                 $final += floatval($departamentos[$i]['salario_base']);
             }
         }
@@ -28,6 +35,6 @@ class GerenciarFolhaController extends Controller
         $total = $final + $fgts + $inss + $sistemaS + $rat;
         $valor = [$fgts, $inss, $sistemaS, $rat, $total];
 
-        return view('gerenciarFolha', compact('valor','funcionarios', 'departamentos'));
+        return view('gerenciarFolha', compact('valor','funcionarios_ativos', 'departamentos'));
     }
 }

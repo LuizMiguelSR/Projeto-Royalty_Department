@@ -19,30 +19,10 @@
                         <div class="form-floating">
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" maxlength="50" required>
                         </div><br>
-                        @if (session('error'))
-                            <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                                {{ session('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            <script>
-                                // fecha o alerta após 3 segundos
-                                setTimeout(function() {
-                                    document.querySelector('.alert').remove();
-                                }, 3000);
-                            </script>
-                        @endif
-                        @if (session('sair'))
-                            <div class="alert alert-success alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                                <strong>{{ session('sair') }}</strong>
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            <script>
-                                // fecha o alerta após 3 segundos
-                                setTimeout(function() {
-                                    document.querySelector('.alert').remove();
-                                }, 3000);
-                            </script>
-                        @endif
+                        @component('layouts._components.alert_error')
+                        @endcomponent
+                        @component('layouts._components.alert_sucess')
+                        @endcomponent
                         <a href="{{ route('password.request') }}">Esqueceu a senha?</a>
                         <div>
                             <button class="w-100 btn btn-lg btn-primary mt-2" ype="submit">Entrar</button>

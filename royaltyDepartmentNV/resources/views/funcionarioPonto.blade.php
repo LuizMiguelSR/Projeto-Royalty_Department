@@ -1,6 +1,5 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
-    $voltar = 'home';
 @endphp
 
 @extends('layouts.layoutClock')
@@ -24,11 +23,8 @@
             callerdate=new Date( @php date("Y,m,d,H,i,s"); @endphp );
         </script>
         <main>
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-            <br><br>
-            <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('REGISTRE SEU PONTO') }}</h1>
-            </div>
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => "REGISTRE SEU PONTO"])
+            @endcomponent
             <form action="{{ route('funcionarios.store') }}" method="POST">
                 <div class="row mt-5">
                     <main class="form-add w-100 m-auto">
@@ -70,9 +66,9 @@
                     </table>
                 </div>
             @endif
-
-            @include('layouts._partials.voltar')
-
+            @component('layouts._components.voltar')
+                {{ route('home') }}
+            @endcomponent
         </main>
     </section>
 

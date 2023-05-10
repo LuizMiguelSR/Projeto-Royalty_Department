@@ -28,7 +28,7 @@ class AuthController extends Controller
             $status = Usuario::where('id', $user->id)->first();
             if ($status->status === 'ativado') {
                 // add flash message
-                Session::flash('success', 'Login realizado com sucesso.');
+                Session::flash('sucess', 'Login realizado com sucesso.');
 
                 // add funcionario nome e foto para session
                 $user = Auth::user();

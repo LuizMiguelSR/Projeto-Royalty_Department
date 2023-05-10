@@ -1,7 +1,3 @@
-@php
-    $voltar = 'gerenciar_funcionarios.index';
-@endphp
-
 @extends('layouts.layoutFuncionario')
 
 @section('titulo', 'Cadastro de Funcionário')
@@ -9,23 +5,10 @@
 
     <section>
         <main>
-            @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show position-fixed bottom-0 end-0 mb-4 me-4" role="alert">
-                    {{ session('error') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <script>
-                    // fecha o alerta após 3 segundos
-                    setTimeout(function() {
-                        document.querySelector('.alert').remove();
-                    }, 3000);
-                </script>
-            @endif
-            <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty">
-            <br><br>
-            <div class="row">
-                <h1 class="h3 mt-5 mb-2 fw-normal">{{ __('Cadastrar um novo funcionário') }}</h1>
-            </div>
+            @component('layouts._components.alert_error')
+            @endcomponent
+            @component('layouts._components.titulo_logo', ['titulo_imagem' => 'Cadastrar um novo funcionário'])
+            @endcomponent
             <div class="row mt-1">
                 <form class="row g-3 formCad" method="post" action="{{ route('gerenciar_funcionarios.store') }}" enctype="multipart/form-data">
                     @csrf
@@ -113,9 +96,9 @@
                     </div>
                 </form>
             </div>
-
-            @include('layouts._partials.voltar')
-            
+            @component('layouts._components.voltar')
+                {{ route('gerenciar_funcionarios.index') }}
+            @endcomponent
         </main>
     </section>
 

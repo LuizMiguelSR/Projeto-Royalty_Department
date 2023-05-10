@@ -104,7 +104,7 @@ class GerenciarFuncionarioController extends Controller
         $funcionario->id_departamento = $endereco->id;
         $funcionario->save();
 
-        return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Cadastro de dados realizado com sucesso!');
+        return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Cadastro de dados realizado com sucesso!');
     }
 
     public function show($id)
@@ -171,7 +171,7 @@ class GerenciarFuncionarioController extends Controller
                 'foto.max' => 'A imagem deve ter no máximo :max KB.'
             ]);
         }
-        return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Edição de dados realizada com sucesso!');
+        return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Edição de dados realizada com sucesso!');
     }
 
     public function destroy($id)
@@ -188,7 +188,7 @@ class GerenciarFuncionarioController extends Controller
         $dataEndereco['status'] = 'desativado';
         $endereco->update($dataEndereco);
 
-        return redirect()->route('gerenciar_funcionarios.index')->with('success', 'Funcionário desativado com sucesso!');
+        return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Funcionário desativado com sucesso!');
     }
 
     public function consultaFuncionario(Request $request)
