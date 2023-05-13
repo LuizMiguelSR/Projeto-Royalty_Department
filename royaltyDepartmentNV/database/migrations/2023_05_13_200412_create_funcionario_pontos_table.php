@@ -9,11 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('funcionario_ponto', function (Blueprint $table) {
+        Schema::create('funcionario_pontos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_funcionario')->nullable();
+            $table->unsignedBigInteger('id_funcionario');
             $table->date('diames')->nullable();
             $table->time('entrada')->nullable();
             $table->time('almoco_sai')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->time('horas_trabalhadas')->nullable();
             $table->timestamps();
 
-            $table->foreign('id_funcionario')->references('id')->on('funcionario')->onDelete('cascade');
+            $table->foreign('id_funcionario')->references('id')->on('funcionarios')->onDelete('cascade');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('funcionario_ponto');
+        Schema::dropIfExists('funcionario_pontos');
     }
 };

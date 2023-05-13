@@ -18,7 +18,7 @@
             @component('layouts._components.titulo_logo', ['titulo_imagem' => "FOLHA DE PAGAMENTO DE $upperMes"])
             @endcomponent
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Administrativo') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Administrativo') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -43,7 +43,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Financeiro') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Financeiro') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -68,7 +68,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Recursos Humanos') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Recursos Humanos') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -93,7 +93,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Marketing') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Marketing') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -118,7 +118,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Comercial') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Comercial') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -143,7 +143,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Operacional') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Operacional') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -168,7 +168,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Vendas') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Vendas') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">
@@ -193,7 +193,7 @@
                 </table>
             </div><br>
             <div class="row">
-                <h1 class="h3 my-5 fw-normal">{{ __('Tecnologia da Informação') }}</h1>
+                <h1 class="h3 my-2 fw-normal">{{ __('Tecnologia da Informação') }}</h1>
             </div>
             <div class="row tabela">
                 <table class="table-responsive-sm table-bordered border-success">

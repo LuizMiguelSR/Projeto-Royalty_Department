@@ -10,7 +10,7 @@ class Holerite extends Model
 {
     use HasFactory;
 
-    protected $table = 'holerite';
+    protected $table = 'holerites';
 
     public function user()
     {

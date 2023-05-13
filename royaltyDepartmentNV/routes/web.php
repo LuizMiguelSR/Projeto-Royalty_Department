@@ -71,6 +71,8 @@ Route::middleware(['auth'])->group(function () {
      * Rotas responsáveis por listar, consultar, cadastrar, editar e excluir funcionários
      */
     Route::resource('gerenciar_funcionarios', GerenciarFuncionarioController::class);
+    Route::put('gerenciar_funcionarios/{id}/ativar', [GerenciarFuncionarioController::class, 'ativar'])->name('gerenciar_funcionarios.ativar');
+    Route::put('gerenciar_funcionarios/{id}/desativar', [GerenciarFuncionarioController::class, 'desativar'])->name('gerenciar_funcionarios.desativar');
     Route::get('/gerenciar_funcionario/consulta', [GerenciarFuncionarioController::class, 'consultaFuncionario'])->name('gerenciar_funcionario.consulta');
 
     /**

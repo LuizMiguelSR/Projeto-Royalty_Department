@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('role')->nullable();
             $table->string('senha', 256)->nullable();
             $table->string('recuperar', 256)->nullable();
+            $table->enum('status',['ativado','desativado'])->default('ativado');
             $table->timestamps();
         });
     }

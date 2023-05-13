@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('endereco', function (Blueprint $table) {
+        Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->string('rua', 50)->nullable();
             $table->unsignedSmallInteger('numero')->nullable();
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('bairro', 50)->nullable();
             $table->string('estado', 50)->nullable();
             $table->string('pais', 50)->nullable();
+            $table->enum('status',['ativado','desativado'])->default('ativado');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('endereco');
+        Schema::dropIfExists('enderecos');
     }
 };

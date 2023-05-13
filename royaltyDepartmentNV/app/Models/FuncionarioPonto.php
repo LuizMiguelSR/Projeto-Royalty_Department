@@ -9,7 +9,7 @@ class FuncionarioPonto extends Model
 {
     use HasFactory;
 
-    protected $table = 'funcionario_ponto';
+    protected $table = 'funcionario_pontos';
     protected $primaryKey = 'id';
     public $timestamps = false;
 

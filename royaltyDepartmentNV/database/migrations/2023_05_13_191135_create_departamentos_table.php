@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->enum('status',['ativado','desativado'])->nullable();
+        Schema::create('departamentos', function (Blueprint $table) {
+            $table->id();
+            $table->string('departamento_nome', 50)->nullable();
+            $table->string('cargo', 50)->nullable();
+            $table->double('salario_base', 10, 2)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('usuarios', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        Schema::dropIfExists('departamentos');
     }
 };

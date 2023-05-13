@@ -10,7 +10,7 @@ class FolhaPonto extends Model
 {
     use HasFactory;
 
-    protected $table = 'funcionario_ponto';
+    protected $table = 'funcionario_pontos';
 
     public function user()
     {

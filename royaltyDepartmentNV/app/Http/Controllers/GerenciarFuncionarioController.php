@@ -50,7 +50,6 @@ class GerenciarFuncionarioController extends Controller
             'senha' => 'required|min:5'
         ]);
         $dataUsuario['role'] = 3;
-        $dataUsuario['status'] = 'ativado';
         $dataUsuario['senha'] = bcrypt($dataUsuario['senha']);
 
         $usuarios = Usuario::all();
@@ -80,7 +79,6 @@ class GerenciarFuncionarioController extends Controller
             'estado' => 'required|max:50',
             'pais' => 'required|max:50'
         ]);
-        $dataEndereco['status'] = 'ativado';
         $endereco = Endereco::create($dataEndereco);
 
         // validação de funcionário
@@ -92,7 +90,6 @@ class GerenciarFuncionarioController extends Controller
             'numero_dependentes' => 'required|max:4',
             'foto' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
-        $dataFuncionario['status'] = 'ativado';
         // salva a imagem no sistema de arquivos
         $path = Storage::disk('public')->put('imagens', $dataFuncionario['foto']);
         // adiciona o caminho da imagem aos dados do funcionário
@@ -141,7 +138,17 @@ class GerenciarFuncionarioController extends Controller
                 'registro_geral' => 'required|max:15',
                 'cpf' => 'required|max:14',
                 'telefone' => 'required|max:15',
-                'numero_dependentes' => 'required|max:2'
+                'numero_dependentes' => 'integer|max:4'
+            ]);
+            $funcionario->update([
+                'nome_funcionario' => $dataFuncionario['nome_funcionario'],
+                'registro_geral' => $dataFuncionario['registro_geral'],
+                'cpf' => $dataFuncionario['cpf'],
+                'telefone' => $dataFuncionario['telefone'],
+                'numero_dependentes' => $dataFuncionario['numero_dependentes']
+            ], [
+                'required' => 'O campo :attribute é obrigatório.',
+                'max' => 'O campo :attribute deve ter no máximo :max caracteres.',
             ]);
         } else {
             $dataFuncionario = $request->validate([
@@ -174,7 +181,7 @@ class GerenciarFuncionarioController extends Controller
         return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Edição de dados realizada com sucesso!');
     }
 
-    public function destroy($id)
+    public function desativar($id)
     {
         $usuarios = Usuario::findOrFail($id);
         $dataUsuarios['status'] = 'desativado';
@@ -189,6 +196,23 @@ class GerenciarFuncionarioController extends Controller
         $endereco->update($dataEndereco);
 
         return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Funcionário desativado com sucesso!');
+    }
+
+    public function ativar($id)
+    {
+        $usuarios = Usuario::findOrFail($id);
+        $dataUsuarios['status'] = 'ativado';
+        $usuarios->update($dataUsuarios);
+
+        $funcionarios = Funcionario::findOrFail($id);
+        $dataFuncionarios['status'] = 'ativado';
+        $funcionarios->update($dataFuncionarios);
+
+        $endereco = Endereco::findOrFail($id);
+        $dataEndereco['status'] = 'ativado';
+        $endereco->update($dataEndereco);
+
+        return redirect()->route('gerenciar_funcionarios.index')->with('sucess', 'Funcionário ativado com sucesso!');
     }
 
     public function consultaFuncionario(Request $request)

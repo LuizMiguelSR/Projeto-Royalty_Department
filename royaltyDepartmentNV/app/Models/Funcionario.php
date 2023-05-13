@@ -12,7 +12,7 @@ class Funcionario extends Model
 {
     use HasFactory;
 
-    protected $table = 'funcionario';
+    protected $table = 'funcionarios';
     protected $primaryKey = 'id';
     protected $fillable = [
         'nome_funcionario',
