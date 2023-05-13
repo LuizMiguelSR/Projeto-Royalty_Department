@@ -17,8 +17,8 @@ body {
     background: linear-gradient(360deg, #ffffff, #ffffff 62%);
     background-attachment: fixed;
     text-align: center !important;
-    padding-top: 10em;
-    padding-bottom: 3.1em;
+    padding-top: 5em;
+    padding-bottom: 1em;
     font-family: 'Roboto Flex', sans-serif;
 }
 
@@ -144,7 +144,7 @@ form {
 
 .form-signin.w-100.m-auto {
     max-width: 25em;
-    padding: 1em;
+    padding: 0em;
 }
 
 .form-control-file {
@@ -483,6 +483,19 @@ img{
 @media only screen and (min-width: 1400px){
     p {
         font-size: 14px;
+    }
+}
+@media only screen and (max-width: 1080px){
+    p {
+        font-size: 14px;
+    }
+    body {
+        background: linear-gradient(360deg, #ffffff, #ffffff 62%);
+        background-attachment: fixed;
+        text-align: center !important;
+        padding-top: 5em;
+        padding-bottom: 1em;
+        font-family: 'Roboto Flex', sans-serif;
     }
 }
 @media only screen and (max-width: 800px){
