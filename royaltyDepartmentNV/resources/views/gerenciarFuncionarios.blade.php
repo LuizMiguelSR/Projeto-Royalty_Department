@@ -1,8 +1,6 @@
 @extends('layouts.layout')
-
 @section('titulo', 'Gerenciar Colaboradores')
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.alert_error')
@@ -308,5 +306,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

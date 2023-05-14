@@ -1,39 +1,16 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
 @endphp
-
 @extends('layouts.layout')
-
 @section('titulo', "Folha de Ponto de $funcionario_nome")
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.titulo_logo', ['titulo_imagem' => 'CONSULTA A FOLHA DE PONTO'])
             @endcomponent
-            <span>Ordenar por mês e ano: </span>
-            <form class="row tabela mt-2"method="GET" action="{{ route('folha_ponto_consulta') }}">
-                @csrf
-                <div class="input-group mb-3">
-                    <select id="mes" name="mes" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Selecione um mês...</option>
-                        @for ($i = 1; $i <= 12; $i++)
-                            <option value="{{ $i }}" {{ old('mes') == $i ? 'selected' : '' }}>
-                                {{ $i }}
-                            </option>
-                        @endfor
-                    </select>
-                    <select id="ano" name="ano" class="form-select" aria-label="Default select example">
-                        <option value="" selected>Selecione um ano...</option>
-                        @for ($i = date('Y'); $i >= date('Y') - 10; $i--)
-                            <option value="{{ $i }}" {{ old('ano') == $i ? 'selected' : '' }}>
-                                {{ $i }}
-                            </option>
-                        @endfor
-                    </select>
-                    <button type="submit" class="btn btn-primary">{{ __('Consultar') }}</button>
-                </div>
-            </form>
+            @component('layouts._components.select_mes_ano')
+                {{ route('folha_ponto_consulta') }}
+            @endcomponent
             @if(!empty($_GET['mes']) && !empty($_GET['ano']))
                 @isset($folha[0]['diames'])
                     <div class="row tabela">
@@ -72,5 +49,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

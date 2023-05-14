@@ -1,12 +1,9 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
 @endphp
-
 @extends('layouts.layout')
-
 @section('titulo', "Painel de $funcionario_nome")
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.alert_sucess')
@@ -99,5 +96,4 @@
             </div>
         </main>
     </section>
-
 @endsection

@@ -1,12 +1,9 @@
 @php
     $voltar = 'login';
 @endphp
-
 @extends('layouts.layoutLogin')
-
 @section('titulo', "Página não encontrada")
 @section('content')
-
     <section>
             <style>
                 img {
@@ -23,9 +20,6 @@
                 </div>
             </div>
         </body>
-
         @include('layouts._partials.voltar')
-
     </section>
-
 @endsection

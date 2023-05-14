@@ -1,8 +1,6 @@
 @extends('layouts.layoutFuncionario')
-
 @section('titulo', "Editar dados de $funcionario->nome_funcionario")
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.titulo_logo', ['titulo_imagem' => "Editar dados de $funcionario->nome_funcionario"])
@@ -94,5 +92,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

@@ -1,8 +1,6 @@
 @extends('layouts.layoutLogin')
-
 @section('titulo', 'Login')
 @section('content')
-
     <section>
         <div class="container-fluid m-auto text-center">
             <div class="row">
@@ -32,6 +30,5 @@
             </div>
         </div>
     </section>
-
 @endsection
 

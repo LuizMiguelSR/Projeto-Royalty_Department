@@ -14,12 +14,8 @@
         <title>@yield('titulo')</title>
     </head>
     <body onLoad="showtime()">
-
         @include('layouts._partials.topo')
         @yield('content')
-
     </body>
-
         @include('layouts._partials.footer')
-
 </html>

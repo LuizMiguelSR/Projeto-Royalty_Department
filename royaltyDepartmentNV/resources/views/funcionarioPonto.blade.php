@@ -1,12 +1,9 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
 @endphp
-
 @extends('layouts.layoutClock')
-
 @section('titulo', "Registro de Ponto de $funcionario_nome")
 @section('content')
-
     <section>
         <script>
             function showtime(){
@@ -71,5 +68,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

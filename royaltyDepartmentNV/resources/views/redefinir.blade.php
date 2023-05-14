@@ -1,11 +1,8 @@
 @php
     $title = "Redefinir Senha";
 @endphp
-
 @extends('layouts.layoutLogin')
-
 @section('content')
-
     <section>
         <div class="container">
             <div class="row justify-content-center">
@@ -45,5 +42,4 @@
             </div>
         </div>
     </section>
-
 @endsection

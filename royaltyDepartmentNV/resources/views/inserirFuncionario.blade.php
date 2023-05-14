@@ -1,8 +1,6 @@
 @extends('layouts.layoutFuncionario')
-
 @section('titulo', 'Cadastro de Funcionário')
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.alert_error')
@@ -101,5 +99,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

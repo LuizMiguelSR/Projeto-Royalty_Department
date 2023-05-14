@@ -1,12 +1,9 @@
 @php
     $voltar = 'login';
 @endphp
-
 @extends('layouts.layoutLogin')
-
 @section('titulo', "Conexão perdida")
 @section('content')
-
     <section>
         <style>
             img {
@@ -21,9 +18,6 @@
                     <img class="erroimg" src="{{ asset('images/SystemImages/erro503.svg') }}" alt="Erro" title="Erro de conexão">
                 </main>
             </div>
-
             @include('layouts._partials.voltar')
-
     </section>
-
 @endsection

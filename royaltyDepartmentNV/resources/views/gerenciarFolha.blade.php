@@ -1,16 +1,12 @@
 @php
     use Carbon\Carbon;
-
     $data = Carbon::now();
     $mes = $data->locale('pt_BR')->isoFormat('MMMM');
     $upperMes = strtoupper($mes);
 @endphp
-
 @extends('layouts.layout')
-
 @section('titulo', 'Gerenciar Folha de Pagamento')
 @section('content')
-
     <section>
         <main>
             @component('layouts._components.alert_sucess')
@@ -253,5 +249,4 @@
             @endcomponent
         </main>
     </section>
-
 @endsection

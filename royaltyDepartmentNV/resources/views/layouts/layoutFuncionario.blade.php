@@ -17,10 +17,8 @@
         <title>@yield('titulo')</title>
     </head>
     <body>
-
         @include('layouts._partials.topo')
         @yield('content')
-
         <script>
             // Função para atualizar os campos de endereço com os valores retornados pela API do ViaCEP
             function atualizarCamposEndereco(endereco) {
@@ -61,7 +59,5 @@
             });
         </script>
     </body>
-
         @include('layouts._partials.footer')
-
 </html>

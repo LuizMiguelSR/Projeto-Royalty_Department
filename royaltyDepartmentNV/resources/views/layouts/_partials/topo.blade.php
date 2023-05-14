@@ -2,7 +2,6 @@
     $funcionario_nome = session('funcionario_nome', '');
     $funcionario_foto = session('funcionario_foto', '');
 @endphp
-
 <style>
     .navbar.fixed-top.navbar-expand-lg{
         background-color: #0b6567;
@@ -31,7 +30,6 @@
         --cor2: #0b656780;
         --cor3: #00000054;
         --cor4: #46d160;
-
         --fonte-padrao: 'Roboto Flex', sans-serif;
         --fonte-destaque: 'Roboto Condensed', sans-serif;
     }
@@ -56,7 +54,6 @@
         margin-left: 20px;
         margin-top: 10px;
         font-family: var(--fonte-destaque);
-
     }
     .fotoPerfilPequena {
         vertical-align: middle;
