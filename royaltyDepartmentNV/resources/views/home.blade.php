@@ -80,7 +80,7 @@
                         <div class="title">Consulta a sua folha de ponto</div>
                     </div>
                 </a>
-                <a href="{{ route('funcionarios.create') }}" style="width: auto" title="Registro de Ponto">
+                <a href="{{ route('funcionarios.create') }}" style="width: auto" title="Registro de Ponto" class="mb-5">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">
