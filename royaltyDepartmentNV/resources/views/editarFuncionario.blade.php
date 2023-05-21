@@ -12,54 +12,70 @@
                     <!-- Dados Pessoais -->
                     <h3 class="mb-5">Dados Pessoais</h3>
                     <div class="col-12">
+                        <label for="exampleFormControlInput1" class="form-label">Nome Funcionário</label>
                         <input name="nome_funcionario" type="text" class="form-control" id="nome_funcionario" placeholder="Nome" required pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50" value="{{ $funcionario->nome_funcionario }}">
                     </div>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">RG</label>
                         <input name="registro_geral" type="text" class="form-control" id="registro_geral" placeholder="RG" inputmode="number" required pattern="[a-z0-9]+)" maxlength="15" value="{{ $funcionario->registro_geral }}">
                     </div>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">CPF</label>
                         <input name="cpf" type="text" class="form-control" id="cpf" placeholder="CPF" inputmode="number" maxlength="14" pattern="^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}" required value="{{ $funcionario->cpf }}">
                     </div>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">Telefone</label>
                         <input name="telefone" type="text" maxlength="15" class="form-control" id="telefone" placeholder="Telefone" required value="{{ $funcionario->telefone }}">
                     </div>
                     <div class="col-12 mt-3">
+                        <label for="exampleFormControlInput1" class="form-label">Foto</label>
                         <input name="foto" type="file" accept="image/*" class="form-control-file" id="foto">
                     </div>
                     <!--Endereço-->
                     <h3 class="my-5">Endereço</h3>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">CEP</label>
                         <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" pattern="[0-9]+$" maxlength="8" required value="{{ $funcionario->endereco->cep }}">
                     </div>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">Número</label>
                         <input name="numero" type="text" class="form-control" id="numero" placeholder="Número" maxlength="6" pattern="[0-9]+$" required value="{{ $funcionario->endereco->numero }}">
                     </div>
                     <div class="col-4">
+                        <label for="exampleFormControlInput1" class="form-label">Complemento</label>
                         <input name="complemento" type="text" class="form-control" id="complemento" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" maxlength="50" placeholder="Complemento" value="{{ $funcionario->endereco->complemento }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Rua</label>
                         <input name="rua" type="text" class="form-control" id="rua" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9 ]+)" placeholder="Rua" required value="{{ $funcionario->endereco->rua }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Bairro</label>
                         <input name="bairro" type="text" class="form-control" id="bairro" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Bairro" required value="{{ $funcionario->endereco->bairro }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Cidade</label>
                         <input name="cidade" type="text" class="form-control" id="cidade" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Cidade" required value="{{ $funcionario->endereco->cidade }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Estado (UF)</label>
                         <input name="estado" type="text" class="form-control" id="estado" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="Estado" required value="{{ $funcionario->endereco->estado }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">País</label>
                         <input name="pais" type="text" class="form-control" id="pais" maxlength="50" pattern="([aA-zZzáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+)" placeholder="País" value="Brasil" value="{{ $funcionario->endereco->pais }}">
                     </div>
                     <h3 class="my-5">Dados da Empresa</h3>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Salário Base</label>
                         <input name="salario_base" type="number" step="0.01" min="0" max="50000" class="form-control" id="salario_base" placeholder="Salário Base" required value="{{ $funcionario->departamento->salario_base }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Número de dependentes</label>
                         <input name="numero_dependentes" type="text" class="form-control" id="numero_dependentes" placeholder="Nº Dependentes" pattern="[0-9]+$" maxlength="2" required value="{{ $funcionario->numero_dependentes }}">
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Departamento</label>
                         <select class="form-select" aria-h3="Default select example" name="departamento_nome" id="departamento_nome">
                             <option value="Administrativo" {{ $funcionario->departamento->departamento_nome === "Administrativo" ? "selected" : "" }}>Administrativo</option>
                             <option value="Financeiro" {{ $funcionario->departamento->departamento_nome === "Financeiro" ? "selected" : "" }}>Financeiro</option>
@@ -72,6 +88,7 @@
                         </select>
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Cargo</label>
                         <select class="form-select" aria-h3="Default select example" name="cargo" id="cargo">
                             <option value="Diretor" {{ $funcionario->departamento->cargo === "Diretor" ? "selected" : "" }}>Diretor</option>
                             <option value="Gerente" {{ $funcionario->departamento->cargo === "Gerente" ? "selected" : "" }}>Gerente</option>
