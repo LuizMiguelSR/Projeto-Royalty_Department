@@ -55,13 +55,22 @@ class FuncionarioPontoController extends Controller
     public function index(Request $request)
     {
         $userId = Auth::id();
-        $mes = $request->input('mes');
-        $ano = $request->input('ano');
+        $data = $request->input('data_hora_inicio');
+        if ($data == null) {
+            $ano = date('Y');
+            $mes = date('m');
+        } else {
+            $componentes = explode("-", $data);
+            $ano = $componentes[0];
+            $mes = $componentes[1];
+        }
+
         $folha = FolhaPonto::select('*')
-                    ->where('id_funcionario', $userId)
-                    ->whereYear('diames', $ano)
-                    ->whereMonth('diames', $mes)
-                    ->get();
+                ->where('id_funcionario', $userId)
+                ->whereYear('diames', $ano)
+                ->whereMonth('diames', $mes)
+                ->get();
+
         return view('folhaPonto', ['folha' => $folha]);
     }
 }

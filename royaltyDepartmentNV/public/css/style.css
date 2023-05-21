@@ -274,6 +274,10 @@ img{
     top: 210px;
     width: 210px;
 }
+.novo-funcionario {
+    width: 60px;
+    height: 60px;
+}
 
 .img {
     pointer-events: none;

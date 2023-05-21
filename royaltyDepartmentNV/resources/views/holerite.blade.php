@@ -11,7 +11,7 @@
             @component('layouts._components.select_mes_ano')
                 {{ route('holerite_consulta') }}
             @endcomponent
-            @if(!empty($_GET['mes']) && !empty($_GET['ano']))
+            @if(!empty($_GET['data_hora_inicio']))
                 @isset($holerites[0]['inss_fx1'])
                     <div class="row tabela">
                         <table class="table-responsive-sm table-bordered border-success">

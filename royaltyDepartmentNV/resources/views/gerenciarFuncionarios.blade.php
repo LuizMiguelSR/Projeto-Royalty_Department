@@ -9,7 +9,8 @@
             @endcomponent
             @component('layouts._components.titulo_logo', ['titulo_imagem' => "GERENCIAR COLABORADORES"])
             @endcomponent
-            <div class="row mx-5">
+            <a href="{{ route('gerenciar_funcionarios.create') }}"><img class="novo-funcionario" alt="Cadastrar" src="{{ asset('images/SystemImages/novo_funcionario.png') }}"/>Adicionar Novo Funcionário</a>
+            <div class="row my-5">
                 <div class="col-md-12">
                     <form class="row tabela mb-3" action="{{ route('gerenciar_funcionario.consulta') }}" method="GET">
                         <div class="input-group mb-3">
@@ -28,6 +29,10 @@
                         </div>
                     </form>
                     <br>
+                </div>
+            </div>
+            <div class="row my-3">
+                <div class="col-md-12">
                     @if ($funcionarios->count() > 0)
                     <div class="row tabela">
                         <table class="table-responsive-sm table table-hover">
@@ -35,10 +40,9 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Departamento</th>
-                                    <th>Status</th>
                                     <th>Perfil</th>
                                     <th>Editar</th>
-                                    <th>Opções</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -46,7 +50,6 @@
                                     <tr>
                                         <td>{{ $funcionario->nome_funcionario }}</td>
                                         <td>{{ $funcionario->departamento->departamento_nome }}</td>
-                                        <td>Usuário {{ $funcionario->status }}</td>
                                         <td>
                                             <button type="submit" class='btn btn-sm btn-primary' data-bs-toggle="modal" data-bs-target="#exampleModal2{{ $funcionario->id }}" title="Ver perfil">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -64,11 +67,12 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-sm btn-primary" title="Não é possível Desativar">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-slash" viewBox="0 0 16 16" title="Não é desativar">
-                                                        <path d="M13.879 10.414a2.501 2.501 0 0 0-3.465 3.465l3.465-3.465Zm.707.707-3.465 3.465a2.501 2.501 0 0 0 3.465-3.465Zm-4.56-1.096a3.5 3.5 0 1 1 4.949 4.95 3.5 3.5 0 0 1-4.95-4.95ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
-                                                    </svg>
-                                                </a>
+                                                <div class="form-check form-switch">
+                                                    <label class="switch">
+                                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" disabled>
+                                                        <span class="slider round">Desativado</span>
+                                                    </label>
+                                                </div>
                                             </td>
                                         @else
                                             <td>
@@ -79,27 +83,25 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                @if ($funcionario->status == 'ativado')
-                                                    <form method="post" action="{{ route('gerenciar_funcionarios.desativar', $funcionario->id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <button type="submit" class='btn btn-sm btn-primary' title="Desativar">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                    <form method="post" action="{{ route('gerenciar_funcionarios.ativar', $funcionario->id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <button type="submit" class='btn btn-sm btn-primary' title="Ativar">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                                                                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                                                            </svg>
-                                                        </button>
-                                                    </form>
-                                                @endif
+                                                <div class="form-check form-switch">
+                                                    <label class="switch">
+                                                        @if ($funcionario->status == 'ativado')
+                                                            <form method="post" action="{{ route('gerenciar_funcionarios.desativar', $funcionario->id) }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input class="form-check-input" role="switch" type="checkbox" name="status" value="desativado" onchange="this.form.submit()" checked>
+                                                                <span class="slider round">Ativado</span>
+                                                            </form>
+                                                        @else
+                                                            <form method="post" action="{{ route('gerenciar_funcionarios.ativar', $funcionario->id) }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <input class="form-check-input" role="switch" type="checkbox" name="status" value="ativado" onchange="this.form.submit()">
+                                                                <span class="slider round">Desativado</span>
+                                                            </form>
+                                                        @endif
+                                                    </label>
+                                                </div>
                                             </td>
                                         @endif
                                     </tr>
@@ -285,21 +287,6 @@
                         </ul>
                     </nav>
                 @endif
-            </div>
-            <div class="row mx-5 mt-2 mb-5">
-                <h1 class="h2 mt-5 mb-2 fw-normal">CONFIGURAÇÕES</h1>
-                <a href="{{ route('gerenciar_funcionarios.create') }}" style="width: auto" title="Cadastrar colaborador">
-                    <div class="person">
-                        <div class="container">
-                            <div class="container-inner">
-                                <img class="circle"/>
-                                <img class="img img1" alt="Cadastrar" src="{{ asset('images/SystemImages/cadastrar.svg') }}"/>
-                            </div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="name">CADASTRAR COLABORADOR</div>
-                    </div>
-                </a>
             </div>
             @component('layouts._components.voltar')
                 {{ route('home') }}

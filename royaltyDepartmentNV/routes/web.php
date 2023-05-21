@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FolhaPontoController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HoleriteController;
 use App\Http\Controllers\FuncionarioPontoController;
 use App\Http\Controllers\GerenciarFuncionarioController;
@@ -79,7 +79,7 @@ Route::middleware(['auth'])->group(function () {
      * Rotas responsáveis por listar, consultar, cadastrar, editar e excluir folha de pagamento
      */
     Route::resource('gerenciar_folha', GerenciarFolhaController::class);
-    Route::get('/gerenciar_folha/consulta', [GerenciarFolhaController::class, 'consultarFolha'])->name('gerenciar_folha.consulta');
+    Route::get('/gerenciar_folha/consulta', [GerenciarFolhaController::class, 'consultarFolha'])->name('gerenciar_folha_consulta');
 });
 
 Route::fallback(function() {
