@@ -67,6 +67,7 @@
                         <input name="numero_dependentes" type="text" class="form-control" id="numero_dependentes" placeholder="Nº Dependentes" pattern="[0-9]+$" maxlength="2" required>
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Departamento</label>
                         <select class="form-select" aria-h3="Default select example" name="departamento_nome" id="departamento_nome">
                             <option value="Administrativo">Administrativo</option>
                             <option value="Financeiro">Financeiro</option>
@@ -79,6 +80,7 @@
                         </select>
                     </div>
                     <div class="col-6">
+                        <label for="exampleFormControlInput1" class="form-label">Cargo</label>
                         <select class="form-select" aria-h3="Default select example" name="cargo" id="cargo">
                             <option value="Diretor">Diretor</option>
                             <option value="Gerente">Gerente</option>

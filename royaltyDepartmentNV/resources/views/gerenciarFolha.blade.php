@@ -15,7 +15,7 @@
             @endcomponent
             @component('layouts._components.titulo_logo', ['titulo_imagem' => "CONSULTA A FOLHA DE PAGAMENTO"])
             @endcomponent
-            <a href="{{ route('gerenciar_folha.create') }}"><img class="novo-funcionario my-5" alt="Cadastrar" src="{{ asset('images/SystemImages/novo_funcionario.png') }}"/>Registrar Folha de Pagamento</a><br><br>
+            <a href="{{ route('gerenciar_folha.create') }}"><img class="novo-funcionario my-5" alt="Cadastrar" src="{{ asset('images/SystemImages/nova_folha.png') }}"/>Registrar Folha de Pagamento</a><br><br>
             @component('layouts._components.select_mes_ano')
                 {{ route('gerenciar_folha_consulta') }}
             @endcomponent
