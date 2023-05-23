@@ -28,14 +28,14 @@
                         <input name="telefone" type="text" maxlength="15" class="form-control" id="telefone" placeholder="Telefone" required value="{{ $funcionario->telefone }}">
                     </div>
                     <div class="col-12 mt-3">
-                        <label for="exampleFormControlInput1" class="form-label">Foto</label>
+                        <label for="exampleFormControlInput1" class="form-label">Foto</label><br>
                         <input name="foto" type="file" accept="image/*" class="form-control-file" id="foto">
                     </div>
                     <!--Endereço-->
                     <h3 class="my-5">Endereço</h3>
                     <div class="col-4">
                         <label for="exampleFormControlInput1" class="form-label">CEP</label>
-                        <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" pattern="[0-9]+$" maxlength="8" required value="{{ $funcionario->endereco->cep }}">
+                        <input name="cep" type="text" class="form-control" id="cep" placeholder="CEP" pattern="[0-9]+$" maxlength="9" required value="{{ $funcionario->endereco->cep }}">
                     </div>
                     <div class="col-4">
                         <label for="exampleFormControlInput1" class="form-label">Número</label>

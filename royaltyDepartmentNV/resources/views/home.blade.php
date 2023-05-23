@@ -38,7 +38,7 @@
                             <div class="title">Registra e consulta a folha de pagamento e altera informações</div>
                         </div>
                     </a>
-                    <a href="/gerenciar_holerite" style="width: auto" title="Gerenciar Holerite">
+                    <a href="" style="width: auto" title="Gerenciar Holerite">
                         <div class="person">
                             <div class="container">
                                 <div class="container-inner">
