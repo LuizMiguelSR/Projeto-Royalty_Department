@@ -148,7 +148,7 @@
         }
     }
 </style>
-@if (Auth::user()->role === 1)
+@if (Auth::user()->role == '1')
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
         <div class="offcanvas-header">
             <img class="fotoPerfilPequena" src="{{ asset('storage/' . $funcionario_foto) }}" alt="Foto Perfil Pequena" title="Foto de perfil de {{ $funcionario_nome }}">

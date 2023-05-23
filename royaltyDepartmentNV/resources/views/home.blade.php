@@ -1,5 +1,6 @@
 @php
     $funcionario_nome = session('funcionario_nome', '');
+    $funcionario_role = session('funcionario_role', '');
 @endphp
 @extends('layouts.layout')
 @section('titulo', "Painel de $funcionario_nome")
@@ -10,7 +11,7 @@
             @endcomponent
             <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty"><br><br>
             <h1 class="h1 mt-5 mb-2 fw-normal">{{ __('Bem vindo, ' . $funcionario_nome ) }}</h1>
-            @if (Auth::user()->role === 1)
+            @if (Auth::user()->role == '1')
                 <div class="row mt-5">
                     <a href="{{ route('gerenciar_funcionarios.index') }}" style="width: auto" title="Gerenciar Funcionários">
                         <div class="person">
