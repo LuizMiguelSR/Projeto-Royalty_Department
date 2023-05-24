@@ -7,6 +7,8 @@
 @section('content')
     <section>
         <main>
+            @component('layouts._components.alert_error')
+            @endcomponent
             @component('layouts._components.alert_sucess')
             @endcomponent
             <img src="{{ asset('images/SystemImages/logobase.png') }}" alt="Logo" title="Logo da Royalty"><br><br>
