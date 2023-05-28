@@ -32,10 +32,15 @@ Route::get('/login', function () {
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::get('/esqueci-minha-senha', [AuthController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('/esqueci-minha-senha', [AuthController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
-Route::post('password/reset', [AuthController::class, 'reset'])->name('password.update');
+Route::post('/redefinir_senha', [AuthController::class, 'redefine'])->name('redefinir_senha.redefine');
+Route::get('/redefinir_senha', [AuthController::class, 'redefineIndex'])->name('redefinir_senha');
+Route::post('/redefinir_nova_senha', [AuthController::class, 'redefineNovaSenha'])->name('redefinir_nova_senha');
+Route::get('/redefinir_chave', [AuthController::class, 'chaveIndex'])->name('redefinir_senha.index');
+Route::post('/redefinir_chave', [AuthController::class, 'chave'])->name('redefinir_senha.chave');
+
+Route::fallback(function() {
+    return view('errors.erro');
+})->name('error');
 
 Route::get('/home', function () {
     if (!Auth::check()) {
@@ -89,7 +94,3 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('gerenciar_holerites', GerenciarHoleriteController::class);
     Route::get('/gerenciar_holerite/consulta', [GerenciarHoleriteController::class, 'consultaHoleriteFuncionario'])->name('gerenciar_holerite.consulta');
 });
-
-Route::fallback(function() {
-    return view('errors.erro');
-})->name('error');

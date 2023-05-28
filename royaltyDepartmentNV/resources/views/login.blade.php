@@ -21,9 +21,9 @@
                         @endcomponent
                         @component('layouts._components.alert_sucess')
                         @endcomponent
-                        <a href="{{ route('password.request') }}">Esqueceu a senha?</a>
+                        <a href="{{ route('redefinir_senha') }}">Esqueceu a senha?</a>
                         <div>
-                            <button class="w-100 btn btn-lg btn-primary mt-2" ype="submit">Entrar</button>
+                            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Entrar</button>
                         </div>
                     </form>
                 </main>

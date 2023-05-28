@@ -170,7 +170,7 @@
             </div>
             <div class="row">
                 <div class="col-8">
-                    <a href="">Gerenciar holerite</a>
+                    <a href="{{ route('gerenciar_holerites.index') }}">Gerenciar holerite</a>
                 </div>
             </div>
             <div class="row">

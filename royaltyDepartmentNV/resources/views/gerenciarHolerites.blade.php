@@ -79,18 +79,11 @@
                                                         <span>Deseja registrar o holerite do mês de {{ $mesAtualUpper }} referente ao funcionário {{ $funcionario->nome_funcionario }}</span>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
                                                         <form action="{{ route('gerenciar_holerites.show', $funcionario->id)}}" method="get">
                                                             <button type="submit" class="btn btn-primary">Sim</button>
                                                         </form>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal fade" id="exampleModal2{{ $funcionario->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl modal-dialog-centered justify-content-center">
-                                                <div class="modal-content">
-
                                                 </div>
                                             </div>
                                         </div>

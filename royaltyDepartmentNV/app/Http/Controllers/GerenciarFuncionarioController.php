@@ -81,11 +81,9 @@ class GerenciarFuncionarioController extends Controller
                 'rua' => 'required|max:50',
                 'numero' => 'required|max:5',
                 'cep' => 'required|max:10',
-                'complemento' => 'required|max:50',
                 'cidade' => 'required|max:50',
                 'bairro' => 'required|max:50',
-                'estado' => 'required|max:50',
-                'pais' => 'required|max:50'
+                'estado' => 'required|max:50'
             ]);
             $endereco = Endereco::create($dataEndereco);
 

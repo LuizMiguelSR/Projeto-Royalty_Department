@@ -17,12 +17,13 @@ class Usuario extends Model
         'email',
         'role',
         'senha',
+        'recuperar',
         'status'
     ];
 
     protected $hidden = [
         'senha',
-        'remember_token',
+        'recuperar',
     ];
 
     protected $casts = [

@@ -57,7 +57,7 @@
                 </div>
             @endif
             <div class="row">
-                <a href="/holerite" style="width: auto" title="Seu Holerite">
+                <a href="{{ route('holerite_consulta') }}" style="width: auto" title="Seu Holerite">
                     <div class="person">
                         <div class="container">
                             <div class="container-inner">

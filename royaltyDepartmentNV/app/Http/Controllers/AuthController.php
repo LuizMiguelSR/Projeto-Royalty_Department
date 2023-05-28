@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use App\Models\Usuario;
 use App\Models\Funcionario;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class AuthController extends Controller
 {
@@ -56,5 +57,80 @@ class AuthController extends Controller
         Session::flash('error', 'Email ou senha inválidos.');
 
         return redirect()->route('login');
+    }
+
+    public function redefineIndex()
+    {
+        return view('redefinir');
+    }
+
+    public function redefine(Request $request)
+    {
+        $email = Usuario::where('email', $request->recuperar)->first();
+        if ($email) {
+            $idHash = password_hash($email->id, PASSWORD_DEFAULT);
+            $usuario = Usuario::findOrFail($email->id);
+            $usuario->update([
+                'recuperar' => $idHash,
+            ]);
+            // Configurações do servidor de e-mail
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->Host = env('MAIL_HOST');
+            $mail->Port = env('MAIL_PORT');
+            $mail->SMTPSecure = env('MAIL_ENCRYPTION');
+            $mail->SMTPAuth = true;
+            $mail->Username = env('MAIL_USERNAME');
+            $mail->Password = env('MAIL_PASSWORD');
+
+            // Configurações do e-mail
+            $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+            $mail->addAddress($email->email, 'Royalty Department');
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Royalty Department - Redefinir de Senha';
+            $mail->Body = "Anote sua chave de recuperação: $idHash";
+            $mail->AltBody = 'Anote sua chave chave de recuperação: '.$idHash;
+
+            if($mail->send()) {
+                return redirect()->route('redefinir_senha.index')->with('sucess', 'Sua chave de recuperação foi enviada ao e-mail informado.');
+            } else {
+                return redirect()->route('redefinir_senha')->with('error', 'E-mail de recuperação não enviado revise as informações e tente novamente.');
+            }
+        } else {
+            return redirect()->route('redefinir_senha')->with('error', 'Este usuário não consta em nossa base de dados.');
+        }
+    }
+
+    public function chaveIndex()
+    {
+        return view('resetSenha');
+    }
+
+    public function chave(Request $request)
+    {
+        $chave = Usuario::where('recuperar', $request->chave)->first();
+        if ($chave) {
+            $id = $chave->id;
+            return view('novaSenha', compact('id'));
+        } else {
+            return redirect()->route('redefinir_senha.index')->with('error', 'Chave incorreta');
+        }
+    }
+
+    public function redefineNovaSenha(Request $request)
+    {
+        $sucesso = Usuario::where('id', $request->id)->first();
+        if ($sucesso) {
+            $idHash = password_hash($request->novaSenha, PASSWORD_DEFAULT);
+            $usuario = Usuario::findOrFail($request->id);
+            $usuario->update([
+                'senha' => $idHash,
+                'recuperar' => null,
+            ]);
+            return redirect()->route('login')->with('sucess', 'Senha redefinida com sucesso');
+        } else {
+            return redirect()->route('login')->with('error', 'Alguma etapa do processo falhou tente novamente.');
+        }
     }
 }
