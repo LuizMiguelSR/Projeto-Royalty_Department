@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Models\FuncionarioPonto;
 use App\Models\FolhaPonto;
 use Carbon\Carbon;
@@ -32,18 +33,22 @@ class FuncionarioPontoController extends Controller
             $novo_registro->diames = $data_atual;
             $novo_registro->entrada = Carbon::now('America/Sao_Paulo');
             $novo_registro->save();
+            Session::flash('sucess', 'Entrada registrada.');
         } elseif (!$ultimo_registro->almoco_sai) {
             // Se a entrada e a saída do almoço ainda não foram registradas, registra a saída do almoço
             $ultimo_registro->almoco_sai = Carbon::now('America/Sao_Paulo');
             $ultimo_registro->save();
+            Session::flash('sucess', 'Saída para o intervalo registrada.');
         } elseif (!$ultimo_registro->almoco_che) {
             // Se a saída do almoço e o retorno do almoço ainda não foram registrados, registra o retorno do almoço
             $ultimo_registro->almoco_che = Carbon::now('America/Sao_Paulo');
             $ultimo_registro->save();
+            Session::flash('sucess', 'Retorno do intervalo registrada.');
         } elseif (!$ultimo_registro->saida) {
             // Se a entrada, a saída do almoço e a volta do almoço já foram registrados, registra a saída e calcula as horas trabalhadas
             $ultimo_registro->saida = Carbon::now('America/Sao_Paulo');
             $ultimo_registro->save();
+            Session::flash('sucess', 'Saída registrada.');
         }
         // Busca todos os registros para o dia atual e envia para a view
         $registros = FuncionarioPonto::where('id_funcionario', $funcionario_id)

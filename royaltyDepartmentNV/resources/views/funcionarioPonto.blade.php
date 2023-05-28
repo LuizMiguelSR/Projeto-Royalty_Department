@@ -20,6 +20,10 @@
             callerdate=new Date( @php date("Y,m,d,H,i,s"); @endphp );
         </script>
         <main>
+            @component('layouts._components.alert_error')
+            @endcomponent
+            @component('layouts._components.alert_sucess')
+            @endcomponent
             @component('layouts._components.titulo_logo', ['titulo_imagem' => "REGISTRE SEU PONTO"])
             @endcomponent
             <form action="{{ route('funcionarios.store') }}" method="POST">
