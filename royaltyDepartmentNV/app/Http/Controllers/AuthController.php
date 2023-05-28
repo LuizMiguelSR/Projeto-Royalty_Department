@@ -112,6 +112,7 @@ class AuthController extends Controller
         $chave = Usuario::where('recuperar', $request->chave)->first();
         if ($chave) {
             $id = $chave->id;
+            Session::flash('sucess', 'Chave confirmada com sucesso');
             return view('novaSenha', compact('id'));
         } else {
             return redirect()->route('redefinir_senha.index')->with('error', 'Chave incorreta');
