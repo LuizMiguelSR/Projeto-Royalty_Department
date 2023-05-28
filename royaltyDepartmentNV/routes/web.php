@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FolhaPontoController;
 use App\Http\Controllers\HoleriteController;
+use App\Http\Controllers\GerenciarHoleriteController;
 use App\Http\Controllers\FuncionarioPontoController;
 use App\Http\Controllers\GerenciarFuncionarioController;
 use App\Http\Controllers\GerenciarFolhaController;
@@ -60,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
      * Rota responsável pela consulta do holerite do funcionário
      */
     Route::get('/holerite', [HoleriteController::class, 'consulta'])->name('holerite_consulta');
+    Route::get('/holerite/{id}', [HoleriteController::class, 'consultaId'])->name('holerite_consulta_id');
 
     /**
      * Rotas responsáveis por listar e registrar a folha de ponto
@@ -80,6 +82,12 @@ Route::middleware(['auth'])->group(function () {
      */
     Route::resource('gerenciar_folha', GerenciarFolhaController::class);
     Route::get('/gerenciar_folha/consulta', [GerenciarFolhaController::class, 'consultarFolha'])->name('gerenciar_folha_consulta');
+
+    /**
+     * Rotas responsáveis por listar, consultar e cadastrar Holerites
+     */
+    Route::resource('gerenciar_holerites', GerenciarHoleriteController::class);
+    Route::get('/gerenciar_holerite/consulta', [GerenciarHoleriteController::class, 'consultaHoleriteFuncionario'])->name('gerenciar_holerite.consulta');
 });
 
 Route::fallback(function() {

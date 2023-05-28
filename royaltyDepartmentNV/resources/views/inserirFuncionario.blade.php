@@ -109,7 +109,7 @@
                         </select>
                     </div>
                     <div class="col-12 my-5">
-                        <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
                     </div>
                 </form>
             </div>

@@ -30,12 +30,17 @@ class Funcionario extends Model
         return $this->belongsTo(Usuario::class);
     }
 
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class, 'id');
+    }
+
+    // Relacionamento com a tabela departamento
     public function cargo()
     {
         return $this->belongsTo(Departamento::class);
     }
 
-    // Relacionamento com a tabela departamento
     public function departamento()
     {
         return $this->belongsTo(Departamento::class, 'id');
@@ -46,10 +51,6 @@ class Funcionario extends Model
         return $this->belongsTo(Endereco::class, 'id');
     }
 
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class, 'id');
-    }
 }
 
 

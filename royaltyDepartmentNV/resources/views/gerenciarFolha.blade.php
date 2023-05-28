@@ -1,9 +1,3 @@
-@php
-    use Carbon\Carbon;
-    $data = Carbon::now();
-    $mes = $data->locale('pt_BR')->isoFormat('MMMM');
-    $upperMes = strtoupper($mes);
-@endphp
 @extends('layouts.layout')
 @section('titulo', 'Gerenciar Folha de Pagamento')
 @section('content')
@@ -24,9 +18,27 @@
                 @php
                     $componentes = explode("-", $folhas[0]['data_folha']);
                     $ano = $componentes[0];
-                    $mes = $componentes[1];
+                    $mes = intval($componentes[1]);
+
+                    $meses = [
+                        1 => 'Janeiro',
+                        2 => 'Fevereiro',
+                        3 => 'Março',
+                        4 => 'Abril',
+                        5 => 'Maio',
+                        6 => 'Junho',
+                        7 => 'Julho',
+                        8 => 'Agosto',
+                        9 => 'Setembro',
+                        10 => 'Outubro',
+                        11 => 'Novembro',
+                        12 => 'Dezembro'
+                    ];
+
+                    $mesAtual = $meses[$mes];
+                    $mesAtualUpper = mb_strtoupper($mesAtual, 'UTF-8');
                 @endphp
-                @component('layouts._components.titulo', ['titulo_imagem' => "FOLHA DE PAGAMENTO MÊS: $mes ANO: $ano"])
+                @component('layouts._components.titulo', ['titulo_imagem' => "FOLHA DE PAGAMENTO MÊS DE $mesAtualUpper DE $ano"])
                 @endcomponent
                 <div class="row">
                     <h1 class="h3 my-2 fw-normal">{{ __('Administrativo') }}</h1>
